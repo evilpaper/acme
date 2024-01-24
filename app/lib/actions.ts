@@ -126,3 +126,28 @@ export async function authenticate(
     throw error;
   }
 }
+
+export async function register(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    const userAlreadyAvailable = true;
+    if (userAlreadyAvailable) {
+      return 'User already exist';
+    } else {
+      // add to db
+      await signIn('credentials', formData);
+    }
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
+  }
+}
