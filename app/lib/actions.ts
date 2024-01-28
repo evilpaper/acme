@@ -127,18 +127,49 @@ export async function authenticate(
   }
 }
 
+const RegisterSchema = z.object({
+  userEmail: z
+    .string({
+      invalid_type_error: 'Invalid type provided for this field',
+      required_error: 'This field cannot be blank',
+    })
+    .email({ message: 'Invalid email address' })
+    .min(1),
+  password: z.string().min(6),
+});
+
 export async function register(
   prevState: string | undefined,
   formData: FormData,
 ) {
   try {
-    const userAlreadyAvailable = true;
-    if (userAlreadyAvailable) {
-      return 'User already exist';
-    } else {
-      // add to db
-      await signIn('credentials', formData);
+    // Validate input
+    const validatedFields = RegisterSchema.safeParse({
+      userEmail: formData.get('email'),
+      password: formData.get('password'),
+    });
+
+    if (!validatedFields.success) {
+      return 'Invalid credentials';
     }
+
+    console.log('validate email: ', validatedFields.data.userEmail);
+
+    // Check if user already exist
+    const user =
+      await sql`SELECT * FROM users WHERE email=${validatedFields.data.userEmail}`;
+
+    if (user.rows[0]) {
+      return 'User already exist';
+    }
+
+    // Ok, no such user, lets create an account
+    // Create user
+    // await sql`  INSERT INTO users (id, name, email, password)
+    // VALUES (${id}, ${name}, ${email}, ${password})`
+
+    // Sign in. Note that sign in also handle redirect.
+    await signIn('credentials', formData);
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
