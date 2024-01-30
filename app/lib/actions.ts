@@ -6,6 +6,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import bcrypt from 'bcrypt';
 
 export type State = {
   errors?: {
@@ -153,8 +154,6 @@ export async function register(
       return 'Invalid credentials';
     }
 
-    console.log('validate email: ', validatedFields.data.userEmail);
-
     // Check if user already exist
     const user =
       await sql`SELECT * FROM users WHERE email=${validatedFields.data.userEmail}`;
@@ -163,22 +162,35 @@ export async function register(
       return 'User already exist';
     }
 
-    // Ok, no such user, lets create an account
-    // Create user
-    // await sql`  INSERT INTO users (id, name, email, password)
-    // VALUES (${id}, ${name}, ${email}, ${password})`
-
-    // Sign in. Note that sign in also handle redirect.
-    await signIn('credentials', formData);
-  } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
-        case 'CredentialsSignin':
-          return 'Invalid credentials.';
-        default:
-          return 'Something went wrong.';
-      }
+    // Prepare data for insertion into the database
+    const { userEmail, password } = validatedFields.data;
+    const id = crypto.randomUUID();
+    const hashedPassword = await bcrypt.hash(password, 10);
+    // Insert data into the database
+    try {
+      await sql`
+        INSERT INTO users (id, name, email, password)
+        VALUES (${id}, User, ${userEmail}, ${hashedPassword})
+      `;
+      return 'Success! User created.';
+    } catch (error) {
+      return 'Database Error: Failed to Create User';
     }
-    throw error;
+
+    // try {
+    //   await signIn('credentials', formData);
+    // } catch (error) {
+    //   if (error instanceof AuthError) {
+    //     switch (error.type) {
+    //       case 'CredentialsSignin':
+    //         return 'Invalid credentials.';
+    //       default:
+    //         return 'Something went wrong.';
+    //     }
+    //   }
+    //   throw error;
+    // }
+  } catch (error) {
+    return 'Could not create account.';
   }
 }
