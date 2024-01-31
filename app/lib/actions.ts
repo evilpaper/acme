@@ -166,6 +166,7 @@ export async function register(
     const { userEmail, password } = validatedFields.data;
     const id = crypto.randomUUID();
     const hashedPassword = await bcrypt.hash(password, 10);
+
     // Insert data into the database
     try {
       await sql`
