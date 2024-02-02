@@ -12,6 +12,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { register } from '@/app/lib/actions';
 
 export default function SignupForm() {
+  // useFormState is a Hook that allows you to update state based on the result of a form action.
   const [errorMessage, dispatch] = useFormState(register, undefined);
   return (
     <form action={dispatch} className="space-y-3">
