@@ -12,8 +12,18 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { register } from '@/app/lib/actions';
 
 export default function SignupForm() {
-  // useFormState is a Hook that allows you to update state based on the result of a form action.
+  /**
+   * useFormState is a Hook that allows you to update state based on the result of a form action.
+   *
+   * It takes an existing form action function as well as an initial state,
+   * and it returns a new action that you use in your form, along with the latest form state.
+   *
+   * The latest form state is also passed to the function that you provided.
+   *
+   * register try to add the new user to database and return an error message if it doesn't work.
+   */
   const [errorMessage, dispatch] = useFormState(register, undefined);
+
   return (
     <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
