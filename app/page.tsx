@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { lusitana } from '@/app/ui/fonts';
-import acmeLogo from '../public/images/acme-fresh-produce.svg';
+import { fraunces } from '@/app/ui/fonts';
+import logo from '../public/images/acme-logotype.svg';
 import Image from 'next/image';
 
 export default function Page() {
@@ -9,18 +9,18 @@ export default function Page() {
     <main className="flex flex-col">
       <Image
         priority
-        src={acmeLogo}
+        src={logo}
         alt="ACME Fresh Produce Logo"
-        height="96"
+        height="24"
         className="m-8"
       />
       <div className="mt-4 flex grow flex-col gap-4">
         <div className="align-center flex flex-col items-center">
           <h1
-            className={`tracking-tightertext-gray-600 mb-8 max-w-screen-md text-center text-5xl font-bold leading-tight ${lusitana.className}`}
+            className={`tracking-tightertext-gray-600 mb-8 max-w-screen-md text-center text-5xl font-bold leading-tight ${fraunces.className}`}
           >
-            Fresh Produce is an invoicing & payments platform built using
-            Next.js 14 server components.
+            ACME is an invoicing & payments platform built using Next.js 14
+            server components.
           </h1>
           <div className="flex flex-wrap gap-5">
             <Link
