@@ -7,11 +7,17 @@ import Image from 'next/image';
 export default function Page() {
   return (
     <main className="flex flex-col">
-      <Image priority src={acmeLogo} alt="Follow us on Twitter" height="128" />
+      <Image
+        priority
+        src={acmeLogo}
+        alt="ACME Fresh Produce Logo"
+        height="96"
+        className="m-8"
+      />
       <div className="mt-4 flex grow flex-col gap-4">
         <div className="align-center flex flex-col items-center">
           <h1
-            className={`max-w-screen-md text-center text-4xl font-bold leading-normal leading-tight text-gray-700 ${lusitana.className}`}
+            className={`tracking-tightertext-gray-600 mb-8 max-w-screen-md text-center text-5xl font-bold leading-tight ${lusitana.className}`}
           >
             Fresh Produce is an invoicing & payments platform built using
             Next.js 14 server components.
