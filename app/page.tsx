@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { fraunces } from '@/app/ui/fonts';
-import logo from '../public/images/acme-logotype.svg';
+import logo from '../public/images/lemon.svg';
 import Image from 'next/image';
 
 export default function Page() {
@@ -11,13 +11,13 @@ export default function Page() {
         priority
         src={logo}
         alt="ACME Fresh Produce Logo"
-        height="24"
+        height="64"
         className="m-8"
       />
       <div className="mt-4 flex grow flex-col gap-4">
         <div className="align-center flex flex-col items-center">
           <h1
-            className={`tracking-tightertext-gray-600 mb-8 max-w-screen-md text-center text-5xl font-bold leading-tight ${fraunces.className}`}
+            className={`tracking-tightertext-gray-600 mb-8 max-w-screen-md p-2 text-center text-3xl font-bold leading-tight md:text-5xl ${fraunces.className}`}
           >
             ACME is an invoicing & payments platform built using Next.js 14
             server components.
