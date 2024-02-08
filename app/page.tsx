@@ -1,13 +1,12 @@
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { fraunces } from '@/app/ui/fonts';
-import logo from '../public/images/lemon.svg';
+import logo from '../public/images/yellow-lemon.svg';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 export default function Page() {
   return (
-    <main className="flex flex-col">
+    <main className="hero flex flex-col">
       <Image
         priority
         src={logo}
