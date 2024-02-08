@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { fraunces } from '@/app/ui/fonts';
 import logo from '../public/images/lemon.svg';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 export default function Page() {
   return (
@@ -23,18 +24,16 @@ export default function Page() {
             server components.
           </h1>
           <div className="flex flex-wrap gap-5">
-            <Link
-              href="/login"
-              className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-            >
-              <span>Sign in</span> <ArrowRightIcon className="w-5 md:w-6" />
-            </Link>
-            <Link
-              href="/signup"
-              className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-            >
-              <span>Sign up</span> <ArrowRightIcon className="w-5 md:w-6" />
-            </Link>
+            <Button asChild>
+              <Link href="/login">
+                <span>Sign in</span>
+              </Link>
+            </Button>
+            <Button asChild>
+              <Link href="/signup">
+                <span>Sign up</span>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
