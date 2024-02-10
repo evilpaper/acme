@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 export default function Page() {
   return (
     <main className="hero flex flex-col p-8">
-      <div className="flex justify-between gap-6 md:gap-10">
+      <section className="flex justify-between">
         <nav className="gap-6 md:flex">
           <Link href="/">
             <Image
@@ -32,7 +32,7 @@ export default function Page() {
               Pricing
             </Link>
             <Link className="flex items-center" href="/">
-              Documentaion
+              Documentation
             </Link>
           </div>
         </nav>
@@ -43,9 +43,9 @@ export default function Page() {
             </Link>
           </Button>
         </nav>
-      </div>
+      </section>
 
-      <div className="mt-4 flex grow flex-col gap-4">
+      <section className="mt-20 flex grow flex-col gap-4 pb-8 pt-8">
         <div className="align-center flex flex-col items-center">
           <h1
             className={`tracking-tightertext-gray-600 mb-8 max-w-screen-md p-2 text-center text-3xl font-bold leading-tight md:text-5xl ${fraunces.className}`}
@@ -56,7 +56,7 @@ export default function Page() {
           <div className="flex flex-wrap gap-6">
             <Button asChild>
               <Link href="/login">
-                <span>Sign in</span>
+                <span>Login</span>
               </Link>
             </Button>
             <Button asChild variant="outline">
@@ -66,7 +66,13 @@ export default function Page() {
             </Button>
           </div>
         </div>
-      </div>
+      </section>
+      <footer className="container flex flex-col items-center justify-between">
+        <p className="text-sm">
+          Built by evilpaper. Hosted on Vercel. The source code is available on
+          GitHub.
+        </p>
+      </footer>
     </main>
   );
 }
