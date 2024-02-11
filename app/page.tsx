@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 
 export default function Page() {
   return (
-    <main className="hero flex flex-col p-8">
+    <main className="hero flex h-screen flex-col p-8">
       <section className="flex justify-between">
         <nav className="gap-6 md:flex">
           <Link href="/">
