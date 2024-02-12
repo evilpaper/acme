@@ -13,7 +13,7 @@ import logo from '../public/images/logo-black-lemon.svg';
 
 export default function Page() {
   return (
-    <main className="hero flex h-screen flex-col p-8">
+    <main className="bg-sand flex h-screen flex-col p-8">
       <section className="flex justify-between">
         <nav className="gap-6 md:flex">
           <Link href="/">

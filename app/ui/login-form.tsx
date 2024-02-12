@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { fraunces } from '@/app/ui/fonts';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -24,7 +25,9 @@ export default function LoginForm() {
               height="48"
             />
           </Link>
-          <h1 className="text-2xl font-semibold tracking-tight">
+          <h1
+            className={`text-3xl font-semibold tracking-tight ${fraunces.className}`}
+          >
             Welcome back
           </h1>
           <p className={'text-sm'}>
