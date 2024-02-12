@@ -6,10 +6,10 @@
  */
 
 import Link from 'next/link';
-import { fraunces } from '@/app/ui/fonts';
-import logo from '../public/images/yellow-lemon.svg';
 import Image from 'next/image';
+import { fraunces } from '@/app/ui/fonts';
 import { Button } from '@/components/ui/button';
+import logo from '../public/images/logo-black-lemon.svg';
 
 export default function Page() {
   return (

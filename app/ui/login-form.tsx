@@ -2,13 +2,12 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useFormState, useFormStatus } from 'react-dom';
-import { authenticate } from '@/app/lib/actions';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import logo from '../../public/images/yellow-lemon.svg';
-import { ArrowDownIcon } from '@heroicons/react/20/solid';
+import { authenticate } from '@/app/lib/actions';
+import { useFormState, useFormStatus } from 'react-dom';
+import logo from '../../public/images/logo-black-lemon.svg';
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
