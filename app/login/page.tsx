@@ -20,7 +20,7 @@ export default function LoginPage() {
           Back
         </>
       </Link>
-      <div className="relative mx-auto mt-24 flex w-full max-w-[400px] flex-col items-start space-y-2.5 p-4">
+      <div className="relative mx-auto mt-24 flex w-full max-w-[400px] flex-col space-y-2.5 p-4">
         <LoginForm />
       </div>
     </main>
