@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function LoginPage() {
   return (
-    <main className="bg-sand flex h-screen items-center justify-center">
+    <main className="bg-sand flex h-screen justify-center">
       <Link
         href="/"
         className={cn(
@@ -20,7 +20,7 @@ export default function LoginPage() {
           Back
         </>
       </Link>
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
+      <div className="relative mx-auto mt-24 flex w-full max-w-[400px] flex-col items-start space-y-2.5 p-4">
         <LoginForm />
       </div>
     </main>

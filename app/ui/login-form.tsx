@@ -26,7 +26,7 @@ export default function LoginForm() {
             />
           </Link>
           <h1
-            className={`text-3xl font-semibold tracking-tight ${fraunces.className}`}
+            className={`text-3xl font-bold tracking-tight ${fraunces.className}`}
           >
             Welcome back
           </h1>

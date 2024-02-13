@@ -13,7 +13,7 @@ import logo from '../public/images/logo-black-lemon.svg';
 
 export default function Page() {
   return (
-    <main className="bg-sand flex h-screen flex-col p-8">
+    <main className="bg-sand flex h-screen flex-col p-6">
       <section className="flex justify-between">
         <nav className="gap-6 md:flex">
           <Link href="/">
@@ -45,7 +45,7 @@ export default function Page() {
         </nav>
       </section>
 
-      <section className="mt-20 flex grow flex-col gap-4 pb-8 pt-8">
+      <section className="mt-10 flex grow flex-col gap-4 pb-8 pt-8">
         <div className="align-center flex flex-col items-center">
           <h1
             className={`tracking-tightertext-gray-600 mb-8 max-w-screen-md p-2 text-center text-3xl font-bold leading-tight md:text-5xl ${fraunces.className}`}
@@ -55,12 +55,12 @@ export default function Page() {
           </h1>
           <div className="flex flex-wrap gap-6">
             <Button asChild>
-              <Link href="/login">
+              <Link href="/login" className="h-11 rounded-md px-8">
                 <span>Login</span>
               </Link>
             </Button>
             <Button asChild variant="outline">
-              <Link href="/signup">
+              <Link href="/signup" className="h-11 rounded-md px-8">
                 <span>Sign up</span>
               </Link>
             </Button>
@@ -68,7 +68,7 @@ export default function Page() {
         </div>
       </section>
       <footer className="container flex flex-col items-center justify-between">
-        <p className="text-sm">
+        <p className="text-center text-sm">
           Built by evilpaper. Hosted on Vercel. The source code is available on
           GitHub.
         </p>
