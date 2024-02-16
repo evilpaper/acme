@@ -1,8 +1,8 @@
 import LoginForm from '@/app/ui/login-form';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { ArrowLeftIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
+import { ChevronLeft } from 'lucide-react';
 
 export default function LoginPage() {
   return (
@@ -15,8 +15,7 @@ export default function LoginPage() {
         )}
       >
         <>
-          {/* <Icons.chevronLeft className="mr-2 h-4 w-4" /> */}
-          <ArrowLeftIcon className="pointer-events-none mr-2 h-[18px] w-[18px] text-gray-500 peer-focus:text-gray-900" />
+          <ChevronLeft className="mr-2 h-4 w-4" />
           Back
         </>
       </Link>
