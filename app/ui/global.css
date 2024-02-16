@@ -66,10 +66,6 @@
   }
 }
 
-.bg-sand {
-  background-color: #fbf6e9;
-}
-
 @layer base {
   * {
     @apply border-border;

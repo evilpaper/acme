@@ -16,7 +16,7 @@ export default function LoginForm() {
   return (
     <form action={dispatch} className="space-y-3">
       <div className="flex flex-1 flex-col space-y-2 rounded-lg px-6 pb-4 pt-8 text-center">
-        <div className="mb-4 grid items-center gap-2 text-center">
+        <div className="mb-2 grid items-center gap-2 text-center">
           <Link href="/" className="flex justify-center">
             <Image
               priority
@@ -26,7 +26,7 @@ export default function LoginForm() {
             />
           </Link>
           <h1
-            className={`text-3xl font-bold tracking-tight ${fraunces.className}`}
+            className={`text-4xl font-bold leading-tight tracking-tight ${fraunces.className}`}
           >
             Welcome back
           </h1>

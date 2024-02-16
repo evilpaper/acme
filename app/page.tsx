@@ -13,7 +13,7 @@ import logo from '../public/images/logo-black-lemon.svg';
 
 export default function Page() {
   return (
-    <main className="bg-sand flex h-screen flex-col p-6">
+    <main className="flex h-screen flex-col p-6">
       <section className="flex justify-between">
         <nav className="gap-6 md:flex">
           <Link href="/">
@@ -48,7 +48,7 @@ export default function Page() {
       <section className="mt-10 flex grow flex-col gap-4 pb-8 pt-8">
         <div className="align-center flex flex-col items-center">
           <h1
-            className={`tracking-tightertext-gray-600 mb-8 max-w-screen-md p-2 text-center text-3xl font-bold leading-tight md:text-5xl ${fraunces.className}`}
+            className={`mb-8 max-w-screen-md p-2 text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl ${fraunces.className}`}
           >
             ACME is an invoicing & payments platform built using Next.js server
             components.

@@ -31,7 +31,7 @@ This project as an experiment to see how a modern app (with features like authen
 
 ## Roadmap
 
-- [ ] MDX support for basic pages
+- [ ] Use shadcn/ui for all components
 - [ ] Login using Swedish BankID
 - [ ] Payment using Swedish Swish
 - [ ] Subscriptions using Stripe

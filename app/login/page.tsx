@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function LoginPage() {
   return (
-    <main className="bg-sand flex h-screen justify-center">
+    <main className="flex h-screen justify-center">
       <Link
         href="/"
         className={cn(
