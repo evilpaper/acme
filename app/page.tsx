@@ -1,10 +1,3 @@
-/**
- * Inspiration
- * Taxonomy, for complete working app, by shadcn https://tx.shadcn.com/
- * En Temporada, for playful design https://www.entemporada.es/
- * Fraunces, the font used https://maxibestof.one/typefaces/fraunces
- */
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { fraunces } from '@/app/ui/fonts';
@@ -13,8 +6,8 @@ import logo from '../public/images/logo-black-lemon.svg';
 
 export default function Page() {
   return (
-    <main className="flex h-screen flex-col p-6">
-      <section className="flex justify-between">
+    <main className="container flex min-h-screen flex-col ">
+      <section className="flex justify-between py-6">
         <nav className="gap-6 md:flex">
           <Link href="/">
             <Image
@@ -67,7 +60,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <footer className="container flex flex-col items-center justify-between">
+      <footer className="container flex flex-col items-center justify-between p-6">
         <p className="text-center text-sm">
           Built by evilpaper. Hosted on Vercel. The source code is available on
           GitHub.
