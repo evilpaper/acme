@@ -30,9 +30,7 @@ export default function LoginForm() {
           >
             Welcome back
           </h1>
-          <p className={'text-sm'}>
-            Enter your email to sign in to your account
-          </p>
+          <p className={'text'}>Enter your email to login to your account.</p>
         </div>
         <div className="grid gap-2">
           <Label className="sr-only" htmlFor="password">
@@ -79,7 +77,7 @@ function LoginButton() {
   return (
     <Button aria-disabled={pending}>
       {pending && <span>Checking... </span>}
-      Sign in with email
+      Login with email
     </Button>
   );
 }

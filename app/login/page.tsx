@@ -1,8 +1,8 @@
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { ChevronLeft } from 'lucide-react';
 import LoginForm from '@/app/ui/login-form';
 import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import { ChevronLeft } from 'lucide-react';
 
 export default function LoginPage() {
   return (
