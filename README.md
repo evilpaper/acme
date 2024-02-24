@@ -31,7 +31,8 @@ This project as an experiment to see how a modern app (with features like authen
 
 ## Roadmap
 
-- [ ] Use shadcn/ui for all components
+- [x] Add a component layer for importing and exposing icons
+- [ ] Use shadcn/ui for all components and move components to own folder
 - [ ] Login using Swedish BankID
 - [ ] Payment using Swedish Swish
 - [ ] Subscriptions using Stripe

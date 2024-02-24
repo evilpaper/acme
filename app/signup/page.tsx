@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { ChevronLeft } from 'lucide-react';
 import SignupForm from '@/app/ui/signup-form';
+import { Icons } from '@/components/ui/icons';
 import { buttonVariants } from '@/components/ui/button';
 
 export default function SigninPage() {
@@ -15,7 +15,7 @@ export default function SigninPage() {
         )}
       >
         <>
-          <ChevronLeft className="mr-2 h-4 w-4" />
+          <Icons.chevronLeft className="mr-2 h-4 w-4" />
           Back
         </>
       </Link>
