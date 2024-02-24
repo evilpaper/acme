@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { Loader2 } from 'lucide-react';
 import { fraunces } from '@/app/ui/fonts';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -76,7 +77,7 @@ function LoginButton() {
   const { pending } = useFormStatus();
   return (
     <Button aria-disabled={pending}>
-      {pending && <span>Checking... </span>}
+      {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
       Login with email
     </Button>
   );

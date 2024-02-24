@@ -6,7 +6,7 @@ import logo from '../public/images/logo-black-lemon.svg';
 
 export default function Page() {
   return (
-    <main className="container flex min-h-screen flex-col ">
+    <main className="container flex min-h-screen flex-col">
       <section className="flex justify-between py-6">
         <nav className="gap-6 md:flex">
           <Link href="/">
