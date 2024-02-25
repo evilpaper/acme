@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import LoginForm from '@/app/ui/login-form';
+import LoginForm from '@/components/ui/login-form';
 import { Icons } from '@/components/ui/icons';
 import { buttonVariants } from '@/components/ui/button';
 

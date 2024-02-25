@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { authenticate } from '@/app/lib/actions';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useFormState, useFormStatus } from 'react-dom';
 import logo from '../../public/images/logo-black-lemon.svg';
 
@@ -17,7 +18,7 @@ export default function LoginForm() {
   return (
     <form action={dispatch} className="space-y-3">
       <div className="flex flex-1 flex-col space-y-2 rounded-lg px-6 pb-4 pt-8 text-center">
-        <div className="mb-2 grid items-center gap-2 text-center">
+        <div className="mb-2 grid items-center gap-4 text-center">
           <Link href="/" className="flex justify-center">
             <Image
               priority
@@ -31,32 +32,47 @@ export default function LoginForm() {
           >
             Welcome back
           </h1>
-          <p className={'text'}>Enter your email to login to your account.</p>
+          <Tabs defaultValue="email" className="w-[360px]">
+            <TabsList>
+              <TabsTrigger value="email">Email and password</TabsTrigger>
+              <TabsTrigger value="bankid">Mobilt BankID</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="email">
+              <div className="mb-2 mt-4 grid items-center gap-4 text-center">
+                <p className={'text-sm'}>
+                  Enter your email to login to your account.
+                </p>
+                <div className="grid gap-2">
+                  <Label className="sr-only" htmlFor="password">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                  <Label className="sr-only" htmlFor="password">
+                    Password
+                  </Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                    minLength={6}
+                  />
+                  <LoginButton />
+                </div>
+              </div>
+            </TabsContent>
+            <TabsContent value="bankid">Open BankID</TabsContent>
+          </Tabs>
         </div>
-        <div className="grid gap-2">
-          <Label className="sr-only" htmlFor="password">
-            Email
-          </Label>
-          <Input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Enter your email address"
-            required
-          />
-          <Label className="sr-only" htmlFor="password">
-            Password
-          </Label>
-          <Input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            required
-            minLength={6}
-          />
-          <LoginButton />
-        </div>
+
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
