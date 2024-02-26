@@ -32,7 +32,7 @@ export default function LoginForm() {
           >
             Welcome back
           </h1>
-          <Tabs defaultValue="email" className="w-[360px]">
+          <Tabs defaultValue="email">
             <TabsList>
               <TabsTrigger value="email">Email and password</TabsTrigger>
               <TabsTrigger value="bankid">Mobilt BankID</TabsTrigger>
