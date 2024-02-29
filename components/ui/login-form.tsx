@@ -69,15 +69,9 @@ export default function LoginForm() {
                 </div>
               </div>
             </TabsContent>
-            <TabsContent value="bankid">
-              <p className={'text-sm'}>Väntar på BankID</p>
-              <ol className={'flex flex-col text-start'}>
-                <li className={'p-2'}>1. Öppna BankID appen på din telefon</li>
-                <li className={'p-2'}>2. Klicka på QR-kod ikonen i appen</li>
-                <li className={'p-2'}>
-                  3. Rikta kameran mot QR-koden på skärmen
-                </li>
-              </ol>
+            <TabsContent value="bankid" className="grid items-center gap-8 p-8">
+              <p className={'text-sm'}>Waiting for BankID</p>
+              <Button>Open BankID on this device</Button>
             </TabsContent>
           </Tabs>
         </div>
