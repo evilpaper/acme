@@ -4,7 +4,6 @@ import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../public/images/logo-black-lemon.svg';
-import { Icons } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 
 export function MainNav() {
@@ -29,7 +28,7 @@ export function MainNav() {
           Invoices
         </Link>
         <Avatar>
-          <AvatarImage src="logo" />
+          <AvatarImage src="/customers/amy-burns.png" />
           <AvatarFallback>CF</AvatarFallback>
         </Avatar>
       </nav>
