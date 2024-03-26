@@ -10,28 +10,31 @@ export function MainNav() {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 
   return (
-    <header className="container z-40">
-      <nav className="hidden items-center gap-6 md:flex">
-        <Link href="/home" className="hidden items-center space-x-2 md:flex">
-          <Image
-            priority
-            src={logo}
-            alt="ACME Fresh Produce Logo"
-            height="48"
-          />
-        </Link>
-        <Link
-          href="/customers"
-          className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm"
-        >
-          Customers
-        </Link>
-        <Link
-          href="/invoices"
-          className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm"
-        >
-          Invoices
-        </Link>
+    <section className="container z-40 p-4">
+      <nav className="hidden items-center justify-between gap-6 md:flex">
+        <section className="flex gap-6">
+          <Link href="/home" className="hidden items-center space-x-2 md:flex">
+            <Image
+              priority
+              src={logo}
+              alt="ACME Fresh Produce Logo"
+              height="48"
+            />
+          </Link>
+
+          <Link
+            href="/customers"
+            className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm"
+          >
+            Customers
+          </Link>
+          <Link
+            href="/invoices"
+            className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm"
+          >
+            Invoices
+          </Link>
+        </section>
         <Avatar className="hidden md:flex">
           <AvatarImage src="/customers/amy-burns.png" />
           <AvatarFallback>AB</AvatarFallback>
@@ -57,6 +60,6 @@ export function MainNav() {
           <AvatarFallback>AB</AvatarFallback>
         </Avatar>
       </nav>
-    </header>
+    </section>
   );
 }
