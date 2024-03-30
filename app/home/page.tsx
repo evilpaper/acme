@@ -1,5 +1,6 @@
 import { MainNav } from '@/components/ui/main-nav';
 import Link from 'next/link';
+import { fraunces } from '../ui/fonts';
 
 export default function HomePage() {
   return (
@@ -25,7 +26,14 @@ export default function HomePage() {
           </nav>
         </aside>
         <main className="flex w-full flex-1 flex-col overflow-hidden">
-          <p>I am home</p>
+          <h1
+            className={`font-heading ${fraunces.className} text-3xl font-bold  leading-tight md:text-4xl`}
+          >
+            Home
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Monitor your performance
+          </p>
         </main>
       </div>
     </div>
