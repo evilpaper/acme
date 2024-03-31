@@ -1,33 +1,7 @@
 import { MainNav } from '@/components/ui/main-nav';
 import Link from 'next/link';
 import { fraunces } from '../ui/fonts';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-
-const widgets = [
-  {
-    title: 'Collected',
-    id: '123',
-  },
-  {
-    title: 'Pending',
-    id: '456',
-  },
-  {
-    title: 'Total invoces',
-    id: '789',
-  },
-  {
-    title: 'Total customers',
-    id: '987',
-  },
-];
+import { BigNumbers } from '@/components/bigNumbers';
 
 export default function HomePage() {
   return (
@@ -64,18 +38,7 @@ export default function HomePage() {
             Monitor your performance
           </p>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {widgets.map(({ title, id }) => {
-              return (
-                <Card key={id}>
-                  <CardHeader>
-                    <CardTitle>{title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>Card Content</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            <BigNumbers></BigNumbers>
           </section>
         </main>
       </div>

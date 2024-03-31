@@ -37,37 +37,31 @@ export default function LoginForm() {
               <TabsTrigger value="email">Email and password</TabsTrigger>
               <TabsTrigger value="bankid">Mobilt BankID</TabsTrigger>
             </TabsList>
-
             <TabsContent value="email">
-              <div className="mb-2 mt-4 grid items-center gap-4 text-center">
-                <p className={'text-sm'}>
-                  Enter your email to login to your account.
-                </p>
-                <div className="grid gap-2">
-                  <Label className="sr-only" htmlFor="password">
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email address"
-                    required
-                  />
-                  <Label className="sr-only" htmlFor="password">
-                    Password
-                  </Label>
-                  <Input
-                    id="password"
-                    type="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    required
-                    minLength={6}
-                  />
-                  <LoginButton />
-                </div>
-              </div>
+              <section className="mt-4 grid items-center gap-4 text-center">
+                <Label className="sr-only" htmlFor="password">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email address"
+                  required
+                />
+                <Label className="sr-only" htmlFor="password">
+                  Password
+                </Label>
+                <Input
+                  id="password"
+                  type="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  required
+                  minLength={6}
+                />
+                <LoginButton />
+              </section>
             </TabsContent>
             <TabsContent value="bankid" className="grid items-center gap-8 p-8">
               <p className={'text-sm'}>Waiting for BankID</p>
@@ -95,7 +89,7 @@ export default function LoginForm() {
 function LoginButton() {
   const { pending } = useFormStatus();
   return (
-    <Button aria-disabled={pending}>
+    <Button aria-disabled={pending} className="mt-4">
       {pending && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
       Login with email
     </Button>
