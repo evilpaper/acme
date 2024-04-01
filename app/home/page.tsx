@@ -11,16 +11,18 @@ export default function HomePage() {
       </header>
       <div className="container grid flex-1 gap-12">
         <main className="flex w-full flex-1 flex-col overflow-hidden">
-          <h1
-            className={`font-heading ${fraunces.className} text-3xl font-bold leading-tight md:text-4xl`}
-          >
-            Home
-          </h1>
-          <p
-            className={`py-4 text-lg text-muted-foreground ${fraunces.className}`}
-          >
-            Monitor your performance
-          </p>
+          <section className="pb-4">
+            <h1
+              className={`font-heading ${fraunces.className} text-3xl font-bold leading-tight md:text-4xl`}
+            >
+              Dashboard
+            </h1>
+            <p
+              className={`py-2 text-lg text-muted-foreground ${fraunces.className}`}
+            >
+              Monitor your performance
+            </p>
+          </section>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <BigNumbers></BigNumbers>
           </section>

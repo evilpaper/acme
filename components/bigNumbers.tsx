@@ -1,40 +1,37 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { fetchCardData } from '@/app/lib/data';
+import { BigNumberCard } from './bigNumberCard';
 
-const widgets = [
-  {
-    title: 'Collected',
-    id: '123',
-  },
-  {
-    title: 'Pending',
-    id: '456',
-  },
-  {
-    title: 'Total invoces',
-    id: '789',
-  },
-  {
-    title: 'Total customers',
-    id: '987',
-  },
-];
+export async function BigNumbers() {
+  const {
+    numberOfInvoices,
+    numberOfCustomers,
+    totalPaidInvoices,
+    totalPendingInvoices,
+  } = await fetchCardData();
 
-export function BigNumbers() {
   return (
     <>
-      {widgets.map(({ title, id }) => {
-        return (
-          <Card key={id}>
-            <CardHeader>
-              <CardTitle>{title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Card Content</p>
-            </CardContent>
-          </Card>
-        );
-      })}
+      <BigNumberCard
+        title="Number of invoices"
+        unit="$"
+        content={numberOfInvoices}
+      ></BigNumberCard>
+      <BigNumberCard
+        title="Number of customers"
+        unit="customers"
+        content={numberOfCustomers}
+      ></BigNumberCard>
+      <BigNumberCard
+        title="Total paid invoices"
+        unit="$"
+        content={totalPaidInvoices}
+      ></BigNumberCard>
+      <BigNumberCard
+        title="Total pending invoices"
+        unit="$"
+        content={totalPendingInvoices}
+      ></BigNumberCard>
     </>
   );
 }
