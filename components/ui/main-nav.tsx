@@ -12,14 +12,28 @@ export function MainNav() {
   return (
     <section className="container z-40 p-4">
       <nav className="hidden items-center justify-between gap-6 md:flex">
-        <Link href="/home" className="hidden items-center space-x-2 md:flex">
-          <Image
-            priority
-            src={logo}
-            alt="ACME Fresh Produce Logo"
-            height="48"
-          />
-        </Link>
+        <section className="items-center justify-between gap-6 md:flex">
+          <Link href="/home" className="hidden items-center space-x-2 md:flex">
+            <Image
+              priority
+              src={logo}
+              alt="ACME Fresh Produce Logo"
+              height="48"
+            />
+          </Link>
+          <Link
+            href="/customers"
+            className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm"
+          >
+            Customers
+          </Link>
+          <Link
+            href="/invoices"
+            className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm"
+          >
+            Invoices
+          </Link>
+        </section>
         <Avatar className="hidden md:flex">
           <AvatarImage src="/customers/amy-burns.png" />
           <AvatarFallback>AB</AvatarFallback>
