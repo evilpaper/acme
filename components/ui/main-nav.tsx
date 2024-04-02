@@ -13,13 +13,22 @@ export function MainNav() {
     <section className="container z-40 p-4">
       <nav className="hidden items-center justify-between gap-6 md:flex">
         <section className="items-center justify-between gap-6 md:flex">
-          <Link href="/home" className="hidden items-center space-x-2 md:flex">
+          <Link
+            href="/home"
+            className="mr-4 hidden items-center space-x-2 md:flex"
+          >
             <Image
               priority
               src={logo}
               alt="ACME Fresh Produce Logo"
               height="48"
             />
+          </Link>
+          <Link
+            href="/home"
+            className="ml-6 flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm"
+          >
+            Dashboard
           </Link>
           <Link
             href="/customers"
