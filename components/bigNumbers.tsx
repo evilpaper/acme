@@ -4,26 +4,14 @@ import { BigNumberCard } from './bigNumberCard';
 
 export async function BigNumbers() {
   const {
-    numberOfInvoices,
-    numberOfCustomers,
     totalPaidInvoices,
     totalPendingInvoices,
+    numberOfInvoices,
+    numberOfCustomers,
   } = await fetchCardData();
 
   return (
     <>
-      <BigNumberCard
-        title="Number of invoices"
-        unit="$"
-        content={numberOfInvoices}
-        type="invoices"
-      ></BigNumberCard>
-      <BigNumberCard
-        title="Number of customers"
-        unit="customers"
-        content={numberOfCustomers}
-        type="customers"
-      ></BigNumberCard>
       <BigNumberCard
         title="Total paid invoices"
         unit="$"
@@ -35,6 +23,18 @@ export async function BigNumbers() {
         unit="$"
         content={totalPendingInvoices}
         type="pending"
+      ></BigNumberCard>
+      <BigNumberCard
+        title="Number of invoices"
+        unit="$"
+        content={numberOfInvoices}
+        type="invoices"
+      ></BigNumberCard>
+      <BigNumberCard
+        title="Number of customers"
+        unit="customers"
+        content={numberOfCustomers}
+        type="customers"
       ></BigNumberCard>
     </>
   );

@@ -28,7 +28,7 @@ export function BigNumberCard({ title, content, type }: Props) {
       <CardContent>
         <div className="text-2xl font-bold">{content}</div>
         <p className="py-1 text-xs text-muted-foreground">
-          +20.1% from last month
+          +?% from last month
         </p>
       </CardContent>
     </Card>

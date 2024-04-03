@@ -9,9 +9,9 @@ import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
 const links = [
-  { name: 'Dashboard', href: '/home', icon: '' },
-  { name: 'Customers', href: '/customers', icon: '' },
-  { name: 'Invoices', href: '/invoices', icon: '' },
+  { name: 'Dashboard', href: '/dashboard', icon: '' },
+  { name: 'Customers', href: '/dashboard/customers', icon: '' },
+  { name: 'Invoices', href: '/dashboard/invoices', icon: '' },
 ];
 
 export function MainNav() {
