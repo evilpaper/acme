@@ -37,7 +37,7 @@ export default function HomePage() {
           <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
             <Card className="col-span-4">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle>Recent Revenue</CardTitle>
+                <CardTitle className="mb-4 text-lg">Recent Revenue</CardTitle>
               </CardHeader>
               <CardContent>
                 <Overview />
@@ -45,10 +45,7 @@ export default function HomePage() {
             </Card>
             <Card className="col-span-3">
               <CardHeader>
-                <CardTitle>Recent Sales</CardTitle>
-                <CardDescription>
-                  You made 265 sales this month.
-                </CardDescription>
+                <CardTitle className="mb-4 text-lg">Latest Invoices</CardTitle>
               </CardHeader>
               <CardContent></CardContent>
             </Card>

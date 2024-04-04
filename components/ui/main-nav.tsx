@@ -30,7 +30,7 @@ export function MainNav() {
               priority
               src={logo}
               alt="ACME Fresh Produce Logo"
-              height="48"
+              height="36"
             />
           </Link>
           {links.map(({ name, href }) => {
