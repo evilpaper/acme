@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Overview } from '@/components/overview';
+import { LatestInvoices } from '@/components/latest-invoices';
 
 export default function HomePage() {
   return (
@@ -47,7 +48,9 @@ export default function HomePage() {
               <CardHeader>
                 <CardTitle className="mb-4 text-lg">Latest Invoices</CardTitle>
               </CardHeader>
-              <CardContent></CardContent>
+              <CardContent>
+                <LatestInvoices />
+              </CardContent>
             </Card>
           </section>
         </main>
