@@ -14,7 +14,7 @@ const links = [
   { name: 'Invoices', href: '/dashboard/invoices', icon: '' },
 ];
 
-export function MainNav() {
+export function MainNav({ children }: { children: React.ReactElement }) {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
   const pathname = usePathname();
 
@@ -50,6 +50,17 @@ export function MainNav() {
             );
           })}
         </section>
+        {/* <button
+          onClick={(event) => {
+            event.preventDefault();
+            console.log('Logout');
+            // console.log(window.location.origin);
+            signOut();
+          }}
+        >
+          Logout
+        </button> */}
+        {children}
         <Avatar className="hidden md:flex">
           <AvatarImage src="/customers/amy-burns.png" />
           <AvatarFallback>AB</AvatarFallback>
