@@ -50,21 +50,13 @@ export function MainNav({ children }: { children: React.ReactElement }) {
             );
           })}
         </section>
-        {/* <button
-          onClick={(event) => {
-            event.preventDefault();
-            console.log('Logout');
-            // console.log(window.location.origin);
-            signOut();
-          }}
-        >
-          Logout
-        </button> */}
-        {children}
-        <Avatar className="hidden md:flex">
-          <AvatarImage src="/customers/amy-burns.png" />
-          <AvatarFallback>AB</AvatarFallback>
-        </Avatar>
+        <section className="items-center justify-between gap-6 md:flex">
+          {children}
+          <Avatar className="hidden md:flex">
+            <AvatarImage src="/customers/amy-burns.png" />
+            <AvatarFallback>AB</AvatarFallback>
+          </Avatar>
+        </section>
       </nav>
       <nav className="flex items-center justify-between md:hidden">
         <button
