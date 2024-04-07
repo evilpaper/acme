@@ -1,10 +1,17 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { fraunces } from '@/app/ui/fonts';
 import { Button } from '@/components/ui/button';
 import logo from '../public/images/logo-black-lemon.svg';
+import { useSelectedLayoutSegment } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export default function Page() {
+  const segment = useSelectedLayoutSegment();
+
+  console.log(segment, segment);
   return (
     <main className="container flex min-h-screen flex-col">
       <section className="flex justify-between py-6">
@@ -17,17 +24,39 @@ export default function Page() {
               height="48"
             />
           </Link>
-          <div className="hidden gap-10 md:flex">
-            <Link className="flex items-center" href="/">
+          <section className="ml-6 hidden gap-10 md:flex">
+            <Link
+              href="/"
+              className={cn(
+                'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                segment === null ? 'text-foreground' : 'text-foreground/60',
+              )}
+            >
               Features
             </Link>
-            <Link className="flex items-center" href="/">
+            <Link
+              href="/pricing"
+              className={cn(
+                'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                `/${segment}` === '/pricing'
+                  ? 'text-foreground'
+                  : 'text-foreground/60',
+              )}
+            >
               Pricing
             </Link>
-            <Link className="flex items-center" href="/">
+            <Link
+              href="/documentation"
+              className={cn(
+                'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                `/${segment}` === '/documentation'
+                  ? 'text-foreground'
+                  : 'text-foreground/60',
+              )}
+            >
               Documentation
             </Link>
-          </div>
+          </section>
         </nav>
         <nav>
           <Button asChild>
