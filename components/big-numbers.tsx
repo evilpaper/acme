@@ -1,6 +1,6 @@
 import React from 'react';
 import { fetchCardData } from '@/app/lib/data';
-import { BigNumberCard } from './bigNumberCard';
+import { BigNumberCard } from './big-number-card';
 
 export async function BigNumbers() {
   const {
