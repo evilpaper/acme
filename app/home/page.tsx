@@ -25,7 +25,7 @@ export default function HomePage() {
               await signOut();
             }}
           >
-            <Button variant="secondary">Sign Out</Button>
+            <Button variant="outline">Sign Out</Button>
           </form>
         </MainNav>
       </header>

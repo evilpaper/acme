@@ -26,10 +26,12 @@ export default function Page() {
           </Link>
           <section className="ml-6 hidden gap-10 md:flex">
             <Link
-              href="/"
+              href="/features"
               className={cn(
                 'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
-                segment === null ? 'text-foreground' : 'text-foreground/60',
+                `/${segment}` === '/features'
+                  ? 'text-foreground'
+                  : 'text-foreground/60',
               )}
             >
               Features
