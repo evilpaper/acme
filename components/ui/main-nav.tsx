@@ -6,10 +6,10 @@ import Image from 'next/image';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 const links = [
-  { name: 'Dashboard', href: '/dashboard', icon: '' },
+  { name: 'Home', href: '/home', icon: '' },
   { name: 'Customers', href: '/dashboard/customers', icon: '' },
   { name: 'Invoices', href: '/dashboard/invoices', icon: '' },
 ];
@@ -38,11 +38,11 @@ export function MainNav({ children }: { children: React.ReactElement }) {
               <Link
                 key={name}
                 href={href}
-                className={clsx(
-                  'ml-6 flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
-                  {
-                    'text-foreground/100': pathname === href,
-                  },
+                className={cn(
+                  'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                  pathname === `/${name.toLowerCase()}`
+                    ? 'text-foreground'
+                    : 'text-foreground/60',
                 )}
               >
                 {name}
