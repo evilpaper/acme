@@ -11,7 +11,6 @@ import { cn } from '@/lib/utils';
 export default function Page() {
   const segment = useSelectedLayoutSegment();
 
-  console.log(segment, segment);
   return (
     <main className="container flex min-h-screen flex-col">
       <section className="flex justify-between py-6">
