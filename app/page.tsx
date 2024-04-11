@@ -92,8 +92,33 @@ export default function Page() {
       </section>
       <footer className="container flex flex-col items-center justify-between p-6">
         <p className="text-center text-sm">
-          Built by evilpaper. Hosted on Vercel. The source code is available on
-          GitHub.
+          Built by{' '}
+          <a
+            href="https://evilpaper.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium underline underline-offset-4"
+          >
+            evilpaper.
+          </a>{' '}
+          Hosted on{' '}
+          <a
+            href="https://vercel.com/login"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium underline underline-offset-4"
+          >
+            Vercel.
+          </a>{' '}
+          The source code is available on{' '}
+          <a
+            href="https://github.com/evilpaper/acme"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium underline underline-offset-4"
+          >
+            GitHub.
+          </a>
         </p>
       </footer>
     </main>
