@@ -1,34 +1,12 @@
-import { MainNav } from '@/components/ui/main-nav';
 import { fraunces } from '../ui/fonts';
 import { BigNumbers } from '@/components/big-numbers';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Overview } from '@/components/overview';
 import { LatestInvoices } from '@/components/latest-invoices';
-import { signOut } from '@/auth';
-import { Button } from '@/components/ui/button';
 
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col space-y-6">
-      <header className="sticky top-0 z-40 border-b bg-background">
-        {/**
-         * MainNav is a client component. We can't use the directive "use server" in client component.
-         * Thus passing it down as children from a server component.
-         * Not the most beautiful solution.
-         * Why is "use server" needed? From the error message it looks like sighOut tries to acces the filesystem
-         * with "fs".
-         */}
-        <MainNav>
-          <form
-            action={async () => {
-              'use server';
-              await signOut();
-            }}
-          >
-            <Button variant="outline">Sign Out</Button>
-          </form>
-        </MainNav>
-      </header>
       <div className="container grid flex-1 gap-12">
         <main className="flex w-full flex-1 flex-col gap-4 overflow-hidden">
           <section>

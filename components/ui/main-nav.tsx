@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 const links = [
   { name: 'Home', href: '/home', icon: '' },
   { name: 'Customers', href: '/dashboard/customers', icon: '' },
-  { name: 'Invoices', href: '/dashboard/invoices', icon: '' },
+  { name: 'Invoices', href: '/home/invoices', icon: '' },
 ];
 
 export function MainNav({ children }: { children: React.ReactElement }) {
