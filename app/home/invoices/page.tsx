@@ -1,4 +1,5 @@
 import { fraunces } from '@/app/ui/fonts';
+import { Input } from '@/components/ui/input';
 
 export default function Invoices() {
   return (
@@ -8,6 +9,9 @@ export default function Invoices() {
       >
         Invoices
       </h1>
+      <section>
+        <Input type="search" placeholder="Search" />
+      </section>
     </main>
   );
 }
