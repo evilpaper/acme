@@ -6,6 +6,10 @@ import { Input } from './ui/input';
 export function Search() {
   const [value, setValue] = React.useState('');
 
+  const handleSearch = React.useCallback((term: string) => {
+    console.log(term);
+  }, []);
+
   return (
     <Input
       type="search"
