@@ -1,8 +1,19 @@
+import { fetchInvoicesPages } from '@/app/lib/data';
 import { fraunces } from '@/app/ui/fonts';
 import { Search } from '@/components/search';
-import { Input } from '@/components/ui/input';
 
-export default function Invoices() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
+  const totalPages = await fetchInvoicesPages(query);
+
   return (
     <main className="flex min-h-screen flex-col space-y-6">
       <h1
