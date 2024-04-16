@@ -1,4 +1,14 @@
 import { fetchFilteredInvoices } from '@/app/lib/data';
+import { formatDateToLocal } from '@/app/lib/utils';
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
 export default async function InvoiceTable({
   query,
@@ -9,13 +19,30 @@ export default async function InvoiceTable({
 }) {
   const invoices = await fetchFilteredInvoices(query, currentPage);
   return (
-    <section>
-      <p>Invoice Table</p>
-      <ul>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Customer</TableHead>
+          <TableHead>Email</TableHead>
+          <TableHead>Amount</TableHead>
+          <TableHead>Date</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead></TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
         {invoices?.map((invoice) => {
-          return <li key={invoice.id}>{invoice.name}</li>;
+          return (
+            <TableRow key={invoice.id}>
+              <TableCell className="font-medium">{invoice.name}</TableCell>
+              <TableCell>{invoice.email}</TableCell>
+              <TableCell>{invoice.amount}</TableCell>
+              <TableCell>{formatDateToLocal(invoice.date)}</TableCell>
+              <TableCell>{invoice.status}</TableCell>
+            </TableRow>
+          );
         })}
-      </ul>
-    </section>
+      </TableBody>
+    </Table>
   );
 }

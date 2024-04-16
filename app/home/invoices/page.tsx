@@ -22,12 +22,8 @@ export default async function Page({
       >
         Invoices
       </h1>
-      <section>
-        <Search />
-      </section>
-      <section>
-        <InvoiceTable query={query} currentPage={currentPage} />
-      </section>
+      <Search />
+      <InvoiceTable query={query} currentPage={currentPage} />
     </main>
   );
 }
