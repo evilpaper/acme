@@ -1,5 +1,6 @@
 import { fetchInvoicesPages } from '@/app/lib/data';
 import { fraunces } from '@/app/ui/fonts';
+import InvoiceTable from '@/components/invoice-table';
 import { Search } from '@/components/search';
 
 export default async function Page({
@@ -23,6 +24,9 @@ export default async function Page({
       </h1>
       <section>
         <Search />
+      </section>
+      <section>
+        <InvoiceTable query={query} currentPage={currentPage} />
       </section>
     </main>
   );
