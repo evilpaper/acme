@@ -16,7 +16,7 @@ export default async function Page({
   const totalPages = await fetchInvoicesPages(query);
 
   return (
-    <main className="flex min-h-screen flex-col space-y-6">
+    <main className="container flex min-h-screen flex-col space-y-6">
       <h1
         className={`font-heading ${fraunces.className} text-3xl font-bold leading-tight md:text-4xl`}
       >
