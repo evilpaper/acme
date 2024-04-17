@@ -2,6 +2,7 @@ import { fetchInvoicesPages } from '@/app/lib/data';
 import { fraunces } from '@/app/ui/fonts';
 import InvoiceTable from '@/components/invoice-table';
 import { Search } from '@/components/search';
+import { Button } from '@/components/ui/button';
 
 export default async function Page({
   searchParams,
@@ -22,7 +23,11 @@ export default async function Page({
       >
         Invoices
       </h1>
-      <Search />
+      <section className="flex gap-6">
+        <Search />
+        <Button>Add invoice</Button>
+      </section>
+
       <InvoiceTable query={query} currentPage={currentPage} />
     </main>
   );
