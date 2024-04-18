@@ -1,6 +1,7 @@
 import { fetchInvoicesPages } from '@/app/lib/data';
 import { fraunces } from '@/app/ui/fonts';
 import InvoiceTable from '@/components/invoice-table';
+import InvoicePagination from '@/components/invoice-pagination';
 import { Search } from '@/components/search';
 import { Button } from '@/components/ui/button';
 
@@ -27,8 +28,8 @@ export default async function Page({
         <Search />
         <Button>Add invoice</Button>
       </section>
-
       <InvoiceTable query={query} currentPage={currentPage} />
+      <InvoicePagination totalPages={totalPages} />
     </main>
   );
 }
