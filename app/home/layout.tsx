@@ -4,7 +4,7 @@ import { MainNav } from '@/components/ui/main-nav';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col space-y-6">
+    <div className="flex flex-col space-y-6">
       <header className="sticky top-0 z-40 border-b bg-background">
         {/**
          * MainNav is a client component. We can't use the directive "use server" in client component.

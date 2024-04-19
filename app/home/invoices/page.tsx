@@ -4,6 +4,7 @@ import InvoiceTable from '@/components/invoice-table';
 import InvoicePagination from '@/components/invoice-pagination';
 import { Search } from '@/components/search';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default async function Page({
   searchParams,
@@ -26,7 +27,9 @@ export default async function Page({
       </h1>
       <section className="flex gap-6">
         <Search />
-        <Button>Add invoice</Button>
+        <Button asChild>
+          <Link href="/home/invoices/create">Add invoice</Link>
+        </Button>
       </section>
       <InvoiceTable query={query} currentPage={currentPage} />
       <InvoicePagination totalPages={totalPages} />
