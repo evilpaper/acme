@@ -35,7 +35,11 @@ export default function CreateInvoice({
           >
             Create invoice
           </CardTitle>
-          <CardDescription>Add a new invoice.</CardDescription>
+          <CardDescription
+            className={`text-lg text-muted-foreground ${fraunces.className}`}
+          >
+            Add a new invoice
+          </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-6">
           <div className="grid gap-2">
@@ -57,7 +61,7 @@ export default function CreateInvoice({
           </div>
           <div className="grid gap-2">
             <Label htmlFor="number">Choose an amount</Label>
-            <Input id="number" placeholder="Enter USD amount" />
+            <Input id="number" placeholder="Enter USD amount" required />
           </div>
         </CardContent>
         <CardFooter className="flex justify-between ">
