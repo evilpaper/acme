@@ -1,4 +1,4 @@
-'use-client';
+'use client';
 
 import { CustomerField } from '@/app/lib/definitions';
 import {
@@ -20,6 +20,8 @@ import {
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { fraunces } from '@/app/ui/fonts';
+import Link from 'next/link';
+import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 
 export default function CreateInvoice({
   customers,
@@ -27,7 +29,12 @@ export default function CreateInvoice({
   customers: CustomerField[];
 }) {
   return (
-    <form>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        console.log('Form submitted!');
+      }}
+    >
       <Card className="mx-auto w-[396px]">
         <CardHeader>
           <CardTitle
@@ -44,7 +51,7 @@ export default function CreateInvoice({
         <CardContent className="grid gap-6">
           <div className="grid gap-2">
             <Label htmlFor="customer">Choose customer</Label>
-            <Select>
+            <Select required>
               <SelectTrigger id="customer">
                 <SelectValue placeholder="Customer" />
               </SelectTrigger>
@@ -60,12 +67,32 @@ export default function CreateInvoice({
             </Select>
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="number">Choose an amount</Label>
-            <Input id="number" placeholder="Enter USD amount" required />
+            <Label htmlFor="amount">Choose an amount</Label>
+            <Input
+              id="amount"
+              placeholder="Enter USD amount"
+              type="number"
+              required
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label>Set the invoice status</Label>
+            <RadioGroup defaultValue="option-one" required>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="pending" id="pending" />
+                <Label htmlFor="pending">Pending</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="paid" id="paid" />
+                <Label htmlFor="paid">Paid</Label>
+              </div>
+            </RadioGroup>
           </div>
         </CardContent>
         <CardFooter className="flex justify-between ">
-          <Button variant="outline">Cancel</Button>
+          <Button variant="outline" asChild>
+            <Link href="/home/invoices">Cancel</Link>
+          </Button>
           <Button>Create invoice</Button>
         </CardFooter>
       </Card>
