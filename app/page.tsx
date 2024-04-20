@@ -73,8 +73,8 @@ export default function Page() {
           <h1
             className={`mb-8 max-w-screen-md p-2 text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl ${fraunces.className}`}
           >
-            ACME is an invoicing & payments platform built using Next.js server
-            components.
+            ACME is an invoicing platform built using Next.js, Auth.js, Stripe,
+            shadcn/ui and Fraunces typeface family.
           </h1>
           <div className="flex flex-wrap gap-6">
             <Button asChild>
