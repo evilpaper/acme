@@ -77,7 +77,7 @@ export default function CreateInvoice({
           </div>
           <div className="grid gap-2">
             <Label>Set the invoice status</Label>
-            <RadioGroup defaultValue="option-one" required>
+            <RadioGroup defaultValue="pending">
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="pending" id="pending" />
                 <Label htmlFor="pending">Pending</Label>

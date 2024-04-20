@@ -5,6 +5,7 @@ import InvoicePagination from '@/components/invoice-pagination';
 import { Search } from '@/components/search';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { Plus } from 'lucide-react';
 
 export default async function Page({
   searchParams,
@@ -28,7 +29,10 @@ export default async function Page({
       <section className="flex gap-6">
         <Search />
         <Button asChild>
-          <Link href="/home/invoices/create">Add invoice</Link>
+          <Link href="/home/invoices/create">
+            <Plus className="mr-2 h-4 w-4" />
+            Add invoice
+          </Link>
         </Button>
       </section>
       <InvoiceTable query={query} currentPage={currentPage} />
