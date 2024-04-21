@@ -1,5 +1,5 @@
 import { fetchFilteredInvoices } from '@/app/lib/data';
-import { formatDateToLocal } from '@/app/lib/utils';
+import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
 import {
   Table,
   TableBody,
@@ -36,7 +36,7 @@ export default async function InvoiceTable({
             <TableRow key={invoice.id}>
               <TableCell className="font-medium">{invoice.name}</TableCell>
               <TableCell>{invoice.email}</TableCell>
-              <TableCell>{invoice.amount}</TableCell>
+              <TableCell> {formatCurrency(invoice.amount)}</TableCell>
               <TableCell>{formatDateToLocal(invoice.date)}</TableCell>
               <TableCell>{invoice.status}</TableCell>
             </TableRow>
