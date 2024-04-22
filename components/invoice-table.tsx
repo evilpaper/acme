@@ -10,6 +10,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import Image from 'next/image';
+import { Button } from './ui/button';
+import { Edit2, Trash2 } from 'lucide-react';
 
 export default async function InvoiceTable({
   query,
@@ -28,6 +30,7 @@ export default async function InvoiceTable({
           <TableHead>Amount</TableHead>
           <TableHead>Date</TableHead>
           <TableHead>Status</TableHead>
+          <TableHead></TableHead>
           <TableHead></TableHead>
         </TableRow>
       </TableHeader>
@@ -49,6 +52,16 @@ export default async function InvoiceTable({
               <TableCell> {formatCurrency(invoice.amount)}</TableCell>
               <TableCell>{formatDateToLocal(invoice.date)}</TableCell>
               <TableCell>{invoice.status}</TableCell>
+              <TableCell className="w-0  px-2">
+                <Button variant="outline" size="icon">
+                  <Edit2 className="h-4 w-4" />
+                </Button>
+              </TableCell>
+              <TableCell className="w-0 px-2">
+                <Button variant="outline" size="icon">
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              </TableCell>
             </TableRow>
           );
         })}
