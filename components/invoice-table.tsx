@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import Image from 'next/image';
 
 export default async function InvoiceTable({
   query,
@@ -34,7 +35,16 @@ export default async function InvoiceTable({
         {invoices?.map((invoice) => {
           return (
             <TableRow key={invoice.id}>
-              <TableCell className="font-medium">{invoice.name}</TableCell>
+              <TableCell className="flex items-center font-medium">
+                <Image
+                  src={invoice.image_url}
+                  alt={`${invoice.name}'s profile picture`}
+                  className="mr-4 rounded-full"
+                  width={32}
+                  height={32}
+                />
+                {invoice.name}
+              </TableCell>
               <TableCell>{invoice.email}</TableCell>
               <TableCell> {formatCurrency(invoice.amount)}</TableCell>
               <TableCell>{formatDateToLocal(invoice.date)}</TableCell>
