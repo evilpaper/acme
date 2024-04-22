@@ -17,6 +17,7 @@ const links = [
 export function MainNav({ children }: { children: React.ReactElement }) {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
   const pathname = usePathname();
+  const page = pathname?.split('/').pop();
 
   return (
     <section className="container z-40 p-4">
@@ -40,7 +41,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                 href={href}
                 className={cn(
                   'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
-                  pathname === `/${name.toLowerCase()}`
+                  `/${page}` === `/${name.toLowerCase()}`
                     ? 'text-foreground'
                     : 'text-foreground/60',
                 )}
