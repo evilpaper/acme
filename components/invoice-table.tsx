@@ -12,6 +12,7 @@ import {
 import Image from 'next/image';
 import { Button } from './ui/button';
 import { Edit2, Trash2 } from 'lucide-react';
+import DeleteInvoice from './delete-invoice-button';
 
 export default async function InvoiceTable({
   query,
@@ -58,9 +59,7 @@ export default async function InvoiceTable({
                 </Button>
               </TableCell>
               <TableCell className="w-0 px-2">
-                <Button variant="outline" size="icon">
-                  <Trash2 className="h-4 w-4" />
-                </Button>
+                <DeleteInvoice id={invoice.id} />
               </TableCell>
             </TableRow>
           );
