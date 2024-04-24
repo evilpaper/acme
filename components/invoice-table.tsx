@@ -13,6 +13,7 @@ import Image from 'next/image';
 import { Button } from './ui/button';
 import { Edit2, Trash2 } from 'lucide-react';
 import DeleteInvoice from './delete-invoice-button';
+import Link from 'next/link';
 
 export default async function InvoiceTable({
   query,
@@ -54,8 +55,10 @@ export default async function InvoiceTable({
               <TableCell>{formatDateToLocal(invoice.date)}</TableCell>
               <TableCell>{invoice.status}</TableCell>
               <TableCell className="w-0  px-2">
-                <Button variant="outline" size="icon">
-                  <Edit2 className="h-4 w-4" />
+                <Button variant="outline" size="icon" asChild>
+                  <Link href={`/home/invoices/${invoice.id}/edit`}>
+                    <Edit2 className="h-4 w-4" />
+                  </Link>
                 </Button>
               </TableCell>
               <TableCell className="w-0 px-2">
