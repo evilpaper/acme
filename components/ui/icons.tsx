@@ -5,6 +5,7 @@ import {
   CircleDotDashed,
   Inbox,
   Users,
+  Check,
 } from 'lucide-react';
 
 export const Icons = {
@@ -14,4 +15,5 @@ export const Icons = {
   pending: CircleDotDashed,
   inbox: Inbox,
   customers: Users,
+  check: Check,
 };
