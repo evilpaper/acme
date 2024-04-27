@@ -44,14 +44,14 @@ export default function Page() {
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <svg
               height="48"
-              stroke-linejoin="round"
+              strokeLinejoin="round"
               viewBox="0 0 16 16"
               width="48"
               aria-label="Vercel logo"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M8 1L16 15H0L8 1Z"
                 fill="currentColor"
               ></path>
