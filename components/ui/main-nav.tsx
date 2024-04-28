@@ -9,9 +9,9 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 const links = [
-  { name: 'Home', href: '/home', icon: '' },
-  { name: 'Customers', href: '/home/customers', icon: '' },
-  { name: 'Invoices', href: '/home/invoices', icon: '' },
+  { name: 'Dashboard', href: '/dashboard', icon: '' },
+  { name: 'Customers', href: '/dashboard/customers', icon: '' },
+  { name: 'Invoices', href: '/dashboard/invoices', icon: '' },
 ];
 
 export function MainNav({ children }: { children: React.ReactElement }) {
@@ -24,7 +24,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
       <nav className="hidden items-center justify-between gap-6 md:flex">
         <section className="items-center justify-between gap-6 md:flex">
           <Link
-            href="/home"
+            href="/dashboard"
             className="mr-4 hidden items-center space-x-2 md:flex"
           >
             <Image
@@ -66,7 +66,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
         >
           <span className="font-bold">Menu</span>
         </button>
-        <Link href="/home" className="md:hidden">
+        <Link href="/dashboard" className="md:hidden">
           <Image
             priority
             src={logo}
