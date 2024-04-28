@@ -46,17 +46,6 @@ export default function Page({ children }: { children: React.ReactNode }) {
             >
               Pricing
             </Link>
-            <Link
-              href="/documentation"
-              className={cn(
-                'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
-                `/${segment}` === '/documentation'
-                  ? 'text-foreground'
-                  : 'text-foreground/60',
-              )}
-            >
-              Documentation
-            </Link>
           </section>
         </nav>
         <nav>
@@ -67,7 +56,6 @@ export default function Page({ children }: { children: React.ReactNode }) {
           </Button>
         </nav>
       </section>
-
       {children}
       <footer className="container flex flex-col items-center justify-between p-6">
         <p className="text-center text-sm">
