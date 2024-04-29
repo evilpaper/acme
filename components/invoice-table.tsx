@@ -56,7 +56,7 @@ export default async function InvoiceTable({
               <TableCell>{invoice.status}</TableCell>
               <TableCell className="w-0  px-2">
                 <Button variant="outline" size="icon" asChild>
-                  <Link href={`/home/invoices/${invoice.id}/edit`}>
+                  <Link href={`/dashboard/invoices/${invoice.id}/edit`}>
                     <Edit2 className="h-4 w-4" />
                   </Link>
                 </Button>
