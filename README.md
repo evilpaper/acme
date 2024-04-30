@@ -1,6 +1,6 @@
 # ACME
 
-An open source application built using the new router, server components and everything new in Next.js.
+An open source application built using the app router, server components and all goodies in Next.js.
 
 > **Warning**
 > This app is a work in progress. I'm building this in public.
@@ -8,13 +8,13 @@ An open source application built using the new router, server components and eve
 
 ## About this project
 
-This project as an experiment to see how a modern app (with features like authentication, subscriptions, API routes, static pages for docs ...etc) would work in Next.js 13 and server components.
+This project as an experiment to see how a modern app (with features like authentication, subscriptions, API routes, static pages for docs ...etc) would work in Next.js and server components. Heavenly inspired by shadcn's Taxonomy. You call also call it i rip off. Anyway, I fins it to be a good way to test out new technologies, practice concepts etc.
 
 ## Features
 
-- New `/app` dir,
+- `/app` dir,
 - Routing, Layouts, Nested Layouts and Layout Groups
-- Data Fetching, Caching and Mutation
+- Data Fetching, caching and mutation
 - Loading UI
 - Route handlers
 - Metadata files
@@ -23,7 +23,6 @@ This project as an experiment to see how a modern app (with features like authen
 - Authentication using **NextAuth.js**
 - Database on **Vercel Postgres**
 - UI Components built using **shadnc/ui**
-- Documentation and blog using **MDX**
 - Subscriptions using **Stripe**
 - Styled using **Tailwind CSS**
 - Validations using **Zod**
