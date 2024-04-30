@@ -39,6 +39,12 @@ export default function EditInvoice({
 }) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
+
+  const client = customers.find(
+    (customer) => customer.id === invoice.customer_id,
+  );
+  const name = client?.name || 'Customer';
+
   return (
     <form action={dispatch}>
       <Card className="mx-auto w-[396px]">
@@ -48,18 +54,13 @@ export default function EditInvoice({
           >
             Edit invoice
           </CardTitle>
-          <CardDescription
-            className={`text-lg text-muted-foreground ${fraunces.className}`}
-          >
-            {`Invoice id ${invoice.id}`}
-          </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-6">
           <div className="grid gap-2">
-            <Label htmlFor="customer">Choose customer</Label>
+            <Label htmlFor="customer">Customer</Label>
             <Select required name="customerId">
               <SelectTrigger id="customer">
-                <SelectValue placeholder="Customer" />
+                <SelectValue placeholder={name} />
               </SelectTrigger>
               <SelectContent>
                 {customers.map((customer) => {
@@ -121,16 +122,16 @@ export default function EditInvoice({
           </div>
         </CardContent>
         <CardFooter className="flex justify-between ">
-          <div aria-live="polite" aria-atomic="true">
-            {state.message ? (
-              <p className="mt-2 text-sm text-red-500">{state.message}</p>
-            ) : null}
-          </div>
           <Button variant="outline" asChild>
             <Link href="/home/invoices">Cancel</Link>
           </Button>
-          <Button>Save changes invoice</Button>
+          <Button>Save</Button>
         </CardFooter>
+        <div aria-live="polite" aria-atomic="true">
+          {state.message ? (
+            <p className="mt-2 text-sm text-red-500">{state.message}</p>
+          ) : null}
+        </div>
       </Card>
     </form>
   );
