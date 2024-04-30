@@ -1,10 +1,10 @@
 'use client';
 
+import { updateInvoice } from '@/app/lib/actions';
 import { CustomerField } from '@/app/lib/definitions';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -24,9 +24,11 @@ import Link from 'next/link';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { createInvoice } from '@/app/lib/actions';
 import { useFormState } from 'react-dom';
+import React from 'react';
 
 export default function EditInvoice({
   invoice,
+  client,
   customers,
 }: {
   invoice: {
@@ -35,18 +37,20 @@ export default function EditInvoice({
     customer_id: string;
     status: 'pending' | 'paid';
   };
+  client?: CustomerField;
   customers: CustomerField[];
 }) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
-
-  const client = customers.find(
-    (customer) => customer.id === invoice.customer_id,
+  // Make the form controlled so we can pass down the current values.
+  const [selectedCustomer, setSelectedCustomer] = React.useState(
+    client ? client.name : '',
   );
-  const name = client?.name || 'Customer';
+  const [selectedAmount, setSelectedAmount] = React.useState(invoice.amount);
+  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
 
   return (
-    <form action={dispatch}>
+    <form action={updateInvoiceWithId}>
       <Card className="mx-auto w-[396px]">
         <CardHeader>
           <CardTitle
@@ -58,14 +62,21 @@ export default function EditInvoice({
         <CardContent className="grid gap-6">
           <div className="grid gap-2">
             <Label htmlFor="customer">Customer</Label>
-            <Select required name="customerId">
+            <Select
+              required
+              name="customerId"
+              value={selectedCustomer}
+              onValueChange={setSelectedCustomer}
+            >
               <SelectTrigger id="customer">
-                <SelectValue placeholder={name} />
+                <SelectValue placeholder={selectedCustomer}>
+                  {selectedCustomer}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
                 {customers.map((customer) => {
                   return (
-                    <SelectItem key={customer.id} value={customer.id}>
+                    <SelectItem key={customer.id} value={customer.name}>
                       {customer.name}
                     </SelectItem>
                   );
@@ -82,13 +93,13 @@ export default function EditInvoice({
             </div>
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="amount">Choose an amount</Label>
+            <Label htmlFor="amount">Amount</Label>
             <Input
               name="amount"
               id="amount"
-              placeholder="Enter USD amount"
               type="number"
               required
+              defaultValue={selectedAmount}
             />
             <div id="amount-error" aria-live="polite" aria-atomic="true">
               {state.errors?.amount &&
@@ -100,8 +111,8 @@ export default function EditInvoice({
             </div>
           </div>
           <div className="grid gap-2">
-            <Label>Set the invoice status</Label>
-            <RadioGroup defaultValue="pending" name="status">
+            <Label>Invoice status</Label>
+            <RadioGroup defaultValue={`${invoice.status}`} name="status">
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="pending" id="pending" />
                 <Label htmlFor="pending">Pending</Label>
@@ -123,7 +134,7 @@ export default function EditInvoice({
         </CardContent>
         <CardFooter className="flex justify-between ">
           <Button variant="outline" asChild>
-            <Link href="/home/invoices">Cancel</Link>
+            <Link href="/dashboard/invoices">Cancel</Link>
           </Button>
           <Button>Save</Button>
         </CardFooter>

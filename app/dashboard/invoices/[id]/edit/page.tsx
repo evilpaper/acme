@@ -7,5 +7,10 @@ export default async function Page({ params }: { params: { id: string } }) {
     fetchInvoiceById(id),
     fetchCustomers(),
   ]);
-  return <EditInvoice invoice={invoice} customers={customers} />;
+  const client = customers.find(
+    (customer) => customer.id === invoice.customer_id,
+  );
+  return (
+    <EditInvoice invoice={invoice} client={client} customers={customers} />
+  );
 }

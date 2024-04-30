@@ -115,7 +115,7 @@ export default function CreateInvoice({
         </CardContent>
         <CardFooter className="flex justify-between ">
           <Button variant="outline" asChild>
-            <Link href="/home/invoices">Cancel</Link>
+            <Link href="/dashboard/invoices">Cancel</Link>
           </Button>
           <Button>Create invoice</Button>
         </CardFooter>
