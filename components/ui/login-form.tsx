@@ -35,7 +35,7 @@ export default function LoginForm() {
           <Tabs defaultValue="email">
             <TabsList>
               <TabsTrigger value="email">Email and password</TabsTrigger>
-              <TabsTrigger value="bankid">Mobilt BankID</TabsTrigger>
+              <TabsTrigger value="bankid">Swedish BankID</TabsTrigger>
             </TabsList>
             <TabsContent value="email">
               <section className="mt-4 grid items-center gap-4 text-center">
@@ -64,7 +64,7 @@ export default function LoginForm() {
               </section>
             </TabsContent>
             <TabsContent value="bankid" className="grid items-center gap-8 p-8">
-              <p className={'text-sm'}>Waiting for BankID</p>
+              <p className={'text-sm'}>...coming soon</p>
               <Button>Open BankID on this device</Button>
             </TabsContent>
           </Tabs>

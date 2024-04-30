@@ -57,7 +57,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         </nav>
       </section>
       {children}
-      <footer className="container flex flex-col items-center justify-between p-6">
+      <footer className="container mt-auto flex flex-col items-center justify-between p-6">
         <p className="text-center text-sm">
           Built by{' '}
           <a
