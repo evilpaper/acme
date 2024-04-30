@@ -114,16 +114,16 @@ export default function CreateInvoice({
           </div>
         </CardContent>
         <CardFooter className="flex justify-between ">
-          <div aria-live="polite" aria-atomic="true">
-            {state.message ? (
-              <p className="mt-2 text-sm text-red-500">{state.message}</p>
-            ) : null}
-          </div>
           <Button variant="outline" asChild>
             <Link href="/home/invoices">Cancel</Link>
           </Button>
           <Button>Create invoice</Button>
         </CardFooter>
+        <div aria-live="polite" aria-atomic="true">
+          {state.message ? (
+            <p className="mt-2 text-sm text-red-500">{state.message}</p>
+          ) : null}
+        </div>
       </Card>
     </form>
   );
