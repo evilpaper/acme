@@ -40,13 +40,6 @@ export default function EditInvoice({
   client?: CustomerField;
   customers: CustomerField[];
 }) {
-  const initialState = { message: null, errors: {} };
-  const [state, dispatch] = useFormState(createInvoice, initialState);
-  // Make the form controlled so we can pass down the current values.
-  const [selectedCustomer, setSelectedCustomer] = React.useState(
-    client ? client.name : '',
-  );
-  const [selectedAmount, setSelectedAmount] = React.useState(invoice.amount);
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
 
   return (
@@ -65,32 +58,21 @@ export default function EditInvoice({
             <Select
               required
               name="customerId"
-              value={selectedCustomer}
-              onValueChange={setSelectedCustomer}
+              defaultValue={client ? client.id : 'Customer'}
             >
               <SelectTrigger id="customer">
-                <SelectValue placeholder={selectedCustomer}>
-                  {selectedCustomer}
-                </SelectValue>
+                <SelectValue placeholder={client ? client.name : 'Customer'} />
               </SelectTrigger>
               <SelectContent>
                 {customers.map((customer) => {
                   return (
-                    <SelectItem key={customer.id} value={customer.name}>
+                    <SelectItem key={customer.id} value={customer.id}>
                       {customer.name}
                     </SelectItem>
                   );
                 })}
               </SelectContent>
             </Select>
-            <div id="customer-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.customerId &&
-                state.errors.customerId.map((error: string) => (
-                  <p className="mt-2 text-sm text-red-500" key={error}>
-                    {error}
-                  </p>
-                ))}
-            </div>
           </div>
           <div className="grid gap-2">
             <Label htmlFor="amount">Amount</Label>
@@ -99,16 +81,8 @@ export default function EditInvoice({
               id="amount"
               type="number"
               required
-              defaultValue={selectedAmount}
+              defaultValue={invoice.amount}
             />
-            <div id="amount-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.amount &&
-                state.errors.amount.map((error: string) => (
-                  <p className="mt-2 text-sm text-red-500" key={error}>
-                    {error}
-                  </p>
-                ))}
-            </div>
           </div>
           <div className="grid gap-2">
             <Label>Invoice status</Label>
@@ -122,27 +96,14 @@ export default function EditInvoice({
                 <Label htmlFor="paid">Paid</Label>
               </div>
             </RadioGroup>
-            <div id="status-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.status &&
-                state.errors.status.map((error: string) => (
-                  <p className="mt-2 text-sm text-red-500" key={error}>
-                    {error}
-                  </p>
-                ))}
-            </div>
           </div>
         </CardContent>
         <CardFooter className="flex justify-between ">
           <Button variant="outline" asChild>
             <Link href="/dashboard/invoices">Cancel</Link>
           </Button>
-          <Button>Save</Button>
+          <Button type="submit">Save</Button>
         </CardFooter>
-        <div aria-live="polite" aria-atomic="true">
-          {state.message ? (
-            <p className="mt-2 text-sm text-red-500">{state.message}</p>
-          ) : null}
-        </div>
       </Card>
     </form>
   );
