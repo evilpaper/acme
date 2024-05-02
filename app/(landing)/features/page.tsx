@@ -11,7 +11,7 @@ export default function Page() {
         </h2>
         <p className="align-center max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
           This project is an experiment to see how a modern app, with features
-          like auth, subscriptions, API routes, and static pages would work in
+          like auth, subscriptions, API routes, and static pages would work in a
           Next.js app.
         </p>
       </div>
@@ -59,7 +59,7 @@ export default function Page() {
             <div className="space-y-2">
               <h3 className="font-bold">Database</h3>
               <p className="text-sm text-muted-foreground">
-                Vercel Postgres deployed on Vercel
+                Vercel Postgres: Scalable SQL for the web, deployed on Vercel.
               </p>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function Page() {
             <div className="space-y-2">
               <h3 className="font-bold">Authentication</h3>
               <p className="text-sm text-muted-foreground">
-                Authentication using NextAuth.js and middlewares.
+                Authentication using Auth.js and middlewares.
               </p>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function Page() {
             <div className="space-y-2">
               <h3 className="font-bold">Subscriptions</h3>
               <p className="text-sm text-muted-foreground">
-                Free and paid subscriptions using Stripe.
+                Free and paid subscriptions using Stripe. Coming soon...
               </p>
             </div>
           </div>
