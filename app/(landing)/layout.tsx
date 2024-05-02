@@ -2,11 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { fraunces } from '@/app/ui/fonts';
 import { Button } from '@/components/ui/button';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { AlignJustify } from 'lucide-react';
 
 export default function Page({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment();
@@ -14,7 +14,10 @@ export default function Page({ children }: { children: React.ReactNode }) {
   return (
     <main className="container flex min-h-screen flex-col">
       <section className="flex justify-between py-6">
-        <nav className="gap-6 md:flex">
+        <nav className="flex items-center gap-6">
+          <section className="md:hidden">
+            <AlignJustify />
+          </section>
           <Link href="/">
             <Image
               priority

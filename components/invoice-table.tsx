@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/table';
 import Image from 'next/image';
 import { Button } from './ui/button';
-import { Edit2, Trash2 } from 'lucide-react';
+import { Edit2 } from 'lucide-react';
 import DeleteInvoice from './delete-invoice-button';
 import Link from 'next/link';
 
