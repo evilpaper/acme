@@ -7,6 +7,7 @@ import logo from '../../public/images/logo-black-lemon.svg';
 import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { AlignJustify } from 'lucide-react';
 
 const links = [
   { name: 'Dashboard', href: '/dashboard', icon: '' },
@@ -64,7 +65,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
           className="space-x-2 md:hidden"
           onClick={() => setShowMobileMenu(!showMobileMenu)}
         >
-          <span className="font-bold">Menu</span>
+          <AlignJustify />
         </button>
         <Link href="/dashboard" className="md:hidden">
           <Image
