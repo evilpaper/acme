@@ -29,9 +29,9 @@ export default async function Page({
       <section className="flex gap-6">
         <Search />
         <Button asChild>
-          <Link href="/dashboard/invoices/create" className="font-bold">
+          <Link href="/dashboard/invoices/create">
             <Plus className="mr-2 h-4 w-4" />
-            Add invoice
+            <span className="font-bold">Add invoice</span>
           </Link>
         </Button>
       </section>
