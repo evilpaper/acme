@@ -3,7 +3,6 @@ import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -11,7 +10,7 @@ import {
 } from '@/components/ui/table';
 import Image from 'next/image';
 import { Button } from './ui/button';
-import { Edit2 } from 'lucide-react';
+import { Icons } from './ui/icons';
 import DeleteInvoice from './delete-invoice-button';
 import Link from 'next/link';
 
@@ -57,7 +56,7 @@ export default async function InvoiceTable({
               <TableCell className="w-0  px-2">
                 <Button variant="outline" size="icon" asChild>
                   <Link href={`/dashboard/invoices/${invoice.id}/edit`}>
-                    <Edit2 className="h-4 w-4" />
+                    <Icons.pen className="h-4 w-4" />
                   </Link>
                 </Button>
               </TableCell>

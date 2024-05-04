@@ -6,6 +6,7 @@ import {
   Inbox,
   Users,
   Check,
+  Edit2,
 } from 'lucide-react';
 
 export const Icons = {
@@ -16,4 +17,5 @@ export const Icons = {
   inbox: Inbox,
   customers: Users,
   check: Check,
+  pen: Edit2,
 };
