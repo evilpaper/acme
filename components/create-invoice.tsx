@@ -23,7 +23,8 @@ import { fraunces } from '@/app/ui/fonts';
 import Link from 'next/link';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { createInvoice } from '@/app/lib/actions';
-import { useFormState } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
+import { Icons } from './ui/icons';
 
 export default function CreateInvoice({
   customers,
@@ -32,6 +33,7 @@ export default function CreateInvoice({
 }) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
+
   return (
     <form action={dispatch}>
       <Card className="mx-auto w-[396px]">
@@ -117,7 +119,7 @@ export default function CreateInvoice({
           <Button variant="outline" asChild>
             <Link href="/dashboard/invoices">Cancel</Link>
           </Button>
-          <Button>Create invoice</Button>
+          <CreateButton />
         </CardFooter>
         <div aria-live="polite" aria-atomic="true">
           {state.message ? (
@@ -126,5 +128,15 @@ export default function CreateInvoice({
         </div>
       </Card>
     </form>
+  );
+}
+
+function CreateButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button>
+      {pending && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
+      Create invoice
+    </Button>
   );
 }
