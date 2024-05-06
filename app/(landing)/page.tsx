@@ -16,7 +16,7 @@ export default function Page() {
         <div className="flex flex-wrap gap-6">
           <Button asChild>
             <Link href="/login" className="h-11 rounded-md px-8">
-              <span className="font-bold">Login</span>
+              <span>Login</span>
             </Link>
           </Button>
           <Button asChild variant="outline">
