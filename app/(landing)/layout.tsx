@@ -73,7 +73,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
           </a>{' '}
           Hosted on{' '}
           <a
-            href="https://vercel.com/login"
+            href="https://vercel.com"
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
