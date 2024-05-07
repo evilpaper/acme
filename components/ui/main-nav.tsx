@@ -8,6 +8,15 @@ import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { AlignJustify } from 'lucide-react';
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from '@/components/ui/menubar';
 
 const links = [
   { name: 'Dashboard', href: '/dashboard', icon: '' },
@@ -61,12 +70,28 @@ export function MainNav({ children }: { children: React.ReactElement }) {
         </section>
       </nav>
       <nav className="flex items-center justify-between md:hidden">
-        <button
-          className="space-x-2 md:hidden"
-          onClick={() => setShowMobileMenu(!showMobileMenu)}
-        >
-          <AlignJustify />
-        </button>
+        <Menubar className="md:hidden">
+          <MenubarMenu>
+            <MenubarTrigger>
+              <button
+                className="space-x-2 md:hidden"
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+              >
+                <AlignJustify />
+              </button>
+            </MenubarTrigger>
+            <MenubarContent>
+              <MenubarItem>
+                New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+              </MenubarItem>
+              <MenubarItem>New Window</MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem>Share</MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem>Print</MenubarItem>
+            </MenubarContent>
+          </MenubarMenu>
+        </Menubar>
         <Link href="/dashboard" className="md:hidden">
           <Image
             priority
