@@ -23,7 +23,7 @@ export default async function InvoiceTable({
 }) {
   const invoices = await fetchFilteredInvoices(query, currentPage);
   return (
-    <Table>
+    <Table className="hidden md:table">
       <TableHeader>
         <TableRow>
           <TableHead>Customer</TableHead>
