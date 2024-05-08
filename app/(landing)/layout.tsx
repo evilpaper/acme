@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -7,16 +8,66 @@ import logo from '../../public/images/logo-black-lemon.svg';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { AlignJustify } from 'lucide-react';
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from '@/components/ui/menubar';
 
 export default function Page({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment();
+  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
   return (
-    <main className="container flex min-h-screen flex-col">
+    <main className="container flex min-h-screen flex-col px-6">
       <section className="flex justify-between py-6">
         <nav className="flex items-center gap-6">
           <section className="md:hidden">
-            <AlignJustify />
+            <Menubar className="md:hidden">
+              <MenubarMenu>
+                <MenubarTrigger>
+                  <button
+                    className="space-x-2 md:hidden"
+                    onClick={() => setShowMobileMenu(!showMobileMenu)}
+                  >
+                    <AlignJustify />
+                  </button>
+                </MenubarTrigger>
+                <MenubarContent>
+                  <MenubarItem>
+                    <Link
+                      href="/features"
+                      className={cn(
+                        'flex items-center font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                        `/${segment}` === '/features'
+                          ? 'text-foreground'
+                          : 'text-foreground/60',
+                      )}
+                    >
+                      Features
+                    </Link>
+                  </MenubarItem>
+                  <MenubarSeparator />
+                  <MenubarItem>
+                    <Link
+                      href="/pricing"
+                      className={cn(
+                        'flex items-center font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                        `/${segment}` === '/pricing'
+                          ? 'text-foreground'
+                          : 'text-foreground/60',
+                      )}
+                    >
+                      Pricing
+                    </Link>
+                  </MenubarItem>
+                </MenubarContent>
+              </MenubarMenu>
+            </Menubar>
           </section>
           <Link href="/">
             <Image

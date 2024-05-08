@@ -2,7 +2,7 @@ import { fraunces } from '@/app/ui/fonts';
 
 export default function Page() {
   return (
-    <section className="container flex flex-col  gap-6 md:max-w-[64rem] md:py-12">
+    <section className="container flex flex-col  gap-6 px-0 md:max-w-[64rem] md:py-12">
       <div className="mx-auto flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2
           className={`align-center max-w-screen-md text-4xl font-bold leading-tight tracking-tighter md:text-6xl ${fraunces.className}`}
