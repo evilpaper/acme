@@ -38,7 +38,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                         'flex items-center font-medium transition-colors hover:text-foreground/80 sm:text-sm',
                         `/${segment}` === '/features'
                           ? 'text-foreground'
-                          : 'text-foreground/60',
+                          : 'text-muted-foreground',
                       )}
                     >
                       Features
@@ -52,7 +52,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                         'flex items-center font-medium transition-colors hover:text-foreground/80 sm:text-sm',
                         `/${segment}` === '/pricing'
                           ? 'text-foreground'
-                          : 'text-foreground/60',
+                          : 'text-muted-foreground',
                       )}
                     >
                       Pricing
@@ -74,10 +74,10 @@ export default function Page({ children }: { children: React.ReactNode }) {
             <Link
               href="/features"
               className={cn(
-                'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                'flex items-center text-lg font-bold transition-colors hover:text-foreground/80',
                 `/${segment}` === '/features'
                   ? 'text-foreground'
-                  : 'text-foreground/60',
+                  : 'text-foreground/40',
               )}
             >
               Features
@@ -85,10 +85,10 @@ export default function Page({ children }: { children: React.ReactNode }) {
             <Link
               href="/pricing"
               className={cn(
-                'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                'flex items-center text-lg font-bold transition-colors hover:text-foreground/80',
                 `/${segment}` === '/pricing'
                   ? 'text-foreground'
-                  : 'text-foreground/60',
+                  : 'text-foreground/40',
               )}
             >
               Pricing
@@ -96,10 +96,8 @@ export default function Page({ children }: { children: React.ReactNode }) {
           </section>
         </nav>
         <nav>
-          <Button asChild>
-            <Link href="/login">
-              <span>Login</span>
-            </Link>
+          <Button asChild className="text-md font-bold">
+            <Link href="/login">Login</Link>
           </Button>
         </nav>
       </section>
