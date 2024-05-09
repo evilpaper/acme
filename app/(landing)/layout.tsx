@@ -29,13 +29,10 @@ export default function Page({ children }: { children: React.ReactNode }) {
           <section className="md:hidden">
             <Menubar className="md:hidden">
               <MenubarMenu>
-                <MenubarTrigger>
-                  <button
-                    className="space-x-2 md:hidden"
-                    onClick={() => setShowMobileMenu(!showMobileMenu)}
-                  >
-                    <AlignJustify />
-                  </button>
+                <MenubarTrigger
+                  onClick={() => setShowMobileMenu(!showMobileMenu)}
+                >
+                  <AlignJustify />
                 </MenubarTrigger>
                 <MenubarContent>
                   <MenubarItem>
