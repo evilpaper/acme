@@ -14,13 +14,11 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
 } from '@/components/ui/menubar';
 
 export default function Page({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment();
-  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
   return (
     <main className="container flex min-h-screen flex-col px-6">
@@ -29,9 +27,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
           <section className="md:hidden">
             <Menubar className="md:hidden">
               <MenubarMenu>
-                <MenubarTrigger
-                  onClick={() => setShowMobileMenu(!showMobileMenu)}
-                >
+                <MenubarTrigger>
                   <AlignJustify />
                 </MenubarTrigger>
                 <MenubarContent>

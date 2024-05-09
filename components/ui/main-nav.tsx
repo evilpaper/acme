@@ -13,8 +13,6 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
 } from '@/components/ui/menubar';
 
@@ -25,7 +23,6 @@ const links = [
 ];
 
 export function MainNav({ children }: { children: React.ReactElement }) {
-  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
   const pathname = usePathname();
   const page = pathname?.split('/').pop();
 
@@ -72,18 +69,28 @@ export function MainNav({ children }: { children: React.ReactElement }) {
       <nav className="flex items-center justify-between md:hidden">
         <Menubar className="md:hidden">
           <MenubarMenu>
-            <MenubarTrigger onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <MenubarTrigger>
               <AlignJustify />
             </MenubarTrigger>
             <MenubarContent>
-              <MenubarItem>
-                New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-              </MenubarItem>
-              <MenubarItem>New Window</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Share</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Print</MenubarItem>
+              {links.map(({ name, href }) => {
+                return (
+                  <MenubarItem key={href}>
+                    <Link
+                      key={name}
+                      href={href}
+                      className={cn(
+                        'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                        `/${page}` === `/${name.toLowerCase()}`
+                          ? 'text-foreground'
+                          : 'text-foreground/60',
+                      )}
+                    >
+                      {name}
+                    </Link>
+                  </MenubarItem>
+                );
+              })}
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
