@@ -27,6 +27,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </MainNav>
       </header>
       <div className="container grid flex-1 gap-12">{children}</div>
+      <form
+        className="flex items-center justify-center p-2 md:hidden"
+        action={async () => {
+          'use server';
+          await signOut();
+        }}
+      >
+        <Button variant="outline">
+          <span>Sign out</span>
+        </Button>
+      </form>
     </div>
   );
 }
