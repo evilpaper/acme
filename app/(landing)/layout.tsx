@@ -24,44 +24,6 @@ export default function Page({ children }: { children: React.ReactNode }) {
     <main className="container flex min-h-screen flex-col px-6">
       <section className="flex justify-between py-6">
         <nav className="flex items-center gap-6">
-          <section className="md:hidden">
-            <Menubar className="md:hidden">
-              <MenubarMenu>
-                <MenubarTrigger>
-                  <AlignJustify />
-                </MenubarTrigger>
-                <MenubarContent>
-                  <MenubarItem>
-                    <Link
-                      href="/features"
-                      className={cn(
-                        'flex items-center font-medium transition-colors hover:text-foreground/80 sm:text-sm',
-                        `/${segment}` === '/features'
-                          ? 'text-foreground'
-                          : 'text-muted-foreground',
-                      )}
-                    >
-                      Features
-                    </Link>
-                  </MenubarItem>
-                  <MenubarSeparator />
-                  <MenubarItem>
-                    <Link
-                      href="/pricing"
-                      className={cn(
-                        'flex items-center font-medium transition-colors hover:text-foreground/80 sm:text-sm',
-                        `/${segment}` === '/pricing'
-                          ? 'text-foreground'
-                          : 'text-muted-foreground',
-                      )}
-                    >
-                      Pricing
-                    </Link>
-                  </MenubarItem>
-                </MenubarContent>
-              </MenubarMenu>
-            </Menubar>
-          </section>
           <Link href="/">
             <Image
               priority
@@ -132,6 +94,30 @@ export default function Page({ children }: { children: React.ReactNode }) {
             GitHub.
           </a>
         </p>
+        <section className="md:hidden">
+          <Link
+            href="/features"
+            className={cn(
+              'mt-4 flex items-center px-4 py-2 text-sm transition-colors hover:text-foreground/80',
+              `/${segment}` === '/features'
+                ? 'text-foreground'
+                : 'text-foreground/40',
+            )}
+          >
+            Features
+          </Link>
+          <Link
+            href="/pricing"
+            className={cn(
+              'flex items-center px-4 py-2 text-sm transition-colors hover:text-foreground/80',
+              `/${segment}` === '/pricing'
+                ? 'text-foreground'
+                : 'text-foreground/40',
+            )}
+          >
+            Pricing
+          </Link>
+        </section>
       </footer>
     </main>
   );
