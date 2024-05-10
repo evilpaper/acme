@@ -32,7 +32,7 @@ export default function HomePage() {
                 <Overview />
               </CardContent>
             </Card> */}
-            <Card className="col-span-3">
+            <Card className="col-span-3 hidden md:block">
               <CardHeader>
                 <CardTitle className="mb-4 text-lg">Latest Invoices</CardTitle>
               </CardHeader>
