@@ -1,7 +1,6 @@
 import { fraunces } from '../ui/fonts';
 import { BigNumbers } from '@/components/big-numbers';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Overview } from '@/components/overview';
 import { LatestInvoices } from '@/components/latest-invoices';
 
 export default function HomePage() {
