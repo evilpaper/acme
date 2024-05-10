@@ -58,7 +58,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
           </section>
         </nav>
         <nav>
-          <Button asChild className="text-md font-bold">
+          <Button asChild>
             <Link href="/login">Login</Link>
           </Button>
         </nav>
