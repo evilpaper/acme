@@ -36,10 +36,10 @@ export default function Page({ children }: { children: React.ReactNode }) {
             <Link
               href="/features"
               className={cn(
-                'flex items-center text-lg font-bold transition-colors hover:text-foreground/80',
+                'flex items-center p-2 text-lg font-bold transition-colors hover:text-foreground/80',
                 `/${segment}` === '/features'
-                  ? 'text-foreground'
-                  : 'text-foreground/40',
+                  ? 'border-b border-black text-foreground'
+                  : 'text-foreground/80',
               )}
             >
               Features
@@ -47,10 +47,10 @@ export default function Page({ children }: { children: React.ReactNode }) {
             <Link
               href="/pricing"
               className={cn(
-                'flex items-center text-lg font-bold transition-colors hover:text-foreground/80',
+                'flex items-center p-2 text-lg font-bold transition-colors hover:text-foreground/80',
                 `/${segment}` === '/pricing'
-                  ? 'text-foreground'
-                  : 'text-foreground/40',
+                  ? 'border-b border-black text-foreground'
+                  : 'text-foreground/80',
               )}
             >
               Pricing
@@ -101,7 +101,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
               'mt-4 flex items-center justify-center px-4 py-2 text-center text-sm transition-colors hover:text-foreground/80',
               `/${segment}` === '/features'
                 ? 'text-foreground'
-                : 'text-foreground/40',
+                : 'text-foreground/80',
             )}
           >
             Features
@@ -112,7 +112,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
               'flex items-center justify-center px-4 py-2 text-center text-sm transition-colors hover:text-foreground/80',
               `/${segment}` === '/pricing'
                 ? 'text-foreground'
-                : 'text-foreground/40',
+                : 'text-foreground/80',
             )}
           >
             Pricing
