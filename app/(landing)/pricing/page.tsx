@@ -14,11 +14,11 @@ export default function Page() {
     <section className="container flex flex-col gap-6 px-0 md:max-w-[64rem] md:py-12 ">
       <div className="mx-auto flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2
-          className={`max-w-screen-md text-4xl font-bold leading-tight tracking-tighter md:text-6xl ${fraunces.className}`}
+          className={`align-center mt-8 max-w-screen-md text-5xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >
           Simple, transparent pricing
         </h2>
-        <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+        <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
           Unlock all features including unlimited invoices for your business.
         </p>
       </div>
@@ -62,7 +62,7 @@ export default function Page() {
         </div>
       </div>
       <div className="mx-auto flex w-full max-w-[58rem] flex-col gap-4">
-        <p className="max-w-[85%] leading-normal text-muted-foreground sm:leading-7">
+        <p className="text-center leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%] md:text-start">
           ACME is a demo app.{' '}
           <strong>You can test the upgrade and won&apos;t be charged.</strong>
         </p>

@@ -2,19 +2,19 @@ import { fraunces } from '@/app/ui/fonts';
 
 export default function Page() {
   return (
-    <section className="container flex flex-col  gap-6 px-0 md:max-w-[64rem] md:py-12">
-      <div className="mx-auto flex w-full flex-col gap-4 md:max-w-[58rem]">
+    <section className="container flex flex-col  gap-10 px-0 md:max-w-[64rem] md:py-12">
+      <article className="mx-auto flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2
-          className={`align-center max-w-screen-md text-4xl font-bold leading-tight tracking-tighter md:text-6xl ${fraunces.className}`}
+          className={`align-center mt-8 max-w-screen-md text-5xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >
           Features
         </h2>
-        <p className="align-center max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+        <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
           This project is an experiment to see how a modern app, with features
           like auth, subscriptions, API routes, and static pages would work in a
           Next.js app.
         </p>
-      </div>
+      </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
         <div className="relative overflow-hidden rounded-lg border bg-background p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
