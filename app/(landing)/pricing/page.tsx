@@ -62,8 +62,8 @@ export default function Page() {
         </div>
       </div>
       <div className="mx-auto flex w-full max-w-[58rem] flex-col gap-4">
-        <p className="text-center leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%] md:text-start">
-          ACME is a demo app.{' '}
+        <p className="text-center leading-normal text-foreground sm:leading-7">
+          ACME is a demo app. <br className="md:hidden" />
           <strong>You can test the upgrade and won&apos;t be charged.</strong>
         </p>
       </div>
