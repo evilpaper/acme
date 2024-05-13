@@ -27,7 +27,7 @@ export default function Page() {
           <h3 className="text-xl font-bold sm:text-2xl">
             What&apos;s included in the PRO plan
           </h3>
-          <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
+          <ul className="grid gap-3 text-muted-foreground sm:grid-cols-2">
             <li className="flex items-center">
               <Icons.check className="mr-2 h-4 w-4" /> Unlimited Invoices
             </li>
@@ -52,9 +52,7 @@ export default function Page() {
         <div className="flex flex-col gap-4 text-center">
           <div>
             <h4 className={`text-7xl font-bold ${fraunces.className}`}>$19</h4>
-            <p className="text-sm font-medium text-muted-foreground">
-              Billed Monthly
-            </p>
+            <p className="font-medium text-muted-foreground">Billed Monthly</p>
           </div>
           <Link href="/login" className={cn(buttonVariants({ size: 'lg' }))}>
             Get Started
