@@ -9,6 +9,7 @@ import logo from '../../public/images/logo-black-lemon.svg';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Icons } from './icons';
 
 export default function SignupForm() {
   /**
@@ -36,12 +37,12 @@ export default function SignupForm() {
             />
           </Link>
           <h1
-            className={`text-4xl font-bold leading-tight tracking-tight ${fraunces.className}`}
+            className={`text-5xl font-bold leading-tight tracking-tight ${fraunces.className}`}
           >
             Welcome
           </h1>
-          <p className={'text'}>
-            Enter email and password to create your account.
+          <p>
+            Enter email and password <br /> to create your account.
           </p>
         </div>
         <div className="grid gap-2">
@@ -66,8 +67,9 @@ export default function SignupForm() {
             required
             minLength={6}
           />
+          <SignupButton />
         </div>
-        <SignupButton />
+
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -75,7 +77,7 @@ export default function SignupForm() {
         >
           {errorMessage && (
             <>
-              <p className="text-sm text-red-500">{errorMessage}</p>
+              <p className="text-red-500">{errorMessage}</p>
             </>
           )}
         </div>
@@ -87,8 +89,8 @@ export default function SignupForm() {
 function SignupButton() {
   const { pending } = useFormStatus();
   return (
-    <Button aria-disabled={pending}>
-      {pending && <span>Checking... </span>}
+    <Button aria-disabled={pending} className="mt-4">
+      {pending && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
       Sign up with email
     </Button>
   );

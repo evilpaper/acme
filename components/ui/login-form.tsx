@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { fraunces } from '@/app/ui/fonts';
 import { Icons } from '@/components/ui/icons';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -27,9 +26,7 @@ export default function LoginForm() {
               height="48"
             />
           </Link>
-          <h1
-            className={`text-4xl font-bold leading-tight tracking-tight ${fraunces.className}`}
-          >
+          <h1 className="text-5xl font-bold leading-tight tracking-tight">
             Welcome back
           </h1>
           <Tabs defaultValue="email">
@@ -64,8 +61,7 @@ export default function LoginForm() {
               </section>
             </TabsContent>
             <TabsContent value="bankid" className="grid items-center gap-8 p-8">
-              <p className={'text-sm'}>...coming soon</p>
-              <Button>Open BankID on this device</Button>
+              <p>...coming soon</p>
             </TabsContent>
           </Tabs>
         </div>
@@ -77,7 +73,7 @@ export default function LoginForm() {
         >
           {errorMessage && (
             <>
-              <p className="text-sm text-red-500">{errorMessage}</p>
+              <p className="text-red-500">{errorMessage}</p>
             </>
           )}
         </div>
