@@ -31,8 +31,8 @@ export default function LoginForm() {
           </h1>
           <Tabs defaultValue="email">
             <TabsList>
-              <TabsTrigger value="email">Email and password</TabsTrigger>
-              <TabsTrigger value="bankid">Swedish BankID</TabsTrigger>
+              <TabsTrigger value="email">Email</TabsTrigger>
+              <TabsTrigger value="bankid">BankID</TabsTrigger>
             </TabsList>
             <TabsContent value="email">
               <section className="mt-4 grid items-center gap-4 text-center">
