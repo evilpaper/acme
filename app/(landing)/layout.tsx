@@ -7,15 +7,6 @@ import { Button } from '@/components/ui/button';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { AlignJustify } from 'lucide-react';
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarTrigger,
-} from '@/components/ui/menubar';
 
 export default function Page({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment();
