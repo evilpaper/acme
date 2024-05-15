@@ -8,13 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { AlignJustify } from 'lucide-react';
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarTrigger,
-} from '@/components/ui/menubar';
 
 const links = [
   { name: 'Dashboard', href: '/dashboard', icon: '' },
@@ -47,7 +40,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                 key={name}
                 href={href}
                 className={cn(
-                  'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                  'text-medium flex items-center font-medium transition-colors hover:text-foreground/80',
                   `/${page}` === `/${name.toLowerCase()}`
                     ? 'text-foreground'
                     : 'text-foreground/60',
@@ -67,33 +60,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
         </section>
       </nav>
       <nav className="flex items-center justify-between md:hidden">
-        <Menubar className="md:hidden">
-          <MenubarMenu>
-            <MenubarTrigger>
-              <AlignJustify />
-            </MenubarTrigger>
-            <MenubarContent>
-              {links.map(({ name, href }) => {
-                return (
-                  <MenubarItem key={href}>
-                    <Link
-                      key={name}
-                      href={href}
-                      className={cn(
-                        'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
-                        `/${page}` === `/${name.toLowerCase()}`
-                          ? 'text-foreground'
-                          : 'text-foreground/60',
-                      )}
-                    >
-                      {name}
-                    </Link>
-                  </MenubarItem>
-                );
-              })}
-            </MenubarContent>
-          </MenubarMenu>
-        </Menubar>
+        <AlignJustify />
         <Link href="/dashboard" className="md:hidden">
           <Image
             priority
