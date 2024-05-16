@@ -22,14 +22,12 @@ export function BigNumberCard({ title, content, type }: Props) {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm">{title}</CardTitle>
+        <CardTitle>{title}</CardTitle>
         {Icon ? <Icon className="h-5 w-5 text-gray-700" /> : null}
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-bold">{content}</div>
-        <p className="py-1 text-xs text-muted-foreground">
-          +?% from last month
-        </p>
+        <p className="py-1 text-muted-foreground">+?% from last month</p>
       </CardContent>
     </Card>
   );
