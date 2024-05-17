@@ -45,6 +45,7 @@ export default function InvoicePagination({
               <PaginationLink
                 href={createPageURL(page)}
                 isActive={page === currentPage}
+                className={currentPage !== page ? 'opacity-50' : undefined}
               >
                 {page}
               </PaginationLink>
