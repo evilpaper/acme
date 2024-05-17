@@ -1,5 +1,4 @@
 import { fetchInvoicesPages } from '@/app/lib/data';
-import { fraunces } from '@/app/ui/fonts';
 import InvoiceTable from '@/components/invoice-table';
 import InvoicePagination from '@/components/invoice-pagination';
 import { Search } from '@/components/search';
@@ -22,7 +21,7 @@ export default async function Page({
   return (
     <main className="container flex min-h-screen flex-col space-y-6 px-2">
       <h1
-        className={`font-heading ${fraunces.className} text-3xl font-bold leading-tight md:text-4xl`}
+        className={`font-heading text-3xl font-bold leading-tight md:text-4xl`}
       >
         Invoices
       </h1>
