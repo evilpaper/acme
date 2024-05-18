@@ -27,7 +27,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
             <Link
               href="/features"
               className={cn(
-                'flex items-center p-2 text-lg font-bold transition-colors hover:text-foreground/80',
+                'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
                 `/${segment}` === '/features'
                   ? 'border-b border-black text-foreground'
                   : 'text-foreground/80',
@@ -38,7 +38,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
             <Link
               href="/pricing"
               className={cn(
-                'flex items-center p-2 text-lg font-bold transition-colors hover:text-foreground/80',
+                'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
                 `/${segment}` === '/pricing'
                   ? 'border-b border-black text-foreground'
                   : 'text-foreground/80',

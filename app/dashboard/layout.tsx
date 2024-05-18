@@ -20,9 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               await signOut();
             }}
           >
-            <Button variant="outline">
-              <span>Sign out</span>
-            </Button>
+            <Button variant="outline">Sign out</Button>
           </form>
         </MainNav>
       </header>
@@ -34,9 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           await signOut();
         }}
       >
-        <Button variant="outline">
-          <span>Sign out</span>
-        </Button>
+        <Button variant="outline">Sign out</Button>
       </form>
     </div>
   );
