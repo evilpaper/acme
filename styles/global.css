@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+Convention (from shadcn/ui docs)
+
+We use a simple background and foreground convention for colors. 
+
+The background variable is used for the background color of the component.
+The foreground variable is used for the text color.
+
+This is the list of variables available for customization.
+*/
+
 @layer base {
   :root {
     --background: 33 100% 96%;
