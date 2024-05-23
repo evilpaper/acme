@@ -30,7 +30,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                 'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
                 `/${segment}` === '/features'
                   ? 'border-b border-black text-foreground'
-                  : 'text-foreground/80',
+                  : 'border-b border-background text-foreground/80',
               )}
             >
               Features
@@ -41,7 +41,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                 'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
                 `/${segment}` === '/pricing'
                   ? 'border-b border-black text-foreground'
-                  : 'text-foreground/80',
+                  : 'border-b border-background text-foreground/80',
               )}
             >
               Pricing
