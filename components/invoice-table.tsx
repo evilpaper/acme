@@ -82,28 +82,28 @@ export default async function InvoiceTable({
           return (
             <Card key={invoice.id}>
               <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Image
-                    src={invoice.image_url}
-                    alt={`${invoice.name}'s profile picture`}
-                    className="mr-4 rounded-full"
-                    width={32}
-                    height={32}
-                  />
-                  <dl>
-                    <dt>{invoice.name}</dt>
-                    <dd className="text-sm font-normal">{invoice.email}</dd>
-                  </dl>
+                <CardTitle className="flex items-center justify-between">
+                  <span className="flex items-center">
+                    <Image
+                      src={invoice.image_url}
+                      alt={`${invoice.name}'s profile picture`}
+                      className="mr-4 rounded-full"
+                      width={32}
+                      height={32}
+                    />
+                    {invoice.name}
+                  </span>
+                  <span>{formatCurrency(invoice.amount)}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <dl className="flex justify-between">
                   <dt>{formatDateToLocal(invoice.date)}</dt>
-                  <dd>{formatCurrency(invoice.amount)}</dd>
+                  <dd>{invoice.status}</dd>
                 </dl>
               </CardContent>
               <CardFooter>
-                <p>{invoice.status}</p>
+                <p></p>
               </CardFooter>
             </Card>
           );
