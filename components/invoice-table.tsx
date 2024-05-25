@@ -102,8 +102,13 @@ export default async function InvoiceTable({
                   <dd>{invoice.status}</dd>
                 </dl>
               </CardContent>
-              <CardFooter>
-                <p></p>
+              <CardFooter className="flex justify-between">
+                <DeleteInvoice id={invoice.id} />
+                <Button variant="outline" size="icon" asChild>
+                  <Link href={`/dashboard/invoices/${invoice.id}/edit`}>
+                    <Icons.pen className="h-4 w-4" />
+                  </Link>
+                </Button>
               </CardFooter>
             </Card>
           );
