@@ -21,6 +21,7 @@ import {
   CardHeader,
   CardTitle,
 } from './ui/card';
+import InvoiceCard from './invoice-card';
 
 export default async function InvoiceTable({
   query,
@@ -79,39 +80,7 @@ export default async function InvoiceTable({
       </Table>
       <section className="flex flex-col gap-6 md:hidden">
         {invoices?.map((invoice) => {
-          return (
-            <Card key={invoice.id}>
-              <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  <span className="flex items-center">
-                    <Image
-                      src={invoice.image_url}
-                      alt={`${invoice.name}'s profile picture`}
-                      className="mr-4 rounded-full"
-                      width={32}
-                      height={32}
-                    />
-                    {invoice.name}
-                  </span>
-                  <span>{formatCurrency(invoice.amount)}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <dl className="flex justify-between">
-                  <dt>{formatDateToLocal(invoice.date)}</dt>
-                  <dd>{invoice.status}</dd>
-                </dl>
-              </CardContent>
-              <CardFooter className="flex justify-between">
-                <DeleteInvoice id={invoice.id} />
-                <Button variant="outline" size="icon" asChild>
-                  <Link href={`/dashboard/invoices/${invoice.id}/edit`}>
-                    <Icons.pen className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          );
+          return <InvoiceCard invoice={invoice} key={invoice.id} />;
         })}
       </section>
     </section>
