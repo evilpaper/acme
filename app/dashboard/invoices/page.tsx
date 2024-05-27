@@ -34,10 +34,7 @@ export default async function Page({
           </Link>
         </Button>
       </section>
-      <section>
-        <InvoiceTable query={query} currentPage={currentPage} />
-      </section>
-
+      <InvoiceTable query={query} currentPage={currentPage} />
       <InvoicePagination totalPages={totalPages} />
     </main>
   );

@@ -1,6 +1,7 @@
 import { signOut } from '@/auth';
 import { Button } from '@/components/ui/button';
 import { MainNav } from '@/components/ui/main-nav';
+import Link from 'next/link';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -34,6 +35,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <Button variant="outline">Sign out</Button>
       </form>
+      <section className="md:hidden">
+        <Link
+          href="/dashboard/customers"
+          className="flex items-center justify-center px-4 py-2 text-center text-sm transition-colors hover:text-foreground/80"
+        >
+          Customers
+        </Link>
+        <Link
+          href="/dashboard/invoices"
+          className="mb-4 flex items-center justify-center px-4 py-2 text-center text-sm transition-colors hover:text-foreground/80"
+        >
+          Invoices
+        </Link>
+      </section>
     </div>
   );
 }
