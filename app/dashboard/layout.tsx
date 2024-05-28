@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </form>
         </MainNav>
       </header>
-      <div className="container grid flex-1 gap-12">{children}</div>
+      <div className="container grid flex-1 gap-12 px-5">{children}</div>
       <form
         className="flex items-center justify-center p-2 md:hidden"
         action={async () => {

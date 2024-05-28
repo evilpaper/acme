@@ -25,10 +25,10 @@ export default async function Page({
       >
         Invoices
       </h1>
-      <section className="flex gap-6">
+      <section className="flex flex-wrap-reverse gap-6 sm:flex-nowrap">
         <Search />
         <Button asChild>
-          <Link href="/dashboard/invoices/create">
+          <Link href="/dashboard/invoices/create" className="w-full sm:w-auto">
             <Plus className="mr-2 h-4 w-4" />
             <span>Add invoice</span>
           </Link>
