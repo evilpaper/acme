@@ -41,7 +41,7 @@ export default function InvoicePagination({
         </PaginationItem>
         {pages.map((page) => {
           return (
-            <PaginationItem key={page}>
+            <PaginationItem key={page} className="hidden">
               <PaginationLink
                 href={createPageURL(page)}
                 isActive={page === currentPage}
