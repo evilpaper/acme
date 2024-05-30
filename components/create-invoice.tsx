@@ -36,7 +36,7 @@ export default function CreateInvoice({
 
   return (
     <form action={dispatch}>
-      <Card className="mx-auto w-[396px]">
+      <Card className="mx-auto md:w-[396px]">
         <CardHeader>
           <CardTitle
             className={`font-heading ${fraunces.className} text-3xl font-bold leading-tight md:text-4xl`}
