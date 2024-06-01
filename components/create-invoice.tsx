@@ -19,7 +19,6 @@ import {
 } from './ui/select';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
-import { fraunces } from '@/app/ui/fonts';
 import Link from 'next/link';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { createInvoice } from '@/app/lib/actions';
@@ -39,13 +38,11 @@ export default function CreateInvoice({
       <Card className="mx-auto md:w-[396px]">
         <CardHeader>
           <CardTitle
-            className={`font-heading ${fraunces.className} text-3xl font-bold leading-tight md:text-4xl`}
+            className={`font-heading text-3xl font-bold leading-tight md:text-4xl`}
           >
             Create invoice
           </CardTitle>
-          <CardDescription
-            className={`text-lg text-muted-foreground ${fraunces.className}`}
-          >
+          <CardDescription className={`text-lg text-muted-foreground`}>
             Add a new invoice
           </CardDescription>
         </CardHeader>

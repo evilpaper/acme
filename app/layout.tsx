@@ -1,5 +1,5 @@
 import '@/styles/global.css';
-import { fraunces } from '@/app/ui/fonts';
+import { fraunces } from '@/components/ui/fonts';
 
 export default function RootLayout({
   children,

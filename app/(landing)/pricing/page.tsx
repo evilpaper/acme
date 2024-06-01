@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 import { Icons } from '@/components/ui/icons';
-import { fraunces } from '@/app/ui/fonts';
 
 export const metadata = {
   title: 'Pricing',
@@ -51,7 +50,7 @@ export default function Page() {
         </div>
         <div className="flex flex-col gap-4 text-center">
           <div>
-            <h4 className={`text-7xl font-bold ${fraunces.className}`}>$19</h4>
+            <h4 className="text-7xl font-bold">$19</h4>
             <p className="font-medium text-muted-foreground">Billed Monthly</p>
           </div>
           <Link href="/login" className={cn(buttonVariants({ size: 'lg' }))}>

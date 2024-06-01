@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { fraunces } from '@/app/ui/fonts';
 import { register } from '@/app/lib/actions';
 import { useFormState, useFormStatus } from 'react-dom';
 import logo from '../../public/images/logo-black-lemon.svg';
@@ -36,9 +35,7 @@ export default function SignupForm() {
               height="48"
             />
           </Link>
-          <h1
-            className={`text-5xl font-bold leading-tight tracking-tight ${fraunces.className}`}
-          >
+          <h1 className={`text-5xl font-bold leading-tight tracking-tight`}>
             Welcome
           </h1>
           <p>
