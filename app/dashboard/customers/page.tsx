@@ -1,4 +1,5 @@
 import { fetchCustomers } from '@/app/lib/data';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export default async function Page() {
   const customers = await fetchCustomers();
@@ -11,6 +12,22 @@ export default async function Page() {
       >
         Customers
       </h1>
+      <div className="space-y-8">
+        {customers.map((customer) => {
+          return (
+            <div className="flex items-center" key={customer.id}>
+              <Avatar className="h-9 w-9">
+                <AvatarImage src="/customers/amy-burns.png" alt="Avatar" />
+                <AvatarFallback>OM</AvatarFallback>
+              </Avatar>
+              <div className="ml-4 space-y-1">
+                <p className="font-medium leading-none">{customer.name}</p>
+                <p className="text-muted-foreground">{customer.id}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </main>
   );
 }
