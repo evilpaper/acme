@@ -13,16 +13,16 @@ export default async function Page() {
         Customers
       </h1>
       <div className="space-y-8">
-        {customers.map((customer) => {
+        {customers.map(({ id, image_url, name, email }) => {
           return (
-            <div className="flex items-center" key={customer.id}>
+            <div className="flex items-center" key={id}>
               <Avatar className="h-9 w-9">
-                <AvatarImage src="/customers/amy-burns.png" alt="Avatar" />
+                <AvatarImage src={image_url} alt="Avatar" />
                 <AvatarFallback>OM</AvatarFallback>
               </Avatar>
               <div className="ml-4 space-y-1">
-                <p className="font-medium leading-none">{customer.name}</p>
-                <p className="text-muted-foreground/70">{customer.id}</p>
+                <p className="font-medium leading-none">{name}</p>
+                <p className="font-light text-muted-foreground">{email}</p>
               </div>
             </div>
           );
