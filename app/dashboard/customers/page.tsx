@@ -22,7 +22,7 @@ export default async function Page() {
               </Avatar>
               <div className="ml-4 space-y-1">
                 <p className="font-medium leading-none">{customer.name}</p>
-                <p className="text-muted-foreground">{customer.id}</p>
+                <p className="text-muted-foreground/70">{customer.id}</p>
               </div>
             </div>
           );
