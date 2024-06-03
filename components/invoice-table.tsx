@@ -13,14 +13,6 @@ import { Button } from './ui/button';
 import { Icons } from './ui/icons';
 import DeleteInvoice from './delete-invoice-button';
 import Link from 'next/link';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from './ui/card';
 import InvoiceCard from './invoice-card';
 
 export default async function InvoiceTable({
