@@ -1,5 +1,6 @@
 import { fetchCustomers } from '@/app/lib/data';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -8,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Icons } from '@/components/ui/icons';
 import {
   Table,
   TableBody,
@@ -17,6 +19,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function Page() {
   const customers = await fetchCustomers();
@@ -56,8 +59,23 @@ export default async function Page() {
                     {name}
                   </TableCell>
                   <TableCell>{email}</TableCell>
-                  <TableCell className="w-0  px-2"></TableCell>
-                  <TableCell className="w-0 px-2"></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell className="w-0  px-2">
+                    <Button variant="outline" size="icon" asChild>
+                      <Link href="#">
+                        <Icons.pen className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </TableCell>
+                  <TableCell className="w-0 px-2">
+                    <Button variant="outline" size="icon" asChild>
+                      <Link href="#">
+                        <Icons.trashcan className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </TableCell>
                 </TableRow>
               );
             })}
