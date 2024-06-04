@@ -34,6 +34,9 @@ export default async function Page() {
             <TableRow>
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
+              <TableHead>Created</TableHead>
+              <TableHead>Total</TableHead>
+              <TableHead>Last invoiced</TableHead>
               <TableHead></TableHead>
               <TableHead></TableHead>
             </TableRow>
