@@ -38,8 +38,8 @@ export default async function Page() {
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Created</TableHead>
-              <TableHead>Total</TableHead>
-              <TableHead>Last invoiced</TableHead>
+              <TableHead>Total invoice amount</TableHead>
+              <TableHead>Last invoice</TableHead>
               <TableHead></TableHead>
               <TableHead></TableHead>
             </TableRow>
