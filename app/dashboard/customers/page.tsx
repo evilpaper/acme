@@ -1,4 +1,5 @@
 import { fetchCustomers } from '@/app/lib/data';
+import { Search } from '@/components/search';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -31,6 +32,7 @@ export default async function Page() {
       >
         Customers
       </h1>
+      <Search />
       <section className="space-y-8">
         <Table className="hidden md:table">
           <TableHeader>
