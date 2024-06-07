@@ -4,6 +4,11 @@ import React from 'react';
 import { Input } from './ui/input';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
+/**
+ * Set whatever is entered as a url param called (key) query.
+ * Intented to be picked up by component that handle data fetching.
+ */
+
 export function Search() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
