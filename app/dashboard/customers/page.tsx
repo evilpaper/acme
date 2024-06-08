@@ -1,4 +1,4 @@
-import { fetchCustomers } from '@/app/lib/data';
+import { fetchCustomers, fetchFilteredCustomers } from '@/app/lib/data';
 import { Search } from '@/components/search';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -22,8 +22,15 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default async function Page() {
-  const customers = await fetchCustomers();
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+  };
+}) {
+  const query = searchParams?.query || '';
+  const customers = await fetchFilteredCustomers(query);
 
   return (
     <main className="container flex min-h-screen flex-col space-y-6 px-2">
