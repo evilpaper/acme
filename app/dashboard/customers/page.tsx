@@ -90,6 +90,35 @@ export default async function Page({
             })}
           </TableBody>
         </Table>
+        <section className="flex flex-col gap-6 md:hidden">
+          {customers.map((customer) => {
+            return (
+              <Card key={customer.id}>
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <span className="flex items-center">{customer.name}</span>
+                    <Image
+                      src={customer.image_url}
+                      alt={`${customer.name}'s profile picture`}
+                      className="mr-4 rounded-full"
+                      width={32}
+                      height={32}
+                    />
+                  </CardTitle>
+                  <CardDescription>{customer.email}</CardDescription>
+                </CardHeader>
+                <CardContent></CardContent>
+                <CardFooter className="flex justify-between">
+                  <Button variant="outline" size="icon" asChild>
+                    <Link href={`/dashboard/customer/${customer.id}/edit`}>
+                      <Icons.pen className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            );
+          })}
+        </section>
       </section>
     </main>
   );
