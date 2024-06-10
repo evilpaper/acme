@@ -40,7 +40,7 @@ export default async function Page({
         Customers
       </h1>
       <Search />
-      <section className="space-y-8">
+      <section>
         <Table className="hidden md:table">
           <TableHeader>
             <TableRow>
@@ -90,35 +90,43 @@ export default async function Page({
             })}
           </TableBody>
         </Table>
-        <section className="flex flex-col gap-6 md:hidden">
+        <ul className="space-y-8 md:hidden">
           {customers.map((customer) => {
             return (
-              <Card key={customer.id}>
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <span className="flex items-center">{customer.name}</span>
-                    <Image
-                      src={customer.image_url}
-                      alt={`${customer.name}'s profile picture`}
-                      className="mr-4 rounded-full"
-                      width={32}
-                      height={32}
-                    />
-                  </CardTitle>
-                  <CardDescription>{customer.email}</CardDescription>
-                </CardHeader>
-                <CardContent></CardContent>
-                <CardFooter className="flex justify-between">
+              <li
+                key={customer.id}
+                className="flex items-center justify-between"
+              >
+                <div className="flex items-center justify-between">
+                  <Avatar className="h-9 w-9">
+                    <AvatarImage src={customer.image_url} alt="Avatar" />
+                    <AvatarFallback>{customer.name}</AvatarFallback>
+                  </Avatar>
+                  <div className="ml-4 space-y-1">
+                    <p className="text-sm font-medium leading-none">
+                      {customer.name}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {customer.email}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between gap-4">
                   <Button variant="outline" size="icon" asChild>
-                    <Link href={`/dashboard/customer/${customer.id}/edit`}>
+                    <Link href="#">
                       <Icons.pen className="h-4 w-4" />
                     </Link>
                   </Button>
-                </CardFooter>
-              </Card>
+                  <Button variant="outline" size="icon" asChild>
+                    <Link href="#">
+                      <Icons.trashcan className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </li>
             );
           })}
-        </section>
+        </ul>
       </section>
     </main>
   );
