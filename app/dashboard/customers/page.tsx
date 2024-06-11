@@ -105,8 +105,7 @@ export default async function Page({
                           </AlertDialogTitle>
                           <AlertDialogDescription>
                             This action cannot be undone. This will permanently
-                            delete your account and remove your data from our
-                            servers.
+                            delete the customer.
                           </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
@@ -163,8 +162,7 @@ export default async function Page({
                         </AlertDialogTitle>
                         <AlertDialogDescription>
                           This action cannot be undone. This will permanently
-                          delete your account and remove your data from our
-                          servers.
+                          delete the customer.
                         </AlertDialogDescription>
                       </AlertDialogHeader>
                       <AlertDialogFooter>
