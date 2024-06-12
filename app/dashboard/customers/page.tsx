@@ -84,7 +84,7 @@ export default async function Page({
                   <TableCell></TableCell>
                   <TableCell className="w-0  px-2">
                     <Button variant="outline" size="icon" asChild>
-                      <Link href="#">
+                      <Link href={`/dashboard/customers/${id}/edit`}>
                         <Icons.pen className="h-4 w-4" />
                       </Link>
                     </Button>
@@ -143,7 +143,7 @@ export default async function Page({
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <Button variant="outline" size="icon" asChild>
-                    <Link href="#">
+                    <Link href={`/dashboard/customers/${customer.id}/edit`}>
                       <Icons.pen className="h-4 w-4" />
                     </Link>
                   </Button>
