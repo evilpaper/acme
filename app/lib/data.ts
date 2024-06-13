@@ -8,6 +8,7 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  Customer,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -228,5 +229,15 @@ export async function fetchUser(email: string) {
   } catch (error) {
     console.error('Failed to fetch user:', error);
     throw new Error('Failed to fetch user.');
+  }
+}
+
+export async function fetchCustomer(id: string) {
+  try {
+    const customer = await sql`SELECT * FROM customers WHERE id=${id}`;
+    return customer.rows[0] as Customer;
+  } catch (error) {
+    console.log('Failed to fetch customer:', error);
+    throw new Error('Failed to fetch customer.');
   }
 }

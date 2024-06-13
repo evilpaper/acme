@@ -1,4 +1,12 @@
+import { fetchCustomer } from '@/app/lib/data';
+
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
-  return <p>I am customer edit page</p>;
+  const customer = await fetchCustomer(id);
+
+  return (
+    <section>
+      <p>Customer: {customer.name}</p>
+    </section>
+  );
 }
