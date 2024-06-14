@@ -1,8 +1,16 @@
 import { fetchCustomer } from '@/app/lib/data';
 import { Customer } from '@/app/lib/definitions';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import Link from 'next/link';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -36,6 +44,12 @@ export function EditCustomer({ customer }: { customer: Customer }) {
             <Input id="email" type="email" placeholder={customer.email} />
           </div>
         </CardContent>
+        <CardFooter className="flex justify-between ">
+          <Button variant="outline" asChild>
+            <Link href="/dashboard/invoices">Cancel</Link>
+          </Button>
+          <Button type="submit">Save</Button>
+        </CardFooter>
       </Card>
     </form>
   );
