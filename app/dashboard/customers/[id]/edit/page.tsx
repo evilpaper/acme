@@ -12,6 +12,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
 
+/**
+ *
+ *
+ */
+
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
   const customer = await fetchCustomer(id);
@@ -23,7 +28,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export function EditCustomer({ customer }: { customer: Customer }) {
+function EditCustomer({ customer }: { customer: Customer }) {
   return (
     <form>
       <Card className="mx-auto md:w-[396px]">
