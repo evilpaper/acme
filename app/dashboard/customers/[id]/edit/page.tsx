@@ -51,7 +51,7 @@ function EditCustomer({ customer }: { customer: Customer }) {
         </CardContent>
         <CardFooter className="flex justify-between ">
           <Button variant="outline" asChild>
-            <Link href="/dashboard/invoices">Cancel</Link>
+            <Link href="/dashboard/customers">Cancel</Link>
           </Button>
           <Button type="submit">Save</Button>
         </CardFooter>
