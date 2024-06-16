@@ -1,4 +1,4 @@
-import { fetchCustomers, fetchFilteredCustomers } from '@/app/lib/data';
+import { fetchFilteredCustomers } from '@/app/lib/data';
 import { Search } from '@/components/search';
 import {
   AlertDialog,
@@ -13,14 +13,6 @@ import {
 } from '@/components/ui/alert-dialog';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 import { Icons } from '@/components/ui/icons';
 import {
   Table,
