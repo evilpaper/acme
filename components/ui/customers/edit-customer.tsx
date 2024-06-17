@@ -4,10 +4,12 @@ import { Button } from '../button';
 import Link from 'next/link';
 import { Customer } from '@/app/lib/definitions';
 import { Label } from '../label';
+import { updateCustomer } from '@/app/lib/actions';
 
 export default function EditCustomer({ customer }: { customer: Customer }) {
+  const updateCustomerWithId = updateCustomer.bind(null, customer.id);
   return (
-    <form>
+    <form action={updateCustomerWithId}>
       <Card className="mx-auto md:w-[396px]">
         <CardHeader>
           <CardTitle

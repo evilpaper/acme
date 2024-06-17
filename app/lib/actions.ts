@@ -1,6 +1,6 @@
 'use server';
 
-import { z } from 'zod';
+import { date, z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
@@ -96,6 +96,18 @@ export async function updateInvoice(id: string, formData: FormData) {
 
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
+}
+
+const UpdateCustomer = FormSchema.omit({ id: true, date: true });
+
+export async function updateCustomer(id: string, formData: FormData) {
+  UpdateCustomer.parse({
+    customerId: formData.get('customerId'),
+  });
+  // TODO:
+  // Update db
+  // Revalidate
+  // Redirect
 }
 
 export async function deleteInvoice(id: string) {
