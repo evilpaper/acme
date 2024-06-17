@@ -17,7 +17,7 @@ export type State = {
   message?: string | null;
 };
 
-const FormSchema = z.object({
+const InvoiceFormSchema = z.object({
   id: z.string(),
   customerId: z.string({
     invalid_type_error: 'Please select a customer.',
@@ -31,7 +31,7 @@ const FormSchema = z.object({
   date: z.string(),
 });
 
-const CreateInvoice = FormSchema.omit({ id: true, date: true });
+const CreateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
 
 export async function createInvoice(prevState: State, formData: FormData) {
   // Validate form using Zod
@@ -72,7 +72,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
   redirect('/dashboard/invoices');
 }
 
-const UpdateInvoice = FormSchema.omit({ id: true, date: true });
+const UpdateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
 
 export async function updateInvoice(id: string, formData: FormData) {
   const { customerId, amount, status } = UpdateInvoice.parse({
@@ -98,12 +98,15 @@ export async function updateInvoice(id: string, formData: FormData) {
   redirect('/dashboard/invoices');
 }
 
-const UpdateCustomer = FormSchema.omit({ id: true, date: true });
+// TODO: Create a FormSchema for updateCustomer
 
 export async function updateCustomer(id: string, formData: FormData) {
-  UpdateCustomer.parse({
-    customerId: formData.get('customerId'),
-  });
+  // const { name, email } = UpdateCustomer.parse({
+  //   name: formData.get('name'),
+  //   email: formData.get('email'),
+  // });
+
+  console.log('name: ', name);
   // TODO:
   // Update db
   // Revalidate
