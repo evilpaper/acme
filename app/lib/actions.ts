@@ -100,6 +100,17 @@ export async function updateInvoice(id: string, formData: FormData) {
 
 // TODO: Create a FormSchema for updateCustomer
 
+const CustomerFormSchema = z.object({
+  id: z.string(),
+  name: z
+    .string({
+      invalid_type_error: 'Invalid type provided for this field',
+      required_error: 'This field cannot be blank',
+    })
+    .min(1),
+  email: z.string().email({ message: 'Invalid email address' }).min(1),
+});
+
 export async function updateCustomer(id: string, formData: FormData) {
   // const { name, email } = UpdateCustomer.parse({
   //   name: formData.get('name'),
