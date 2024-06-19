@@ -24,11 +24,21 @@ export default function EditCustomer({ customer }: { customer: Customer }) {
         <CardContent className="grid gap-6">
           <div className="grid gap-2">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" type="text" defaultValue={customer.name} />
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              defaultValue={customer.name}
+            />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="name">email</Label>
-            <Input id="email" type="email" defaultValue={customer.email} />
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              defaultValue={customer.email}
+            />
           </div>
         </CardContent>
         <CardFooter className="flex justify-between ">
