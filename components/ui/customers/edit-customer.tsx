@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../card';
 import { Input } from '../input';
 import { Button } from '../button';
@@ -8,6 +10,7 @@ import { updateCustomer } from '@/app/lib/actions';
 
 export default function EditCustomer({ customer }: { customer: Customer }) {
   const updateCustomerWithId = updateCustomer.bind(null, customer.id);
+
   return (
     <form action={updateCustomerWithId}>
       <Card className="mx-auto md:w-[396px]">
@@ -21,11 +24,11 @@ export default function EditCustomer({ customer }: { customer: Customer }) {
         <CardContent className="grid gap-6">
           <div className="grid gap-2">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" type="text" placeholder={customer.name} />
+            <Input id="name" type="text" defaultValue={customer.name} />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="name">email</Label>
-            <Input id="email" type="email" placeholder={customer.email} />
+            <Input id="email" type="email" defaultValue={customer.email} />
           </div>
         </CardContent>
         <CardFooter className="flex justify-between ">
