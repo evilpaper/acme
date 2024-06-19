@@ -112,24 +112,23 @@ export async function updateCustomer(id: string, formData: FormData) {
   console.log('id:', id);
   console.log('formData: ', formData);
 
-  // const { name, email } = CustomerFormSchema.parse({
-  //   name: formData.get('name'),
-  //   email: formData.get('email'),
-  // });
+  const { name } = CustomerFormSchema.parse({
+    name: formData.get('name'),
+  });
 
-  // try {
-  //   await sql`
-  //     UPDATE customers
-  //     SET name=${name}
-  //     WHERE id=${id}
-  //     `;
-  // } catch (error) {
-  //   console.log(error);
-  //   return { message: 'Databse Error: Failes to Update Customer' };
-  // }
+  try {
+    await sql`
+      UPDATE customers
+      SET name=${name}
+      WHERE id=${id}
+      `;
+  } catch (error) {
+    console.log(error);
+    return { message: 'Databse Error: Failed to Update Customer' };
+  }
 
-  // revalidatePath('/dashboard/customers');
-  // redirect('/dashboard/customers');
+  revalidatePath('/dashboard/customers');
+  redirect('/dashboard/customers');
 }
 
 export async function deleteInvoice(id: string) {
