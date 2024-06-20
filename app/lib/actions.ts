@@ -115,14 +115,15 @@ const CustomerFormSchema = z.object({
 });
 
 export async function updateCustomer(id: string, formData: FormData) {
-  const { name } = CustomerFormSchema.parse({
+  const { name, email } = CustomerFormSchema.parse({
     name: formData.get('name'),
+    email: formData.get('email'),
   });
 
   try {
     await sql`
       UPDATE customers
-      SET name=${name}
+      SET name=${name}, email=${email}
       WHERE id=${id}
       `;
   } catch (error) {
