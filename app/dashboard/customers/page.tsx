@@ -49,9 +49,6 @@ export default async function Page({
             <TableRow>
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
-              <TableHead>Created</TableHead>
-              <TableHead>Total invoice amount</TableHead>
-              <TableHead>Last invoice</TableHead>
               <TableHead></TableHead>
               <TableHead></TableHead>
             </TableRow>
@@ -71,9 +68,6 @@ export default async function Page({
                     {name}
                   </TableCell>
                   <TableCell>{email}</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell></TableCell>
-                  <TableCell></TableCell>
                   <TableCell className="w-0  px-2">
                     <Button variant="outline" size="icon" asChild>
                       <Link href={`/dashboard/customers/${id}/edit`}>
