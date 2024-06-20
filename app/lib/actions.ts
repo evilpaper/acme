@@ -75,7 +75,6 @@ export async function createInvoice(prevState: State, formData: FormData) {
 const UpdateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
 
 export async function updateInvoice(id: string, formData: FormData) {
-  console.log('formData: ', formData);
   const { customerId, amount, status } = UpdateInvoice.parse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
@@ -106,12 +105,16 @@ const CustomerFormSchema = z.object({
       required_error: 'This field cannot be blank',
     })
     .min(1),
+  email: z
+    .string({
+      invalid_type_error: 'Invalid type provided for this field',
+      required_error: 'This field cannot be blank',
+    })
+    .email({ message: 'Invalid email address' })
+    .min(1),
 });
 
 export async function updateCustomer(id: string, formData: FormData) {
-  console.log('id:', id);
-  console.log('formData: ', formData);
-
   const { name } = CustomerFormSchema.parse({
     name: formData.get('name'),
   });
