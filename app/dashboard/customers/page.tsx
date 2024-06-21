@@ -22,6 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Plus } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -42,7 +43,15 @@ export default async function Page({
       >
         Customers
       </h1>
-      <Search />
+      <section className="flex flex-wrap-reverse gap-6 sm:flex-nowrap">
+        <Search />
+        <Button asChild>
+          <Link href="/dashboard/customers/create" className="w-full sm:w-auto">
+            <Plus className="mr-2 h-4 w-4" />
+            <span>Add customer</span>
+          </Link>
+        </Button>
+      </section>
       <section>
         <Table className="hidden md:table">
           <TableHeader>
