@@ -17,10 +17,10 @@ import { useFormState } from 'react-dom';
 
 export default function CreateCustomer() {
   const initialState = { message: null, errors: {} };
-  // const [state, dispatch] = useFormState(createCustomer, initialState);
+  const [state, dispatch] = useFormState(createCustomer, initialState);
 
   return (
-    <form>
+    <form action={dispatch}>
       <Card className="mx-auto md:w-[396px]">
         <CardHeader>
           <CardTitle

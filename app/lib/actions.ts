@@ -8,6 +8,10 @@ import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import bcrypt from 'bcrypt';
 
+/**
+ * INVOICE
+ */
+
 export type InvoiceState = {
   errors?: {
     customerId?: string[];
@@ -16,10 +20,6 @@ export type InvoiceState = {
   };
   message?: string | null;
 };
-
-/**
- * INVOICE
- */
 
 const InvoiceFormSchema = z.object({
   id: z.string(),
@@ -120,6 +120,14 @@ export async function deleteInvoice(id: string) {
  * CUSTOMER
  */
 
+export type CustomerState = {
+  errors?: {
+    name?: string[];
+    email?: string[];
+  };
+  message?: string | null;
+};
+
 const CustomerFormSchema = z.object({
   name: z
     .string({
@@ -137,7 +145,7 @@ const CustomerFormSchema = z.object({
 });
 
 export async function createCustomer(
-  prevState: InvoiceState,
+  prevState: CustomerState,
   formData: FormData,
 ) {
   // Validate form using Zod
@@ -145,6 +153,8 @@ export async function createCustomer(
     name: formData.get('name'),
     email: formData.get('email'),
   });
+
+  console.log(validatedFields);
 
   // If form validation fails, return errors early. Otherwise, continue.
   if (!validatedFields.success) {
@@ -157,6 +167,7 @@ export async function createCustomer(
   // Prepare data for insertion into the database
   // Insert data into the database
   // Revalidate the cache for the invoices page and redirect the user.
+  return { message: null, errors: {} };
 }
 
 export async function updateCustomer(id: string, formData: FormData) {
