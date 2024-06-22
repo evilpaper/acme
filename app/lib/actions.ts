@@ -129,6 +129,7 @@ export type CustomerState = {
 };
 
 const CustomerFormSchema = z.object({
+  id: z.string(),
   name: z
     .string({
       invalid_type_error: 'Invalid type provided for this field',
@@ -142,14 +143,17 @@ const CustomerFormSchema = z.object({
     })
     .email({ message: 'Invalid email address' })
     .min(1),
+  image_url: z.string(),
 });
+
+const CreateCustomer = CustomerFormSchema.omit({ id: true, image_url: true });
 
 export async function createCustomer(
   prevState: CustomerState,
   formData: FormData,
 ) {
   // Validate form using Zod
-  const validatedFields = CustomerFormSchema.safeParse({
+  const validatedFields = CreateCustomer.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),
   });
@@ -165,7 +169,17 @@ export async function createCustomer(
   }
 
   // Prepare data for insertion into the database
+  const { name, email } = validatedFields.data;
+
   // Insert data into the database
+
+  try {
+    //   await sql`
+    //   INSERT INTO customers (customer_id, amount, status, date)
+    //   VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+    // `;
+  } catch {}
+
   // Revalidate the cache for the invoices page and redirect the user.
   return { message: null, errors: {} };
 }
