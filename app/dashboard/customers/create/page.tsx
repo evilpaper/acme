@@ -1,7 +1,5 @@
+import CreateCustomer from '@/components/ui/customers/create-customer';
+
 export default async function Page() {
-  return (
-    <section>
-      <p>Create customer</p>
-    </section>
-  );
+  return <CreateCustomer />;
 }
