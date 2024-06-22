@@ -146,6 +146,7 @@ const CustomerFormSchema = z.object({
   image_url: z.string(),
 });
 
+// Omit id and image_url at create stage. User don't input them. Instead we add them.
 const CreateCustomer = CustomerFormSchema.omit({ id: true, image_url: true });
 
 export async function createCustomer(
@@ -157,8 +158,6 @@ export async function createCustomer(
     name: formData.get('name'),
     email: formData.get('email'),
   });
-
-  console.log(validatedFields);
 
   // If form validation fails, return errors early. Otherwise, continue.
   if (!validatedFields.success) {

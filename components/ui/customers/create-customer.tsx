@@ -13,7 +13,8 @@ import {
 import { Input } from '../input';
 import { Label } from '../label';
 import { createCustomer } from '@/app/lib/actions';
-import { useFormState } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
+import { Icons } from '../icons';
 
 export default function CreateCustomer() {
   const initialState = { message: null, errors: {} };
@@ -54,9 +55,19 @@ export default function CreateCustomer() {
           <Button variant="outline" asChild>
             <Link href="/dashboard/invoices">Cancel</Link>
           </Button>
-          <Button variant="default">Create customer</Button>
+          <CreateButton />
         </CardFooter>
       </Card>
     </form>
+  );
+}
+
+function CreateButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button>
+      {pending && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
+      Create customer
+    </Button>
   );
 }
