@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Button } from '../button';
 import {
@@ -10,8 +12,13 @@ import {
 } from '../card';
 import { Input } from '../input';
 import { Label } from '../label';
+import { createCustomer } from '@/app/lib/actions';
+import { useFormState } from 'react-dom';
 
 export default function CreateCustomer() {
+  const initialState = { message: null, errors: {} };
+  // const [state, dispatch] = useFormState(createCustomer, initialState);
+
   return (
     <form>
       <Card className="mx-auto md:w-[396px]">

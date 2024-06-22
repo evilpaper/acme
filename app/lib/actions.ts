@@ -8,7 +8,7 @@ import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import bcrypt from 'bcrypt';
 
-export type State = {
+export type InvoiceState = {
   errors?: {
     customerId?: string[];
     amount?: string[];
@@ -16,6 +16,10 @@ export type State = {
   };
   message?: string | null;
 };
+
+/**
+ * INVOICE
+ */
 
 const InvoiceFormSchema = z.object({
   id: z.string(),
@@ -33,7 +37,10 @@ const InvoiceFormSchema = z.object({
 
 const CreateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
 
-export async function createInvoice(prevState: State, formData: FormData) {
+export async function createInvoice(
+  prevState: InvoiceState,
+  formData: FormData,
+) {
   // Validate form using Zod
   const validatedFields = CreateInvoice.safeParse({
     customerId: formData.get('customerId'),
@@ -98,6 +105,21 @@ export async function updateInvoice(id: string, formData: FormData) {
   redirect('/dashboard/invoices');
 }
 
+export async function deleteInvoice(id: string) {
+  try {
+    await sql`DELETE FROM invoices WHERE id = ${id}`;
+    revalidatePath('/dashboard/invoices');
+    return { message: 'Deleted Invoice.' };
+  } catch (error) {
+    console.log(error);
+    return { message: 'Database Error: Failed to Delete Invoice.' };
+  }
+}
+
+/**
+ * CUSTOMER
+ */
+
 const CustomerFormSchema = z.object({
   name: z
     .string({
@@ -113,6 +135,29 @@ const CustomerFormSchema = z.object({
     .email({ message: 'Invalid email address' })
     .min(1),
 });
+
+export async function createCustomer(
+  prevState: InvoiceState,
+  formData: FormData,
+) {
+  // Validate form using Zod
+  const validatedFields = CustomerFormSchema.safeParse({
+    name: formData.get('name'),
+    email: formData.get('email'),
+  });
+
+  // If form validation fails, return errors early. Otherwise, continue.
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create Customer.',
+    };
+  }
+
+  // Prepare data for insertion into the database
+  // Insert data into the database
+  // Revalidate the cache for the invoices page and redirect the user.
+}
 
 export async function updateCustomer(id: string, formData: FormData) {
   const { name, email } = CustomerFormSchema.parse({
@@ -135,16 +180,10 @@ export async function updateCustomer(id: string, formData: FormData) {
   redirect('/dashboard/customers');
 }
 
-export async function deleteInvoice(id: string) {
-  try {
-    await sql`DELETE FROM invoices WHERE id = ${id}`;
-    revalidatePath('/dashboard/invoices');
-    return { message: 'Deleted Invoice.' };
-  } catch (error) {
-    console.log(error);
-    return { message: 'Database Error: Failed to Delete Invoice.' };
-  }
-}
+/**
+ *
+ * AUTHENTICATION
+ */
 
 export async function authenticate(
   prevState: string | undefined,
