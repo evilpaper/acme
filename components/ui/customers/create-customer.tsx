@@ -37,18 +37,26 @@ export default function CreateCustomer() {
           <div className="grid gap-2">
             <Label htmlFor="name">Customer name</Label>
             <Input name="name" id="name" type="text" required />
-            {/* <div id="amount-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.amount &&
-                state.errors.amount.map((error: string) => (
+            <div id="amount-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.name &&
+                state.errors.name.map((error: string) => (
                   <p className="mt-2 text-sm text-red-500" key={error}>
                     {error}
                   </p>
                 ))}
-            </div> */}
+            </div>
           </div>
           <div className="grid gap-2">
             <Label htmlFor="email">Customer email</Label>
             <Input name="email" id="email" type="email" required />
+            <div id="amount-error" aria-live="polite" aria-atomic="true">
+              {state.errors?.email &&
+                state.errors.email.map((error: string) => (
+                  <p className="mt-2 text-sm text-red-500" key={error}>
+                    {error}
+                  </p>
+                ))}
+            </div>
           </div>
         </CardContent>
         <CardFooter className="flex justify-between ">
@@ -57,6 +65,11 @@ export default function CreateCustomer() {
           </Button>
           <CreateButton />
         </CardFooter>
+        <div aria-live="polite" aria-atomic="true">
+          {state.message ? (
+            <p className="mt-2 text-sm text-red-500">{state.message}</p>
+          ) : null}
+        </div>
       </Card>
     </form>
   );
