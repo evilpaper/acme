@@ -170,6 +170,10 @@ export async function createCustomer(
 
   // Prepare data for insertion into the database
   const { name, email } = validatedFields.data;
+  const id = crypto.randomUUID();
+  const image_url = '/customers/evil-rabbit.png';
+
+  console.log(name, email, id, image_url);
 
   // Insert data into the database
 
