@@ -173,19 +173,23 @@ export async function createCustomer(
   const id = crypto.randomUUID();
   const image_url = '/customers/evil-rabbit.png';
 
-  console.log(name, email, id, image_url);
-
   // Insert data into the database
-
   try {
-    //   await sql`
-    //   INSERT INTO customers (customer_id, amount, status, date)
-    //   VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
-    // `;
-  } catch {}
+    await sql`
+      INSERT INTO customers (id, name, email, image_url)
+      VALUES (${id}, ${name}, ${email}, ${image_url})
+    `;
+  } catch {
+    // If a database error occurs, return a more specific error.
+    return {
+      message: 'Database Error: Failed to Create Invoice.',
+    };
+  }
 
-  // Revalidate the cache for the invoices page and redirect the user.
-  return { message: null, errors: {} };
+  // Revalidate the cache for the customers page and redirect the user.
+  revalidatePath('/dashboard/customers');
+  redirect('/dashboard/customers');
+  // return { message: null, errors: {} };
 }
 
 export async function updateCustomer(id: string, formData: FormData) {
