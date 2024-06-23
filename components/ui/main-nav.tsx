@@ -40,10 +40,10 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                 key={name}
                 href={href}
                 className={cn(
-                  'text-medium flex items-center font-medium transition-colors hover:text-foreground/80',
+                  'text-medium flex items-center p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
                   `/${page}` === `/${name.toLowerCase()}`
-                    ? 'text-foreground'
-                    : 'text-foreground/60',
+                    ? 'border-b border-black text-foreground'
+                    : 'border-b border-background text-foreground/80',
                 )}
               >
                 {name}
