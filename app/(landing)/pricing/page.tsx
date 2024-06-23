@@ -53,7 +53,7 @@ export default function Page() {
             <h4 className="text-7xl font-bold">$19</h4>
             <p className="font-medium text-muted-foreground">Billed Monthly</p>
           </div>
-          <Link href="/login" className={cn(buttonVariants({ size: 'lg' }))}>
+          <Link href="/signup" className={cn(buttonVariants({ size: 'lg' }))}>
             Get Started
           </Link>
         </div>
