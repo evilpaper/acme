@@ -1,6 +1,7 @@
 import { BigNumbers } from '@/components/big-numbers';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LatestInvoices } from '@/components/latest-invoices';
+import { Suspense } from 'react';
 
 export default function HomePage() {
   return (
@@ -18,25 +19,23 @@ export default function HomePage() {
             </p>
           </section>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <BigNumbers></BigNumbers>
+            <Suspense fallback="Loading...">
+              <BigNumbers />
+            </Suspense>
           </section>
           <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-            {/* <Card className="col-span-4">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="mb-4 text-lg">Recent Revenue</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Overview />
-              </CardContent>
-            </Card> */}
-            <Card className="col-span-3 hidden md:block">
-              <CardHeader>
-                <CardTitle className="mb-4 text-lg">Latest Invoices</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <LatestInvoices />
-              </CardContent>
-            </Card>
+            <Suspense fallback="Loading...">
+              <Card className="col-span-3 hidden md:block">
+                <CardHeader>
+                  <CardTitle className="mb-4 text-lg">
+                    Latest Invoices
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <LatestInvoices />
+                </CardContent>
+              </Card>
+            </Suspense>
           </section>
         </main>
       </div>
