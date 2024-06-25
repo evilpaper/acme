@@ -2,6 +2,7 @@ import { BigNumbers } from '@/components/big-numbers';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LatestInvoices } from '@/components/latest-invoices';
 import { Suspense } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function HomePage() {
   return (
@@ -19,7 +20,16 @@ export default function HomePage() {
             </p>
           </section>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Suspense fallback="Loading...">
+            <Suspense
+              fallback={
+                <>
+                  <Skeleton className="h-[140px] w-full rounded-lg" />
+                  <Skeleton className="h-[140px] w-full rounded-lg" />
+                  <Skeleton className="h-[140px] w-full rounded-lg" />
+                  <Skeleton className="h-[140px] w-full rounded-lg" />
+                </>
+              }
+            >
               <BigNumbers />
             </Suspense>
           </section>
