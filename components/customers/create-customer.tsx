@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from '../button';
 import {
   Card,
   CardContent,
@@ -9,12 +8,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '../card';
-import { Input } from '../input';
-import { Label } from '../label';
+} from '@/components/ui/card';
+import { Icons } from '@/components/ui/icons';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
 import { createCustomer } from '@/app/lib/actions';
 import { useFormState, useFormStatus } from 'react-dom';
-import { Icons } from '../icons';
 
 export default function CreateCustomer() {
   const initialState = { message: null, errors: {} };

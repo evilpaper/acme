@@ -1,11 +1,18 @@
 'use client';
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../card';
-import { Input } from '../input';
-import { Button } from '../button';
 import Link from 'next/link';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import { Customer } from '@/app/lib/definitions';
-import { Label } from '../label';
+
 import { updateCustomer } from '@/app/lib/actions';
 
 export default function EditCustomer({ customer }: { customer: Customer }) {

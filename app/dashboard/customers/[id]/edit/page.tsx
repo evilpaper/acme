@@ -1,5 +1,5 @@
 import { fetchCustomer } from '@/app/lib/data';
-import EditCustomer from '@/components/ui/customers/edit-customer';
+import EditCustomer from '@/components/customers/edit-customer';
 
 /**
  * TODO:
