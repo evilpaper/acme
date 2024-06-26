@@ -1,8 +1,8 @@
 import React from 'react';
 import { fetchCardData } from '@/app/lib/data';
-import { BigNumberCard } from './big-number-card';
+import { BigNumberCard } from '@/components/dashboard/big-number-card';
 
-export async function BigNumbers() {
+export async function BigNumberCards() {
   const {
     totalPaidInvoices,
     totalPendingInvoices,
