@@ -14,7 +14,10 @@ function getInitials(name: string) {
     }
   }
 
-  // TODO: Add empty check
+  if (intials.length !== 2) {
+    return '??';
+  }
+
   return intials.join('');
 }
 
