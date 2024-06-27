@@ -1,3 +1,7 @@
+/**
+ * data.ts is used to GET data. That is GET requests, or the R (Read) in CRUD.
+ */
+
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
 import {
@@ -13,7 +17,7 @@ import {
 import { formatCurrency } from './utils';
 
 export async function fetchRevenue() {
-  // Add noStore() here prevent the response from being cached.
+  // noStore() prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
   noStore();
 
@@ -28,6 +32,7 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoices() {
   noStore();
+
   try {
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id

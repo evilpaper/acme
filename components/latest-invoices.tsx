@@ -1,63 +1,26 @@
+import { fetchLatestInvoices } from '@/app/lib/data';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-export function LatestInvoices() {
+export async function LatestInvoices() {
+  const latestInvoices = await fetchLatestInvoices();
+
   return (
     <div className="space-y-8">
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage src="/customers/amy-burns.png" alt="Avatar" />
-          <AvatarFallback>OM</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="font-medium leading-none">Olivia Martin</p>
-          <p className="text-muted-foreground">olivia.martin@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$1,999.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="flex h-9 w-9 items-center justify-center space-y-0 border">
-          <AvatarImage src="/customers/balazs-orban.png" alt="Avatar" />
-          <AvatarFallback>JL</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="font-medium leading-none">Jackson Lee</p>
-          <p className="text-muted-foreground">jackson.lee@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$39.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage src="/customers/jared-palmer.png" alt="Avatar" />
-          <AvatarFallback>IN</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="font-medium leading-none">Isabella Nguyen</p>
-          <p className="text-muted-foreground">isabella.nguyen@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$299.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage src="/customers/evil-rabbit.png" alt="Avatar" />
-          <AvatarFallback>WK</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="font-medium leading-none">William Kim</p>
-          <p className="text-muted-foreground">will@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$99.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage src="/customers/steph-dietz.png" alt="Avatar" />
-          <AvatarFallback>SD</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="font-medium leading-none">Sofia Davis</p>
-          <p className="text-muted-foreground">sofia.davis@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$39.00</div>
-      </div>
+      {latestInvoices.map((invoice) => {
+        return (
+          <div className="flex items-center" key={invoice.id}>
+            <Avatar className="h-9 w-9">
+              <AvatarImage src={invoice.image_url} alt="Avatar" />
+              <AvatarFallback>OM</AvatarFallback>
+            </Avatar>
+            <div className="ml-4 space-y-1">
+              <p className="font-medium leading-none">{invoice.name}</p>
+              <p className="text-muted-foreground">{invoice.email}</p>
+            </div>
+            <div className="ml-auto font-medium">{invoice.amount}</div>
+          </div>
+        );
+      })}
     </div>
   );
 }

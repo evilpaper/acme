@@ -26,18 +26,16 @@ export default function HomePage() {
             </Suspense>
           </section>
           <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-            <Suspense fallback="Loading...">
-              <Card className="col-span-3 hidden md:block">
-                <CardHeader>
-                  <CardTitle className="mb-4 text-lg">
-                    Latest Invoices
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+            <Card className="col-span-3 hidden md:block">
+              <CardHeader>
+                <CardTitle className="mb-4 text-lg">Latest Invoices</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Suspense fallback="Loading...">
                   <LatestInvoices />
-                </CardContent>
-              </Card>
-            </Suspense>
+                </Suspense>
+              </CardContent>
+            </Card>
           </section>
         </main>
       </div>
