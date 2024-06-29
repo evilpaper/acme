@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { LatestInvoices } from '@/components/latest-invoices';
 import { BigNumberCards } from '@/components/dashboard/big-number-cards';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { LatestInvoicesSkeleton } from '@/components/dashboard/latest-invoices-skeleton';
 import { BigNumberCardsSkeleton } from '@/components/dashboard/big-number-cards-skeleton';
 
 export default function HomePage() {
@@ -31,7 +32,7 @@ export default function HomePage() {
                 <CardTitle className="mb-4 text-lg">Latest Invoices</CardTitle>
               </CardHeader>
               <CardContent>
-                <Suspense fallback="Loading...">
+                <Suspense fallback={<LatestInvoicesSkeleton />}>
                   <LatestInvoices />
                 </Suspense>
               </CardContent>
