@@ -9,24 +9,21 @@ import { BigNumberCardsSkeleton } from '@/components/dashboard/big-number-cards-
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col space-y-6">
-      <div className="container grid flex-1 gap-12 px-2">
-        <main className="flex w-full flex-1 flex-col gap-4 overflow-hidden">
+      <div className="container px-2">
+        <main className="flex w-full flex-1 flex-col gap-6">
           <section>
             <h1
               className={`font-heading text-3xl font-bold leading-tight md:text-4xl`}
             >
               Dashboard
             </h1>
-            <p className={`py-2 text-lg text-muted-foreground`}>
-              Monitor your performance
-            </p>
           </section>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Suspense fallback={<BigNumberCardsSkeleton />}>
               <BigNumberCards />
             </Suspense>
           </section>
-          <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+          <section className="grid gap-6 sm:grid-cols-2 md:grid-cols-6  ">
             <Card className="col-span-3 hidden md:block">
               <CardHeader>
                 <CardTitle className="mb-4 text-lg">Latest Invoices</CardTitle>
