@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import Image from 'next/image';
+
 import { fetchFilteredInvoices } from '@/app/lib/data';
 import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
 import {
@@ -8,14 +11,12 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import Image from 'next/image';
-import { Button } from './ui/button';
-import { Icons } from './ui/icons';
-import DeleteInvoice from './delete-invoice-button';
-import Link from 'next/link';
-import InvoiceCard from './invoice-card';
+import { Icons } from '../ui/icons';
+import { Button } from '../ui/button';
+import { InvoiceCard } from './invoice-card';
+import { DeleteInvoice } from './delete-invoice-button';
 
-export default async function InvoiceTable({
+export async function InvoiceTable({
   query,
   currentPage,
 }: {

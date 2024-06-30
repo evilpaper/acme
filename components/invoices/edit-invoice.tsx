@@ -1,29 +1,30 @@
 'use client';
 
-import { updateInvoice } from '@/app/lib/actions';
-import { CustomerField } from '@/app/lib/definitions';
+import React from 'react';
+import Link from 'next/link';
+
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from './ui/card';
-import { Label } from './ui/label';
+} from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
-import Link from 'next/link';
-import { RadioGroup, RadioGroupItem } from './ui/radio-group';
-import React from 'react';
+} from '../ui/select';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { updateInvoice } from '@/app/lib/actions';
+import { CustomerField } from '@/app/lib/definitions';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
-export default function EditInvoice({
+export function EditInvoice({
   invoice,
   client,
   customers,

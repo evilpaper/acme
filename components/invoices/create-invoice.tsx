@@ -1,6 +1,10 @@
 'use client';
 
-import { CustomerField } from '@/app/lib/definitions';
+import Link from 'next/link';
+import { useFormState, useFormStatus } from 'react-dom';
+
+import { Label } from '@/components/ui/label';
+
 import {
   Card,
   CardContent,
@@ -8,28 +12,23 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from './ui/card';
-import { Label } from './ui/label';
+} from '../ui/card';
+
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
-import Link from 'next/link';
-import { RadioGroup, RadioGroupItem } from './ui/radio-group';
+} from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
+import { Icons } from '@/components/ui/icons';
+import { Button } from '@/components/ui/button';
 import { createInvoice } from '@/app/lib/actions';
-import { useFormState, useFormStatus } from 'react-dom';
-import { Icons } from './ui/icons';
+import { CustomerField } from '@/app/lib/definitions';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
-export default function CreateInvoice({
-  customers,
-}: {
-  customers: CustomerField[];
-}) {
+export function CreateInvoice({ customers }: { customers: CustomerField[] }) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
 

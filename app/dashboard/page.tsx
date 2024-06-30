@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { LatestInvoices } from '@/components/latest-invoices';
+import { LatestInvoices } from '@/components/dashboard/latest-invoices';
 import { BigNumberCards } from '@/components/dashboard/big-number-cards';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LatestInvoicesSkeleton } from '@/components/dashboard/latest-invoices-skeleton';

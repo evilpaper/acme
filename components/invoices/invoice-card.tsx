@@ -1,23 +1,20 @@
+import Link from 'next/link';
 import Image from 'next/image';
+
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from './ui/card';
-import DeleteInvoice from './delete-invoice-button';
-import { Button } from './ui/button';
-import Link from 'next/link';
-import { Icons } from './ui/icons';
+} from '@/components/ui/card';
+import { Icons } from '@/components/ui/icons';
+import { Button } from '@/components/ui/button';
 import { InvoicesTable } from '@/app/lib/definitions';
+import { DeleteInvoice } from '@/components/invoices/delete-invoice-button';
 import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
 
-export default async function InvoiceCard({
-  invoice,
-}: {
-  invoice: InvoicesTable;
-}) {
+export async function InvoiceCard({ invoice }: { invoice: InvoicesTable }) {
   return (
     <Card key={invoice.id}>
       <CardHeader>

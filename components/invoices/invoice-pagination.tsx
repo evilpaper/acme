@@ -10,11 +10,7 @@ import {
 } from '@/components/ui/pagination';
 import { usePathname, useSearchParams } from 'next/navigation';
 
-export default function InvoicePagination({
-  totalPages,
-}: {
-  totalPages: Number;
-}) {
+export function InvoicePagination({ totalPages }: { totalPages: Number }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;

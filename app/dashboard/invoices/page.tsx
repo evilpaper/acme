@@ -1,10 +1,11 @@
-import { fetchInvoicesPages } from '@/app/lib/data';
-import InvoiceTable from '@/components/invoice-table';
-import InvoicePagination from '@/components/invoice-pagination';
+import Link from 'next/link';
+
+import { Plus } from 'lucide-react';
 import { Search } from '@/components/ui/search';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Plus } from 'lucide-react';
+import { fetchInvoicesPages } from '@/app/lib/data';
+import { InvoiceTable } from '@/components/invoices/invoice-table';
+import { InvoicePagination } from '@/components/invoices/invoice-pagination';
 
 export default async function Page({
   searchParams,

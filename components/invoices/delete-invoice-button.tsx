@@ -1,8 +1,8 @@
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
+import { Icons } from '@/components/ui/icons';
 import { deleteInvoice } from '@/app/lib/actions';
-import { Icons } from './ui/icons';
 
-export default function DeleteInvoice({ id }: { id: string }) {
+export function DeleteInvoice({ id }: { id: string }) {
   const deleteInvoiceWithId = deleteInvoice.bind(null, id);
   return (
     <form action={deleteInvoiceWithId}>
