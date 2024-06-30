@@ -1,5 +1,5 @@
 import { fetchFilteredCustomers } from '@/app/lib/data';
-import { Search } from '@/components/search';
+import { Search } from '@/components/ui/search';
 import {
   AlertDialog,
   AlertDialogAction,

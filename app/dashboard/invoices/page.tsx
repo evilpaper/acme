@@ -1,7 +1,7 @@
 import { fetchInvoicesPages } from '@/app/lib/data';
 import InvoiceTable from '@/components/invoice-table';
 import InvoicePagination from '@/components/invoice-pagination';
-import { Search } from '@/components/search';
+import { Search } from '@/components/ui/search';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';

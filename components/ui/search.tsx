@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Input } from './ui/input';
+import { Input } from '@/components/ui/input';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 /**
