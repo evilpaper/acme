@@ -148,6 +148,9 @@ export async function fetchInvoicesPages(query: string) {
 }
 
 export async function fetchInvoiceById(id: string) {
+  /**
+   * TODO: Narrow type for id and handle accordingly. id is a UUID. DB return with an error for all other types.
+   */
   noStore();
   try {
     const data = await sql<InvoiceForm>`
