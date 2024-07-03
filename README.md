@@ -32,14 +32,17 @@ This project as an experiment to see how a modern app (with features like authen
 
 - [x] Add a component layer for importing and exposing icons
 - [x] Use shadcn/ui for all components
+- [ ] Hamburger navigation
+- [ ] Graph on dashboard
 - [ ] Login using Swedish BankID
 - [ ] Payment using Swedish Swish
 - [ ] Subscriptions using Stripe
 - [ ] Dark mode
+- [ ] Save changes in a history table for audit trail, recovery, conflict prevention and security.
 
 ## Known Issues
 
-A list of things not working right now:
+- [ ] fetchInvoiceById throw an error if id isn't an UUID. A bit crud to show error, better show custom bad request or something.
 
 ## Running Locally
 
