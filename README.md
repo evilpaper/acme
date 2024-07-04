@@ -37,7 +37,7 @@ This project as an experiment to see how a modern app (with features like authen
 - [ ] Login using Swedish BankID
 - [ ] Payment using Swedish Swish
 - [ ] Subscriptions using Stripe
-- [ ] Dark mode
+- [x] Dark mode
 - [ ] Save changes in a history table for audit trail, recovery, conflict prevention and security.
 
 ## Known Issues
