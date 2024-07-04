@@ -1,6 +1,7 @@
-import '@/styles/global.css';
-import { fraunces } from '@/components/ui/fonts';
 import { Metadata } from 'next';
+import { fraunces } from '@/components/ui/fonts';
+
+import '@/styles/global.css';
 
 export const metadata: Metadata = {
   title: 'Acme',
