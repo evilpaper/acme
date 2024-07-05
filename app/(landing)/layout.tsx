@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { ModeToggle } from '@/components/mode-toggle';
 
 export default function Page({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment();
@@ -55,7 +56,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         </nav>
       </section>
       {children}
-      <footer className="container mt-auto flex flex-col items-center justify-between p-6">
+      <footer className="container mt-auto flex flex-col items-center justify-between p-6 md:flex-row">
         <p className="text-center text-sm">
           Built by{' '}
           <a
@@ -109,6 +110,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
             Pricing
           </Link>
         </section>
+        <ModeToggle />
       </footer>
     </main>
   );
