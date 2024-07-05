@@ -8,6 +8,9 @@ import {
   Check,
   Edit2,
   Trash2,
+  Sun,
+  Moon,
+  Computer,
 } from 'lucide-react';
 
 export const Icons = {
@@ -20,4 +23,7 @@ export const Icons = {
   check: Check,
   pen: Edit2,
   trashcan: Trash2,
+  sun: Sun,
+  moon: Moon,
+  system: Computer,
 };
