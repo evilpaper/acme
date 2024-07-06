@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { ModeToggle } from '@/components/mode-toggle';
 import { ModeSwitch } from '@/components/mode-switch';
 
 export default function Page({ children }: { children: React.ReactNode }) {

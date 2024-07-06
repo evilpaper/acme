@@ -1,8 +1,8 @@
+import Link from 'next/link';
 import { signOut } from '@/auth';
-import { ModeToggle } from '@/components/mode-toggle';
 import { Button } from '@/components/ui/button';
 import { MainNav } from '@/components/ui/main-nav';
-import Link from 'next/link';
+import { ModeSwitch } from '@/components/mode-switch';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -49,7 +49,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         >
           Invoices
         </Link>
-        <ModeToggle />
+        <ModeSwitch />
       </section>
     </div>
   );
