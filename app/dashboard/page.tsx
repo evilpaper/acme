@@ -8,7 +8,7 @@ import { BigNumberCardsSkeleton } from '@/components/dashboard/big-number-cards-
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col space-y-6">
+    <div className="flex flex-col space-y-6">
       <div className="container px-2">
         <main className="flex w-full flex-1 flex-col gap-6">
           <section>
