@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <Button variant="outline">Sign out</Button>
       </form>
-      <section className="container flex flex-col items-center justify-center gap-4 px-5 pb-8 md:flex-row md:justify-between">
+      <section className="container flex flex-col items-center justify-center gap-4 px-5 pb-8 pt-8 md:flex-row md:justify-between">
         <div className="flex flex-col items-center  gap-4 px-5 md:flex-row">
           <p>{`@${year} ACME`}</p>
           <Link
