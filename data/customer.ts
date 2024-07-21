@@ -1,12 +1,21 @@
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
-import { CustomersTableType } from '@/types/customer';
 import { formatCurrency } from '@/lib/utils';
 
-export async function fetchFilteredCustomers(query: string) {
+export type Customers = {
+  id: string;
+  name: string;
+  email: string;
+  image_url: string;
+  total_invoices: number;
+  total_pending: number;
+  total_paid: number;
+};
+
+export async function getCustomers(query: string) {
   noStore();
   try {
-    const data = await sql<CustomersTableType>`
+    const data = await sql<Customers>`
           SELECT
             customers.id,
             customers.name,
