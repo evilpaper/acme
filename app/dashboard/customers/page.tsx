@@ -1,4 +1,4 @@
-import { fetchFilteredCustomers } from '@/app/lib/data';
+import { fetchFilteredCustomers } from '@/data/customer';
 import { Search } from '@/components/ui/search';
 import {
   AlertDialog,
