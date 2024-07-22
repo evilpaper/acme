@@ -1,21 +1,9 @@
-/**
- * data.ts is used to GET data. That is GET requests, or the R (Read) in CRUD.
- */
-
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
-import {
-  InvoiceForm,
-  InvoicesTable,
-  LatestInvoiceRaw,
-  User,
-} from './definitions';
+import { InvoiceForm, InvoicesTable, LatestInvoiceRaw } from './definitions';
 import { formatCurrency } from './utils';
-import { Customer } from '@/data/customer';
 
 export async function fetchLatestInvoices() {
-  // noStore() prevent the response from being cached.
-  // This is equivalent to in fetch(..., {cache: 'no-store'}).
   noStore();
 
   try {
@@ -155,35 +143,5 @@ export async function fetchInvoiceById(id: string) {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch invoice.');
-  }
-}
-
-export async function fetchCustomers() {
-  try {
-    const data = await sql<Customer>`
-      SELECT
-        id,
-        name,
-        email,
-        image_url
-      FROM customers
-      ORDER BY name ASC
-    `;
-
-    const customers = data.rows;
-    return customers;
-  } catch (err) {
-    console.error('Database Error:', err);
-    throw new Error('Failed to fetch all customers.');
-  }
-}
-
-export async function fetchUser(email: string) {
-  try {
-    const user = await sql`SELECT * FROM users WHERE email=${email}`;
-    return user.rows[0] as User;
-  } catch (error) {
-    console.error('Failed to fetch user:', error);
-    throw new Error('Failed to fetch user.');
   }
 }

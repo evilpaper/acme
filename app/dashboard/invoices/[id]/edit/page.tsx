@@ -1,5 +1,6 @@
-import { fetchCustomers, fetchInvoiceById } from '@/app/lib/data';
+import { fetchInvoiceById } from '@/app/lib/data';
 import { EditInvoice } from '@/components/invoices/edit-invoice';
+import { getCustomers } from '@/data/customer';
 import { notFound } from 'next/navigation';
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -7,7 +8,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   const [invoice, customers] = await Promise.all([
     fetchInvoiceById(id),
-    fetchCustomers(),
+    getCustomers(),
   ]);
 
   if (!invoice) {
