@@ -18,10 +18,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../ui/select';
+import { Customer } from '@/data/customer';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { updateInvoice } from '@/app/lib/actions';
-import { CustomerField } from '@/app/lib/definitions';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 export function EditInvoice({
@@ -35,8 +35,8 @@ export function EditInvoice({
     customer_id: string;
     status: 'pending' | 'paid';
   };
-  client?: CustomerField;
-  customers: CustomerField[];
+  client?: Customer;
+  customers: Customer[];
 }) {
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
 

@@ -25,10 +25,10 @@ import { Input } from '@/components/ui/input';
 import { Icons } from '@/components/ui/icons';
 import { Button } from '@/components/ui/button';
 import { createInvoice } from '@/app/lib/actions';
-import { CustomerField } from '@/app/lib/definitions';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Customer } from '@/data/customer';
 
-export function CreateInvoice({ customers }: { customers: CustomerField[] }) {
+export function CreateInvoice({ customers }: { customers: Customer[] }) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
 

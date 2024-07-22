@@ -1,4 +1,4 @@
-import { getCustomers } from '@/data/customer';
+import { getCustomerTable } from '@/data/customer';
 import { Search } from '@/components/ui/search';
 import {
   AlertDialog,
@@ -34,7 +34,7 @@ export default async function Page({
   };
 }) {
   const query = searchParams?.query || '';
-  const customers = await getCustomers(query);
+  const customers = await getCustomerTable(query);
 
   return (
     <main className="container flex flex-col space-y-6 px-2">

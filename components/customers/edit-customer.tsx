@@ -8,10 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Customer } from '@/data/customer';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Customer } from '@/app/lib/definitions';
 
 import { updateCustomer } from '@/app/lib/actions';
 

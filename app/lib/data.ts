@@ -5,15 +5,13 @@
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
 import {
-  CustomerField,
   InvoiceForm,
   InvoicesTable,
   LatestInvoiceRaw,
   User,
-  Revenue,
-  Customer,
 } from './definitions';
 import { formatCurrency } from './utils';
+import { Customer } from '@/data/customer';
 
 export async function fetchLatestInvoices() {
   // noStore() prevent the response from being cached.
@@ -162,7 +160,7 @@ export async function fetchInvoiceById(id: string) {
 
 export async function fetchCustomers() {
   try {
-    const data = await sql<CustomerField>`
+    const data = await sql<Customer>`
       SELECT
         id,
         name,
@@ -187,15 +185,5 @@ export async function fetchUser(email: string) {
   } catch (error) {
     console.error('Failed to fetch user:', error);
     throw new Error('Failed to fetch user.');
-  }
-}
-
-export async function fetchCustomer(id: string) {
-  try {
-    const customer = await sql`SELECT * FROM customers WHERE id=${id}`;
-    return customer.rows[0] as Customer;
-  } catch (error) {
-    console.log('Failed to fetch customer:', error);
-    throw new Error('Failed to fetch customer.');
   }
 }
