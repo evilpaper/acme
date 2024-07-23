@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { fraunces } from '@/components/ui/fonts';
+import { ThemeProvider } from '@/components/ui/theme-provider';
 
 import '@/styles/global.css';
-import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Acme',

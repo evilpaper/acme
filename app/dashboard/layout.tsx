@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { signOut } from '@/auth';
 import { Button } from '@/components/ui/button';
 import { MainNav } from '@/components/ui/main-nav';
-import { ModeSwitch } from '@/components/mode-switch';
+import { ModeSwitch } from '@/components/ui/mode-switch';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const currentDate = new Date();
