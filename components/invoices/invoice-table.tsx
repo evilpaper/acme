@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { fetchFilteredInvoices } from '@/app/lib/data';
+import { fetchFilteredInvoices } from '@/data/invoice';
 import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
 import {
   Table,

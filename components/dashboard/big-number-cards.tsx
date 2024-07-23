@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchCardData } from '@/app/lib/data';
+import { fetchCardData } from '@/data/dashboard';
 import { BigNumberCard } from '@/components/dashboard/big-number-card';
 
 export async function BigNumberCards() {

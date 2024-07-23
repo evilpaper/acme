@@ -1,4 +1,4 @@
-import { fetchLatestInvoices } from '@/app/lib/data';
+import { fetchLatestInvoices } from '@/data/invoice';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 function getInitials(name: string) {

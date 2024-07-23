@@ -1,4 +1,4 @@
-import { fetchInvoiceById } from '@/app/lib/data';
+import { fetchInvoiceById } from '@/data/invoice';
 import { EditInvoice } from '@/components/invoices/edit-invoice';
 import { getCustomers } from '@/data/customer';
 import { notFound } from 'next/navigation';

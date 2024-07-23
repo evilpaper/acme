@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/card';
 import { Icons } from '@/components/ui/icons';
 import { Button } from '@/components/ui/button';
-import { InvoicesTable } from '@/app/lib/definitions';
+import { InvoicesTable } from '@/data/invoice';
 import { DeleteInvoice } from '@/components/invoices/delete-invoice-button';
 import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
 

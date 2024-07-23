@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Plus } from 'lucide-react';
 import { Search } from '@/components/ui/search';
 import { Button } from '@/components/ui/button';
-import { fetchInvoicesPages } from '@/app/lib/data';
+import { fetchInvoicesPages } from '@/data/invoice';
 import { InvoiceTable } from '@/components/invoices/invoice-table';
 import { InvoicePagination } from '@/components/invoices/invoice-pagination';
 

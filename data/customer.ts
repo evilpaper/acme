@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
-import { unstable_noStore as noStore } from 'next/cache';
 import { formatCurrency } from '@/lib/utils';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export type Customer = {
   id: string;
@@ -22,6 +22,26 @@ export async function getCustomer(id: string) {
   } catch (error) {
     console.log('Failed to fetch customer:', error);
     throw new Error('Failed to fetch customer.');
+  }
+}
+
+export async function getCustomers() {
+  try {
+    const data = await sql<Customer>`
+      SELECT
+        id,
+        name,
+        email,
+        image_url
+      FROM customers
+      ORDER BY name ASC
+    `;
+
+    const customers = data.rows;
+    return customers;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all customers.');
   }
 }
 
@@ -54,25 +74,5 @@ export async function getCustomerTable(query: string) {
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch customer table.');
-  }
-}
-
-export async function getCustomers() {
-  try {
-    const data = await sql<Customer>`
-      SELECT
-        id,
-        name,
-        email,
-        image_url
-      FROM customers
-      ORDER BY name ASC
-    `;
-
-    const customers = data.rows;
-    return customers;
-  } catch (err) {
-    console.error('Database Error:', err);
-    throw new Error('Failed to fetch all customers.');
   }
 }
