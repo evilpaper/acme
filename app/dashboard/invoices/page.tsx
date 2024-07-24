@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Plus } from 'lucide-react';
+import { Icons } from '@/components/ui/icons';
 import { Search } from '@/components/ui/search';
 import { Button } from '@/components/ui/button';
 import { getTotalNumberofInvoicePages } from '@/data/invoice';
@@ -30,7 +30,7 @@ export default async function Page({
         <Search />
         <Button asChild>
           <Link href="/dashboard/invoices/create" className="w-full sm:w-auto">
-            <Plus className="mr-2 h-4 w-4" />
+            <Icons.add className="mr-2 h-4 w-4" />
             <span>Add invoice</span>
           </Link>
         </Button>

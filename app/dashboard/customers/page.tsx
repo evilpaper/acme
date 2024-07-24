@@ -1,8 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Plus } from 'lucide-react';
 
-import { Search } from '@/components/ui/search';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -14,17 +20,9 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-
-import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/ui/icons';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { Button } from '@/components/ui/button';
+import { Search } from '@/components/ui/search';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getCustomerTablePage, getTotalCustomerPages } from '@/data/customer';
 import { CustomerPagination } from '@/components/customers/customer-pagination';
@@ -53,7 +51,7 @@ export default async function Page({
         <Search />
         <Button asChild>
           <Link href="/dashboard/customers/create" className="w-full sm:w-auto">
-            <Plus className="mr-2 h-4 w-4" />
+            <Icons.add className="mr-2 h-4 w-4" />
             <span>Add customer</span>
           </Link>
         </Button>
