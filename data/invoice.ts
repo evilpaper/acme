@@ -82,6 +82,7 @@ export async function fetchLatestInvoices() {
 }
 
 const ITEMS_PER_PAGE = 6;
+
 export async function fetchFilteredInvoices(
   query: string,
   currentPage: number,
@@ -118,7 +119,7 @@ export async function fetchFilteredInvoices(
   }
 }
 
-export async function fetchInvoicesPages(query: string) {
+export async function getTotalNumberofInvoicePages(query: string) {
   noStore();
   try {
     const count = await sql`SELECT COUNT(*)

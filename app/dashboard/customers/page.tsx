@@ -1,4 +1,7 @@
-import { getCustomerTable } from '@/data/customer';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Plus } from 'lucide-react';
+
 import { Search } from '@/components/ui/search';
 import {
   AlertDialog,
@@ -11,7 +14,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/ui/icons';
 import {
@@ -22,19 +25,22 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Plus } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { getCustomerTablePage, getTotalCustomerPages } from '@/data/customer';
+import { CustomerPagination } from '@/components/customers/customer-pagination';
 
 export default async function Page({
   searchParams,
 }: {
   searchParams?: {
     query?: string;
+    page?: string;
   };
 }) {
   const query = searchParams?.query || '';
-  const customers = await getCustomerTable(query);
+  const currentPage = Number(searchParams?.page) || 1;
+  const totalPages = await getTotalCustomerPages(query);
+  const customers = await getCustomerTablePage(query, currentPage);
 
   return (
     <main className="container flex flex-col space-y-6 px-2">
@@ -172,6 +178,7 @@ export default async function Page({
           })}
         </ul>
       </section>
+      <CustomerPagination totalPages={totalPages} />
     </main>
   );
 }

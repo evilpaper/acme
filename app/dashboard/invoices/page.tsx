@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Plus } from 'lucide-react';
 import { Search } from '@/components/ui/search';
 import { Button } from '@/components/ui/button';
-import { fetchInvoicesPages } from '@/data/invoice';
+import { getTotalNumberofInvoicePages } from '@/data/invoice';
 import { InvoiceTable } from '@/components/invoices/invoice-table';
 import { InvoicePagination } from '@/components/invoices/invoice-pagination';
 
@@ -17,7 +17,7 @@ export default async function Page({
 }) {
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = await fetchInvoicesPages(query);
+  const totalPages = await getTotalNumberofInvoicePages(query);
 
   return (
     <main className="container flex-col space-y-6 px-2">
