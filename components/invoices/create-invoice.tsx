@@ -1,10 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useFormState, useFormStatus } from 'react-dom';
-
+import { useFormState } from 'react-dom';
+import { Customer } from '@/data/customer';
 import { Label } from '@/components/ui/label';
-
 import {
   Card,
   CardContent,
@@ -13,7 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from '../ui/card';
-
 import {
   Select,
   SelectContent,
@@ -22,11 +20,10 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
-import { Icons } from '@/components/ui/icons';
 import { Button } from '@/components/ui/button';
 import { createInvoice } from '@/app/lib/actions';
+import { CreateButton } from '@/components/ui/create-button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Customer } from '@/data/customer';
 
 export function CreateInvoice({ customers }: { customers: Customer[] }) {
   const initialState = { message: null, errors: {} };
@@ -115,7 +112,7 @@ export function CreateInvoice({ customers }: { customers: Customer[] }) {
           <Button variant="outline" asChild>
             <Link href="/dashboard/invoices">Cancel</Link>
           </Button>
-          <CreateButton />
+          <CreateButton label="Add invoice" />
         </CardFooter>
         <div aria-live="polite" aria-atomic="true">
           {state.message ? (
@@ -124,15 +121,5 @@ export function CreateInvoice({ customers }: { customers: Customer[] }) {
         </div>
       </Card>
     </form>
-  );
-}
-
-function CreateButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button>
-      {pending && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
-      Create invoice
-    </Button>
   );
 }

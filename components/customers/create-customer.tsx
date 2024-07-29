@@ -9,12 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Icons } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { createCustomer } from '@/app/lib/actions';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormState } from 'react-dom';
+import { CreateButton } from '@/components/ui/create-button';
 
 export default function CreateCustomer() {
   const initialState = { message: null, errors: {} };
@@ -63,7 +63,7 @@ export default function CreateCustomer() {
           <Button variant="outline" asChild>
             <Link href="/dashboard/invoices">Cancel</Link>
           </Button>
-          <CreateButton />
+          <CreateButton label="Add customer" />
         </CardFooter>
         <div aria-live="polite" aria-atomic="true">
           {state.message ? (
@@ -72,15 +72,5 @@ export default function CreateCustomer() {
         </div>
       </Card>
     </form>
-  );
-}
-
-function CreateButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button>
-      {pending && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
-      Create customer
-    </Button>
   );
 }
