@@ -4,7 +4,7 @@ import { Icons } from '@/components/ui/icons';
 import { Search } from '@/components/ui/search';
 import { Button } from '@/components/ui/button';
 import { getTotalNumberofInvoicePages } from '@/data/invoice';
-import { InvoiceTable } from '@/components/invoices/invoice-table';
+import { InvoiceView } from '@/components/invoices/invoice-view';
 import { InvoicePagination } from '@/components/invoices/invoice-pagination';
 
 export default async function Page({
@@ -35,7 +35,7 @@ export default async function Page({
           </Link>
         </Button>
       </section>
-      <InvoiceTable query={query} currentPage={currentPage} />
+      <InvoiceView query={query} currentPage={currentPage} />
       <InvoicePagination totalPages={totalPages} />
     </main>
   );

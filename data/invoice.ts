@@ -22,7 +22,7 @@ export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
   amount: number;
 };
 
-export type InvoicesTable = {
+export type InvoiceView = {
   id: string;
   customer_id: string;
   name: string;
@@ -91,7 +91,7 @@ export async function fetchFilteredInvoices(
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
-    const invoices = await sql<InvoicesTable>`
+    const invoices = await sql<InvoiceView>`
       SELECT
         invoices.id,
         invoices.amount,

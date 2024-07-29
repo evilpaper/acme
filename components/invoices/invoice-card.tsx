@@ -10,13 +10,13 @@ import {
 } from '@/components/ui/card';
 import { Icons } from '@/components/ui/icons';
 import { Button } from '@/components/ui/button';
-import { InvoicesTable } from '@/data/invoice';
+import { InvoiceView } from '@/data/invoice';
 import { DeleteInvoice } from '@/components/invoices/delete-invoice-button';
 import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
 
-export async function InvoiceCard({ invoice }: { invoice: InvoicesTable }) {
+export async function InvoiceCard({ invoice }: { invoice: InvoiceView }) {
   return (
-    <Card key={invoice.id}>
+    <Card>
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
           <span className="flex items-center">
