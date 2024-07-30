@@ -15,7 +15,7 @@ export async function InvoiceView({
     <section>
       {/* Table for desktop */}
       <InvoiceTable invoices={invoices} className="hidden md:table" />
-      {/* List of cards for mobile */}
+      {/* List for mobile */}
       <ul className="flex flex-col gap-6 md:hidden">
         {invoices?.map((invoice) => {
           return (

@@ -57,6 +57,7 @@ export default async function Page({
         </Button>
       </section>
       <section>
+        {/* Table for desktop */}
         <Table className="hidden md:table">
           <TableHeader>
             <TableRow>
@@ -119,6 +120,7 @@ export default async function Page({
             })}
           </TableBody>
         </Table>
+        {/* List for mobile */}
         <ul className="space-y-8 md:hidden">
           {customers.map((customer) => {
             return (
