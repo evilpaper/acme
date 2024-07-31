@@ -8,7 +8,7 @@ An open source application built using the app router, server components and all
 
 ## About this project
 
-This project as an experiment to see how a modern app (with features like authentication, subscriptions, API routes, static pages for docs ...etc) would work in Next.js and server components. Heavenly inspired by shadcn's Taxonomy. You call also call it i rip off. Anyway, I fins it to be a good way to test out new technologies, practice concepts etc.
+This project as an experiment to see how a modern app (with features like authentication, subscriptions, API routes, static pages for docs ...etc) would work in Next.js and server components. Heavenly inspired by shadcn's Taxonomy. You call also call it i rip off. Anyway, I find it to be a good way to test out new technologies, practice concepts etc.
 
 ## Features
 
