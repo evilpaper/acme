@@ -32,7 +32,7 @@ This project as an experiment to see how a modern app (with features like authen
 
 - [x] Add a component layer for importing and exposing icons
 - [x] Use shadcn/ui for all components
-- [ ] Hamburger navigation
+- [x] Hamburger navigation
 - [ ] Graph on dashboard
 - [ ] Subscriptions using Stripe
 - [x] Dark mode

@@ -1,12 +1,13 @@
 'use client';
 
-import * as React from 'react';
 import Link from 'next/link';
+import * as React from 'react';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { Avatar, AvatarFallback, AvatarImage } from './avatar';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
+
 import { AlignJustify } from 'lucide-react';
 
 const links = [
@@ -19,6 +20,10 @@ export function MainNav({ children }: { children: React.ReactElement }) {
   const pathname = usePathname();
   const page = pathname?.split('/').pop();
   const [isNavOpen, setIsNavOpen] = React.useState(false);
+
+  function handleNavClick() {
+    setIsNavOpen((old) => !old);
+  }
 
   return (
     <section className="container z-40 p-4">
@@ -64,9 +69,53 @@ export function MainNav({ children }: { children: React.ReactElement }) {
         </section>
         {/* Mobile */}
         <section className="flex items-center justify-between md:hidden">
-          <button>
+          <button onClick={handleNavClick}>
             <AlignJustify />
           </button>
+          <div
+            className={cn(
+              isNavOpen
+                ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-center justify-evenly bg-background'
+                : 'hidden',
+            )}
+          >
+            <div
+              className="absolute right-0 top-0 px-8 py-8"
+              onClick={() => setIsNavOpen(false)}
+            >
+              <svg
+                className="h-8 w-8 text-gray-600"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </div>
+            <ul className="flex min-h-[250px] flex-col items-center justify-between">
+              {links.map(({ name, href }) => {
+                return (
+                  <li key={name}>
+                    <Link
+                      href={href}
+                      className={cn(
+                        'text-medium flex items-center p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
+                        `/${page}` === `/${name.toLowerCase()}`
+                          ? 'border-b border-black text-foreground'
+                          : 'border-b border-background text-foreground/80',
+                      )}
+                    >
+                      {name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
           <Link href="/dashboard" className="md:hidden">
             <Image
               priority

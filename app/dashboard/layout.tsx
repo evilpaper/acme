@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex flex-col space-y-6">
-      <header className="sticky top-0 z-40 bg-background">
+      <header className="sticky top-0 z-40">
         {/**
          * MainNav is a client component. We can't use the directive "use server" in client component.
          * Thus passing it down as children from a server component.
