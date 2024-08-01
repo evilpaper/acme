@@ -101,6 +101,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                 return (
                   <li key={name}>
                     <Link
+                      onClick={handleNavClick}
                       href={href}
                       className={cn(
                         'text-medium flex items-center p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
