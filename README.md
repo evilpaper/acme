@@ -3,7 +3,7 @@
 An open source application built using the app router, server components and all goodies in Next.js.
 
 > **Warning**
-> This app is a work in progress. I'm building this in public.
+> This app is a work in progress. Building this in public.
 > See the roadmap below.
 
 ## About this project
@@ -32,10 +32,10 @@ This project as an experiment to see how a modern app (with features like authen
 
 - [x] Add a component layer for importing and exposing icons
 - [x] Use shadcn/ui for all components
+- [x] Dark mode
 - [x] Hamburger navigation
 - [ ] Graph on dashboard
 - [ ] Subscriptions using Stripe
-- [x] Dark mode
 - [ ] Save changes in a history table for audit trail, recovery, conflict prevention and security.
 
 ## Known Issues
