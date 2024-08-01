@@ -75,7 +75,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
           <div
             className={cn(
               isNavOpen
-                ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-center justify-evenly bg-background'
+                ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start bg-background p-10 pt-20'
                 : 'hidden',
             )}
           >
