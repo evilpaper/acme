@@ -5,19 +5,62 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import logo from '../../public/images/logo-black-lemon.svg';
-import { useSelectedLayoutSegment } from 'next/navigation';
+import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ModeSwitch } from '@/components/ui/mode-switch';
 import { AlignJustify } from 'lucide-react';
 
+const links = [
+  { name: ' Features', href: '/features', icon: '' },
+  { name: 'Pricing', href: '/pricing', icon: '' },
+];
+
 export default function Page({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment();
+  const pathname = usePathname();
+  const page = pathname?.split('/').pop();
+  const [isNavOpen, setIsNavOpen] = React.useState(false);
+
+  function handleNavClick() {
+    setIsNavOpen((old) => !old);
+  }
 
   return (
     <main className="container flex min-h-screen flex-col px-6">
-      <nav className="flex items-center justify-between gap-6 py-6">
+      <nav className="flex items-center justify-between py-6">
         {/* Mobile */}
-        <AlignJustify className="md:hidden" />
+
+        <button className="z-20 md:hidden" onClick={handleNavClick}>
+          <AlignJustify />
+        </button>
+        <div
+          className={cn(
+            isNavOpen
+              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start bg-background p-10 pt-40'
+              : 'hidden',
+          )}
+        >
+          <ul className="flex min-h-[250px] flex-col items-center justify-between">
+            {links.map(({ name, href }) => {
+              return (
+                <li key={name}>
+                  <Link
+                    onClick={handleNavClick}
+                    href={href}
+                    className={cn(
+                      'text-bold flex p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
+                      `/${page}` === `/${name.toLowerCase()}`
+                        ? 'border-b border-black text-foreground'
+                        : 'border-b border-background text-foreground/80',
+                    )}
+                  >
+                    {name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <Link href="/" className="md:hidden">
           <Image
             priority
@@ -64,59 +107,37 @@ export default function Page({ children }: { children: React.ReactNode }) {
         </Button>
       </nav>
       {children}
-      <footer className="container mt-auto flex flex-col items-center justify-between p-6 md:flex-row">
-        <p className="text-center text-sm">
-          Built by{' '}
-          <a
-            href="https://evilpaper.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            evilpaper.
-          </a>{' '}
-          Hosted on{' '}
-          <a
-            href="https://vercel.com"
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            Vercel.
-          </a>{' '}
-          The source code is available on{' '}
-          <a
-            href="https://github.com/evilpaper/acme"
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            GitHub.
-          </a>
-        </p>
-        <section className="md:hidden">
-          <Link
-            href="/features"
-            className={cn(
-              'mt-4 flex items-center justify-center px-4 py-2 text-center text-sm transition-colors hover:text-foreground/80',
-              `/${segment}` === '/features'
-                ? 'text-foreground'
-                : 'text-foreground/80',
-            )}
-          >
-            Features
-          </Link>
-          <Link
-            href="/pricing"
-            className={cn(
-              'flex items-center justify-center px-4 py-2 text-center text-sm transition-colors hover:text-foreground/80',
-              `/${segment}` === '/pricing'
-                ? 'text-foreground'
-                : 'text-foreground/80',
-            )}
-          >
-            Pricing
-          </Link>
+      <footer className="container mt-auto flex flex-col items-center justify-between gap-6 p-6 md:flex-row">
+        <section>
+          <p className="text-center text-sm">
+            Built by{' '}
+            <a
+              href="https://evilpaper.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
+              evilpaper.
+            </a>{' '}
+            Hosted on{' '}
+            <a
+              href="https://vercel.com"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
+              Vercel.
+            </a>{' '}
+            The source code is available on{' '}
+            <a
+              href="https://github.com/evilpaper/acme"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
+              GitHub.
+            </a>
+          </p>
         </section>
         <ModeSwitch />
       </footer>
