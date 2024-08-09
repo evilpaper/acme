@@ -29,18 +29,17 @@ export default function Page({ children }: { children: React.ReactNode }) {
     <main className="container flex min-h-screen flex-col px-6">
       <nav className="flex items-center justify-between py-6">
         {/* Mobile */}
-
-        <button className="z-20 md:hidden" onClick={handleNavClick}>
+        <button className="z-20 w-16 md:hidden" onClick={handleNavClick}>
           <AlignJustify />
         </button>
         <div
           className={cn(
             isNavOpen
-              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start bg-background p-10 pt-40'
+              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start bg-background p-6 pt-40'
               : 'hidden',
           )}
         >
-          <ul className="flex min-h-[250px] flex-col items-center justify-between">
+          <ul className="flex flex-col items-start justify-between gap-12">
             {links.map(({ name, href }) => {
               return (
                 <li key={name}>
@@ -48,7 +47,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                     onClick={handleNavClick}
                     href={href}
                     className={cn(
-                      'text-bold flex p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
+                      'text-bold flex p-2 text-2xl font-medium text-foreground/80 transition-colors hover:text-foreground',
                       `/${page}` === `/${name.toLowerCase()}`
                         ? 'border-b border-black text-foreground'
                         : 'border-b border-background text-foreground/80',
