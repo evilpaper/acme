@@ -75,11 +75,11 @@ export function MainNav({ children }: { children: React.ReactElement }) {
           <div
             className={cn(
               isNavOpen
-                ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start bg-background p-10 pt-40'
+                ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col justify-between bg-background p-10 pt-40'
                 : 'hidden',
             )}
           >
-            <ul className="flex min-h-[250px] flex-col items-center justify-between">
+            <ul className="flex min-h-[250px] flex-col items-start justify-between">
               {links.map(({ name, href }) => {
                 return (
                   <li key={name}>
@@ -87,7 +87,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                       onClick={handleNavClick}
                       href={href}
                       className={cn(
-                        'text-bold flex p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
+                        'text-bold text-1xl  flex p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
                         `/${page}` === `/${name.toLowerCase()}`
                           ? 'border-b border-black text-foreground'
                           : 'border-b border-background text-foreground/80',
@@ -99,6 +99,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                 );
               })}
             </ul>
+            {children}
           </div>
           <Link href="/dashboard" className="md:hidden">
             <Image

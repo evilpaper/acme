@@ -30,31 +30,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </MainNav>
       </header>
       <div className="container grid flex-1 gap-12 px-5">{children}</div>
-      <form
-        className="flex items-center justify-center p-2 md:hidden"
-        action={async () => {
-          'use server';
-          await signOut();
-        }}
-      >
-        <Button variant="outline">Sign out</Button>
-      </form>
-      <section className="container flex flex-col items-center justify-center gap-4 px-5 pb-8 pt-8 md:flex-row md:justify-between">
-        <div className="flex flex-col items-center  gap-4 px-5 md:flex-row">
-          <p>{`@${year} ACME`}</p>
-          <Link
-            href="/dashboard/customers"
-            className="flex items-center justify-center px-4 py-2 text-center text-sm transition-colors hover:text-foreground/80"
-          >
-            Customers
-          </Link>
-          <Link
-            href="/dashboard/invoices"
-            className="flex items-center justify-center px-4 py-2 text-center text-sm transition-colors hover:text-foreground/80"
-          >
-            Invoices
-          </Link>
-        </div>
+      <section className="container flex flex-col items-center justify-center gap-12 px-5 pb-8 pt-8 md:flex-row md:justify-between">
+        <p>{`@${year} ACME`}</p>
         <ModeSwitch />
       </section>
     </div>
