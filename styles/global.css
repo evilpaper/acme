@@ -87,9 +87,3 @@ The background suffix is omitted when the variable is used for the background co
     @apply bg-background text-foreground;
   }
 }
-
-@supports (-webkit-touch-callout: none) {
-  .h-screen {
-    height: -webkit-fill-available;
-  }
-}

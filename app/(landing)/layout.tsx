@@ -35,7 +35,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         <div
           className={cn(
             isNavOpen
-              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start justify-between overscroll-contain bg-background p-6 pt-28'
+              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start justify-between overscroll-none bg-background p-6 py-28'
               : 'hidden',
           )}
         >
@@ -59,7 +59,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
               );
             })}
           </ul>
-          <div className="flex w-full flex-col gap-8">
+          <div className="flex w-full flex-col gap-6">
             <Button asChild>
               <Link href="/login" className="h-11 w-full rounded-md px-8">
                 <span>Login</span>
