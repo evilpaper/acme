@@ -35,7 +35,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         <div
           className={cn(
             isNavOpen
-              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start bg-background p-6 pt-40'
+              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start justify-between bg-background p-6 pt-40'
               : 'hidden',
           )}
         >
@@ -47,7 +47,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                     onClick={handleNavClick}
                     href={href}
                     className={cn(
-                      'text-bold flex p-2 text-2xl font-medium text-foreground/80 transition-colors hover:text-foreground',
+                      'text-bold flex p-2 text-xl font-medium text-foreground/80 transition-colors hover:text-foreground',
                       `/${page}` === `/${name.toLowerCase()}`
                         ? 'border-b border-black text-foreground'
                         : 'border-b border-background text-foreground/80',
@@ -59,6 +59,18 @@ export default function Page({ children }: { children: React.ReactNode }) {
               );
             })}
           </ul>
+          <div className="flex w-full flex-col gap-8">
+            <Button asChild>
+              <Link href="/login" className="h-11 w-full rounded-md px-8">
+                <span>Login</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/signup" className="h-11 w-full rounded-md px-8">
+                <span>Sign up</span>
+              </Link>
+            </Button>
+          </div>
         </div>
         <Link href="/" className="md:hidden">
           <Image
