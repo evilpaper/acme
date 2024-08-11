@@ -35,7 +35,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         <div
           className={cn(
             isNavOpen
-              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start justify-between bg-background p-6 pt-40'
+              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start justify-between overscroll-contain bg-background p-6 pt-28'
               : 'hidden',
           )}
         >
