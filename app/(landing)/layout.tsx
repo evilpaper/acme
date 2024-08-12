@@ -8,10 +8,11 @@ import logo from '../../public/images/logo-black-lemon.svg';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ModeSwitch } from '@/components/ui/mode-switch';
-import { AlignJustify } from 'lucide-react';
+import { AlignJustify, X } from 'lucide-react';
+import { Icons } from '@/components/ui/icons';
 
 const links = [
-  { name: ' Features', href: '/features', icon: '' },
+  { name: 'Features', href: '/features', icon: '' },
   { name: 'Pricing', href: '/pricing', icon: '' },
 ];
 
@@ -30,12 +31,12 @@ export default function Page({ children }: { children: React.ReactNode }) {
       <nav className="flex items-center justify-between py-6">
         {/* Mobile */}
         <button className="z-20 w-16 md:hidden" onClick={handleNavClick}>
-          <AlignJustify />
+          {isNavOpen ? <X /> : <AlignJustify />}
         </button>
         <div
           className={cn(
             isNavOpen
-              ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start justify-between overscroll-none bg-background p-6 py-28'
+              ? 'fixed inset-0 z-10 flex h-screen w-full flex-col items-start justify-between bg-background p-6 py-28'
               : 'hidden',
           )}
         >
@@ -47,19 +48,20 @@ export default function Page({ children }: { children: React.ReactNode }) {
                     onClick={handleNavClick}
                     href={href}
                     className={cn(
-                      'text-bold flex p-2 text-xl font-medium text-foreground/80 transition-colors hover:text-foreground',
+                      'text-bold flex flex items-center p-2 text-xl font-medium text-foreground/80 transition-colors hover:text-foreground',
                       `/${page}` === `/${name.toLowerCase()}`
                         ? 'border-b border-black text-foreground'
                         : 'border-b border-background text-foreground/80',
                     )}
                   >
                     {name}
+                    <Icons.ArrowRight className="ml-4" />
                   </Link>
                 </li>
               );
             })}
           </ul>
-          <div className="flex w-full flex-col gap-6">
+          <div className="flex w-full flex-col gap-4">
             <Button asChild>
               <Link href="/login" className="h-11 w-full rounded-md px-8">
                 <span>Login</span>

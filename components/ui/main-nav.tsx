@@ -9,6 +9,7 @@ import logo from '../../public/images/logo-black-lemon.svg';
 import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 
 import { AlignJustify, X } from 'lucide-react';
+import { Icons } from '@/components/ui/icons';
 
 const links = [
   { name: 'Dashboard', href: '/dashboard', icon: '' },
@@ -75,7 +76,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
           <div
             className={cn(
               isNavOpen
-                ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col justify-between bg-background p-10 pt-40'
+                ? 'fixed inset-0 z-10 flex h-screen w-full flex-col justify-between bg-background p-10 pt-40'
                 : 'hidden',
             )}
           >
@@ -87,13 +88,14 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                       onClick={handleNavClick}
                       href={href}
                       className={cn(
-                        'text-bold text-1xl  flex p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
+                        'text-bold flex  p-2 text-xl font-medium text-foreground/80 transition-colors hover:text-foreground',
                         `/${page}` === `/${name.toLowerCase()}`
                           ? 'border-b border-black text-foreground'
                           : 'border-b border-background text-foreground/80',
                       )}
                     >
                       {name}
+                      <Icons.ArrowRight className="ml-4" />
                     </Link>
                   </li>
                 );

@@ -12,6 +12,7 @@ import {
   Moon,
   Computer,
   Plus,
+  ArrowRight,
 } from 'lucide-react';
 
 export const Icons = {
@@ -28,4 +29,5 @@ export const Icons = {
   moon: Moon,
   system: Computer,
   add: Plus,
+  ArrowRight: ArrowRight,
 };
