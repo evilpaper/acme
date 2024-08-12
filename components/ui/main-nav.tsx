@@ -4,12 +4,12 @@ import Link from 'next/link';
 import * as React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { Icons } from '@/components/ui/icons';
 import { usePathname } from 'next/navigation';
+import { AlignJustify, X } from 'lucide-react';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { Avatar, AvatarFallback, AvatarImage } from './avatar';
-
-import { AlignJustify, X } from 'lucide-react';
-import { Icons } from '@/components/ui/icons';
 
 const links = [
   { name: 'Dashboard', href: '/dashboard', icon: '' },
@@ -21,6 +21,8 @@ export function MainNav({ children }: { children: React.ReactElement }) {
   const pathname = usePathname();
   const page = pathname?.split('/').pop();
   const [isNavOpen, setIsNavOpen] = React.useState(false);
+
+  useScrollLock(isNavOpen);
 
   function handleNavClick() {
     setIsNavOpen((old) => !old);

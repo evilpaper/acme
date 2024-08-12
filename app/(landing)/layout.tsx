@@ -3,13 +3,14 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
+import { Icons } from '@/components/ui/icons';
+import { AlignJustify, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useScrollLock } from '@/hooks/useScrollLock';
+import { ModeSwitch } from '@/components/ui/mode-switch';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
-import { cn } from '@/lib/utils';
-import { ModeSwitch } from '@/components/ui/mode-switch';
-import { AlignJustify, X } from 'lucide-react';
-import { Icons } from '@/components/ui/icons';
 
 const links = [
   { name: 'Features', href: '/features', icon: '' },
@@ -21,6 +22,8 @@ export default function Page({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const page = pathname?.split('/').pop();
   const [isNavOpen, setIsNavOpen] = React.useState(false);
+
+  useScrollLock(isNavOpen);
 
   function handleNavClick() {
     setIsNavOpen((old) => !old);
