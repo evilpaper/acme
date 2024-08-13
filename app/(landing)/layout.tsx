@@ -37,11 +37,10 @@ export default function Page({ children }: { children: React.ReactNode }) {
           {isNavOpen ? <X /> : <AlignJustify />}
         </button>
         <div
-          className={cn(
-            isNavOpen
-              ? 'fixed inset-0 z-10 flex h-screen w-full flex-col items-start justify-between bg-background p-6 py-28 transition-opacity duration-500 fade-in'
-              : 'hidden',
-          )}
+          data-state={isNavOpen ? 'open' : 'closed'}
+          className={
+            'fixed inset-0 z-10 flex h-screen w-full flex-col items-start justify-between bg-background p-6 py-28 transition-transform duration-300 data-[state=closed]:-translate-x-full data-[state=open]:translate-x-0'
+          }
         >
           <ul className="flex flex-col items-start justify-between gap-12">
             {links.map(({ name, href }) => {
