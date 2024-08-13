@@ -39,7 +39,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         <div
           className={cn(
             isNavOpen
-              ? 'fixed inset-0 z-10 flex h-screen w-full flex-col items-start justify-between bg-background p-6 py-28'
+              ? 'fixed inset-0 z-10 flex h-screen w-full flex-col items-start justify-between bg-background p-6 py-28 transition-opacity duration-500 fade-in'
               : 'hidden',
           )}
         >
