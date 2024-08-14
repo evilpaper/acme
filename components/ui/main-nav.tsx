@@ -97,7 +97,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                       )}
                     >
                       {name}
-                      <Icons.ArrowRight className="ml-4" />
+                      <Icons.arrowRight className="ml-4" />
                     </Link>
                   </li>
                 );
