@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/ui/icons';
-import { AlignJustify, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { ModeSwitch } from '@/components/ui/mode-switch';
@@ -13,6 +12,7 @@ import logo from '../../public/images/logo-black-lemon.svg';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 
 const links = [
+  { name: 'Home', href: '/', icon: '' },
   { name: 'Features', href: '/features', icon: '' },
   { name: 'Pricing', href: '/pricing', icon: '' },
 ];
@@ -34,7 +34,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
       <nav className="flex items-center justify-between py-6">
         {/* Mobile */}
         <button className="z-20 w-16 md:hidden" onClick={handleNavClick}>
-          {isNavOpen ? <X /> : <AlignJustify />}
+          {isNavOpen ? <Icons.close /> : <Icons.hamburger />}
         </button>
         <div
           data-state={isNavOpen ? 'open' : 'closed'}
@@ -57,7 +57,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                     )}
                   >
                     {name}
-                    <Icons.ArrowRight className="ml-4" />
+                    <Icons.arrowRight className="ml-4" />
                   </Link>
                 </li>
               );

@@ -13,6 +13,8 @@ import {
   Computer,
   Plus,
   ArrowRight,
+  AlignJustify,
+  X,
 } from 'lucide-react';
 
 export const Icons = {
@@ -29,5 +31,7 @@ export const Icons = {
   moon: Moon,
   system: Computer,
   add: Plus,
-  ArrowRight: ArrowRight,
+  arrowRight: ArrowRight,
+  hamburger: AlignJustify,
+  close: X,
 };
