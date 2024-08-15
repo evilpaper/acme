@@ -20,7 +20,7 @@ export async function InvoiceView({
         {invoices?.map((invoice) => {
           return (
             <li key={invoice.id}>
-              <InvoiceCard invoice={invoice} />;
+              <InvoiceCard invoice={invoice} />
             </li>
           );
         })}

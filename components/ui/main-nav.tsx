@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/ui/icons';
 import { usePathname } from 'next/navigation';
-import { AlignJustify, X } from 'lucide-react';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import logo from '../../public/images/logo-black-lemon.svg';
 import { Avatar, AvatarFallback, AvatarImage } from './avatar';
@@ -73,14 +72,12 @@ export function MainNav({ children }: { children: React.ReactElement }) {
         {/* Mobile */}
         <section className="flex items-center justify-between md:hidden">
           <button onClick={handleNavClick} className="z-20">
-            {isNavOpen ? <X /> : <AlignJustify />}
+            {isNavOpen ? <Icons.close /> : <Icons.hamburger />}
           </button>
           <div
-            className={cn(
-              isNavOpen
-                ? 'fixed inset-0 z-10 flex h-screen w-full flex-col justify-between bg-background p-10 pt-40'
-                : 'hidden',
-            )}
+            data-state={isNavOpen ? 'open' : 'closed'}
+            className="data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in fixed inset-0 z-10 flex h-screen w-full flex-col justify-between bg-background p-6 py-28
+         transition-opacity"
           >
             <ul className="flex min-h-[250px] flex-col items-start justify-between">
               {links.map(({ name, href }) => {
