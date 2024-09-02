@@ -15,6 +15,7 @@ const links = [
   { name: 'Home', href: '/', icon: '' },
   { name: 'Features', href: '/features', icon: '' },
   { name: 'Pricing', href: '/pricing', icon: '' },
+  { name: 'Quiz', href: '/quiz', icon: '' },
 ];
 
 export default function Page({ children }: { children: React.ReactNode }) {
@@ -115,6 +116,17 @@ export default function Page({ children }: { children: React.ReactNode }) {
             )}
           >
             Pricing
+          </Link>
+          <Link
+            href="/quiz"
+            className={cn(
+              'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
+              `/${segment}` === '/quiz'
+                ? 'border-b border-black text-foreground'
+                : 'border-b border-background text-foreground/80',
+            )}
+          >
+            Quiz
           </Link>
         </section>
         <Button asChild>
