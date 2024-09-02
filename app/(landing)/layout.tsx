@@ -12,7 +12,6 @@ import logo from '../../public/images/logo-black-lemon.svg';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 
 const links = [
-  { name: 'Home', href: '/', icon: '' },
   { name: 'Features', href: '/features', icon: '' },
   { name: 'Pricing', href: '/pricing', icon: '' },
   { name: 'Quiz', href: '/quiz', icon: '' },
@@ -95,39 +94,25 @@ export default function Page({ children }: { children: React.ReactNode }) {
               height="48"
             />
           </Link>
-          <Link
-            href="/features"
-            className={cn(
-              'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
-              `/${segment}` === '/features'
-                ? 'border-b border-black text-foreground'
-                : 'border-b border-background text-foreground/80',
-            )}
-          >
-            Features
-          </Link>
-          <Link
-            href="/pricing"
-            className={cn(
-              'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
-              `/${segment}` === '/pricing'
-                ? 'border-b border-black text-foreground'
-                : 'border-b border-background text-foreground/80',
-            )}
-          >
-            Pricing
-          </Link>
-          <Link
-            href="/quiz"
-            className={cn(
-              'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
-              `/${segment}` === '/quiz'
-                ? 'border-b border-black text-foreground'
-                : 'border-b border-background text-foreground/80',
-            )}
-          >
-            Quiz
-          </Link>
+          <ul className="flex items-start justify-between gap-12">
+            {links.map(({ name, href }) => {
+              return (
+                <li key={name}>
+                  <Link
+                    href={href}
+                    className={cn(
+                      'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
+                      `/${segment}` === href
+                        ? 'border-b border-black text-foreground'
+                        : 'border-b border-background text-foreground/80',
+                    )}
+                  >
+                    {name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </section>
         <Button asChild>
           <Link href="/login">Login</Link>
