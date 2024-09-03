@@ -96,12 +96,12 @@ export default function Quiz() {
                     {option}
                     {isAnswered &&
                       option === questions[currentQuestion].correctAnswer && (
-                        <CheckCircle2 className="ml-auto h-4 w-4 text-green-500" />
+                        <CheckCircle2 className="ml-auto h-4 w-4" />
                       )}
                     {isAnswered &&
                       option === selectedAnswer &&
                       option !== questions[currentQuestion].correctAnswer && (
-                        <XCircle className="ml-auto h-4 w-4 text-red-500" />
+                        <XCircle className="ml-auto h-4 w-4" />
                       )}
                   </Button>
                 ))}
@@ -110,9 +110,9 @@ export default function Quiz() {
                 <div className="mt-4 text-center">
                   {selectedAnswer ===
                   questions[currentQuestion].correctAnswer ? (
-                    <p className="text-green-600">Correct!</p>
+                    <p>Correct!</p>
                   ) : (
-                    <p className="text-red-600">
+                    <p>
                       Incorrect. The correct answer is:{' '}
                       {questions[currentQuestion].correctAnswer}
                     </p>
