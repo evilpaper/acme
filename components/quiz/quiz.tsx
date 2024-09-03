@@ -1,14 +1,10 @@
 'use client';
 
-import { Fraunces } from 'next/font/google';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-
-const fraunces = Fraunces({ subsets: ['latin'] });
+import { CheckCircle2, XCircle } from 'lucide-react';
 
 const questions = [
   {
@@ -43,15 +39,22 @@ export default function Quiz() {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [isAnswered, setIsAnswered] = useState(false);
 
-  const handleSubmit = () => {
-    if (selectedAnswer === questions[currentQuestion].correctAnswer) {
+  const handleAnswer = (answer: string) => {
+    console.log('Running handleAnswer');
+    setSelectedAnswer(answer);
+    setIsAnswered(true);
+    if (answer === questions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
+  };
 
+  const handleNext = () => {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer('');
+      setIsAnswered(false);
     } else {
       setShowResult(true);
     }
@@ -62,6 +65,7 @@ export default function Quiz() {
     setSelectedAnswer('');
     setScore(0);
     setShowResult(false);
+    setIsAnswered(false);
   };
 
   return (
@@ -80,17 +84,41 @@ export default function Quiz() {
               <h2 className="mb-4 text-xl font-semibold">
                 {questions[currentQuestion].question}
               </h2>
-              <RadioGroup
-                value={selectedAnswer}
-                onValueChange={setSelectedAnswer}
-              >
+              <div className="space-y-2">
                 {questions[currentQuestion].options.map((option, index) => (
-                  <div key={index} className="mb-2 flex items-center space-x-2">
-                    <RadioGroupItem value={option} id={`option-${index}`} />
-                    <Label htmlFor={`option-${index}`}>{option}</Label>
-                  </div>
+                  <Button
+                    key={index}
+                    variant={selectedAnswer === option ? 'default' : 'outline'}
+                    className="w-full justify-start text-left"
+                    onClick={() => handleAnswer(option)}
+                    disabled={isAnswered}
+                  >
+                    {option}
+                    {isAnswered &&
+                      option === questions[currentQuestion].correctAnswer && (
+                        <CheckCircle2 className="ml-auto h-4 w-4 text-green-500" />
+                      )}
+                    {isAnswered &&
+                      option === selectedAnswer &&
+                      option !== questions[currentQuestion].correctAnswer && (
+                        <XCircle className="ml-auto h-4 w-4 text-red-500" />
+                      )}
+                  </Button>
                 ))}
-              </RadioGroup>
+              </div>
+              {isAnswered && (
+                <div className="mt-4 text-center">
+                  {selectedAnswer ===
+                  questions[currentQuestion].correctAnswer ? (
+                    <p className="text-green-600">Correct!</p>
+                  ) : (
+                    <p className="text-red-600">
+                      Incorrect. The correct answer is:{' '}
+                      {questions[currentQuestion].correctAnswer}
+                    </p>
+                  )}
+                </div>
+              )}
             </>
           ) : (
             <div className="text-center">
@@ -103,9 +131,11 @@ export default function Quiz() {
         </CardContent>
         <CardFooter className="flex justify-center">
           {!showResult ? (
-            <Button onClick={handleSubmit} disabled={!selectedAnswer}>
-              {currentQuestion + 1 === questions.length ? 'Finish' : 'Next'}
-            </Button>
+            isAnswered && (
+              <Button onClick={handleNext}>
+                {currentQuestion + 1 === questions.length ? 'Finish' : 'Next'}
+              </Button>
+            )
           ) : (
             <Button onClick={resetQuiz}>Restart Quiz</Button>
           )}
