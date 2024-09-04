@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle2, XCircle } from 'lucide-react';
 
 const questions = [
   {
@@ -94,20 +93,11 @@ export default function Quiz() {
                     disabled={isAnswered}
                   >
                     {option}
-                    {isAnswered &&
-                      option === questions[currentQuestion].correctAnswer && (
-                        <CheckCircle2 className="ml-auto h-4 w-4" />
-                      )}
-                    {isAnswered &&
-                      option === selectedAnswer &&
-                      option !== questions[currentQuestion].correctAnswer && (
-                        <XCircle className="ml-auto h-4 w-4" />
-                      )}
                   </Button>
                 ))}
               </div>
               {isAnswered && (
-                <div className="mt-4 text-center">
+                <div className="mt-4 rounded-md border  border-solid border-black p-2 text-center">
                   {selectedAnswer ===
                   questions[currentQuestion].correctAnswer ? (
                     <p>Correct!</p>
