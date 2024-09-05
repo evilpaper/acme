@@ -5,7 +5,7 @@ import { Icons } from '@/components/ui/icons';
 export default function Page() {
   return (
     <section className="grid items-center justify-center">
-      <div className="flex max-w-xl flex-col items-center gap-4 pb-12 pt-24">
+      <div className="flex max-w-xl flex-col items-center gap-6 pb-12 pt-24">
         <h1 className="text-center text-5xl font-bold leading-tight tracking-tighter md:text-6xl">
           Quiz for devs
         </h1>
