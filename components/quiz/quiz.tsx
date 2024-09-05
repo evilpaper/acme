@@ -24,7 +24,7 @@ const questions = [
   {
     question: "What is the purpose of 'use client' in Next.js 13?",
     options: [
-      'To indicate a component should be rendered on the client',
+      'Indicate component should render on the client',
       'To optimize the component for mobile devices',
       'To enable server-side rendering',
       'To add TypeScript support',
@@ -88,7 +88,7 @@ export default function Quiz() {
                   <Button
                     key={index}
                     variant={selectedAnswer === option ? 'default' : 'outline'}
-                    className="w-full justify-start text-left"
+                    className="w-full justify-start text-left "
                     onClick={() => handleAnswer(option)}
                     disabled={isAnswered}
                   >

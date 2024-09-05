@@ -1,7 +1,6 @@
-import Quiz from '@/components/quiz/quiz';
-import { Button, buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Icons } from '@/components/ui/icons';
 
 export default function Page() {
   return (
@@ -15,8 +14,12 @@ export default function Page() {
           you get it.
         </h3>
         <Button asChild>
-          <Link href="/quiz/mdn" className="h-11 w-fit rounded-md px-8">
+          <Link
+            href="/quiz/mdn-quiz"
+            className="flex h-11 w-fit gap-2 rounded-md px-8"
+          >
             <span>Try now</span>
+            <Icons.arrowRight />
           </Link>
         </Button>
       </div>
