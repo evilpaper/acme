@@ -21,16 +21,6 @@ const questions = [
     options: ['useState', 'useEffect', 'useContext', 'useReducer'],
     correctAnswer: 'useEffect',
   },
-  {
-    question: "What is the purpose of 'use client' in Next.js 13?",
-    options: [
-      'Indicate component should render on the client',
-      'To optimize the component for mobile devices',
-      'To enable server-side rendering',
-      'To add TypeScript support',
-    ],
-    correctAnswer: 'To indicate a component should be rendered on the client',
-  },
 ];
 
 export default function Quiz() {
@@ -68,69 +58,60 @@ export default function Quiz() {
   };
 
   return (
-    <div className="flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardContent className="pt-6">
-          {!showResult ? (
-            <>
-              <div className="mb-4 text-sm text-muted-foreground">
-                Question {currentQuestion + 1} of {questions.length}
-              </div>
-              <Progress
-                value={((currentQuestion + 1) / questions.length) * 100}
-                className="mb-6"
-              />
-              <h2 className="mb-4 text-xl font-semibold">
-                {questions[currentQuestion].question}
-              </h2>
-              <div className="space-y-2">
-                {questions[currentQuestion].options.map((option, index) => (
-                  <Button
-                    key={index}
-                    variant={selectedAnswer === option ? 'default' : 'outline'}
-                    className="w-full justify-start text-left "
-                    onClick={() => handleAnswer(option)}
-                    disabled={isAnswered}
-                  >
-                    {option}
-                  </Button>
-                ))}
-              </div>
-              {isAnswered && (
-                <div className="mt-4 rounded-md border  border-solid border-black p-2 text-center">
-                  {selectedAnswer ===
-                  questions[currentQuestion].correctAnswer ? (
-                    <p>Correct!</p>
-                  ) : (
-                    <p>
-                      Incorrect. The correct answer is:{' '}
-                      {questions[currentQuestion].correctAnswer}
-                    </p>
-                  )}
-                </div>
+    <div className="mx-auto flex max-w-md flex-col items-center justify-center gap-6">
+      {!showResult ? (
+        <>
+          <div className="text-sm text-muted-foreground">
+            Question {currentQuestion + 1} of {questions.length}
+          </div>
+          <Progress value={((currentQuestion + 1) / questions.length) * 100} />
+          <h2 className="text-xl font-semibold">
+            {questions[currentQuestion].question}
+          </h2>
+          <div className="space-y-2">
+            {questions[currentQuestion].options.map((option, index) => (
+              <Button
+                key={index}
+                variant={selectedAnswer === option ? 'default' : 'outline'}
+                className="w-full justify-start text-left"
+                onClick={() => handleAnswer(option)}
+                disabled={isAnswered}
+              >
+                {option}
+              </Button>
+            ))}
+          </div>
+          {isAnswered && (
+            <div className="flex w-full rounded-md border border-stone-400 p-4">
+              {selectedAnswer === questions[currentQuestion].correctAnswer ? (
+                <p>Correct!</p>
+              ) : (
+                <p>
+                  Incorrect! <br /> The correct answer is:{' '}
+                  {questions[currentQuestion].correctAnswer}
+                </p>
               )}
-            </>
-          ) : (
-            <div className="text-center">
-              <h2 className="mb-4 text-2xl font-semibold">Quiz Completed!</h2>
-              <p className="text-xl">
-                Your score: {score} out of {questions.length}
-              </p>
             </div>
           )}
-        </CardContent>
-        <CardFooter className="flex justify-center">
-          {!showResult ? (
-            isAnswered && (
-              <Button onClick={handleNext}>
-                {currentQuestion + 1 === questions.length ? 'Finish' : 'Next'}
-              </Button>
-            )
-          ) : (
-            <Button onClick={resetQuiz}>Restart Quiz</Button>
-          )}
-        </CardFooter>
-      </Card>
+        </>
+      ) : (
+        <div className="text-center">
+          <h2 className="mb-4 text-2xl font-semibold">Quiz Completed!</h2>
+          <p className="text-xl">
+            Your score: {score} out of {questions.length}
+          </p>
+        </div>
+      )}
+
+      {!showResult ? (
+        isAnswered && (
+          <Button onClick={handleNext}>
+            {currentQuestion + 1 === questions.length ? 'Finish' : 'Next'}
+          </Button>
+        )
+      ) : (
+        <Button onClick={resetQuiz}>Restart Quiz</Button>
+      )}
     </div>
   );
 }
