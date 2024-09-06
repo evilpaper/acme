@@ -39,10 +39,6 @@ export default function Quiz() {
     setIsAnswered(false);
   };
 
-  if (!questions) {
-    return null;
-  }
-
   return (
     <div className="mx-auto flex max-w-md flex-col items-center justify-center gap-6">
       {!showResult ? (
@@ -59,7 +55,7 @@ export default function Quiz() {
               <Button
                 key={index}
                 variant={selectedAnswer === option ? 'default' : 'outline'}
-                className="w-full justify-start text-left"
+                className="text-balance h-auto w-full justify-start text-left"
                 onClick={() => handleAnswer(option)}
                 disabled={isAnswered}
               >
