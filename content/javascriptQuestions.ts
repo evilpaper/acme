@@ -1,4 +1,4 @@
-export const questions = [
+export const javascriptQuestions = [
   {
     question:
       'What is the purpose of the "use strict" directive in JavaScript?',
