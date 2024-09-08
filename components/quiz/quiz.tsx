@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { shuffle } from '@/lib/utils';
 
 type Question = {
   question: string;

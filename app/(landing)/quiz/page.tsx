@@ -15,7 +15,7 @@ export default function Page() {
         </h3>
         <Button asChild>
           <Link
-            href="/quiz/mdn-quiz"
+            href="/quiz/javascript"
             className="flex h-11 w-fit gap-2 rounded-md px-8"
           >
             <span>Try now</span>
