@@ -12,9 +12,9 @@ import logo from '../../public/images/logo-black-lemon.svg';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 
 const links = [
+  { name: 'Quiz', href: '/quiz', icon: '' },
   { name: 'Features', href: '/features', icon: '' },
   { name: 'Pricing', href: '/pricing', icon: '' },
-  { name: 'Quiz', href: '/quiz', icon: '' },
 ];
 
 export default function Page({ children }: { children: React.ReactNode }) {
