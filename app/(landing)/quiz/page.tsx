@@ -7,7 +7,7 @@ export default function Page() {
     <section className="grid items-center justify-center">
       <div className="flex max-w-xl flex-col items-center gap-6 pb-12 pt-24">
         <h1 className="text-center text-5xl font-bold leading-tight tracking-tighter md:text-6xl">
-          Quiz for devs
+          JavaScript 101
         </h1>
         <h3 className="text-center text-xl">
           Test your knowledge. Practice makes perfect. Or actually permanent but
