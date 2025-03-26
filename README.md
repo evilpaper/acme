@@ -8,7 +8,7 @@ An open source application built using the app router, server components and all
 
 ## About this project
 
-This project as an experiment to see how a modern app with features like authentication, subscriptions, API routes, static pages ...etc would work in Next.js and server components. Started out as a copy paste of shadcn's Taxonomy. 
+This project as an experiment to see how a modern app with features like authentication, subscriptions, API routes, static pages ...etc would work in Next.js and server components. Started out as a copy paste of shadcn's Taxonomy.
 Thought it to be a good way to test out new technologies, practice concepts etc. Have no clear direction, just trying out stuff.
 
 ## Features
@@ -48,7 +48,7 @@ Thought it to be a good way to test out new technologies, practice concepts etc.
 1. Install dependencies using npm:
 
 ```sh
-npm install
+pnpm install
 ```
 
 2. Copy `.env.example` to `.env.local` and update the variables.
@@ -60,7 +60,7 @@ cp .env.example .env.local
 3. Start the development server:
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 Note: Unlike create-react-app, we need to run the dev command, not start. The start command is used to run a production server.
