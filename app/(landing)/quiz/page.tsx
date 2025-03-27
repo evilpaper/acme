@@ -10,8 +10,7 @@ export default function Page() {
           JavaScript 101
         </h1>
         <h3 className="text-center text-xl">
-          Test your knowledge. Practice makes perfect. Or actually permanent but
-          you get it.
+          A bunch of JavaScript questions taken from MDN and JavaScript Info.
         </h3>
         <Button asChild>
           <Link
