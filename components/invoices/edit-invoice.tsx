@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 import {
   Card,
@@ -9,20 +9,20 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select';
-import { Customer } from '@/data/customer';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { updateInvoice } from '@/app/lib/actions';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+} from "../ui/select";
+import { Customer } from "@/data/customer";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { updateInvoice } from "@/app/lib/actions";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export function EditInvoice({
   invoice,
@@ -33,7 +33,7 @@ export function EditInvoice({
     amount: number;
     id: string;
     customer_id: string;
-    status: 'pending' | 'paid';
+    status: "pending" | "paid";
   };
   client?: Customer;
   customers: Customer[];
@@ -56,10 +56,10 @@ export function EditInvoice({
             <Select
               required
               name="customerId"
-              defaultValue={client ? client.id : 'Customer'}
+              defaultValue={client ? client.id : "Customer"}
             >
               <SelectTrigger id="customer">
-                <SelectValue placeholder={client ? client.name : 'Customer'} />
+                <SelectValue placeholder={client ? client.name : "Customer"} />
               </SelectTrigger>
               <SelectContent>
                 {customers.map((customer) => {

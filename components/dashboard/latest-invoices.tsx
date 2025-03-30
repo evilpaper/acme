@@ -1,24 +1,24 @@
-import { fetchLatestInvoices } from '@/data/invoice';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { fetchLatestInvoices } from "@/data/invoice";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 function getInitials(name: string) {
-  if (!name) return '??';
+  if (!name) return "??";
 
   let intials = [];
 
   const characters = Array.from(name);
 
   for (const character of characters) {
-    if (character === character.toUpperCase() && character !== ' ') {
+    if (character === character.toUpperCase() && character !== " ") {
       intials.push(character);
     }
   }
 
   if (intials.length !== 2) {
-    return '??';
+    return "??";
   }
 
-  return intials.join('');
+  return intials.join("");
 }
 
 export async function LatestInvoices() {

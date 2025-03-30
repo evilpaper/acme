@@ -1,8 +1,8 @@
-'use-client';
+"use-client";
 
-import { Button } from '@/components/ui/button';
-import { Icons } from '@/components/ui/icons';
-import { useFormStatus } from 'react-dom';
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/ui/icons";
+import { useFormStatus } from "react-dom";
 
 export function CreateButton({ label }: { label: string }) {
   const { pending } = useFormStatus();

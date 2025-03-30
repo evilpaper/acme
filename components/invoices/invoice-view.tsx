@@ -1,6 +1,6 @@
-import { InvoiceCard } from './invoice-card';
-import { fetchFilteredInvoices } from '@/data/invoice';
-import { InvoiceTable } from '@/components/invoices/invoice-table';
+import { InvoiceCard } from "./invoice-card";
+import { fetchFilteredInvoices } from "@/data/invoice";
+import { InvoiceTable } from "@/components/invoices/invoice-table";
 
 export async function InvoiceView({
   query,

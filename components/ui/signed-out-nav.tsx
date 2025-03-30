@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { cn } from '@/lib/utils';
-import { AlignJustify } from 'lucide-react';
-import logo from '@/public/images/logo-black-lemon.svg';
-import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import React from "react";
+import { cn } from "@/lib/utils";
+import { AlignJustify } from "lucide-react";
+import logo from "@/public/images/logo-black-lemon.svg";
+import { usePathname, useSelectedLayoutSegment } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const links = [
-  { name: ' Features', href: '/features', icon: '' },
-  { name: 'Pricing', href: '/pricing', icon: '' },
+  { name: " Features", href: "/features", icon: "" },
+  { name: "Pricing", href: "/pricing", icon: "" },
 ];
 
 export function SignedOutNav({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment();
   const pathname = usePathname();
-  const page = pathname?.split('/').pop();
+  const page = pathname?.split("/").pop();
   const [isNavOpen, setIsNavOpen] = React.useState(false);
 
   function handleNavClick() {
@@ -32,8 +32,8 @@ export function SignedOutNav({ children }: { children: React.ReactNode }) {
       <div
         className={cn(
           isNavOpen
-            ? 'absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start bg-background p-6 pt-40'
-            : 'hidden',
+            ? "absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-start bg-background p-6 pt-40"
+            : "hidden",
         )}
       >
         <ul className="flex flex-col items-start justify-between gap-12">
@@ -44,10 +44,10 @@ export function SignedOutNav({ children }: { children: React.ReactNode }) {
                   onClick={handleNavClick}
                   href={href}
                   className={cn(
-                    'text-bold flex p-2 text-2xl font-medium text-foreground/80 transition-colors hover:text-foreground',
+                    "text-bold flex p-2 text-2xl font-medium text-foreground/80 transition-colors hover:text-foreground",
                     `/${page}` === `/${name.toLowerCase()}`
-                      ? 'border-b border-black text-foreground'
-                      : 'border-b border-background text-foreground/80',
+                      ? "border-b border-black text-foreground"
+                      : "border-b border-background text-foreground/80",
                   )}
                 >
                   {name}
@@ -74,10 +74,10 @@ export function SignedOutNav({ children }: { children: React.ReactNode }) {
         <Link
           href="/features"
           className={cn(
-            'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
-            `/${segment}` === '/features'
-              ? 'border-b border-black text-foreground'
-              : 'border-b border-background text-foreground/80',
+            "flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80",
+            `/${segment}` === "/features"
+              ? "border-b border-black text-foreground"
+              : "border-b border-background text-foreground/80",
           )}
         >
           Features
@@ -85,10 +85,10 @@ export function SignedOutNav({ children }: { children: React.ReactNode }) {
         <Link
           href="/pricing"
           className={cn(
-            'flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80',
-            `/${segment}` === '/pricing'
-              ? 'border-b border-black text-foreground'
-              : 'border-b border-background text-foreground/80',
+            "flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80",
+            `/${segment}` === "/pricing"
+              ? "border-b border-black text-foreground"
+              : "border-b border-background text-foreground/80",
           )}
         >
           Pricing

@@ -1,7 +1,7 @@
-import { fetchInvoiceById } from '@/data/invoice';
-import { EditInvoice } from '@/components/invoices/edit-invoice';
-import { getCustomers } from '@/data/customer';
-import { notFound } from 'next/navigation';
+import { fetchInvoiceById } from "@/data/invoice";
+import { EditInvoice } from "@/components/invoices/edit-invoice";
+import { getCustomers } from "@/data/customer";
+import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;

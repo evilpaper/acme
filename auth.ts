@@ -1,9 +1,9 @@
-import { z } from 'zod';
-import bcrypt from 'bcrypt';
-import NextAuth from 'next-auth';
-import { fetchUser } from '@/data/user';
-import { authConfig } from './auth.config';
-import Credentials from 'next-auth/providers/credentials';
+import { z } from "zod";
+import bcrypt from "bcrypt";
+import NextAuth from "next-auth";
+import { fetchUser } from "@/data/user";
+import { authConfig } from "./auth.config";
+import Credentials from "next-auth/providers/credentials";
 
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,

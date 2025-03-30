@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { HTMLProps } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { HTMLProps } from "react";
 
-import { InvoiceView } from '@/data/invoice';
-import { formatCurrency } from '@/lib/utils';
+import { InvoiceView } from "@/data/invoice";
+import { formatCurrency } from "@/lib/utils";
 
 import {
   Table,
@@ -12,18 +12,18 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Button } from '@/components/ui/button';
-import { Icons } from '@/components/ui/icons';
-import { formatDateToLocal } from '@/app/lib/utils';
-import { DeleteInvoice } from '@/components/invoices/delete-invoice-button';
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/ui/icons";
+import { formatDateToLocal } from "@/app/lib/utils";
+import { DeleteInvoice } from "@/components/invoices/delete-invoice-button";
 
 export function InvoiceTable({
   invoices,
   className,
 }: {
   invoices: InvoiceView[];
-  className: HTMLProps<HTMLElement>['className'];
+  className: HTMLProps<HTMLElement>["className"];
 }) {
   return (
     <Table className={className}>

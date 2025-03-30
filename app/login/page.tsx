@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
-import LoginForm from '@/components/ui/login-form';
-import { Icons } from '@/components/ui/icons';
-import { buttonVariants } from '@/components/ui/button';
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import LoginForm from "@/components/ui/login-form";
+import { Icons } from "@/components/ui/icons";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function LoginPage() {
   return (
@@ -10,8 +10,8 @@ export default function LoginPage() {
       <Link
         href="/"
         className={cn(
-          buttonVariants({ variant: 'ghost' }),
-          'absolute left-4 top-4 md:left-8 md:top-8',
+          buttonVariants({ variant: "ghost" }),
+          "absolute left-4 top-4 md:left-8 md:top-8",
         )}
       >
         <>

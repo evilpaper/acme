@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { Icons } from '@/components/ui/icons';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { authenticate } from '@/app/lib/actions';
-import { useFormState, useFormStatus } from 'react-dom';
-import logo from '../../public/images/logo-black-lemon.svg';
+import Link from "next/link";
+import Image from "next/image";
+import { Icons } from "@/components/ui/icons";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { authenticate } from "@/app/lib/actions";
+import { useFormState, useFormStatus } from "react-dom";
+import logo from "../../public/images/logo-black-lemon.svg";
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);

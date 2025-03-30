@@ -5,45 +5,45 @@ import {
   NextIcon,
   ReactIcon,
   SubscriptionsIcon,
-} from '@/components/ui/feature-icons';
+} from "@/components/ui/feature-icons";
 
 const features = [
   {
     id: crypto.randomUUID(),
-    name: 'Next.js',
-    description: 'App dir, Routing, Layouts, Loading UI and API routes.',
+    name: "Next.js",
+    description: "App dir, Routing, Layouts, Loading UI and API routes.",
     icon: <NextIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: 'React',
-    description: 'Server and Client Components. Use hook.',
+    name: "React",
+    description: "Server and Client Components. Use hook.",
     icon: <ReactIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: 'Database',
+    name: "Database",
     description:
-      'Vercel Postgres: Scalable SQL for the web, deployed on Vercel.',
+      "Vercel Postgres: Scalable SQL for the web, deployed on Vercel.",
     icon: <DatabaseIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: 'Components',
+    name: "Components",
     description:
-      'UI components built using shadcn/ui and styled with Tailwind CSS.',
+      "UI components built using shadcn/ui and styled with Tailwind CSS.",
     icon: <ComponentsIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: 'Authentication',
-    description: 'Authentication using Auth.js and middlewares.',
+    name: "Authentication",
+    description: "Authentication using Auth.js and middlewares.",
     icon: <AuthenticationIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: 'Subscriptions',
-    description: 'Free and paid subscriptions using Stripe. Coming soon...',
+    name: "Subscriptions",
+    description: "Free and paid subscriptions using Stripe. Coming soon...",
     icon: <SubscriptionsIcon />,
   },
 ];

@@ -1,14 +1,14 @@
-import { Metadata } from 'next';
-import { fraunces } from '@/components/ui/fonts';
-import { ThemeProvider } from '@/components/ui/theme-provider';
+import { Metadata } from "next";
+import { fraunces } from "@/components/ui/fonts";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
-import '@/styles/global.css';
+import "@/styles/global.css";
 
 export const metadata: Metadata = {
-  title: 'Acme',
+  title: "Acme",
   description:
-    'An example app built using Next.js, Auth.js, Stripe, shadcn/ui and Fraunces typeface family.',
-  metadataBase: new URL('https://acme-seven-tau.vercel.app/'),
+    "An example app built using Next.js, Auth.js, Stripe, shadcn/ui and Fraunces typeface family.",
+  metadataBase: new URL("https://acme-seven-tau.vercel.app/"),
 };
 
 export default function RootLayout({

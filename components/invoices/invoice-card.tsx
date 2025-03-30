@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 import {
   Card,
@@ -7,12 +7,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Icons } from '@/components/ui/icons';
-import { Button } from '@/components/ui/button';
-import { InvoiceView } from '@/data/invoice';
-import { DeleteInvoice } from '@/components/invoices/delete-invoice-button';
-import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
+} from "@/components/ui/card";
+import { Icons } from "@/components/ui/icons";
+import { Button } from "@/components/ui/button";
+import { InvoiceView } from "@/data/invoice";
+import { DeleteInvoice } from "@/components/invoices/delete-invoice-button";
+import { formatCurrency, formatDateToLocal } from "@/app/lib/utils";
 
 export async function InvoiceCard({ invoice }: { invoice: InvoiceView }) {
   return (

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { shuffle } from '@/lib/utils';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { shuffle } from "@/lib/utils";
 
 type Question = {
   question: string;
@@ -14,13 +14,13 @@ type Question = {
 
 export default function Quiz({ questions }: { questions: Question[] }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [selectedAnswer, setSelectedAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [isAnswered, setIsAnswered] = useState(false);
 
   const handleAnswer = (answer: string) => {
-    console.log('Running handleAnswer');
+    console.log("Running handleAnswer");
     setSelectedAnswer(answer);
     setIsAnswered(true);
     if (answer === questions[currentQuestion].correctAnswer) {
@@ -31,7 +31,7 @@ export default function Quiz({ questions }: { questions: Question[] }) {
   const handleNext = () => {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer('');
+      setSelectedAnswer("");
       setIsAnswered(false);
     } else {
       setShowResult(true);
@@ -40,7 +40,7 @@ export default function Quiz({ questions }: { questions: Question[] }) {
 
   const resetQuiz = () => {
     setCurrentQuestion(0);
-    setSelectedAnswer('');
+    setSelectedAnswer("");
     setScore(0);
     setShowResult(false);
     setIsAnswered(false);
@@ -61,7 +61,7 @@ export default function Quiz({ questions }: { questions: Question[] }) {
             {questions[currentQuestion].options.map((option, index) => (
               <Button
                 key={index}
-                variant={selectedAnswer === option ? 'default' : 'outline'}
+                variant={selectedAnswer === option ? "default" : "outline"}
                 className="text-balance h-auto w-full justify-start text-left"
                 onClick={() => handleAnswer(option)}
                 disabled={isAnswered}
@@ -78,7 +78,7 @@ export default function Quiz({ questions }: { questions: Question[] }) {
                 </p>
               ) : (
                 <p>
-                  Incorrect! <br /> The correct answer is:{' '}
+                  Incorrect! <br /> The correct answer is:{" "}
                   {questions[currentQuestion].correctAnswer} <br />
                   {questions[currentQuestion].explanation}
                 </p>
@@ -98,7 +98,7 @@ export default function Quiz({ questions }: { questions: Question[] }) {
       {!showResult ? (
         isAnswered && (
           <Button onClick={handleNext}>
-            {currentQuestion + 1 === questions.length ? 'Finish' : 'Next'}
+            {currentQuestion + 1 === questions.length ? "Finish" : "Next"}
           </Button>
         )
       ) : (

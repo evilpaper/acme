@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Input } from '@/components/ui/input';
-import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import React from "react";
+import { Input } from "@/components/ui/input";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 /**
  * Set whatever is entered as a url param called (key) query.
@@ -17,11 +17,11 @@ export function Search() {
   const handleSearch = React.useCallback(
     (term: string) => {
       const params = new URLSearchParams(searchParams);
-      params.set('page', '1');
+      params.set("page", "1");
       if (term) {
-        params.set('query', term);
+        params.set("query", term);
       } else {
-        params.delete('query');
+        params.delete("query");
       }
       replace(`${pathname}?${params.toString()}`);
     },
@@ -35,7 +35,7 @@ export function Search() {
       onChange={(event) => {
         handleSearch(event.target.value);
       }}
-      defaultValue={searchParams.get('query')?.toString()}
+      defaultValue={searchParams.get("query")?.toString()}
     />
   );
 }

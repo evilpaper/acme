@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 import {
   Table,
@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from "@/components/ui/table";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -19,13 +19,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
-import { Icons } from '@/components/ui/icons';
-import { Button } from '@/components/ui/button';
-import { Search } from '@/components/ui/search';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { getCustomerTablePage, getTotalCustomerPages } from '@/data/customer';
-import { CustomerPagination } from '@/components/customers/customer-pagination';
+} from "@/components/ui/alert-dialog";
+import { Icons } from "@/components/ui/icons";
+import { Button } from "@/components/ui/button";
+import { Search } from "@/components/ui/search";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { getCustomerTablePage, getTotalCustomerPages } from "@/data/customer";
+import { CustomerPagination } from "@/components/customers/customer-pagination";
 
 export default async function Page({
   searchParams,
@@ -35,7 +35,7 @@ export default async function Page({
     page?: string;
   };
 }) {
-  const query = searchParams?.query || '';
+  const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
   const totalPages = await getTotalCustomerPages(query);
   const customers = await getCustomerTablePage(query, currentPage);

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Props {
   title: string;
   content: string | number;
   unit: string;
-  type: 'invoices' | 'customers' | 'pending' | 'collected';
+  type: "invoices" | "customers" | "pending" | "collected";
 }
 
 export function BigNumberCard({ title, content, type }: Props) {

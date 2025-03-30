@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Customer } from '@/data/customer';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Customer } from "@/data/customer";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
-import { updateCustomer } from '@/app/lib/actions';
+import { updateCustomer } from "@/app/lib/actions";
 
 export default function EditCustomer({ customer }: { customer: Customer }) {
   const updateCustomerWithId = updateCustomer.bind(null, customer.id);

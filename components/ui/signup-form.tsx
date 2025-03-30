@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { register } from '@/app/lib/actions';
-import { useFormState, useFormStatus } from 'react-dom';
-import logo from '../../public/images/logo-black-lemon.svg';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Icons } from './icons';
+import Link from "next/link";
+import Image from "next/image";
+import { register } from "@/app/lib/actions";
+import { useFormState, useFormStatus } from "react-dom";
+import logo from "../../public/images/logo-black-lemon.svg";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Icons } from "./icons";
 
 export default function SignupForm() {
   /**

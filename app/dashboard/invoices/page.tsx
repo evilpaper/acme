@@ -1,11 +1,11 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { Icons } from '@/components/ui/icons';
-import { Search } from '@/components/ui/search';
-import { Button } from '@/components/ui/button';
-import { getTotalNumberofInvoicePages } from '@/data/invoice';
-import { InvoiceView } from '@/components/invoices/invoice-view';
-import { InvoicePagination } from '@/components/invoices/invoice-pagination';
+import { Icons } from "@/components/ui/icons";
+import { Search } from "@/components/ui/search";
+import { Button } from "@/components/ui/button";
+import { getTotalNumberofInvoicePages } from "@/data/invoice";
+import { InvoiceView } from "@/components/invoices/invoice-view";
+import { InvoicePagination } from "@/components/invoices/invoice-pagination";
 
 export default async function Page({
   searchParams,
@@ -15,7 +15,7 @@ export default async function Page({
     page?: string;
   };
 }) {
-  const query = searchParams?.query || '';
+  const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
   const totalPages = await getTotalNumberofInvoicePages(query);
 

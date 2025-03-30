@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Pagination,
@@ -7,18 +7,18 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination';
-import { usePathname, useSearchParams } from 'next/navigation';
+} from "@/components/ui/pagination";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export function CustomerPagination({ totalPages }: { totalPages: Number }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || 1;
+  const currentPage = Number(searchParams.get("page")) || 1;
   const pages = Array.from(Array(totalPages).keys()).map((x) => x + 1);
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
-    params.set('page', pageNumber.toString());
+    params.set("page", pageNumber.toString());
     return `${pathname}?${params.toString()}`;
   };
 
@@ -31,7 +31,7 @@ export function CustomerPagination({ totalPages }: { totalPages: Number }) {
             aria-disabled={currentPage <= 1}
             tabIndex={currentPage <= 1 ? -1 : undefined}
             className={
-              currentPage <= 1 ? 'pointer-events-none opacity-50' : undefined
+              currentPage <= 1 ? "pointer-events-none opacity-50" : undefined
             }
           />
         </PaginationItem>
@@ -41,7 +41,7 @@ export function CustomerPagination({ totalPages }: { totalPages: Number }) {
               <PaginationLink
                 href={createPageURL(page)}
                 isActive={page === currentPage}
-                className={currentPage !== page ? 'opacity-50' : undefined}
+                className={currentPage !== page ? "opacity-50" : undefined}
               >
                 {page}
               </PaginationLink>
@@ -55,7 +55,7 @@ export function CustomerPagination({ totalPages }: { totalPages: Number }) {
             tabIndex={currentPage >= Number(totalPages) ? -1 : undefined}
             className={
               currentPage >= Number(totalPages)
-                ? 'pointer-events-none opacity-50'
+                ? "pointer-events-none opacity-50"
                 : undefined
             }
           />

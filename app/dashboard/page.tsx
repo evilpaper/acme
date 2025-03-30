@@ -1,10 +1,10 @@
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import { LatestInvoices } from '@/components/dashboard/latest-invoices';
-import { BigNumberCards } from '@/components/dashboard/big-number-cards';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { LatestInvoicesSkeleton } from '@/components/dashboard/latest-invoices-skeleton';
-import { BigNumberCardsSkeleton } from '@/components/dashboard/big-number-cards-skeleton';
+import { LatestInvoices } from "@/components/dashboard/latest-invoices";
+import { BigNumberCards } from "@/components/dashboard/big-number-cards";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { LatestInvoicesSkeleton } from "@/components/dashboard/latest-invoices-skeleton";
+import { BigNumberCardsSkeleton } from "@/components/dashboard/big-number-cards-skeleton";
 
 export default function HomePage() {
   return (

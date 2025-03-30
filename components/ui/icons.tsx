@@ -15,7 +15,7 @@ import {
   ArrowRight,
   AlignJustify,
   X,
-} from 'lucide-react';
+} from "lucide-react";
 
 export const Icons = {
   chevronLeft: ChevronLeft,

@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import * as React from 'react';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import { Icons } from '@/components/ui/icons';
-import { usePathname } from 'next/navigation';
-import { useScrollLock } from '@/hooks/useScrollLock';
-import logo from '../../public/images/logo-black-lemon.svg';
-import { Avatar, AvatarFallback, AvatarImage } from './avatar';
+import Link from "next/link";
+import * as React from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/ui/icons";
+import { usePathname } from "next/navigation";
+import { useScrollLock } from "@/hooks/useScrollLock";
+import logo from "../../public/images/logo-black-lemon.svg";
+import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 
 const links = [
-  { name: 'Dashboard', href: '/dashboard', icon: '' },
-  { name: 'Customers', href: '/dashboard/customers', icon: '' },
-  { name: 'Invoices', href: '/dashboard/invoices', icon: '' },
+  { name: "Dashboard", href: "/dashboard", icon: "" },
+  { name: "Customers", href: "/dashboard/customers", icon: "" },
+  { name: "Invoices", href: "/dashboard/invoices", icon: "" },
 ];
 
 export function MainNav({ children }: { children: React.ReactElement }) {
   const pathname = usePathname();
-  const page = pathname?.split('/').pop();
+  const page = pathname?.split("/").pop();
   const [isNavOpen, setIsNavOpen] = React.useState(false);
 
   useScrollLock(isNavOpen);
@@ -50,10 +50,10 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                   key={name}
                   href={href}
                   className={cn(
-                    'text-medium flex items-center p-2 font-medium text-foreground/80 transition-colors hover:text-foreground',
+                    "text-medium flex items-center p-2 font-medium text-foreground/80 transition-colors hover:text-foreground",
                     `/${page}` === `/${name.toLowerCase()}`
-                      ? 'border-b border-black text-foreground'
-                      : 'border-b border-background text-foreground/80',
+                      ? "border-b border-black text-foreground"
+                      : "border-b border-background text-foreground/80",
                   )}
                 >
                   {name}
@@ -75,7 +75,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
             {isNavOpen ? <Icons.close /> : <Icons.hamburger />}
           </button>
           <div
-            data-state={isNavOpen ? 'open' : 'closed'}
+            data-state={isNavOpen ? "open" : "closed"}
             className="data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in fixed inset-0 z-10 flex h-screen w-full flex-col justify-between bg-background p-6 py-28
          transition-opacity"
           >
@@ -87,10 +87,10 @@ export function MainNav({ children }: { children: React.ReactElement }) {
                       onClick={handleNavClick}
                       href={href}
                       className={cn(
-                        'text-bold flex  p-2 text-xl font-medium text-foreground/80 transition-colors hover:text-foreground',
+                        "text-bold flex  p-2 text-xl font-medium text-foreground/80 transition-colors hover:text-foreground",
                         `/${page}` === `/${name.toLowerCase()}`
-                          ? 'border-b border-black text-foreground'
-                          : 'border-b border-background text-foreground/80',
+                          ? "border-b border-black text-foreground"
+                          : "border-b border-background text-foreground/80",
                       )}
                     >
                       {name}
