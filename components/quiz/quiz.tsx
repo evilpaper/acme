@@ -12,12 +12,21 @@ type Question = {
   explanation: string;
 };
 
-export default function Quiz({ questions }: { questions: Question[] }) {
+type Quiz = {
+  name: string;
+  questions: Question[];
+};
+
+export default function Quiz({ quiz }: { quiz: Quiz }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [isAnswered, setIsAnswered] = useState(false);
+
+  const { name, questions } = quiz;
+
+  const shuffleed = shuffle(questions);
 
   const handleAnswer = (answer: string) => {
     console.log("Running handleAnswer");
@@ -51,7 +60,7 @@ export default function Quiz({ questions }: { questions: Question[] }) {
       {!showResult ? (
         <>
           <div className="text-sm text-muted-foreground">
-            Question {currentQuestion + 1} of {questions.length}
+            {name} | Question {currentQuestion + 1} of {questions.length}
           </div>
           <Progress value={((currentQuestion + 1) / questions.length) * 100} />
           <h2 className="text-xl font-semibold">
