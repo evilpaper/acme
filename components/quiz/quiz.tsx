@@ -26,8 +26,6 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
 
   const { name, questions } = quiz;
 
-  // const questions = shuffle(unshuffled);
-
   const handleAnswer = (answer: string) => {
     console.log("Running handleAnswer");
     setSelectedAnswer(answer);
