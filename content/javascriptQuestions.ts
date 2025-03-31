@@ -1,5 +1,7 @@
 export const javascriptQuestions = {
   name: "JavaScript 101",
+  description:
+    "A bunch of JavaScript questions taken from MDN and JavaScript Info.",
   questions: [
     {
       question:
@@ -194,13 +196,6 @@ export const javascriptQuestions = {
       correctAnswer: '"number"',
       explanation:
         '`NaN` is considered a special value of the number type in JavaScript. Therefore, `typeof NaN` returns `"number"`. [MDN]',
-    },
-    {
-      question: "Which function is used to merge arrays in JavaScript?",
-      options: ["concat()", "merge()", "join()", "combine()"],
-      correctAnswer: "concat()",
-      explanation:
-        "The `concat()` method is used to merge two or more arrays without modifying the original arrays. It returns a new array. [MDN]",
     },
   ],
 };

@@ -5,9 +5,14 @@ import { shuffle } from "@/lib/utils";
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
 
-  if (id === "javascript") {
-    return <Quiz quiz={javascriptQuestions} />;
-  }
+  // if (id === "javascript") {
+  //   return <Quiz quiz={javascriptQuestions} />;
+  // }
 
-  return <Quiz quiz={javascriptQuestions} />;
+  const quiz = {
+    ...javascriptQuestions,
+    questions: shuffle(javascriptQuestions.questions),
+  };
+
+  return <Quiz quiz={quiz} />;
 }
