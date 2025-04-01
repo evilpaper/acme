@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <div className="min-h-screen mt-12 flex flex-col items-center gap-6">
       <p className="text-lg text-center">
-        Looks like you haven't selected a quiz. Or the quiz you are looking for
+        Looks like you have not selected a quiz. Or the quiz you are looking for
         has moved.
       </p>
       <Button asChild>
