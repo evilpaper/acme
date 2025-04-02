@@ -31,13 +31,8 @@ Thought it to be a good way to test out new technologies, practice concepts etc.
 
 ## Roadmap
 
-- [x] Add a component layer for importing and exposing icons
-- [x] Use shadcn/ui for all components
-- [x] Dark mode
-- [x] Hamburger navigation
-- [ ] Graph on dashboard
+- [ ] Save quiz in database
 - [ ] Subscriptions using Stripe
-- [ ] Save changes in a history table for audit trail, recovery, conflict prevention and security.
 
 ## Known Issues
 
@@ -64,6 +59,11 @@ pnpm dev
 ```
 
 Note: Unlike create-react-app, we need to run the dev command, not start. The start command is used to run a production server.
+
+## Issues experienced and how to resolve them
+
+Needed to rebuild bcrypt (a compiled binary) after changing Node.js version. In case you get an error saying something like "Error: Cannot find module...bcrypt...node" chances are you experienced the same.
+If so, run `pnpm rebuild` to fix it.
 
 ## License
 
