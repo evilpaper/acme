@@ -11,7 +11,7 @@ export const metadata = {
 export default function Page() {
   return (
     <section className="container flex flex-col gap-6 px-0 md:max-w-[64rem] md:py-12 ">
-      <div className="mx-auto flex w-full flex-col gap-4 md:max-w-[58rem]">
+      <div className="flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2
           className={`align-center mt-8 max-w-screen-md text-5xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >

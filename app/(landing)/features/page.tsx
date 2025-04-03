@@ -51,7 +51,7 @@ const features = [
 export default function Page() {
   return (
     <section className="container flex flex-col  gap-10 px-0 md:max-w-[64rem] md:py-12">
-      <article className="mx-auto flex w-full flex-col gap-4 md:max-w-[58rem]">
+      <article className="flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2
           className={`align-center mt-8 max-w-screen-md text-5xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >
