@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import Link from "next/link";
 
 type Question = {
   question: string;
@@ -25,13 +24,6 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
   const [isAnswered, setIsAnswered] = useState(false);
 
   const { name, questions } = quiz;
-
-  const getQuizSlug = (quizName: string) => {
-    return quizName
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9-]/g, "");
-  };
 
   const handleAnswer = (answer: string) => {
     console.log("Running handleAnswer");
@@ -65,10 +57,7 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
       {!showResult ? (
         <>
           <div className="text-sm text-muted-foreground">
-            <Link href={`/quiz/${getQuizSlug(name)}`} onClick={resetQuiz}>
-              {name}
-            </Link>{" "}
-            | Question {currentQuestion + 1} of {questions.length}
+            {name} | Question {currentQuestion + 1} of {questions.length}
           </div>
           <Progress value={((currentQuestion + 1) / questions.length) * 100} />
           <h2 className="text-xl font-semibold">
