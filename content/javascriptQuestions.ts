@@ -1,5 +1,6 @@
 export const javascriptQuestions = {
   name: "JavaScript 101",
+  slug: "javascript-101",
   description:
     "A bunch of JavaScript questions taken from MDN and JavaScript Info.",
   questions: [

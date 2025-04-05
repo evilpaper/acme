@@ -25,7 +25,7 @@ export default function Page() {
           </h3>
           <Button asChild>
             <Link
-              href="/quiz/javascript"
+              href={`/quiz/javascript-101`}
               className="flex h-11 w-fit gap-2 rounded-md px-8"
             >
               <span>Start quiz</span>
@@ -43,7 +43,7 @@ export default function Page() {
           </h3>
           <Button asChild>
             <Link
-              href="/quiz/lydia-hallie"
+              href={`/quiz/lydia-hallies-javascript-questions`}
               className="flex h-11 w-fit gap-2 rounded-md px-8"
             >
               <span>Start quiz</span>

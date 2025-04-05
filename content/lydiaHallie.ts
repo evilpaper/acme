@@ -1,5 +1,6 @@
 export const lydiaHallieQuestions = {
   name: "Lydia Hallie's JavaScript Questions",
+  slug: "lydia-hallies-javascript-questions",
   description:
     "40 JavaScript questions sourced from Lydia Hallie's GitHub repository.",
   questions: [

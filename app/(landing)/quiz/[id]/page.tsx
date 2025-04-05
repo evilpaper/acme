@@ -8,9 +8,7 @@ import Link from "next/link";
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
 
-  console.log(id);
-
-  if (id === "javascript") {
+  if (id === "javascript-101") {
     const quiz = {
       ...javascriptQuestions,
       questions: shuffle(javascriptQuestions.questions),
@@ -18,7 +16,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     return <Quiz quiz={quiz} />;
   }
 
-  if (id === "lydia-hallie") {
+  if (id === "lydia-hallies-javascript-questions") {
     const quiz = {
       ...lydiaHallieQuestions,
       questions: shuffle(lydiaHallieQuestions.questions),
