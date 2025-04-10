@@ -1,4 +1,4 @@
-import Quiz from "@/components/quiz/quiz";
+import Quiz from "@/features/quiz/quiz";
 import { Button } from "@/components/ui/button";
 import { javascriptQuestions } from "@/content/javascriptQuestions";
 import { lydiaHallieQuestions } from "@/content/lydiaHallie";
