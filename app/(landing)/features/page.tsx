@@ -55,7 +55,7 @@ export default function Page() {
         <h2
           className={`align-center mt-8 max-w-screen-md text-5xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >
-          Features
+          Jam packed with features
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
           This project is an experiment to see how a modern app, with features
