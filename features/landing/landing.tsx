@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function Landing() {
+export function Landing() {
   return (
-    <section className="mt-10 flex flex-col gap-4 pb-8 pt-8">
+    <section className="mt-10 flex flex-col pb-8 pt-8">
       <div className="align-center flex flex-col items-center">
         <h1 className="mb-4 max-w-screen-md p-2 text-center text-4xl font-bold tracking-tighter md:text-6xl">
           Practice makes perfect. <br /> Or actually permanent... but you get
