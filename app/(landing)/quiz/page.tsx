@@ -7,12 +7,12 @@ export default function Page() {
     <section className="container flex flex-col gap-10 px-0 md:max-w-[64rem] md:py-12">
       <article className="flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2
-          className={`align-center mt-8 max-w-screen-md text-5xl font-bold leading-tight tracking-tighter md:text-6xl`}
+          className={`align-center mt-8 max-w-screen-md text-4xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >
-          Practice makes permanent
+          Straight to the point quizzes
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          Ready made quizzes from leading free resources online.
+          Ready made quizzes from leading resources online. Totally free of use.
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">

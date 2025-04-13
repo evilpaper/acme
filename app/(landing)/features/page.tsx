@@ -53,7 +53,7 @@ export default function Page() {
     <section className="container flex flex-col gap-10 px-0 md:max-w-[64rem] md:py-12">
       <article className="flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2
-          className={`align-center mt-8 max-w-screen-md text-5xl font-bold leading-tight tracking-tighter md:text-6xl`}
+          className={`align-center mt-8 max-w-screen-md text-4xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >
           Jam packed with features
         </h2>
