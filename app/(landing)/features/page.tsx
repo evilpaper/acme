@@ -58,9 +58,9 @@ export default function Page() {
           Jam packed with features
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          This project is an experiment to see how a modern app, with features
-          like auth, subscriptions, API routes, and static pages would work in a
-          Next.js app.
+          Well. maybe not. This project is an experiment to see how a modern
+          app, with features like auth, subscriptions, API routes, and static
+          pages would work in a Next.js app.
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">

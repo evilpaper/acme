@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export function Landing() {
+export function LandingScreen() {
   return (
     <section className="mt-1 md:mt-10 flex flex-col pb-8 pt-8">
       <div className="align-center flex flex-col items-center">
