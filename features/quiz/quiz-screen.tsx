@@ -2,6 +2,21 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import Link from "next/link";
 
+const quizzes = [
+  {
+    name: "JavaScript 101",
+    description:
+      "A bunch of JavaScript questions taken from MDN and JavaScript Info.",
+    slug: "javascript-101",
+  },
+  {
+    name: "Lydia Hallies JavaScript Questions",
+    description:
+      "40 JavaScript questions sourced from Lydia Hallies GitHub repository.",
+    slug: "lydia-hallies-javascript-questions",
+  },
+];
+
 export function QuizScreen() {
   return (
     <section className="container flex flex-col gap-10 px-0 md:max-w-[64rem] md:py-12">
@@ -16,41 +31,25 @@ export function QuizScreen() {
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-        <article className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8">
-          <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
-            JavaScript 101
-          </h1>
-          <h3 className="text-center text-xl">
-            A bunch of JavaScript questions taken from MDN and JavaScript Info.
-          </h3>
-          <Button asChild>
-            <Link
-              href={`/quiz/javascript-101`}
-              className="flex h-11 w-fit gap-2 rounded-md px-8"
-            >
-              <span>Start quiz</span>
-              <Icons.arrowRight />
-            </Link>
-          </Button>
-        </article>
-        <article className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8">
-          <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
-            Lydia Hallies JavaScript Questions
-          </h1>
-          <h3 className="text-center text-xl">
-            40 JavaScript questions sourced from Lydia Hallies GitHub
-            repository.
-          </h3>
-          <Button asChild>
-            <Link
-              href={`/quiz/lydia-hallies-javascript-questions`}
-              className="flex h-11 w-fit gap-2 rounded-md px-8"
-            >
-              <span>Start quiz</span>
-              <Icons.arrowRight />
-            </Link>
-          </Button>
-        </article>
+        {quizzes.map(({ name, description, slug }) => {
+          return (
+            <article className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8">
+              <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
+                {name}
+              </h1>
+              <h3 className="text-center text-xl">{description}</h3>
+              <Button asChild>
+                <Link
+                  href={`/quiz/${slug}`}
+                  className="flex h-11 w-fit gap-2 rounded-md px-8"
+                >
+                  <span>Start quiz</span>
+                  <Icons.arrowRight />
+                </Link>
+              </Button>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
