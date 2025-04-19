@@ -38,9 +38,27 @@ Thought it to be a good way to test out new technologies, practice concepts etc.
 
 - [ ] fetchInvoiceById throw an error if id isn't an UUID. A bit crud to show error, better show custom bad request or something.
 
+## Setup
+
+1. Setting up a database
+
+This project is built on the premise of using a PostgreSQL database for keepting data. If you're already familiar with PostgreSQL and would prefer to use your own database provider, you can skip this chapter and set it up on your own.
+
+2. Create a Postgres database
+
+3. Seed the database
+
+Now that your database has been created, let's seed it with some initial data.
+
+We've included an API you can access in the browser, which will run a seed script to populate the database with an initial set of data.
+
+The script uses SQL to create the tables, and the data from placeholder-data.ts file to populate them after they've been created.
+
+Ensure your local development server is running with pnpm run dev and navigate to localhost:3000/seed in your browser. When finished, you will see a message "Database seeded successfully" in the browser. Once completed, you can delete this file.
+
 ## Running Locally
 
-1. Install dependencies using npm:
+1. Install dependencies using pnpm:
 
 ```sh
 pnpm install
@@ -57,8 +75,6 @@ cp .env.example .env.local
 ```sh
 pnpm dev
 ```
-
-Note: Unlike create-react-app, we need to run the dev command, not start. The start command is used to run a production server.
 
 ## Issues experienced and how to resolve them
 
