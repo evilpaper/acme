@@ -56,6 +56,16 @@ The script uses SQL to create the tables, and the data from placeholder-data.ts 
 
 Ensure your local development server is running with pnpm run dev and navigate to localhost:3000/seed in your browser. When finished, you will see a message "Database seeded successfully" in the browser. Once completed, you can delete this file.
 
+### A word about the choices
+
+The project use UUID to identify each database entry.
+
+This is since we want to...
+
+- expose your IDs in URLs and APIs
+- might sync data across systems in the future,
+- more future-proof flexibility
+
 ## Running Locally
 
 1. Install dependencies using pnpm:
