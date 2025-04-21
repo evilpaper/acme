@@ -1,6 +1,11 @@
 import bcrypt from "bcrypt";
 import { db } from "@vercel/postgres";
-import { users, quizzes, questions } from "../lib/placeholder-data";
+import {
+  users,
+  quizzes,
+  questions,
+  question_choices,
+} from "../lib/placeholder-data";
 
 const client = await db.connect();
 
@@ -75,6 +80,31 @@ async function seedQuestions() {
       `;
     }),
   );
+
+  return insertedQuestions;
+}
+
+async function seedQuestionChoices() {
+  await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  await client.sql`
+    CREATE TABLE IF NOT EXISTS question_choices (
+      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      question_id UUID NOT NULL,
+      text TEXT NOT NULL
+    );
+  `;
+
+  const insertedQuestionChoices = await Promise.all(
+    question_choices.map((questionChoice) => {
+      return client.sql`
+        INSERT INTO question_choices (id, question_id, text )
+        VALUES (${questionChoice.id}, ${questionChoice.question_id}, ${questionChoice.text})
+        ON CONFLICT (id) DO NOTHING;
+      `;
+    }),
+  );
+
+  return insertedQuestionChoices;
 }
 
 export async function GET() {
@@ -86,6 +116,8 @@ export async function GET() {
   //   await client.sql`BEGIN`;
   //   await seedUsers();
   //   await seedQuizzes();
+  //   await seedQuestions();
+  //   await seedQuestionChoices();
   //   await client.sql`COMMIT`;
   //   return Response.json({ message: 'Database seeded successfully' });
   // } catch (error) {
