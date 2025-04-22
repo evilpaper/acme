@@ -9,6 +9,7 @@ type Question = {
   options: string[];
   correctAnswer: string;
   explanation: string;
+  source: string;
 };
 
 type Quiz = {
@@ -77,7 +78,7 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
             ))}
           </div>
           {isAnswered && (
-            <div className="flex w-full rounded-md border border-stone-400 p-4">
+            <div className="flex flex-col w-full rounded-md border border-stone-400 p-4">
               {selectedAnswer === questions[currentQuestion].correctAnswer ? (
                 <p>
                   Correct! <br /> {questions[currentQuestion].explanation}
@@ -89,6 +90,9 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
                   {questions[currentQuestion].explanation}
                 </p>
               )}
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                Source: {questions[currentQuestion].source}
+              </a>
             </div>
           )}
         </>
