@@ -9,7 +9,7 @@ type Question = {
   options: string[];
   correctAnswer: string;
   explanation: string;
-  source: string;
+  source?: string;
 };
 
 type Quiz = {
@@ -90,9 +90,11 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
                   {questions[currentQuestion].explanation}
                 </p>
               )}
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-                Source: {questions[currentQuestion].source}
-              </a>
+              {questions[currentQuestion].source && (
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                  Source: {questions[currentQuestion].source}
+                </a>
+              )}
             </div>
           )}
         </>
