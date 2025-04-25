@@ -46,6 +46,9 @@ The background suffix is omitted when the variable is used for the background co
     --ring: 222 84% 6%;
 
     --radius: 0.5rem;
+
+    --success: 142 48% 38%;
+    --fail: 356 68% 42%;
   }
 
   .dark {
@@ -76,6 +79,9 @@ The background suffix is omitted when the variable is used for the background co
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --success: 142 48% 38%;
+    --fail: 356 68% 42%;
   }
 }
 

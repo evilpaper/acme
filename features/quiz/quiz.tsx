@@ -68,7 +68,13 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
             {questions[currentQuestion].options.map((option, index) => (
               <Button
                 key={index}
-                variant={selectedAnswer === option ? "default" : "outline"}
+                variant={
+                  selectedAnswer === option
+                    ? option === questions[currentQuestion].correctAnswer
+                      ? "success"
+                      : "fail"
+                    : "outline"
+                }
                 className="text-balance h-auto w-full justify-start text-left"
                 onClick={() => handleAnswer(option)}
                 disabled={isAnswered}
