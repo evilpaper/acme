@@ -87,11 +87,17 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
             <div className="flex flex-col w-full rounded-md border border-stone-400 p-4">
               {selectedAnswer === questions[currentQuestion].correctAnswer ? (
                 <p>
-                  Correct! <br /> {questions[currentQuestion].explanation}
+                  <span className="text-[hsl(var(--success))] font-semibold">
+                    Correct!
+                  </span>{" "}
+                  <br /> {questions[currentQuestion].explanation}
                 </p>
               ) : (
                 <p>
-                  Incorrect! <br /> The correct answer is:{" "}
+                  <span className="text-[hsl(var(--fail))] font-semibold">
+                    Incorrect!
+                  </span>{" "}
+                  <br /> The correct answer is:{" "}
                   {questions[currentQuestion].correctAnswer} <br />
                   {questions[currentQuestion].explanation}
                 </p>
@@ -115,12 +121,14 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
 
       {!showResult ? (
         isAnswered && (
-          <Button onClick={handleNext}>
+          <Button onClick={handleNext} className="w-full">
             {currentQuestion + 1 === questions.length ? "Finish" : "Next"}
           </Button>
         )
       ) : (
-        <Button onClick={resetQuiz}>Restart Quiz</Button>
+        <Button onClick={resetQuiz} className="w-full">
+          Restart Quiz
+        </Button>
       )}
     </div>
   );
