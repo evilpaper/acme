@@ -21,6 +21,8 @@ const buttonVariants = cva(
         success:
           "border border-[hsl(var(--success))] bg-[hsl(var(--success))] text-primary-foreground",
         fail: "border border-[hsl(var(--fail))] bg-[hsl(var(--fail))] text-primary-foreground",
+        correct:
+          "border border-[hsl(var(--success))] bg-background hover:bg-accent hover:bg-foreground/5 text-[hsl(var(--success))]",
       },
       size: {
         default: "h-10 px-4 py-2",

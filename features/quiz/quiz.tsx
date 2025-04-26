@@ -73,7 +73,11 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
                     ? option === questions[currentQuestion].correctAnswer
                       ? "success"
                       : "fail"
-                    : "outline"
+                    : selectedAnswer !== option &&
+                        selectedAnswer.length > 1 &&
+                        option === questions[currentQuestion].correctAnswer
+                      ? "correct"
+                      : "outline"
                 }
                 className="text-balance h-auto w-full justify-start text-left"
                 onClick={() => handleAnswer(option)}
