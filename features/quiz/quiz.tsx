@@ -88,26 +88,31 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
             ))}
           </div>
           {isAnswered && (
-            <div className="flex flex-col w-full rounded-md border border-stone-400 p-4">
+            <div className="flex flex-col w-full  rounded-md border border-stone-400 p-4">
               {selectedAnswer === questions[currentQuestion].correctAnswer ? (
-                <p>
-                  <span className="text-[hsl(var(--success))] font-semibold">
+                <>
+                  <p className="text-[hsl(var(--success))] font-semibold mb-2">
                     Correct!
-                  </span>{" "}
-                  <br /> {questions[currentQuestion].explanation}
-                </p>
+                  </p>
+                  <p>{questions[currentQuestion].explanation}</p>
+                </>
               ) : (
-                <p>
-                  <span className="text-[hsl(var(--fail))] font-semibold">
+                <>
+                  <p className="text-[hsl(var(--fail))] font-semibold mb-2">
                     Incorrect!
-                  </span>{" "}
-                  <br /> The correct answer is:{" "}
-                  {questions[currentQuestion].correctAnswer} <br />
-                  {questions[currentQuestion].explanation}
-                </p>
+                  </p>
+                  <p>
+                    The correct answer is:{" "}
+                    {questions[currentQuestion].correctAnswer} <br />
+                    {questions[currentQuestion].explanation}
+                  </p>
+                </>
               )}
               {questions[currentQuestion].source && (
-                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                  className="text-sm mt-2"
+                >
                   Source: {questions[currentQuestion].source}
                 </a>
               )}
