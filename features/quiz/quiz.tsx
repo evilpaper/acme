@@ -54,7 +54,7 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
   };
 
   return (
-    <div className="mx-auto flex max-w-md flex-col items-center justify-center gap-6">
+    <div className="w-[min(100%,448px)] mx-auto flex flex-col items-center justify-center gap-6">
       {!showResult ? (
         <>
           <div className="text-sm text-muted-foreground">
