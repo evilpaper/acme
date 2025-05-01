@@ -17,7 +17,7 @@ const quizzes = [
   },
 ];
 
-export function QuizScreen() {
+export function QuizzesScreen() {
   return (
     <section className="container flex flex-col gap-10 px-0 md:max-w-[64rem] md:py-12">
       <article className="flex w-full flex-col gap-4 md:max-w-[58rem]">
@@ -40,7 +40,7 @@ export function QuizScreen() {
               <h3 className="text-center text-xl">{description}</h3>
               <Button asChild>
                 <Link
-                  href={`/quiz/${slug}`}
+                  href={`/quizzes/${slug}`}
                   className="flex h-11 w-fit gap-2 rounded-md px-8"
                 >
                   <span>Start quiz</span>

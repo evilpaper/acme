@@ -14,7 +14,10 @@ export function LandingScreen() {
         </p>
         <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
           <Button asChild>
-            <Link href="/quiz/javascript-101" className="h-11 rounded-md px-8">
+            <Link
+              href="/quizzes/javascript-101"
+              className="h-11 rounded-md px-8"
+            >
               <span>Try random quiz</span>
             </Link>
           </Button>

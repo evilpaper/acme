@@ -11,7 +11,7 @@ import logo from "../../public/images/logo-black-lemon.svg";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 
 const links = [
-  { name: "Quizzes", href: "/quiz", icon: "" },
+  { name: "Quizzes", href: "/quizzes", icon: "" },
   { name: "Features", href: "/features", icon: "" },
   { name: "Pricing", href: "/pricing", icon: "" },
 ];
