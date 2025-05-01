@@ -33,7 +33,10 @@ export function QuizzesScreen() {
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
         {quizzes.map(({ name, description, slug }) => {
           return (
-            <article className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8">
+            <article
+              key={slug}
+              className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8"
+            >
               <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
                 {name}
               </h1>

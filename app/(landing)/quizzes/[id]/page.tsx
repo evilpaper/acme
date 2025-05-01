@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         has moved.
       </p>
       <Button asChild>
-        <Link href="/quiz" className="flex h-11 w-fit gap-2 rounded-md px-8">
+        <Link href="/quizzes" className="flex h-11 w-fit gap-2 rounded-md px-8">
           Back to Quizzes
         </Link>
       </Button>

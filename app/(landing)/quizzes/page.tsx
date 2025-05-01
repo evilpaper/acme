@@ -1,5 +1,8 @@
+import { getQuizzes } from "@/features/quiz/quiz-data";
 import { QuizzesScreen } from "@/features/quiz/quizzes-screen";
 
-export default function Page() {
+export default async function Page() {
+  const quizzes = await getQuizzes();
+  console.log("quizzes", quizzes);
   return <QuizzesScreen />;
 }
