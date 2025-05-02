@@ -3,6 +3,6 @@ import { QuizzesScreen } from "@/features/quiz/quizzes-screen";
 
 export default async function Page() {
   const quizzes = await getQuizzes();
-  console.log("quizzes", quizzes);
-  return <QuizzesScreen />;
+
+  return <QuizzesScreen quizzes={quizzes} />;
 }

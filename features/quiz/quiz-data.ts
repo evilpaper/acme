@@ -1,8 +1,15 @@
 import { sql } from "@vercel/postgres";
 
+export type Quiz = {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+};
+
 export async function getQuizzes() {
   try {
-    const data = await sql<any>`
+    const data = await sql<Quiz>`
       SELECT
         id,
         name, 
