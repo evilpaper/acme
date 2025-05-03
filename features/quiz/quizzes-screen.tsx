@@ -54,7 +54,7 @@ export function QuizzesScreen({ quizzes }: { quizzes: Quiz[] }) {
             </article>
           );
         })}
-        {quizzes.map(({ name, description, slug }) => {
+        {quizzes.map(({ name, description, slug, id }) => {
           return (
             <article
               key={slug}
@@ -66,7 +66,7 @@ export function QuizzesScreen({ quizzes }: { quizzes: Quiz[] }) {
               <h3 className="text-center text-xl">{description}</h3>
               <Button asChild>
                 <Link
-                  href={`/quizzes/${slug}`}
+                  href={`/quizzes/${id}`}
                   className="flex h-11 w-fit gap-2 rounded-md px-8"
                 >
                   <span>Start quiz</span>
