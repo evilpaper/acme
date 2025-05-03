@@ -1,9 +1,8 @@
-import Quiz from "@/features/quiz/quiz";
-import { Button } from "@/components/ui/button";
-import { javascriptQuestions } from "@/content/javascriptQuestions";
-import { lydiaHallieQuestions } from "@/content/lydiaHallie";
 import { shuffle } from "@/lib/utils";
-import Link from "next/link";
+import Quiz from "@/features/quiz/quiz";
+import { lydiaHallieQuestions } from "@/content/lydiaHallie";
+import { QuizNotFound } from "@/features/quiz/quiz-not-found";
+import { javascriptQuestions } from "@/content/javascriptQuestions";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -24,17 +23,5 @@ export default async function Page({ params }: { params: { id: string } }) {
     return <Quiz quiz={quiz} />;
   }
 
-  return (
-    <div className="min-h-screen mt-12 flex flex-col items-center gap-6">
-      <p className="text-lg text-center">
-        Looks like you have not selected a quiz. Or the quiz you are looking for
-        has moved.
-      </p>
-      <Button asChild>
-        <Link href="/quizzes" className="flex h-11 w-fit gap-2 rounded-md px-8">
-          Back to Quizzes
-        </Link>
-      </Button>
-    </div>
-  );
+  return <QuizNotFound />;
 }
