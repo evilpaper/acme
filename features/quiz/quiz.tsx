@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress";
 type Question = {
   question: string;
   options: string[];
-  correctAnswer: string;
+  correctanswer: string;
   explanation: string;
   source?: string;
 };
@@ -30,7 +30,7 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
     console.log("Running handleAnswer");
     setSelectedAnswer(answer);
     setIsAnswered(true);
-    if (answer === questions[currentQuestion].correctAnswer) {
+    if (answer === questions[currentQuestion].correctanswer) {
       setScore(score + 1);
     }
   };
@@ -70,12 +70,12 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
                 key={index}
                 variant={
                   selectedAnswer === option
-                    ? option === questions[currentQuestion].correctAnswer
+                    ? option === questions[currentQuestion].correctanswer
                       ? "success"
                       : "fail"
                     : selectedAnswer !== option &&
                         selectedAnswer.length > 1 &&
-                        option === questions[currentQuestion].correctAnswer
+                        option === questions[currentQuestion].correctanswer
                       ? "correct"
                       : "outline"
                 }
@@ -89,7 +89,7 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
           </div>
           {isAnswered && (
             <div className="flex flex-col w-full  rounded-md border border-stone-400 p-4">
-              {selectedAnswer === questions[currentQuestion].correctAnswer ? (
+              {selectedAnswer === questions[currentQuestion].correctanswer ? (
                 <>
                   <p className="text-[hsl(var(--success))] font-semibold mb-2">
                     Correct!
@@ -103,7 +103,7 @@ export default function Quiz({ quiz }: { quiz: Quiz }) {
                   </p>
                   <p>
                     The correct answer is:{" "}
-                    {questions[currentQuestion].correctAnswer} <br />
+                    {questions[currentQuestion].correctanswer} <br />
                     {questions[currentQuestion].explanation}
                   </p>
                 </>

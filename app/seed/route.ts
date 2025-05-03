@@ -65,7 +65,7 @@ async function seedQuestions() {
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
       quiz_id UUID NOT NULL,
       question TEXT NOT NULL,
-      correctAnswer TEXT NOT NULL,
+      correctanswer TEXT NOT NULL, 
       explanation TEXT NOT NULL,
       source TEXT NOT NULL
     );
@@ -74,8 +74,8 @@ async function seedQuestions() {
   const insertedQuestions = await Promise.all(
     questions.map((question) => {
       return client.sql`
-        INSERT INTO questions (id, quiz_id, question, correctAnswer, explanation, source)
-        VALUES (${question.id}, ${question.quiz_id}, ${question.question}, ${question.correctAnswer}, ${question.explanation}, ${question.source})
+        INSERT INTO questions (id, quiz_id, question, correctanswer, explanation, source)
+        VALUES (${question.id}, ${question.quiz_id}, ${question.question}, ${question.correctanswer}, ${question.explanation}, ${question.source})
         ON CONFLICT (id) DO NOTHING;
       `;
     }),

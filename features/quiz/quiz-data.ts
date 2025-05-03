@@ -11,7 +11,7 @@ export type Question = {
   id: string;
   quiz_id: string;
   question: string;
-  correctAnswer: string;
+  correctanswer: string;
   explanation: string;
   source: string;
 };

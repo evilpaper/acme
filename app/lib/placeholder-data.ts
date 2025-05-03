@@ -25,7 +25,7 @@ const questions = [
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question:
       'What is the purpose of the "use strict" directive in JavaScript?',
-    correctAnswer: "It prevents the use of undefined variables",
+    correctanswer: "It prevents the use of undefined variables",
     explanation:
       'The "use strict" directive enforces stricter parsing and error handling in JavaScript code, helping to prevent common mistakes such as using undeclared variables.',
     source: "MDN",
@@ -35,7 +35,7 @@ const questions = [
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question:
       "Which of the following is not a primitive data type in JavaScript?",
-    correctAnswer: "Array",
+    correctanswer: "Array",
     explanation:
       "In JavaScript, arrays are not considered primitive data types; they are objects. Primitive types include Boolean, String, Number, Null, Undefined, Symbol, and BigInt.",
     source: "MDN",
@@ -44,7 +44,7 @@ const questions = [
     id: "7bc20b1b-3290-4afd-b854-58bc1c390993",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: 'What does "NaN" stand for in JavaScript?',
-    correctAnswer: "Not a Number",
+    correctanswer: "Not a Number",
     explanation:
       '"NaN" stands for "Not a Number" and represents a value that is not a legal number. It is usually the result of an invalid mathematical operation.',
     source: "MDN",
@@ -53,7 +53,7 @@ const questions = [
     id: "8bc20b1b-3290-4afd-b854-58bc1c390994",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "Which method is used to remove the last element from an array?",
-    correctAnswer: "pop()",
+    correctanswer: "pop()",
     explanation:
       "The `pop()` method removes the last element from an array and returns that element. It modifies the original array.",
     source: "MDN",
@@ -62,7 +62,7 @@ const questions = [
     id: "9bc20b1b-3290-4afd-b854-58bc1c390995",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What will the following code output: console.log(typeof null);?",
-    correctAnswer: '"object"',
+    correctanswer: '"object"',
     explanation:
       "In JavaScript, `null` is considered an object type due to a historical bug in the language implementation.",
     source: "MDN",
@@ -72,7 +72,7 @@ const questions = [
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question:
       "Which of the following methods is used to convert a JSON string into a JavaScript object?",
-    correctAnswer: "JSON.parse()",
+    correctanswer: "JSON.parse()",
     explanation:
       "The `JSON.parse()` method is used to convert a JSON string into a JavaScript object.",
     source: "javascript.info",
@@ -81,7 +81,7 @@ const questions = [
     id: "1bc20b1b-3290-4afd-b854-58bc1c390997",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: 'What will `console.log(1 + "2" + "2");` output?',
-    correctAnswer: "122",
+    correctanswer: "122",
     explanation:
       'JavaScript performs string concatenation when it encounters a string. In this case, it first adds `1` to `"2"` resulting in `"12"`, and then adds `"2"` resulting in `"122"`.',
     source: "javascript.info",
@@ -90,7 +90,7 @@ const questions = [
     id: "2bc20b1b-3290-4afd-b854-58bc1c390998",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "How do you create a new object in JavaScript?",
-    correctAnswer: "var obj = {};",
+    correctanswer: "var obj = {};",
     explanation:
       "Objects in JavaScript can be created using the object literal notation with curly braces `{}`.",
     source: "MDN",
@@ -99,7 +99,7 @@ const questions = [
     id: "3bc20b1b-3290-4afd-b854-58bc1c390999",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What is the difference between `==` and `===` in JavaScript?",
-    correctAnswer:
+    correctanswer:
       "`==` performs type conversion before comparison, while `===` does not",
     explanation:
       "`==` allows type coercion, meaning it converts the operands to the same type before comparing, while `===` compares both value and type without conversion.",
@@ -109,7 +109,7 @@ const questions = [
     id: "4bc20b1b-3290-4afd-b854-58bc1c390990",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What is the output of `typeof undefined == typeof NULL`?",
-    correctAnswer: "true",
+    correctanswer: "true",
     explanation:
       "Both `undefined` and `NULL` are treated as the same type in this comparison because JavaScript is case-sensitive and `NULL` is treated as an undeclared variable.",
     source: "javascript.info",
@@ -119,7 +119,7 @@ const questions = [
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question:
       "Which of the following loops is best used when the number of iterations is known?",
-    correctAnswer: "for",
+    correctanswer: "for",
     explanation:
       "The `for` loop is ideal when the number of iterations is known beforehand, as it allows initialization, condition, and incrementation in a single line.",
     source: "MDN",
@@ -128,7 +128,7 @@ const questions = [
     id: "6bc20b1b-3290-4afd-b854-58bc1c390982",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What does the `this` keyword refer to in JavaScript?",
-    correctAnswer: "Depends on the execution context",
+    correctanswer: "Depends on the execution context",
     explanation:
       "In JavaScript, `this` refers to different objects depending on where it is used: in a method, it refers to the owner object; in a function, it refers to the global object or undefined in strict mode.",
     source: "javascript.info",
@@ -137,7 +137,7 @@ const questions = [
     id: "7bc20b1b-3290-4afd-b854-58bc1c390983",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What is the output of `console.log(0.1 + 0.2 === 0.3);`?",
-    correctAnswer: "false",
+    correctanswer: "false",
     explanation:
       "Due to floating-point precision issues in JavaScript, `0.1 + 0.2` does not exactly equal `0.3`. The actual result is a slightly imprecise value like `0.30000000000000004`.",
     source: "MDN",
@@ -146,7 +146,7 @@ const questions = [
     id: "8bc20b1b-3290-4afd-b854-58bc1c390984",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "Which of these values is falsy in JavaScript?",
-    correctAnswer: "0",
+    correctanswer: "0",
     explanation:
       'In JavaScript, `0` is considered falsy, whereas `"false"`, `"0"`, and empty arrays are truthy values. Falsy values include `0`, `""`, `null`, `undefined`, `false`, and `NaN`.',
     source: "javascript.info",
@@ -155,7 +155,7 @@ const questions = [
     id: "9bc20b1b-3290-4afd-b854-58bc1c390985",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What is a closure in JavaScript?",
-    correctAnswer: "A function bundled together with its lexical environment",
+    correctanswer: "A function bundled together with its lexical environment",
     explanation:
       "A closure is a function that retains access to its outer lexical scope, even after the outer function has returned.",
     source: "javascript.info",
@@ -164,7 +164,7 @@ const questions = [
     id: "0bc20b1b-3290-4afd-b854-58bc1c390986",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What does the `map()` function do in JavaScript?",
-    correctAnswer:
+    correctanswer:
       "It creates a new array by calling a function on every element in the original array",
     explanation:
       "The `map()` function calls a provided function on each element of an array and returns a new array containing the results.",
@@ -175,7 +175,7 @@ const questions = [
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question:
       "Which of the following is not a valid way to declare a variable in JavaScript?",
-    correctAnswer: "assign",
+    correctanswer: "assign",
     explanation:
       "`var`, `let`, and `const` are valid ways to declare variables in JavaScript, while `assign` is not.",
     source: "javascript.info",
@@ -184,7 +184,7 @@ const questions = [
     id: "2bc20b1b-3290-4afd-b854-58bc1c390988",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What will `console.log([] + {});` output in JavaScript?",
-    correctAnswer: '"[object Object]"',
+    correctanswer: '"[object Object]"',
     explanation:
       'When adding an empty array and an object, JavaScript first converts them to their string representations. `[]` becomes `""` and `{}` becomes `"[object Object]"`, so the result is `"[object Object]"`.',
     source: "MDN",
@@ -193,7 +193,7 @@ const questions = [
     id: "3bc20b1b-3290-4afd-b854-58bc1c390989",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "Which method is used to stop event propagation in JavaScript?",
-    correctAnswer: "stopPropagation()",
+    correctanswer: "stopPropagation()",
     explanation:
       "The `stopPropagation()` method prevents further propagation of the current event in the capturing and bubbling phases.",
     source: "MDN",
@@ -202,7 +202,7 @@ const questions = [
     id: "4bc20b1b-3290-4afd-b854-58bc1c390980",
     quiz_id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     question: "What will `console.log(typeof NaN);` output?",
-    correctAnswer: '"number"',
+    correctanswer: '"number"',
     explanation:
       '`NaN` is considered a special value of the number type in JavaScript. Therefore, `typeof NaN` returns `"number"`.',
     source: "MDN",
