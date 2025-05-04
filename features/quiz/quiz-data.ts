@@ -35,7 +35,7 @@ export async function getQuizzes() {
   }
 }
 
-export async function getQuestions(id: string) {
+export async function getQuestionsByQuizId(quiz_id: string) {
   try {
     const data = await sql<Question[]>`
       SELECT 
@@ -45,7 +45,8 @@ export async function getQuestions(id: string) {
         correctanswer,
         explanation,
         source
-    FROM questions
+      FROM questions
+      WHERE quiz_id=${quiz_id}
     `;
     const questions = data.rows;
     return questions;
