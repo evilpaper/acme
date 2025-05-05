@@ -7,6 +7,8 @@ import {
   question_choices,
 } from "../lib/placeholder-data";
 
+console.log("question_choices.length", question_choices.length);
+
 const client = await db.connect();
 
 async function seedUsers() {

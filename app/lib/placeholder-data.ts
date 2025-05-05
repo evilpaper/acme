@@ -251,365 +251,382 @@ const question_choices = [
     text: "Number",
   },
   {
-    id: "9fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "9fa112ed-9aee-424c-ad61-69389da24450",
     question_id: "7bc20b1b-3290-4afd-b854-58bc1c390993",
     text: "Not a Number",
   },
   {
-    id: "0fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "0fa112ed-9aee-424c-ad61-69389da24451",
     question_id: "7bc20b1b-3290-4afd-b854-58bc1c390993",
     text: "Null and Null",
   },
   {
-    id: "1fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "1fa112ed-9aee-424c-ad61-69389da24452",
     question_id: "7bc20b1b-3290-4afd-b854-58bc1c390993",
     text: "New Array Number",
   },
   {
-    id: "2fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "2fa112ed-9aee-424c-ad61-69389da24453",
     question_id: "7bc20b1b-3290-4afd-b854-58bc1c390993",
     text: "Name a Number",
   },
   {
-    id: "3fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "3fa112ed-9aee-424c-ad61-69389da24454",
     question_id: "8bc20b1b-3290-4afd-b854-58bc1c390994",
     text: "shift()",
   },
   {
-    id: "4fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "4fa112ed-9aee-424c-ad61-69389da24455",
     question_id: "8bc20b1b-3290-4afd-b854-58bc1c390994",
     text: "pop()",
   },
   {
-    id: "5fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "5fa112ed-9aee-424c-ad61-69389da24456",
     question_id: "8bc20b1b-3290-4afd-b854-58bc1c390994",
     text: "splice()",
   },
   {
-    id: "6fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "6fa112ed-9aee-424c-ad61-69389da24457",
     question_id: "8bc20b1b-3290-4afd-b854-58bc1c390994",
     text: "delete",
   },
   {
-    id: "7fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "7fa112ed-9aee-424c-ad61-69389da24458",
     question_id: "9bc20b1b-3290-4afd-b854-58bc1c390995",
     text: '"null"',
   },
   {
-    id: "8fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "8fa112ed-9aee-424c-ad61-69389da24459",
     question_id: "9bc20b1b-3290-4afd-b854-58bc1c390995",
     text: '"object"',
   },
   {
-    id: "9fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "9fa112ed-9aee-424c-ad61-69389da24460",
     question_id: "9bc20b1b-3290-4afd-b854-58bc1c390995",
     text: '"undefined"',
   },
   {
-    id: "0fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "0fa112ed-9aee-424c-ad61-69389da24461",
     question_id: "9bc20b1b-3290-4afd-b854-58bc1c390995",
     text: '"boolean"',
   },
   {
-    id: "1fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "1fa112ed-9aee-424c-ad61-69389da24462",
     question_id: "0bc20b1b-3290-4afd-b854-58bc1c390996",
     text: "JSON.stringify()",
   },
   {
-    id: "2fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "2fa112ed-9aee-424c-ad61-69389da24463",
     question_id: "0bc20b1b-3290-4afd-b854-58bc1c390996",
     text: "JSON.parse()",
   },
   {
-    id: "3fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "3fa112ed-9aee-424c-ad61-69389da24464",
     question_id: "0bc20b1b-3290-4afd-b854-58bc1c390996",
     text: "parseInt()",
   },
   {
-    id: "4fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "4fa112ed-9aee-424c-ad61-69389da24465",
     question_id: "0bc20b1b-3290-4afd-b854-58bc1c390996",
     text: "eval()",
   },
   {
-    id: "5fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "5fa112ed-9aee-424c-ad61-69389da24466",
     question_id: "1bc20b1b-3290-4afd-b854-58bc1c390997",
     text: "122",
   },
   {
-    id: "6fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "6fa112ed-9aee-424c-ad61-69389da24467",
     question_id: "1bc20b1b-3290-4afd-b854-58bc1c390997",
     text: "32",
   },
   {
-    id: "7fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "7fa112ed-9aee-424c-ad61-69389da24468",
     question_id: "1bc20b1b-3290-4afd-b854-58bc1c390997",
     text: "NaN",
   },
   {
-    id: "8fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "8fa112ed-9aee-424c-ad61-69389da24469",
     question_id: "1bc20b1b-3290-4afd-b854-58bc1c390997",
     text: "3",
   },
   {
-    id: "9fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "9fa112ed-9aee-424c-ad61-69389da24470",
     question_id: "2bc20b1b-3290-4afd-b854-58bc1c390998",
     text: "var obj = Object();",
   },
   {
-    id: "0fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "0fa112ed-9aee-424c-ad61-69389da24471",
     question_id: "2bc20b1b-3290-4afd-b854-58bc1c390998",
     text: "var obj = {};",
   },
   {
-    id: "1fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "1fa112ed-9aee-424c-ad61-69389da24472",
     question_id: "2bc20b1b-3290-4afd-b854-58bc1c390998",
     text: "var obj = createObject();",
   },
   {
-    id: "2fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "2fa112ed-9aee-424c-ad61-69389da24473",
     question_id: "2bc20b1b-3290-4afd-b854-58bc1c390998",
     text: "var obj = new[];",
   },
   {
-    id: "3fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "3fa112ed-9aee-424c-ad61-69389da24474",
     question_id: "3bc20b1b-3290-4afd-b854-58bc1c390999",
     text: "`==` checks for type and value equality, while `===` checks only value equality",
   },
   {
-    id: "4fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "4fa112ed-9aee-424c-ad61-69389da24475",
     question_id: "3bc20b1b-3290-4afd-b854-58bc1c390999",
     text: "`==` performs type conversion before comparison, while `===` does not",
   },
   {
-    id: "5fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "5fa112ed-9aee-424c-ad61-69389da24476",
     question_id: "3bc20b1b-3290-4afd-b854-58bc1c390999",
     text: "`==` is faster than `===`",
   },
   {
-    id: "6fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "6fa112ed-9aee-424c-ad61-69389da24477",
     question_id: "3bc20b1b-3290-4afd-b854-58bc1c390999",
     text: "`===` performs type conversion before comparison, while `==` does not",
   },
   {
-    id: "7fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "7fa112ed-9aee-424c-ad61-69389da24478",
     question_id: "4bc20b1b-3290-4afd-b854-58bc1c390990",
     text: "true",
   },
   {
-    id: "8fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "8fa112ed-9aee-424c-ad61-69389da24479",
     question_id: "4bc20b1b-3290-4afd-b854-58bc1c390990",
     text: "false",
   },
   {
-    id: "9fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "9fa112ed-9aee-424c-ad61-69389da24480",
     question_id: "4bc20b1b-3290-4afd-b854-58bc1c390990",
     text: "TypeError",
   },
   {
-    id: "0fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "0fa112ed-9aee-424c-ad61-69389da24481",
     question_id: "4bc20b1b-3290-4afd-b854-58bc1c390990",
     text: "undefined",
   },
   {
-    id: "1fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "1fa112ed-9aee-424c-ad61-69389da24482",
     question_id: "5bc20b1b-3290-4afd-b854-58bc1c390981",
     text: "for",
   },
   {
-    id: "2fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "2fa112ed-9aee-424c-ad61-69389da24483",
     question_id: "5bc20b1b-3290-4afd-b854-58bc1c390981",
     text: "while",
   },
   {
-    id: "3fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "3fa112ed-9aee-424c-ad61-69389da24484",
     question_id: "5bc20b1b-3290-4afd-b854-58bc1c390981",
     text: "do-while",
   },
   {
-    id: "4fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "4fa112ed-9aee-424c-ad61-69389da24485",
     question_id: "5bc20b1b-3290-4afd-b854-58bc1c390981",
     text: "forEach",
   },
   {
-    id: "5fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "5fa112ed-9aee-424c-ad61-69389da24486",
     question_id: "6bc20b1b-3290-4afd-b854-58bc1c390982",
     text: "The current object",
   },
   {
-    id: "6fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "6fa112ed-9aee-424c-ad61-69389da24487",
     question_id: "6bc20b1b-3290-4afd-b854-58bc1c390982",
     text: "The global object",
   },
   {
-    id: "7fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "7fa112ed-9aee-424c-ad61-69389da24488",
     question_id: "6bc20b1b-3290-4afd-b854-58bc1c390982",
     text: "The parent object",
   },
   {
-    id: "8fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "8fa112ed-9aee-424c-ad61-69389da24489",
     question_id: "6bc20b1b-3290-4afd-b854-58bc1c390982",
     text: "Depends on the execution context",
   },
   {
-    id: "9fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "9fa112ed-9aee-424c-ad61-69389da24490",
     question_id: "7bc20b1b-3290-4afd-b854-58bc1c390983",
     text: "true",
   },
   {
-    id: "0fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "0fa112ed-9aee-424c-ad61-69389da24491",
     question_id: "7bc20b1b-3290-4afd-b854-58bc1c390983",
     text: "false",
   },
   {
-    id: "1fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "1fa112ed-9aee-424c-ad61-69389da24492",
     question_id: "7bc20b1b-3290-4afd-b854-58bc1c390983",
     text: "undefined",
   },
   {
-    id: "2fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "2fa112ed-9aee-424c-ad61-69389da24493",
     question_id: "7bc20b1b-3290-4afd-b854-58bc1c390983",
     text: "TypeError",
   },
   {
-    id: "3fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "3fa112ed-9aee-424c-ad61-69389da24494",
     question_id: "8bc20b1b-3290-4afd-b854-58bc1c390984",
     text: '"false"',
   },
   {
-    id: "4fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "4fa112ed-9aee-424c-ad61-69389da24495",
     question_id: "8bc20b1b-3290-4afd-b854-58bc1c390984",
     text: "0",
   },
   {
-    id: "5fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "5fa112ed-9aee-424c-ad61-69389da24496",
     question_id: "8bc20b1b-3290-4afd-b854-58bc1c390984",
     text: '"0"',
   },
   {
-    id: "6fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "6fa112ed-9aee-424c-ad61-69389da24497",
     question_id: "8bc20b1b-3290-4afd-b854-58bc1c390984",
     text: "[]",
   },
   {
-    id: "7fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "7fa112ed-9aee-424c-ad61-69389da24498",
     question_id: "9bc20b1b-3290-4afd-b854-58bc1c390985",
     text: "A function that is called immediately after it is defined",
   },
   {
-    id: "8fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "8fa112ed-9aee-424c-ad61-69389da24499",
     question_id: "9bc20b1b-3290-4afd-b854-58bc1c390985",
     text: "A function bundled together with its lexical environment",
   },
   {
-    id: "9fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "9fa112ed-9aee-424c-ad61-69389da24500",
     question_id: "9bc20b1b-3290-4afd-b854-58bc1c390985",
     text: "A function without a return value",
   },
   {
-    id: "0fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "0fa112ed-9aee-424c-ad61-69389da24501",
     question_id: "9bc20b1b-3290-4afd-b854-58bc1c390985",
     text: "A method that creates objects",
   },
   {
-    id: "1fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "1fa112ed-9aee-424c-ad61-69389da24502",
     question_id: "0bc20b1b-3290-4afd-b854-58bc1c390986",
     text: "It filters elements from an array",
   },
   {
-    id: "2fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "2fa112ed-9aee-424c-ad61-69389da24503",
     question_id: "0bc20b1b-3290-4afd-b854-58bc1c390986",
     text: "It creates a new array by calling a function on every element in the original array",
   },
   {
-    id: "3fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "3fa112ed-9aee-424c-ad61-69389da24504",
     question_id: "0bc20b1b-3290-4afd-b854-58bc1c390986",
     text: "It sorts an array",
   },
   {
-    id: "4fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "4fa112ed-9aee-424c-ad61-69389da24505",
     question_id: "0bc20b1b-3290-4afd-b854-58bc1c390986",
     text: "It reduces an array to a single value",
   },
   {
-    id: "5fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "5fa112ed-9aee-424c-ad61-69389da24506",
     question_id: "1bc20b1b-3290-4afd-b854-58bc1c390987",
     text: "var",
   },
   {
-    id: "6fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "6fa112ed-9aee-424c-ad61-69389da24507",
     question_id: "1bc20b1b-3290-4afd-b854-58bc1c390987",
     text: "const",
   },
   {
-    id: "7fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "7fa112ed-9aee-424c-ad61-69389da24508",
     question_id: "1bc20b1b-3290-4afd-b854-58bc1c390987",
     text: "let",
   },
   {
-    id: "8fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "8fa112ed-9aee-424c-ad61-69389da24509",
     question_id: "1bc20b1b-3290-4afd-b854-58bc1c390987",
     text: "assign",
   },
   {
-    id: "9fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "9fa112ed-9aee-424c-ad61-69389da24510",
     question_id: "2bc20b1b-3290-4afd-b854-58bc1c390988",
     text: '"[object Object]"',
   },
   {
-    id: "0fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "0fa112ed-9aee-424c-ad61-69389da24511",
     question_id: "2bc20b1b-3290-4afd-b854-58bc1c390988",
     text: '"[object Object]{}"',
   },
   {
-    id: "1fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "1fa112ed-9aee-424c-ad61-69389da24512",
     question_id: "2bc20b1b-3290-4afd-b854-58bc1c390988",
     text: '"[]"',
   },
   {
-    id: "2fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "2fa112ed-9aee-424c-ad61-69389da24513",
     question_id: "2bc20b1b-3290-4afd-b854-58bc1c390988",
     text: "undefined",
   },
   {
-    id: "3fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "3fa112ed-9aee-424c-ad61-69389da24514",
     question_id: "3bc20b1b-3290-4afd-b854-58bc1c390989",
     text: "stopPropagation()",
   },
   {
-    id: "4fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "4fa112ed-9aee-424c-ad61-69389da24515",
     question_id: "3bc20b1b-3290-4afd-b854-58bc1c390989",
     text: "preventDefault()",
   },
   {
-    id: "5fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "5fa112ed-9aee-424c-ad61-69389da24516",
     question_id: "3bc20b1b-3290-4afd-b854-58bc1c390989",
     text: "stop()",
   },
   {
-    id: "6fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "6fa112ed-9aee-424c-ad61-69389da24517",
     question_id: "3bc20b1b-3290-4afd-b854-58bc1c390989",
     text: "cancelEvent()",
   },
   {
-    id: "7fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "7fa112ed-9aee-424c-ad61-69389da24518",
     question_id: "4bc20b1b-3290-4afd-b854-58bc1c390980",
     text: '"number"',
   },
   {
-    id: "8fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "8fa112ed-9aee-424c-ad61-69389da24519",
     question_id: "4bc20b1b-3290-4afd-b854-58bc1c390980",
     text: '"NaN"',
   },
   {
-    id: "9fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "9fa112ed-9aee-424c-ad61-69389da24520",
     question_id: "4bc20b1b-3290-4afd-b854-58bc1c390980",
     text: '"undefined"',
   },
   {
-    id: "0fa112ed-9aee-424c-ad61-69389da2444f",
+    id: "0fa112ed-9aee-424c-ad61-69389da24521",
     question_id: "4bc20b1b-3290-4afd-b854-58bc1c390980",
     text: '"object"',
   },
 ];
+
+/**
+ * Checks if all IDs in question_choices are unique
+ * @returns {boolean} true if all IDs are unique, false if duplicates are found
+ */
+function areQuestionChoiceIdsUnique(): boolean {
+  const ids = question_choices.map((choice) => choice.id);
+  const uniqueIds = new Set(ids);
+  return ids.length === uniqueIds.size;
+}
+
+// Example usage:
+console.log(
+  areQuestionChoiceIdsUnique()
+    ? "All question choices IDs are unique."
+    : "WARNING! duplicate question choices IDs found.",
+);
 
 export { users, quizzes, questions, question_choices };
