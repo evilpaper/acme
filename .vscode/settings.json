@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Cursor Dark Midnight",
   "typescript.tsdk": "node_modules/typescript/lib",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
