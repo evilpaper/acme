@@ -53,17 +53,6 @@ export async function getQuestionsByQuizId(quiz_id: string) {
 
     const question_ids = questions.map((question) => question.id);
 
-    console.log("question_ids: ", question_ids);
-
-    const a = [
-      "5bc20b1b-3290-4afd-b854-58bc1c390991",
-      "6bc20b1b-3290-4afd-b854-58bc1c390992",
-    ];
-
-    const b = a.map((id) => `'${id}'`).join(", ");
-
-    console.log("b: ", b);
-
     // We pass the question_ids as a single comma-separated string (questionIdsString).
     // In SQL, we use string_to_array to split the string into an array, then cast it to uuid[].
     // This allows us to use the ANY() operator to match any question_id in the list.
@@ -81,8 +70,6 @@ export async function getQuestionsByQuizId(quiz_id: string) {
     `;
 
     const question_choices = questionChoicesData.rows;
-
-    console.log("question_choices", question_choices);
 
     return questions;
   } catch (error) {
