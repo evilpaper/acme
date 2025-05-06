@@ -64,10 +64,10 @@ export async function getQuestionsByQuizId(quiz_id: string) {
 
     console.log("b: ", b);
 
-    /**
-     * Workaround: Use a single string and split in SQL (not ideal, but works)
-     * Pass a comma-separated string and use string_to_array in SQL.
-     */
+    // We pass the question_ids as a single comma-separated string (questionIdsString).
+    // In SQL, we use string_to_array to split the string into an array, then cast it to uuid[].
+    // This allows us to use the ANY() operator to match any question_id in the list.
+    // This is a workaround for libraries that don't support passing arrays as query parameters.
 
     const questionIdsString = question_ids.join(",");
 
