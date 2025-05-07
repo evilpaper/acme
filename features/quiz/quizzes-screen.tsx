@@ -1,22 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Icons } from "@/components/ui/icons";
 import Link from "next/link";
 import { Quiz } from "./quiz-data";
-
-const staticQuizzes = [
-  {
-    name: "JavaScript 101",
-    description:
-      "A bunch of JavaScript questions taken from MDN and JavaScript Info.",
-    slug: "javascript-101",
-  },
-  {
-    name: "Lydia Hallies JavaScript Questions",
-    description:
-      "40 JavaScript questions sourced from Lydia Hallies GitHub repository.",
-    slug: "lydia-hallies-javascript-questions",
-  },
-];
+import { Icons } from "@/components/ui/icons";
+import { Button } from "@/components/ui/button";
 
 export function QuizzesScreen({ quizzes }: { quizzes: Quiz[] }) {
   return (
@@ -32,28 +17,6 @@ export function QuizzesScreen({ quizzes }: { quizzes: Quiz[] }) {
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-        {staticQuizzes.map(({ name, description, slug }) => {
-          return (
-            <article
-              key={slug}
-              className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8"
-            >
-              <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
-                {name}
-              </h1>
-              <h3 className="text-center text-xl">{description}</h3>
-              <Button asChild>
-                <Link
-                  href={`/quizzes/${slug}`}
-                  className="flex h-11 w-fit gap-2 rounded-md px-8"
-                >
-                  <span>Start quiz</span>
-                  <Icons.arrowRight />
-                </Link>
-              </Button>
-            </article>
-          );
-        })}
         {quizzes.map(({ name, description, slug, id }) => {
           return (
             <article
