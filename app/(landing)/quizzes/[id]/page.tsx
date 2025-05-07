@@ -9,7 +9,10 @@ export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
 
   const questions = await getQuestionsByQuizId(id);
-  // console.log("questions: ", questions);
+
+  if (questions) {
+    return <Quiz quiz={{ name: id, questions: questions }} />;
+  }
 
   if (id === "javascript-101") {
     const quiz = {

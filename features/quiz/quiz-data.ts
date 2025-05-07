@@ -16,6 +16,12 @@ export type Question = {
   source: string;
 };
 
+export type QuestionChoice = {
+  id: string;
+  question_id: string;
+  text: string;
+};
+
 export async function getQuizzes() {
   try {
     const data = await sql<Quiz>`
@@ -60,7 +66,7 @@ export async function getQuestionsByQuizId(quiz_id: string) {
 
     const questionIdsString = question_ids.join(",");
 
-    const questionChoicesData = await sql<any>`
+    const questionChoicesData = await sql<QuestionChoice>`
       SELECT 
         id,
         question_id,
@@ -71,7 +77,18 @@ export async function getQuestionsByQuizId(quiz_id: string) {
 
     const question_choices = questionChoicesData.rows;
 
-    return questions;
+    const completeQuestions = questions.map((question) => {
+      return {
+        ...question,
+        options: question_choices
+          .filter(
+            (question_choice) => question_choice.question_id === question.id,
+          )
+          .map((choice) => choice.text),
+      };
+    });
+
+    return completeQuestions;
   } catch (error) {
     console.log("Database error: ", error);
     throw new Error("Failed to fetch all questions.");
