@@ -15,7 +15,7 @@ export function LandingScreen() {
         <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
           <Button asChild>
             <Link
-              href="/quizzes/8d22b780-1b06-4c90-8e54-d91812f55cc0" // TODO: Not so random. Fix!
+              href="/quizzes/javascript-102" // TODO: Not so random. Fix!
               className="h-11 rounded-md px-8"
             >
               <span>Try random quiz</span>

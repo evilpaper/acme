@@ -1,0 +1,17 @@
+import Quiz from "@/features/quiz/quiz";
+import { QuizNotFound } from "@/features/quiz/quiz-not-found";
+import { getQuestionsByQuizId, getQuizBySlug } from "@/features/quiz/quiz-data";
+
+export default async function Page({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
+
+  const quiz = await getQuizBySlug(slug);
+
+  const questions = await getQuestionsByQuizId(quiz[0].id);
+
+  if (questions) {
+    return <Quiz quiz={{ name: quiz[0].name, questions: questions }} />;
+  }
+
+  return <QuizNotFound />;
+}

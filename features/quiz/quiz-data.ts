@@ -41,6 +41,24 @@ export async function getQuizzes() {
   }
 }
 
+export async function getQuizBySlug(slug: string) {
+  try {
+    const quizData = await sql<Quiz>`
+        SELECT
+        id,
+        name, 
+        slug, 
+        description
+      FROM quizzes
+      WHERE slug=${slug} 
+    `;
+    return quizData.rows;
+  } catch (error) {
+    console.log("Database error: ", error);
+    throw new Error("Failed to fetch all quiz.");
+  }
+}
+
 export async function getQuestionsByQuizId(quiz_id: string) {
   try {
     const questionData = await sql<Question>`
