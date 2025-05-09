@@ -7,7 +7,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const quiz = await getQuizBySlug(slug);
 
-  const questions = await getQuestionsByQuizId(quiz[0].id);
+  const questions = quiz[0].id
+    ? await getQuestionsByQuizId(quiz[0].id)
+    : undefined;
 
   if (questions) {
     return <Quiz quiz={{ name: quiz[0].name, questions: questions }} />;
