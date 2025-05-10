@@ -7,9 +7,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const quiz = await getQuizBySlug(slug);
 
-  const questions = quiz[0].id
-    ? await getQuestionsByQuizId(quiz[0].id)
-    : undefined;
+  // TODO: This is a bit ugly. Fix later.
+  const questions =
+    Array.isArray(quiz) && quiz[0]?.id
+      ? await getQuestionsByQuizId(quiz[0].id)
+      : undefined;
 
   if (questions) {
     return <Quiz quiz={{ name: quiz[0].name, questions: questions }} />;
