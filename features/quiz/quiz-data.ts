@@ -1,26 +1,5 @@
+import { Question, QuestionChoice, Quiz } from "@/features/quiz/data/types";
 import { sql } from "@vercel/postgres";
-
-export type Quiz = {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-};
-
-export type Question = {
-  id: string;
-  quiz_id: string;
-  question: string;
-  correctanswer: string;
-  explanation: string;
-  source: string;
-};
-
-export type QuestionChoice = {
-  id: string;
-  question_id: string;
-  text: string;
-};
 
 export async function getQuizzes() {
   try {
