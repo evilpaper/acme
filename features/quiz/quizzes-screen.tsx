@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Quiz } from "./quiz-data";
+import { Quiz } from "./data/types";
 import { Icons } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 
