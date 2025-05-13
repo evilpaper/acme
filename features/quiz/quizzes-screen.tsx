@@ -22,21 +22,23 @@ export function QuizzesScreen({ quizzes }: { quizzes: Quiz[] }) {
             return (
               <article
                 key={slug}
-                className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8"
+                className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8 aspect-[6/8]"
               >
                 <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
                   {name}
                 </h1>
-                <h3 className="text-center text-xl">{description}</h3>
-                <Button asChild>
-                  <Link
-                    href={`/quizzes/${slug}`}
-                    className="flex h-11 w-fit gap-2 rounded-md px-8"
-                  >
-                    <span>Start quiz</span>
-                    <Icons.arrowRight />
-                  </Link>
-                </Button>
+                <div className="flex flex-col items-center justify-between gap-8">
+                  <h3 className="text-center text-xl">{description}</h3>
+                  <Button asChild>
+                    <Link
+                      href={`/quizzes/${slug}`}
+                      className="flex h-11 w-fit gap-2 rounded-md px-8"
+                    >
+                      <span>Start quiz</span>
+                      <Icons.arrowRight />
+                    </Link>
+                  </Button>
+                </div>
               </article>
             );
           })}
