@@ -40,52 +40,38 @@ export async function getQuizBySlug(slug: string) {
 
 export async function getQuestionsByQuizId(quiz_id: string) {
   try {
-    const questionData = await sql<Question>`
-        SELECT 
-          id,
-          quiz_id,
-          question,
-          correctanswer,
-          explanation,
-          source
-        FROM questions
-        WHERE quiz_id=${quiz_id}
-      `;
+    const result = await sql<Question & { choice_text: string | null }>`
+      SELECT 
+        q.id,
+        q.quiz_id,
+        q.question,
+        q.correctanswer,
+        q.explanation,
+        q.source,
+        qc.text as choice_text
+      FROM questions q
+      LEFT JOIN question_choices qc ON q.id = qc.question_id
+      WHERE q.quiz_id = ${quiz_id}
+      ORDER BY q.id, qc.id
+    `;
 
-    const questions = questionData.rows;
+    // Group the results by question and collect choices
+    const questionsMap = new Map();
 
-    const question_ids = questions.map((question) => question.id);
+    result.rows.forEach((row) => {
+      const { choice_text, ...question } = row;
 
-    // We pass the question_ids as a single comma-separated string (questionIdsString).
-    // In SQL, we use string_to_array to split the string into an array, then cast it to uuid[].
-    // This allows us to use the ANY() operator to match any question_id in the list.
-    // This is a workaround for libraries that don't support passing arrays as query parameters.
-
-    const questionIdsString = question_ids.join(",");
-
-    const questionChoicesData = await sql<QuestionChoice>`
-        SELECT 
-          id,
-          question_id,
-          text
-        FROM question_choices
-        WHERE question_id = ANY(string_to_array(${questionIdsString}, ',')::uuid[])
-      `;
-
-    const question_choices = questionChoicesData.rows;
-
-    const completeQuestions = questions.map((question) => {
-      return {
-        ...question,
-        options: question_choices
-          .filter(
-            (question_choice) => question_choice.question_id === question.id,
-          )
-          .map((choice) => choice.text),
-      };
+      if (!questionsMap.has(question.id)) {
+        questionsMap.set(question.id, {
+          ...question,
+          options: choice_text ? [choice_text] : [],
+        });
+      } else if (choice_text) {
+        questionsMap.get(question.id).options.push(choice_text);
+      }
     });
 
-    return completeQuestions;
+    return Array.from(questionsMap.values());
   } catch (error) {
     console.log("Database error: ", error);
     throw new Error("Failed to fetch all questions.");
