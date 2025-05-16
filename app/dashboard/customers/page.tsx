@@ -52,7 +52,7 @@ export default async function Page({
         <Button asChild>
           <Link href="/dashboard/customers/create" className="w-full sm:w-auto">
             <Icons.add className="mr-2 h-4 w-4" />
-            <span>Add customer</span>
+            <span className="whitespace-nowrap">Add customer</span>
           </Link>
         </Button>
       </section>

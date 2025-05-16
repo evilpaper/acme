@@ -31,7 +31,7 @@ export default async function Page({
         <Button asChild>
           <Link href="/dashboard/invoices/create" className="w-full sm:w-auto">
             <Icons.add className="mr-2 h-4 w-4" />
-            <span>Add invoice</span>
+            <span className="whitespace-nowrap">Add invoice</span>
           </Link>
         </Button>
       </section>
