@@ -12,10 +12,12 @@ export const authConfig = {
       if (isOnDashboard || isOnOldDashboard) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
-      } else if (isLoggedIn) {
-        return Response.redirect(new URL("/dashboard", nextUrl));
       }
       return true;
+    },
+    async redirect({ url, baseUrl }) {
+      // Always redirect to home page after login
+      return baseUrl;
     },
   },
   providers: [], // Add providers with an empty array for now

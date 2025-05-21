@@ -1,7 +1,4 @@
-import {
-  getQuestionsByQuizId,
-  getQuizBySlug,
-} from "@/features/quiz/data/repository";
+import { getQuestionsByQuizId, getQuizBySlug } from "@/features/quiz/data/data";
 import Quiz from "@/features/quiz/quiz-screen";
 import { QuizNotFound } from "@/features/quiz/not-found";
 
