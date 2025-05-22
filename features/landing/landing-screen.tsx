@@ -1,7 +1,12 @@
 import Link from "next/link";
+import { auth } from "@/auth";
 import { Button } from "@/components/ui/button";
 
-export function LandingScreen() {
+export async function LandingScreen() {
+  const session = await auth();
+  const isLoggedIn = !!session?.user;
+  console.log("isLoggedIn", isLoggedIn);
+
   return (
     <section className="mt-1 md:mt-10 flex flex-col pb-8 pt-8">
       <div className="align-center flex flex-col items-center">
@@ -21,11 +26,19 @@ export function LandingScreen() {
               <span>Try a quiz</span>
             </Link>
           </Button>
-          <Button asChild variant="outline">
-            <Link href="/signup" className="h-11 rounded-md px-8">
-              <span>Sign up</span>
-            </Link>
-          </Button>
+          {!isLoggedIn ? (
+            <Button asChild variant="outline">
+              <Link href="/signup" className="h-11 rounded-md px-8">
+                <span>Sign in</span>
+              </Link>
+            </Button>
+          ) : (
+            <Button asChild variant="outline">
+              <Link href="/dashboard" className="h-11 rounded-md px-8">
+                <span>Go to Dashboard</span>
+              </Link>
+            </Button>
+          )}
         </div>
         <p className="max-w-screen-sm text-center text-xl md:text-2xl">
           Built as an example app using Next.js, Auth.js, Stripe, shadcn/ui and
