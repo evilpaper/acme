@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import logo from "../../public/images/logo-black-lemon.svg";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
+import { Session } from "next-auth";
 
 const links = [
   { name: "Quizzes", href: "/quizzes", icon: "" },
@@ -17,12 +18,11 @@ const links = [
   { name: "Pricing", href: "/pricing", icon: "" },
 ];
 
-export function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
+export function Header({ session }: { session: Session | null }) {
   const segment = useSelectedLayoutSegment();
   const pathname = usePathname();
   const page = pathname?.split("/").pop();
   const [isNavOpen, setIsNavOpen] = React.useState(false);
-  console.log("isLoggedIn", isLoggedIn);
 
   useScrollLock(isNavOpen);
 
@@ -63,7 +63,7 @@ export function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
           })}
         </ul>
         <div className="flex w-full flex-col gap-4">
-          {isLoggedIn ? (
+          {session ? (
             <Button asChild>
               <Link href="/dashboard" className="h-11 w-full rounded-md px-8">
                 <span>Go to Dashboard</span>
@@ -116,7 +116,7 @@ export function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
           })}
         </ul>
       </section>
-      {isLoggedIn ? (
+      {session ? (
         <Button asChild>
           <Link href="/dashboard">
             <span>Go to Dashboard</span>

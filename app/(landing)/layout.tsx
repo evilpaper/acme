@@ -9,11 +9,9 @@ export default async function Page({
   children: React.ReactNode;
 }) {
   const session = await auth();
-  const isLoggedIn = !!session?.user;
-
   return (
     <main className="container flex min-h-screen flex-col px-6">
-      <Header isLoggedIn={isLoggedIn} />
+      <Header session={session} />
       {children}
       <Footer />
     </main>
