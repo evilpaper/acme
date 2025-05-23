@@ -1,12 +1,7 @@
 import Link from "next/link";
-import { auth } from "@/auth";
 import { Button } from "@/components/ui/button";
 
 export async function LandingScreen() {
-  const session = await auth();
-  const isLoggedIn = !!session?.user;
-  console.log("isLoggedIn", isLoggedIn);
-
   return (
     <section className="mt-1 md:mt-10 flex flex-col pb-8 pt-8">
       <div className="align-center flex flex-col items-center">
@@ -26,7 +21,6 @@ export async function LandingScreen() {
               <span>Try a quiz</span>
             </Link>
           </Button>
-
           <Button asChild variant="outline">
             <Link href="/signup" className="h-11 rounded-md px-8">
               <span>Sign up</span>
