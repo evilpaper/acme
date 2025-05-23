@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
@@ -16,11 +17,12 @@ const links = [
   { name: "Pricing", href: "/pricing", icon: "" },
 ];
 
-export function Header() {
+export function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   const segment = useSelectedLayoutSegment();
   const pathname = usePathname();
   const page = pathname?.split("/").pop();
   const [isNavOpen, setIsNavOpen] = React.useState(false);
+  console.log("isLoggedIn", isLoggedIn);
 
   useScrollLock(isNavOpen);
 
@@ -61,11 +63,19 @@ export function Header() {
           })}
         </ul>
         <div className="flex w-full flex-col gap-4">
-          <Button asChild>
-            <Link href="/login" className="h-11 w-full rounded-md px-8">
-              <span>Login</span>
-            </Link>
-          </Button>
+          {isLoggedIn ? (
+            <Button asChild>
+              <Link href="/dashboard" className="h-11 w-full rounded-md px-8">
+                <span>Go to Dashboard</span>
+              </Link>
+            </Button>
+          ) : (
+            <Button asChild>
+              <Link href="/login" className="h-11 w-full rounded-md px-8">
+                <span>Login</span>
+              </Link>
+            </Button>
+          )}
           <Button asChild variant="outline">
             <Link href="/signup" className="h-11 w-full rounded-md px-8">
               <span>Sign up</span>
@@ -106,9 +116,19 @@ export function Header() {
           })}
         </ul>
       </section>
-      <Button asChild>
-        <Link href="/login">Login</Link>
-      </Button>
+      {isLoggedIn ? (
+        <Button asChild>
+          <Link href="/dashboard">
+            <span>Go to Dashboard</span>
+          </Link>
+        </Button>
+      ) : (
+        <Button asChild>
+          <Link href="/login">
+            <span>Login</span>
+          </Link>
+        </Button>
+      )}
     </nav>
   );
 }

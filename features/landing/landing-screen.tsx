@@ -26,19 +26,12 @@ export async function LandingScreen() {
               <span>Try a quiz</span>
             </Link>
           </Button>
-          {!isLoggedIn ? (
-            <Button asChild variant="outline">
-              <Link href="/signup" className="h-11 rounded-md px-8">
-                <span>Sign in</span>
-              </Link>
-            </Button>
-          ) : (
-            <Button asChild variant="outline">
-              <Link href="/dashboard" className="h-11 rounded-md px-8">
-                <span>Go to Dashboard</span>
-              </Link>
-            </Button>
-          )}
+
+          <Button asChild variant="outline">
+            <Link href="/signup" className="h-11 rounded-md px-8">
+              <span>Sign up</span>
+            </Link>
+          </Button>
         </div>
         <p className="max-w-screen-sm text-center text-xl md:text-2xl">
           Built as an example app using Next.js, Auth.js, Stripe, shadcn/ui and
