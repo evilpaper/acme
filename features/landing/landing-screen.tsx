@@ -22,8 +22,8 @@ export async function LandingScreen() {
             </Link>
           </Button>
           <Button asChild variant="outline">
-            <Link href="/signup" className="h-11 rounded-md px-8">
-              <span>Sign up</span>
+            <Link href="/quizzes" className="h-11 rounded-md px-8">
+              <span>See all quizzes</span>
             </Link>
           </Button>
         </div>

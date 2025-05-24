@@ -53,7 +53,6 @@ export default function LoginForm() {
             <LoginButton />
           </section>
         </div>
-
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -65,6 +64,12 @@ export default function LoginForm() {
             </>
           )}
         </div>
+        <p className="text-gray-700">
+          Don't have an account?
+          <Link href="/signup" className="h-11 rounded-md px-2 underline">
+            <span>Sign up</span>
+          </Link>
+        </p>
       </div>
     </form>
   );
