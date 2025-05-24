@@ -28,31 +28,33 @@ export default function LoginForm() {
           <h1 className="text-4xl font-bold leading-tight tracking-tight">
             Welcome back
           </h1>
-          <section className="mt-4 grid items-center gap-4 text-center">
-            <Label className="sr-only" htmlFor="password">
-              Email
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Enter your email address"
-              required
-            />
-            <Label className="sr-only" htmlFor="password">
-              Password
-            </Label>
-            <Input
-              id="password"
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              required
-              minLength={6}
-            />
-            <LoginButton />
-          </section>
+          <p>Login to your account.</p>
         </div>
+        <section className="mt-4 grid items-center gap-4 text-center">
+          <Label className="sr-only" htmlFor="password">
+            Email
+          </Label>
+          <Input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          />
+          <Label className="sr-only" htmlFor="password">
+            Password
+          </Label>
+          <Input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+            minLength={6}
+          />
+          <LoginButton />
+        </section>
+
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"

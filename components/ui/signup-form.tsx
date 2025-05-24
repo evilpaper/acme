@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Icons } from "./icons";
+import { TransitionLink } from "@/common/components/transitionLink";
 
 export default function SignupForm() {
   /**
@@ -26,7 +27,7 @@ export default function SignupForm() {
   return (
     <form action={dispatch} className="space-y-3">
       <div className="flex flex-1 flex-col space-y-2 rounded-lg px-6 pb-4 pt-8 text-center">
-        <div className="mb-2 grid items-center gap-4 text-center">
+        <div className="mb-4 grid items-center gap-4 text-center">
           <Link href="/" className="flex justify-center">
             <Image
               priority
@@ -38,9 +39,7 @@ export default function SignupForm() {
           <h1 className="text-4xl font-bold leading-tight tracking-tight">
             Welcome
           </h1>
-          <p>
-            Enter email and password <br /> to create your account.
-          </p>
+          <p>Create your account.</p>
         </div>
         <section className="mt-4 grid items-center gap-4 text-center">
           <Label className="sr-only" htmlFor="password">
@@ -79,9 +78,12 @@ export default function SignupForm() {
         </div>
         <p className="text-gray-700">
           Already have an account?
-          <Link href="/login" className="h-11 rounded-md px-2 underline">
+          <TransitionLink
+            href="/login"
+            className="h-11 rounded-md px-2 underline"
+          >
             <span>Login</span>
-          </Link>
+          </TransitionLink>
         </p>
       </div>
     </form>
