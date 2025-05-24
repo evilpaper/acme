@@ -65,7 +65,7 @@ export default function LoginForm() {
           )}
         </div>
         <p className="text-gray-700">
-          Don't have an account?
+          Don&apos;t have an account?
           <Link href="/signup" className="h-11 rounded-md px-2 underline">
             <span>Sign up</span>
           </Link>
