@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { authenticate } from "@/app/lib/actions";
 import { useFormState, useFormStatus } from "react-dom";
 import logo from "../../public/images/logo-black-lemon.svg";
+import { TransitionLink } from "@/common/components/transitionLink";
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -67,9 +68,12 @@ export default function LoginForm() {
         </div>
         <p className="text-gray-700">
           Don&apos;t have an account?
-          <Link href="/signup" className="h-11 rounded-md px-2 underline">
+          <TransitionLink
+            href="/signup"
+            className="h-11 rounded-md px-2 underline"
+          >
             <span>Sign up</span>
-          </Link>
+          </TransitionLink>
         </p>
       </div>
     </form>
