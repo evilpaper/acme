@@ -3,15 +3,13 @@
 @tailwind utilities;
 
 body {
-  transition-property: opacity, transform, filter;
+  transition-property: opacity;
   transition-timing-function: ease-in-out;
   transition-duration: 200ms;
 }
 
 .page-transition {
   opacity: 0;
-  transform: translateY(20px);
-  filter: blur(10px);
 }
 
 /*
