@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEvent, ReactNode } from "react";
+import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import Link, { LinkProps } from "next/link";
 
