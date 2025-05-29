@@ -11,6 +11,7 @@ import { useScrollLock } from "@/hooks/useScrollLock";
 import logo from "../../public/images/logo-black-lemon.svg";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 import { Session } from "next-auth";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const links = [
   { name: "Quizzes", href: "/quizzes", icon: "" },
@@ -117,11 +118,17 @@ export function Header({ session }: { session: Session | null }) {
         </ul>
       </section>
       {session ? (
-        <Button asChild>
-          <Link href="/dashboard">
-            <span>Go to Dashboard</span>
-          </Link>
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button asChild>
+            <Link href="/dashboard">
+              <span>Go to Dashboard</span>
+            </Link>
+          </Button>
+          <Avatar className="hidden md:flex">
+            <AvatarImage src="/customers/amy-burns.png" />
+            <AvatarFallback>AB</AvatarFallback>
+          </Avatar>
+        </div>
       ) : (
         <Button asChild>
           <Link href="/login">

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
 import { MainNav } from "@/components/ui/main-nav";
