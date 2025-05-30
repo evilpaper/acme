@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { Quiz, Question, QuestionChoice } from "./types";
+import { Quiz, Question, QuestionChoice, QuestionWithOptions } from "./types";
 
 export async function getQuizzes() {
   try {
@@ -38,7 +38,9 @@ export async function getQuizBySlug(slug: string) {
   }
 }
 
-export async function getQuestionsByQuizId(quiz_id: string) {
+export async function getQuestionsByQuizId(
+  quiz_id: string,
+): Promise<QuestionWithOptions[]> {
   try {
     const result = await sql<Question & { choice_text: string | null }>`
       SELECT 

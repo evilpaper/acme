@@ -19,3 +19,7 @@ export type QuestionChoice = {
   question_id: string;
   text: string;
 };
+
+export type QuestionWithOptions = Question & {
+  options: string[];
+};

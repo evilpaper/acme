@@ -3,19 +3,25 @@ import Quiz from "@/features/quiz/quiz-screen";
 import { QuizNotFound } from "@/features/quiz/not-found";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const slug = params.slug;
+  try {
+    const slug = params.slug;
+    const quiz = await getQuizBySlug(slug);
 
-  const quiz = await getQuizBySlug(slug);
+    if (!quiz || !Array.isArray(quiz) || quiz.length === 0) {
+      return <QuizNotFound />;
+    }
 
-  // TODO: This is a bit ugly. Fix later.
-  const questions =
-    Array.isArray(quiz) && quiz[0]?.id
-      ? await getQuestionsByQuizId(quiz[0].id)
-      : undefined;
+    const currentQuiz = quiz[0];
+    const questions = await getQuestionsByQuizId(currentQuiz.id);
 
-  if (questions) {
-    return <Quiz quiz={{ name: quiz[0].name, questions: questions }} />;
+    if (!questions || questions.length === 0) {
+      return <QuizNotFound />;
+    }
+
+    return <Quiz quiz={{ name: currentQuiz.name, questions: questions }} />;
+  } catch (error) {
+    // Log error for monitoring
+    console.error(`Error loading quiz ${params.slug}:`, error);
+    return <QuizNotFound />;
   }
-
-  return <QuizNotFound />;
 }
