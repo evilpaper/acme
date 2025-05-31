@@ -7,6 +7,9 @@ import { LatestInvoicesSkeleton } from "@/components/dashboard/latest-invoices-s
 import { BigNumberCardsSkeleton } from "@/components/dashboard/big-number-cards-skeleton";
 
 export default function HomePage() {
+  const throwError = () => {
+    throw new Error("Test error message");
+  };
   return (
     <div className="flex flex-col space-y-6">
       <div className="container px-2">
