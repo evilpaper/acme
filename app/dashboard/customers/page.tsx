@@ -74,7 +74,7 @@ export default async function Page({
                   <TableCell className="flex items-center font-medium">
                     <Image
                       src={image_url}
-                      alt={`${name}'s profile picture`}
+                      alt={`${name}&apos;s profile picture`}
                       className="mr-4 rounded-full"
                       width={32}
                       height={32}

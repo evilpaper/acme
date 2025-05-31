@@ -24,7 +24,7 @@ export default function GlobalError({
             Something went wrong
           </h1>
           <p className="text-lg text-center text-muted-foreground">
-            We're sorry, but something unexpected happened.
+            We&apos;re sorry, but something unexpected happened.
           </p>
           <div className="flex flex-col items-center gap-4 w-[200px]">
             <Button asChild variant="outline">

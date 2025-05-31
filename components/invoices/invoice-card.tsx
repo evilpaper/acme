@@ -22,7 +22,7 @@ export async function InvoiceCard({ invoice }: { invoice: InvoiceView }) {
           <span className="flex items-center">
             <Image
               src={invoice.image_url}
-              alt={`${invoice.name}'s profile picture`}
+              alt={`${invoice.name}&apos;s profile picture`}
               className="mr-4 rounded-full"
               width={32}
               height={32}
