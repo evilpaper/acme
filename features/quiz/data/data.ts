@@ -57,23 +57,33 @@ export async function getQuestionsByQuizId(
       ORDER BY q.id, qc.id
     `;
 
-    // Group the results by question and collect choices
-    const questionsMap = new Map();
+    // Create an array to store questions in order
+    const orderedQuestions: QuestionWithOptions[] = [];
+    // Use a Map to track which questions we've seen
+    const questionsMap = new Map<string, QuestionWithOptions>();
 
+    // Process rows in order (they come ordered from the database)
     result.rows.forEach((row) => {
       const { choice_text, ...question } = row;
 
       if (!questionsMap.has(question.id)) {
-        questionsMap.set(question.id, {
-          ...question,
-          options: choice_text ? [choice_text] : [],
-        });
+        // If we haven't seen this question before:
+        // Create new question object
+        const newQuestion = {
+          ...question, // Spread all question properties (id, quiz_id, question, correctanswer, etc.)
+          options: choice_text ? [choice_text] : [], // Initialize options array with first choice if it exists
+        };
+        // Add to both the map and the ordered array
+        questionsMap.set(question.id, newQuestion);
+        orderedQuestions.push(newQuestion);
       } else if (choice_text) {
-        questionsMap.get(question.id).options.push(choice_text);
+        // If we've seen this question before and there's a choice_text:
+        // Add choice to existing question
+        questionsMap.get(question.id)!.options.push(choice_text);
       }
     });
 
-    return Array.from(questionsMap.values());
+    return orderedQuestions;
   } catch (error) {
     console.log("Database error: ", error);
     throw new Error("Failed to fetch questions by quiz id.");
