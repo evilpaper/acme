@@ -16,7 +16,7 @@ export async function getQuizzes() {
     return quizzes;
   } catch (err) {
     console.error("Database Error: ", err);
-    throw new Error("Failed to fetch all quizzes.");
+    throw new Error("Failed to fetch quizzes.");
   }
 }
 
@@ -34,7 +34,7 @@ export async function getQuizBySlug(slug: string) {
     return quizData.rows;
   } catch (error) {
     console.log("Database error: ", error);
-    throw new Error("Failed to fetch all quiz.");
+    throw new Error("Failed to fetch quiz by slug.");
   }
 }
 
@@ -76,6 +76,6 @@ export async function getQuestionsByQuizId(
     return Array.from(questionsMap.values());
   } catch (error) {
     console.log("Database error: ", error);
-    throw new Error("Failed to fetch all questions.");
+    throw new Error("Failed to fetch questions by quiz id.");
   }
 }
