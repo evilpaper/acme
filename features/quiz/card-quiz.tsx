@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { CardFront } from "./card-front";
+import { QuestionWithOptions } from "./data/types";
 
 type Question = {
   question: string;
@@ -17,7 +19,7 @@ type Quiz = {
   questions: Question[];
 };
 
-export function Quiz({ quiz }: { quiz: Quiz }) {
+export function CardQuiz({ quiz }: { quiz: Quiz }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [score, setScore] = useState(0);
@@ -60,32 +62,12 @@ export function Quiz({ quiz }: { quiz: Quiz }) {
             {name} | Question {currentQuestion + 1} of {questions.length}
           </div>
           <Progress value={((currentQuestion + 1) / questions.length) * 100} />
-          <h2 className="text-xl font-semibold">
-            {questions[currentQuestion].question}
-          </h2>
-          <div className="w-full space-y-2">
-            {questions[currentQuestion].options.map((option, index) => (
-              <Button
-                key={index}
-                variant={
-                  selectedAnswer === option
-                    ? option === questions[currentQuestion].correctanswer
-                      ? "success"
-                      : "fail"
-                    : selectedAnswer !== option &&
-                        selectedAnswer.length > 1 &&
-                        option === questions[currentQuestion].correctanswer
-                      ? "correct"
-                      : "outline"
-                }
-                className="text-balance h-auto w-full justify-start text-left"
-                onClick={() => handleAnswer(option)}
-                disabled={isAnswered}
-              >
-                {option}
-              </Button>
-            ))}
-          </div>
+          <CardFront
+            question={questions[currentQuestion] as QuestionWithOptions}
+            selectedAnswer={selectedAnswer}
+            handleAnswer={handleAnswer}
+            isAnswered={isAnswered}
+          />
           {isAnswered && (
             <div className="flex flex-col w-full  rounded-md border border-stone-400 p-4">
               {selectedAnswer === questions[currentQuestion].correctanswer ? (
@@ -126,7 +108,6 @@ export function Quiz({ quiz }: { quiz: Quiz }) {
           </p>
         </div>
       )}
-
       {!showResult ? (
         isAnswered && (
           <Button onClick={handleNext} className="w-full">

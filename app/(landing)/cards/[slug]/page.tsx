@@ -1,5 +1,5 @@
 import NotFound from "./not-found";
-import { Quiz } from "@/features/quiz/quiz";
+import { CardQuiz } from "@/features/quiz/card-quiz";
 import { randomizeQuestions } from "@/features/quiz/randomize-questions";
 import { getQuestionsByQuizId, getQuizBySlug } from "@/features/quiz/data/data";
 
@@ -21,6 +21,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <Quiz quiz={{ name: currentQuiz.name, questions: randomizedQuestions }} />
+    <CardQuiz
+      quiz={{ name: currentQuiz.name, questions: randomizedQuestions }}
+    />
   );
 }

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { QuestionWithOptions } from "./data/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export function QuizCard({
+export function CardFront({
   question,
   selectedAnswer,
   handleAnswer,
