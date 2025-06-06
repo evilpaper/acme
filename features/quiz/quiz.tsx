@@ -17,7 +17,7 @@ type Quiz = {
   questions: Question[];
 };
 
-export default function Quiz({ quiz }: { quiz: Quiz }) {
+export function Quiz({ quiz }: { quiz: Quiz }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [score, setScore] = useState(0);

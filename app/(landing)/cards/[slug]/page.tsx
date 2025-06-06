@@ -1,5 +1,5 @@
 import NotFound from "./not-found";
-import Quiz from "@/features/quiz/quiz";
+import { Quiz } from "@/features/quiz/quiz";
 import { randomizeQuestions } from "@/features/quiz/randomize-questions";
 import { getQuestionsByQuizId, getQuizBySlug } from "@/features/quiz/data/data";
 
