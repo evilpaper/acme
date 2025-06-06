@@ -43,7 +43,7 @@ const features = [
   {
     id: crypto.randomUUID(),
     name: "Subscriptions",
-    description: "Free and paid subscriptions using Stripe. Coming soon...",
+    description: "Free and paid subscriptions using Polar. Coming soon...",
     icon: <SubscriptionsIcon />,
   },
 ];
