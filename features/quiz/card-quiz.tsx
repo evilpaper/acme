@@ -34,6 +34,7 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
   const handleAnswer = (answer: string) => {
     setSelectedAnswer(answer);
     setIsAnswered(true);
+    setFlipped(!flipped);
     if (answer === questions[currentQuestion].correctanswer) {
       setScore(score + 1);
     }
@@ -44,6 +45,7 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer("");
       setIsAnswered(false);
+      setFlipped(false);
     } else {
       setShowResult(true);
     }
@@ -65,10 +67,7 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
             {name} | Question {currentQuestion + 1} of {questions.length}
           </div>
           <Progress value={((currentQuestion + 1) / questions.length) * 100} />
-          <div
-            className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]"
-            onClick={() => setFlipped(!flipped)}
-          >
+          <div className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]">
             <motion.div
               className="relative w-full h-full preserve-3d"
               animate={{ rotateY: flipped ? 180 : 0 }}

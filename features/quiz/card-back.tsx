@@ -20,7 +20,6 @@ export function CardBack({
               <p className="text-[hsl(var(--success))] font-semibold mb-2">
                 Correct!
               </p>
-              <p>{explanation}</p>
             </>
           ) : (
             <>
