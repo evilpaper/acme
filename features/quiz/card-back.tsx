@@ -1,3 +1,5 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 export function CardBack({
   selectedAnswer,
   correctanswer,
@@ -10,33 +12,39 @@ export function CardBack({
   source?: string;
 }) {
   return (
-    <div className="flex flex-col w-full  rounded-md border border-stone-400 p-4">
-      {selectedAnswer === correctanswer ? (
-        <>
-          <p className="text-[hsl(var(--success))] font-semibold mb-2">
-            Correct!
-          </p>
-          <p>{explanation}</p>
-        </>
-      ) : (
-        <>
-          <p className="text-[hsl(var(--fail))] font-semibold mb-2">
-            Incorrect!
-          </p>
-          <p>
-            The correct answer is: {correctanswer} <br />
-            {explanation}
-          </p>
-        </>
-      )}
-      {source && (
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          className="text-sm mt-2"
-        >
-          Source: {source}
-        </a>
-      )}
-    </div>
+    <Card className="w-[min(100%,320px)] aspect-[5/7] flex flex-col">
+      <CardHeader className="flex-none">
+        <CardTitle className="text-lg font-semibold line-clamp-3">
+          {selectedAnswer === correctanswer ? (
+            <>
+              <p className="text-[hsl(var(--success))] font-semibold mb-2">
+                Correct!
+              </p>
+              <p>{explanation}</p>
+            </>
+          ) : (
+            <>
+              <p className="text-[hsl(var(--fail))] font-semibold mb-2">
+                Incorrect!
+              </p>
+            </>
+          )}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="flex-1 flex flex-col justify-end space-y-2">
+        <p>
+          The correct answer is: {correctanswer} <br />
+          {explanation}
+        </p>
+        {source && (
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+            className="text-sm mt-2"
+          >
+            Source: {source}
+          </a>
+        )}
+      </CardContent>
+    </Card>
   );
 }
