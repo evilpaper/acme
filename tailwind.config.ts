@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import type { PluginAPI } from "tailwindcss/types/config";
 
 const config = {
   darkMode: ["class"],
@@ -86,7 +87,17 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        ".perspective": { perspective: "1000px" },
+        ".preserve-3d": { transformStyle: "preserve-3d" },
+        ".backface-hidden": { backfaceVisibility: "hidden" },
+        ".rotate-y-180": { transform: "rotateY(180deg)" },
+      });
+    },
+  ],
 } satisfies Config;
 
 export default config;

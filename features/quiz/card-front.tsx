@@ -14,7 +14,7 @@ export function CardFront({
   isAnswered: boolean;
 }) {
   return (
-    <Card className="w-[min(100%,320px)] aspect-[5/7] flex flex-col">
+    <Card className="w-full h-full flex flex-col absolute backface-hidden">
       <CardHeader className="flex-none">
         <CardTitle className="text-lg font-semibold line-clamp-3">
           {question.question}

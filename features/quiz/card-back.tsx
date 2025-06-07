@@ -12,7 +12,7 @@ export function CardBack({
   source?: string;
 }) {
   return (
-    <Card className="w-[min(100%,320px)] aspect-[5/7] flex flex-col">
+    <Card className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
       <CardHeader className="flex-none">
         <CardTitle className="text-lg font-semibold line-clamp-3">
           {selectedAnswer === correctanswer ? (

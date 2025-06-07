@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { CardFront } from "./card-front";
 import { QuestionWithOptions } from "./data/types";
 import { CardBack } from "./card-back";
+import { motion } from "motion/react";
 
 type Question = {
   question: string;
@@ -26,6 +27,7 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [isAnswered, setIsAnswered] = useState(false);
+  const [flipped, setFlipped] = useState(false);
 
   const { name, questions } = quiz;
 
@@ -63,18 +65,29 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
             {name} | Question {currentQuestion + 1} of {questions.length}
           </div>
           <Progress value={((currentQuestion + 1) / questions.length) * 100} />
-          <CardFront
-            question={questions[currentQuestion] as QuestionWithOptions}
-            selectedAnswer={selectedAnswer}
-            handleAnswer={handleAnswer}
-            isAnswered={isAnswered}
-          />
-          <CardBack
-            selectedAnswer={selectedAnswer}
-            correctanswer={questions[currentQuestion].correctanswer}
-            explanation={questions[currentQuestion].explanation}
-            source={questions[currentQuestion].source}
-          />
+          <div
+            className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]"
+            onClick={() => setFlipped(!flipped)}
+          >
+            <motion.div
+              className="relative w-full h-full preserve-3d"
+              animate={{ rotateY: flipped ? 180 : 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <CardFront
+                question={questions[currentQuestion] as QuestionWithOptions}
+                selectedAnswer={selectedAnswer}
+                handleAnswer={handleAnswer}
+                isAnswered={isAnswered}
+              />
+              <CardBack
+                selectedAnswer={selectedAnswer}
+                correctanswer={questions[currentQuestion].correctanswer}
+                explanation={questions[currentQuestion].explanation}
+                source={questions[currentQuestion].source}
+              />
+            </motion.div>
+          </div>
         </>
       ) : (
         <div className="text-center">
