@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { CardFront } from "./card-front";
 import { QuestionWithOptions } from "./data/types";
+import { CardBack } from "./card-back";
 
 type Question = {
   question: string;
@@ -68,37 +69,12 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
             handleAnswer={handleAnswer}
             isAnswered={isAnswered}
           />
-          {isAnswered && (
-            <div className="flex flex-col w-full  rounded-md border border-stone-400 p-4">
-              {selectedAnswer === questions[currentQuestion].correctanswer ? (
-                <>
-                  <p className="text-[hsl(var(--success))] font-semibold mb-2">
-                    Correct!
-                  </p>
-                  <p>{questions[currentQuestion].explanation}</p>
-                </>
-              ) : (
-                <>
-                  <p className="text-[hsl(var(--fail))] font-semibold mb-2">
-                    Incorrect!
-                  </p>
-                  <p>
-                    The correct answer is:{" "}
-                    {questions[currentQuestion].correctanswer} <br />
-                    {questions[currentQuestion].explanation}
-                  </p>
-                </>
-              )}
-              {questions[currentQuestion].source && (
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                  className="text-sm mt-2"
-                >
-                  Source: {questions[currentQuestion].source}
-                </a>
-              )}
-            </div>
-          )}
+          <CardBack
+            selectedAnswer={selectedAnswer}
+            correctanswer={questions[currentQuestion].correctanswer}
+            explanation={questions[currentQuestion].explanation}
+            source={questions[currentQuestion].source}
+          />
         </>
       ) : (
         <div className="text-center">
