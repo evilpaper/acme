@@ -23,8 +23,7 @@ const features = [
   {
     id: crypto.randomUUID(),
     name: "Database",
-    description:
-      "Vercel Postgres: Scalable SQL for the web, deployed on Vercel.",
+    description: "Postgres: Scalable SQL for the web, deployed on Vercel.",
     icon: <DatabaseIcon />,
   },
   {
