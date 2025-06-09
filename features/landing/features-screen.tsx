@@ -1,10 +1,13 @@
 import {
+  AnimationIcon,
   AuthenticationIcon,
   ComponentsIcon,
   DatabaseIcon,
+  HostingIcon,
   NextIcon,
   ReactIcon,
   SubscriptionsIcon,
+  TranslationsIcon,
 } from "@/components/ui/feature-icons";
 
 const features = [
@@ -41,6 +44,26 @@ const features = [
   },
   {
     id: crypto.randomUUID(),
+    name: "Animations",
+    description: "Smooth, high-performance animations with Motion.",
+    icon: <AnimationIcon />,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Hosting",
+    description:
+      "Scalable infrastructure, secure data handling and automated deployment process with Vercel.",
+    icon: <HostingIcon />,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Translations",
+    description:
+      "Automated localization, brand voice and tone consistency with Languine. Coming soon...",
+    icon: <TranslationsIcon />,
+  },
+  {
+    id: crypto.randomUUID(),
     name: "Subscriptions",
     description: "Free and paid subscriptions using Polar. Coming soon...",
     icon: <SubscriptionsIcon />,
@@ -69,7 +92,7 @@ export async function FeaturesScreen() {
           >
             Taxonomy
           </a>
-          . Go check that out if you like these kind of things.
+          . Check it out if you like that kind of thing.
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
