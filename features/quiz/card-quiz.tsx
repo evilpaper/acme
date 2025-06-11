@@ -10,6 +10,7 @@ import { motion } from "motion/react";
 
 type Question = {
   question: string;
+  id: string;
   options: string[];
   correctanswer: string;
   explanation: string;
@@ -68,24 +69,37 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
           </div>
           <Progress value={((currentQuestion + 1) / questions.length) * 100} />
           <div className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]">
-            <motion.div
-              className="relative w-full h-full preserve-3d"
-              animate={{ rotateY: flipped ? 180 : 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <CardFront
-                question={questions[currentQuestion] as QuestionWithOptions}
-                selectedAnswer={selectedAnswer}
-                handleAnswer={handleAnswer}
-                isAnswered={isAnswered}
-              />
-              <CardBack
-                selectedAnswer={selectedAnswer}
-                correctanswer={questions[currentQuestion].correctanswer}
-                explanation={questions[currentQuestion].explanation}
-                source={questions[currentQuestion].source}
-              />
-            </motion.div>
+            {questions.map((question, index) => {
+              const randomRotation = ((index * 3) % 10) - 5;
+              return (
+                <motion.div
+                  key={question.id}
+                  className="w-full h-full preserve-3d"
+                  animate={{
+                    rotateY: flipped ? 180 : 0,
+                    rotateZ: randomRotation,
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  style={{
+                    gridRow: 1,
+                    gridColumn: 1,
+                  }}
+                >
+                  <CardFront
+                    question={question as QuestionWithOptions}
+                    selectedAnswer={selectedAnswer}
+                    handleAnswer={handleAnswer}
+                    isAnswered={isAnswered}
+                  />
+                  <CardBack
+                    selectedAnswer={selectedAnswer}
+                    correctanswer={question.correctanswer}
+                    explanation={question.explanation}
+                    source={question.source}
+                  />
+                </motion.div>
+              );
+            })}
           </div>
         </>
       ) : (
