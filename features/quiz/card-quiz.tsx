@@ -27,15 +27,18 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [flipped, setFlipped] = useState(false);
+  const [answeredCards, setAnsweredCards] = useState<Record<string, boolean>>(
+    {},
+  );
 
   const { name, questions } = quiz;
 
   const handleAnswer = (answer: string) => {
     setSelectedAnswer(answer);
-    setIsAnswered(true);
-    setFlipped(!flipped);
+    setAnsweredCards((prev) => ({
+      ...prev,
+      [questions[currentQuestion].id]: true,
+    }));
     if (answer === questions[currentQuestion].correctanswer) {
       setScore(score + 1);
     }
@@ -45,8 +48,6 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer("");
-      setIsAnswered(false);
-      setFlipped(false);
     } else {
       setShowResult(true);
     }
@@ -57,7 +58,7 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
     setSelectedAnswer("");
     setScore(0);
     setShowResult(false);
-    setIsAnswered(false);
+    setAnsweredCards({});
   };
 
   return (
@@ -70,26 +71,33 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
           <Progress value={((currentQuestion + 1) / questions.length) * 100} />
           <div className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]">
             {questions.map((question, index) => {
-              const randomRotation = ((index * 3) % 10) - 5;
+              const randomRotation = ((index * 6) % 10) - 5;
+              // Calculate if this card is the current one
+              const isCurrentCard = index === currentQuestion;
+              // Calculate z-index based on position relative to current card
+              const zIndex =
+                questions.length - Math.abs(index - currentQuestion);
               return (
                 <motion.div
                   key={question.id}
                   className="w-full h-full preserve-3d"
                   animate={{
-                    rotateY: flipped ? 180 : 0,
+                    rotateY: answeredCards[question.id] ? 180 : 0,
                     rotateZ: randomRotation,
                   }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   style={{
                     gridRow: 1,
                     gridColumn: 1,
+                    zIndex,
+                    pointerEvents: isCurrentCard ? "auto" : "none", // Only current card is interactive
                   }}
                 >
                   <CardFront
                     question={question as QuestionWithOptions}
                     selectedAnswer={selectedAnswer}
                     handleAnswer={handleAnswer}
-                    isAnswered={isAnswered}
+                    isAnswered={answeredCards[question.id] || false}
                   />
                   <CardBack
                     selectedAnswer={selectedAnswer}
@@ -111,11 +119,9 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
         </div>
       )}
       {!showResult ? (
-        isAnswered && (
-          <Button onClick={handleNext} className="w-full">
-            {currentQuestion + 1 === questions.length ? "Finish" : "Next"}
-          </Button>
-        )
+        <Button onClick={handleNext} className="w-full">
+          {currentQuestion + 1 === questions.length ? "Finish" : "Next"}
+        </Button>
       ) : (
         <Button onClick={resetQuiz} className="w-full">
           Restart Quiz
