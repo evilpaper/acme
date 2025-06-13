@@ -4,14 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function CardFront({
   question,
-  selectedAnswer,
   handleAnswer,
-  isAnswered,
 }: {
-  question: QuestionWithOptions;
-  selectedAnswer: string;
+  question: any;
   handleAnswer: (option: string) => void;
-  isAnswered: boolean;
 }) {
   return (
     <Card className="w-full h-full flex flex-col absolute backface-hidden">
@@ -21,23 +17,23 @@ export function CardFront({
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-end space-y-2">
-        {question.options.map((option, index) => (
+        {question.options.map((option: any, index: any) => (
           <Button
             key={index}
-            variant={
-              selectedAnswer === option
-                ? option === question.correctanswer
-                  ? "success"
-                  : "fail"
-                : selectedAnswer !== option &&
-                    selectedAnswer.length > 1 &&
-                    option === question.correctanswer
-                  ? "correct"
-                  : "outline"
-            }
+            // variant={
+            //   selectedAnswer === option
+            //     ? option === question.correctanswer
+            //       ? "success"
+            //       : "fail"
+            //     : selectedAnswer !== option &&
+            //         selectedAnswer.length > 1 &&
+            //         option === question.correctanswer
+            //       ? "correct"
+            //       : "outline"
+            // }
             className="text-balance h-auto w-full justify-start text-left"
             onClick={() => handleAnswer(option)}
-            disabled={isAnswered}
+            // disabled={isAnswered}
           >
             {option}
           </Button>
