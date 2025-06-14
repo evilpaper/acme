@@ -31,6 +31,7 @@ export function CardFront({
             //       ? "correct"
             //       : "outline"
             // }
+            variant="outline"
             className="text-balance h-auto w-full justify-start text-left"
             onClick={() => handleAnswer(option)}
             // disabled={isAnswered}
