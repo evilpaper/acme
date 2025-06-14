@@ -96,7 +96,12 @@ function Card({ card }: CardProps) {
       <motion.div
         className="w-full h-full preserve-3d"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{
+          duration: 0.4,
+          type: "spring",
+          stiffness: 300,
+          damping: 20,
+        }}
       >
         <CardFront
           question={card}
