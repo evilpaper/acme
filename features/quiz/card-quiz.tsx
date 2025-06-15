@@ -46,15 +46,6 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
       </div>
       {/* <Progress value={((currentQuestion + 1) / questions.length) * 100} /> */}
       <CardStack cards={cards} />
-
-      <Button
-        onClick={() => {
-          console.log("You clicked next!");
-        }}
-        className="w-full"
-      >
-        Next
-      </Button>
     </div>
   );
 }
@@ -64,12 +55,25 @@ interface CardStackProps {
 }
 
 function CardStack({ cards }: CardStackProps) {
+  const [stack, setStack] = useState(cards);
+
+  const handleNext = () => {
+    const isOnTop = stack[stack.length - 1];
+    const nextStack = stack.filter((card) => card.id !== isOnTop.id);
+    setStack(nextStack);
+  };
+
   return (
-    <div className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]">
-      {cards.map((card) => {
-        return <Card card={card} key={card.id} />;
-      })}
-    </div>
+    <>
+      <div className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]">
+        {stack.map((card) => {
+          return <Card card={card} key={card.id} />;
+        })}
+      </div>
+      <Button onClick={handleNext} className="w-full">
+        Next
+      </Button>
+    </>
   );
 }
 
