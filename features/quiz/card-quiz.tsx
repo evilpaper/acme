@@ -83,6 +83,7 @@ interface CardProps {
 
 function Card({ card }: CardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
@@ -111,10 +112,12 @@ function Card({ card }: CardProps) {
           question={card}
           handleAnswer={(answer) => {
             setIsFlipped(true);
+            setSelectedAnswer(answer);
             handleClick();
           }}
         />
         <CardBack
+          selectedAnswer={selectedAnswer}
           correctanswer={card.correctanswer}
           explanation={card.explanation}
           source={card.source}

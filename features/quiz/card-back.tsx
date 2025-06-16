@@ -1,10 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function CardBack({
+  selectedAnswer,
   correctanswer,
   explanation,
   source,
 }: {
+  selectedAnswer: string;
   correctanswer: string;
   explanation: string;
   source?: string;
@@ -13,7 +15,7 @@ export function CardBack({
     <Card className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
       <CardHeader className="flex-none">
         <CardTitle className="text-lg font-semibold line-clamp-3">
-          {/* {selectedAnswer === correctanswer ? (
+          {selectedAnswer === correctanswer ? (
             <>
               <p className="text-[hsl(var(--success))] font-semibold mb-2">
                 Correct!
@@ -25,7 +27,7 @@ export function CardBack({
                 Incorrect!
               </p>
             </>
-          )} */}
+          )}
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-end space-y-2">
