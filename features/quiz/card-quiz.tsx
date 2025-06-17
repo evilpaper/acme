@@ -7,6 +7,7 @@ import { CardFront } from "./card-front";
 import { QuestionWithOptions } from "./data/types";
 import { CardBack } from "./card-back";
 import { motion } from "motion/react";
+import { questions } from "@/app/lib/placeholder-data";
 
 type Question = {
   question: string;
@@ -41,20 +42,18 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
 
   return (
     <div className="w-[min(100%,448px)] mx-auto flex flex-col items-center justify-center gap-6">
-      <div className="text-sm text-muted-foreground">
-        {name} | Question ? of {questions.length}
-      </div>
-      {/* <Progress value={((currentQuestion + 1) / questions.length) * 100} /> */}
-      <CardStack cards={cards} />
+      <CardStack cards={cards} name={name} questions={questions} />
     </div>
   );
 }
 
 interface CardStackProps {
   cards: Card[];
+  questions: Question[];
+  name: string;
 }
 
-function CardStack({ cards }: CardStackProps) {
+function CardStack({ cards, name }: CardStackProps) {
   const [stack, setStack] = useState(cards);
 
   const handleNext = () => {
@@ -65,6 +64,13 @@ function CardStack({ cards }: CardStackProps) {
 
   return (
     <>
+      <div className="text-sm text-muted-foreground">
+        {name} | Question {questions.length - stack.length + 1} of{" "}
+        {questions.length}
+      </div>
+      <Progress
+        value={((questions.length - stack.length) / questions.length) * 100}
+      />
       <div className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]">
         {stack.map((card) => {
           return <Card card={card} key={card.id} />;
