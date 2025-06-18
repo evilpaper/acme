@@ -8,6 +8,8 @@ import { QuestionWithOptions } from "./data/types";
 import { CardBack } from "./card-back";
 import { motion } from "motion/react";
 import { questions } from "@/app/lib/placeholder-data";
+import { Board } from "./board";
+import { FlashCard } from "./flashcard";
 
 type Question = {
   question: string;
@@ -18,7 +20,7 @@ type Question = {
   source?: string;
 };
 
-type Card = Question & {
+export type Card = Question & {
   rotation: number;
 };
 
@@ -42,7 +44,7 @@ export function CardQuiz({ quiz }: { quiz: Quiz }) {
 
   return (
     <div className="w-[min(100%,448px)] mx-auto flex flex-col items-center justify-center gap-6">
-      <CardStack cards={cards} name={name} questions={questions} />
+      <Board cards={cards} name={name} questions={questions} />
     </div>
   );
 }
@@ -51,84 +53,4 @@ interface CardStackProps {
   cards: Card[];
   questions: Question[];
   name: string;
-}
-
-function CardStack({ cards, name }: CardStackProps) {
-  const [stack, setStack] = useState(cards);
-
-  const handleNext = () => {
-    const isOnTop = stack[stack.length - 1];
-    const nextStack = stack.filter((card) => card.id !== isOnTop.id);
-    setStack(nextStack);
-  };
-
-  return (
-    <>
-      <div className="text-sm text-muted-foreground">
-        {name} | Question {questions.length - stack.length + 1} of{" "}
-        {questions.length}
-      </div>
-      <Progress
-        value={((questions.length - stack.length) / questions.length) * 100}
-      />
-      <div className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]">
-        {stack.map((card) => {
-          return <Card card={card} key={card.id} />;
-        })}
-      </div>
-      <Button onClick={handleNext} className="w-full">
-        Next
-      </Button>
-    </>
-  );
-}
-
-interface CardProps {
-  card: Card;
-}
-
-function Card({ card }: CardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [selectedAnswer, setSelectedAnswer] = useState("");
-
-  const handleClick = () => {
-    setIsFlipped(!isFlipped);
-  };
-
-  return (
-    <div
-      className="w-full h-full preserve-3d"
-      style={{
-        gridRow: 1,
-        gridColumn: 1,
-        transform: `rotate(${card.rotation}deg)`,
-      }}
-    >
-      <motion.div
-        className="w-full h-full preserve-3d"
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{
-          duration: 0.4,
-          type: "spring",
-          stiffness: 300,
-          damping: 20,
-        }}
-      >
-        <CardFront
-          question={card}
-          handleAnswer={(answer) => {
-            setIsFlipped(true);
-            setSelectedAnswer(answer);
-            handleClick();
-          }}
-        />
-        <CardBack
-          selectedAnswer={selectedAnswer}
-          correctanswer={card.correctanswer}
-          explanation={card.explanation}
-          source={card.source}
-        />
-      </motion.div>
-    </div>
-  );
 }
