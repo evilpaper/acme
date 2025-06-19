@@ -23,3 +23,7 @@ export type QuestionChoice = {
 export type QuestionWithOptions = Question & {
   options: string[];
 };
+
+export type CardData = QuestionWithOptions & {
+  rotation: number;
+};

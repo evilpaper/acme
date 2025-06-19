@@ -20,9 +20,5 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return <NotFound />;
   }
 
-  return (
-    <CardQuiz
-      quiz={{ name: currentQuiz.name, questions: randomizedQuestions }}
-    />
-  );
+  return <CardQuiz name={currentQuiz.name} questions={randomizedQuestions} />;
 }

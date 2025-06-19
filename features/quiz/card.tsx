@@ -1,14 +1,10 @@
 import { useState } from "react";
-import { Card } from "./card-quiz";
 import { motion } from "motion/react";
 import { CardFront } from "./card-front";
 import { CardBack } from "./card-back";
+import { CardData } from "./data/types";
 
-interface CardProps {
-  card: Card;
-}
-
-export function FlashCard({ card }: CardProps) {
+export function Card({ card }: { card: CardData }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
 
