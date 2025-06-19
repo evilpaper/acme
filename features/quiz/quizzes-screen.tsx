@@ -13,7 +13,7 @@ export function QuizzesScreen({ quizzes }: { quizzes: Quiz[] }) {
           Straight to the point quizzes
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          Ready made quizzes from leading resources online. Totally free of use.
+          Ready made quizzes from leading online sources. Totally free of use.
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">

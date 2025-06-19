@@ -81,9 +81,8 @@ export async function FeaturesScreen() {
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
           Well, maybe not. This project is a playground application. It comes in
-          the form of a quiz app. Built for fun to learn and try out things.
-          Mainly in the Next.js ecosystem. In many ways it's a shameless copy of
-          shadcn's{" "}
+          the form of a flashcard quiz app. Built for fun. In many ways it's a
+          shameless copy of shadcn's{" "}
           <a
             href="https://tx.shadcn.com/"
             target="_blank"
