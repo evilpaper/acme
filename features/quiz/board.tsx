@@ -22,7 +22,8 @@ export function Board({ name, totalCount, cards }: Props) {
   return (
     <>
       <div className="text-sm text-muted-foreground">
-        {name} | Question {totalCount - deck.length + 1} of {totalCount}
+        {name} | Question {Math.min(totalCount, totalCount - deck.length + 1)}{" "}
+        of {totalCount}
       </div>
       <Progress value={((totalCount - deck.length) / totalCount) * 100} />
       <Deck deck={deck} />
