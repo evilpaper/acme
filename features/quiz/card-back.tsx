@@ -1,16 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+interface Props {
+  selectedAnswer: string;
+  correctanswer: string;
+  explanation: string;
+  source?: string;
+}
+
 export function CardBack({
   selectedAnswer,
   correctanswer,
   explanation,
   source,
-}: {
-  selectedAnswer: string;
-  correctanswer: string;
-  explanation: string;
-  source?: string;
-}) {
+}: Props) {
   return (
     <Card className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
       <CardHeader className="flex-none">

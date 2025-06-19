@@ -1,7 +1,11 @@
 import { Card } from "./card";
 import { CardData } from "./data/types";
 
-export function Deck({ deck }: { deck: CardData[] }) {
+interface Props {
+  deck: CardData[];
+}
+
+export function Deck({ deck }: Props) {
   return (
     <div className="perspective grid place-items-center w-[min(100%,320px)] aspect-[5/7]">
       {deck.map((card) => {

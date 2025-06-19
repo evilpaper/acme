@@ -1,16 +1,16 @@
+import { Deck } from "./deck";
+import { useState } from "react";
+import { CardData } from "./data/types";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { useState } from "react";
-import { Deck } from "./deck";
-import { CardData } from "./data/types";
 
-interface BoardProps {
+interface Props {
   cards: CardData[];
   totalCount: number;
   name: string;
 }
 
-export function Board({ name, totalCount, cards }: BoardProps) {
+export function Board({ name, totalCount, cards }: Props) {
   const [deck, setDeck] = useState(cards);
 
   const handleNext = () => {
