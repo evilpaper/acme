@@ -30,7 +30,7 @@ export function DatabaseIcon() {
       className="h-12 w-12 fill-current"
       aria-label="Neon Database logo"
     >
-      <g clip-path="url(#clip0_2015_5)">
+      <g clipPath="url(#clip0_2015_5)">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -102,7 +102,7 @@ export function SubscriptionsIcon() {
       className="h-12 w-12 fill-current"
       aria-label="Polar logo"
     >
-      <g clip-path="url(#clip0_2015_9)">
+      <g clipPath="url(#clip0_2015_9)">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
