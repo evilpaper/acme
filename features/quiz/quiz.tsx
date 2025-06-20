@@ -13,9 +13,5 @@ export function Quiz({ name, questions }: Props) {
     return { ...question, rotation: index % 2 === 0 ? 5 : -7 };
   });
 
-  return (
-    <div className="w-[min(100%,448px)] mx-auto flex flex-col items-center justify-center gap-6">
-      <Board name={name} initialCount={cards.length} cards={cards} />
-    </div>
-  );
+  return <Board name={name} initialCount={cards.length} cards={cards} />;
 }

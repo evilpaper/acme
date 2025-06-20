@@ -20,17 +20,19 @@ export function Board({ name, initialCount, cards }: Props) {
   };
 
   return (
-    <>
-      <div className="text-sm text-muted-foreground">
-        {name} | Question{" "}
-        {Math.min(initialCount, initialCount - deck.length + 1)} of{" "}
-        {initialCount}
-      </div>
-      <Progress value={((initialCount - deck.length) / initialCount) * 100} />
+    <section className="w-[min(100%,448px)] mx-auto flex flex-col items-center justify-center gap-10">
+      <header className="w-[80%] flex flex-col items-center justify-center gap-4">
+        <p className="text-sm text-muted-foreground">
+          {name} | Question{" "}
+          {Math.min(initialCount, initialCount - deck.length + 1)} of{" "}
+          {initialCount}
+        </p>
+        <Progress value={((initialCount - deck.length) / initialCount) * 100} />
+      </header>
       <Deck deck={deck} />
       <Button onClick={handleNext} className="w-full">
         Next
       </Button>
-    </>
+    </section>
   );
 }
