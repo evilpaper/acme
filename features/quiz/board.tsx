@@ -6,11 +6,11 @@ import { Progress } from "@/components/ui/progress";
 
 interface Props {
   cards: CardData[];
-  totalCount: number;
+  initialCount: number;
   name: string;
 }
 
-export function Board({ name, totalCount, cards }: Props) {
+export function Board({ name, initialCount, cards }: Props) {
   const [deck, setDeck] = useState(cards);
 
   const handleNext = () => {
@@ -22,10 +22,11 @@ export function Board({ name, totalCount, cards }: Props) {
   return (
     <>
       <div className="text-sm text-muted-foreground">
-        {name} | Question {Math.min(totalCount, totalCount - deck.length + 1)}{" "}
-        of {totalCount}
+        {name} | Question{" "}
+        {Math.min(initialCount, initialCount - deck.length + 1)} of{" "}
+        {initialCount}
       </div>
-      <Progress value={((totalCount - deck.length) / totalCount) * 100} />
+      <Progress value={((initialCount - deck.length) / initialCount) * 100} />
       <Deck deck={deck} />
       <Button onClick={handleNext} className="w-full">
         Next
