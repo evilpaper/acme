@@ -26,7 +26,7 @@ export function Card({ card }: Props) {
       }}
     >
       <motion.div
-        className="w-full h-full preserve-3d"
+        className="w-full h-full preserve-3d hover:cursor-grab active:cursor-grabbing"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{
           duration: 0.4,
@@ -35,6 +35,10 @@ export function Card({ card }: Props) {
           damping: 20,
         }}
         drag="x"
+        dragConstraints={{
+          left: 0,
+          right: 0,
+        }}
       >
         <CardFront
           question={card}
