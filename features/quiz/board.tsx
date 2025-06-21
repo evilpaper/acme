@@ -20,7 +20,7 @@ export function Board({ name, initialCount, cards }: Props) {
   };
 
   return (
-    <section className="w-[min(100%,448px)] mx-auto flex flex-col items-center justify-center gap-10">
+    <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
       <header className="w-[80%] flex flex-col items-center justify-center gap-4">
         <p className="text-sm text-muted-foreground">
           {name} | Question{" "}

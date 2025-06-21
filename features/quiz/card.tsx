@@ -34,6 +34,7 @@ export function Card({ card }: Props) {
           stiffness: 300,
           damping: 20,
         }}
+        drag="x"
       >
         <CardFront
           question={card}
