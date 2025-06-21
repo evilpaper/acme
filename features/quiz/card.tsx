@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, useMotionValue, useTransform } from "motion/react";
 import { CardBack } from "./card-back";
 import { CardData } from "./data/types";
 import { CardFront } from "./card-front";
@@ -11,6 +11,9 @@ interface Props {
 export function Card({ card }: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
+
+  const x = useMotionValue(0);
+  const opacity = useTransform(x, [-150, 0, 150], [0, 1, 0]);
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
@@ -27,6 +30,7 @@ export function Card({ card }: Props) {
     >
       <motion.div
         className="w-full h-full preserve-3d hover:cursor-grab active:cursor-grabbing"
+        style={{ x, opacity }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{
           duration: 0.4,
