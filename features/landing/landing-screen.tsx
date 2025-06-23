@@ -10,7 +10,8 @@ export async function LandingScreen() {
           it.
         </h1>
         <p className="mb-8 max-w-screen-sm text-center text-xl md:text-2xl">
-          A flashcard quiz app for developers.
+          A flashcard quiz app for developers. <br />
+          Use spaced repetition to learn fast.
         </p>
         <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
           <Button asChild>
@@ -27,10 +28,6 @@ export async function LandingScreen() {
             </Link>
           </Button>
         </div>
-        <p className="max-w-screen-sm text-center text-xl md:text-2xl">
-          Built as an example app using Next.js, Auth.js, Stripe, shadcn/ui and
-          Fraunces typeface family.
-        </p>
       </div>
     </section>
   );
