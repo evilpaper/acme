@@ -10,8 +10,8 @@ export async function LandingScreen() {
           it.
         </h1>
         <p className="mb-8 max-w-screen-sm text-center text-xl md:text-2xl">
-          A flashcard quiz app for developers. <br />
-          Use spaced repetition to learn fast.
+          A flashcard quiz app for developers, <br /> powered by spaced
+          repetition.
         </p>
         <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
           <Button asChild>
