@@ -13,11 +13,21 @@ export function Card({ card }: Props) {
   const [selectedAnswer, setSelectedAnswer] = useState("");
 
   const x = useMotionValue(0);
-  // const opacity = useTransform(x, [-150, 0, 150], [0, 1, 0]);
+  const opacity = useTransform(x, [-150, -100, 100, 150], [0, 1, 1, 0]);
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
+
+  /**
+   * Why this structure. Appling opacity to top motion div lead to funky behaviour.
+   * Seemed like the transform wasn't applied to the back of the card when flipped.
+   * It just vanished after the breakpoint (100px) and the backface of the front became visible.
+   * Best guess is that it has to do with how the browser flattens or isolate transformed elements.
+   * Or some othe dark art.
+   * Making front and back motion.div's and applying opacity to each of them solved the issues.
+   * But the stucture got a lot less clean.
+   */
 
   return (
     <motion.div
@@ -36,20 +46,33 @@ export function Card({ card }: Props) {
         right: 0,
       }}
     >
-      <CardBack
-        selectedAnswer={selectedAnswer}
-        correctanswer={card.correctanswer}
-        explanation={card.explanation}
-        source={card.source}
-      />
-      <CardFront
-        question={card}
-        handleAnswer={(answer) => {
-          setIsFlipped(true);
-          setSelectedAnswer(answer);
-          handleClick();
+      <motion.div
+        style={{
+          opacity,
         }}
-      />
+        className="w-full h-full flex flex-col absolute backface-hidden"
+      >
+        <CardFront
+          question={card}
+          handleAnswer={(answer) => {
+            setSelectedAnswer(answer);
+            handleClick();
+          }}
+        />
+      </motion.div>
+      <motion.div
+        style={{
+          opacity,
+        }}
+        className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180"
+      >
+        <CardBack
+          selectedAnswer={selectedAnswer}
+          correctanswer={card.correctanswer}
+          explanation={card.explanation}
+          source={card.source}
+        />
+      </motion.div>
     </motion.div>
   );
 }

@@ -14,7 +14,7 @@ export function CardBack({
   source,
 }: Props) {
   return (
-    <Card className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
+    <Card className="w-full h-full flex flex-col absolute">
       <CardHeader className="flex-none">
         <CardTitle className="text-lg font-semibold line-clamp-3">
           {selectedAnswer === correctanswer ? (
