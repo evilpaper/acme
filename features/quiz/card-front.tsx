@@ -20,7 +20,13 @@ export function CardFront({ question, handleAnswer }: Props) {
           <Button
             key={option}
             variant="outline"
-            className="text-balance h-auto w-full justify-start text-left"
+            className="
+              first-letter:text-balance h-auto w-full justify-start text-left 
+              whitespace-normal break-words
+              overflow-hidden
+              text-ellipsis
+              text-base sm:text-lg
+              text-[clamp(0.75rem,2vw,1rem)]"
             onClick={() => handleAnswer(option)}
           >
             {option}

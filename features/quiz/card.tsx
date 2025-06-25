@@ -35,7 +35,7 @@ export function Card({ card }: Props) {
       style={{ gridRow: 1, gridColumn: 1, x, rotate: card.rotation }}
       animate={{ rotateY: isFlipped ? 180 : 0 }}
       transition={{
-        duration: 0.4,
+        duration: 0.6,
         type: "spring",
         stiffness: 300,
         damping: 20,
