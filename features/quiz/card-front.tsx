@@ -11,11 +11,11 @@ export function CardFront({ question, handleAnswer }: Props) {
   return (
     <Card className="w-full h-full flex flex-col absolute">
       <CardHeader className="flex-none">
-        <CardTitle className="text-lg font-semibold line-clamp-3">
+        <CardTitle className="font-semibold line-clamp-3 text-sm sm:text-base">
           {question.question}
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex-1 flex flex-col justify-end space-y-2">
+      <CardContent className="flex-1 flex flex-col justify-end space-y-2 overflow-hidden">
         {question.options.map((option: string) => (
           <Button
             key={option}
@@ -23,10 +23,8 @@ export function CardFront({ question, handleAnswer }: Props) {
             className="
               first-letter:text-balance h-auto w-full justify-start text-left 
               whitespace-normal break-words
-              overflow-hidden
               text-ellipsis
-              text-base sm:text-lg
-              text-[clamp(0.75rem,2vw,1rem)]"
+              text-sm sm:text-base"
             onClick={() => handleAnswer(option)}
           >
             {option}
