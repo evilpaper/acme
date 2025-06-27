@@ -32,13 +32,18 @@ export function Card({ card }: Props) {
   return (
     <motion.div
       className="w-full h-full preserve-3d hover:cursor-grab active:cursor-grabbing"
-      style={{ gridRow: 1, gridColumn: 1, x, rotate: card.rotation }}
+      style={{
+        gridRow: 1,
+        gridColumn: 1,
+        x,
+        rotate: card.rotation,
+        transformPerspective: 1000,
+      }}
       animate={{ rotateY: isFlipped ? 180 : 0 }}
       transition={{
-        duration: 0.6,
         type: "spring",
-        stiffness: 300,
-        damping: 20,
+        stiffness: 260,
+        damping: 32,
       }}
       drag="x"
       dragConstraints={{

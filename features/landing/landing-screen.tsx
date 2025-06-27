@@ -17,13 +17,13 @@ export async function LandingScreen() {
           <Button asChild>
             <Link
               href="/quizzes/javascript-101"
-              className="h-11 rounded-md px-8"
+              className="h-11 rounded-md px-8 text-lg"
             >
               <span>Try a quiz</span>
             </Link>
           </Button>
           <Button asChild variant="outline">
-            <Link href="/quizzes" className="h-11 rounded-md px-8">
+            <Link href="/quizzes" className="h-11 rounded-md px-8 text-lg">
               <span>See all quizzes</span>
             </Link>
           </Button>
