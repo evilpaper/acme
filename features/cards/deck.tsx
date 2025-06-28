@@ -1,8 +1,7 @@
 import { Card } from "./card";
-import { CardData } from "./data/types";
 
 interface Props {
-  deck: CardData[];
+  deck: { id: string; rotation: number }[];
 }
 
 export function Deck({ deck }: Props) {

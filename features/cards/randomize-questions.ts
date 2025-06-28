@@ -1,4 +1,4 @@
-import { QuestionWithOptions } from "@/features/quiz/data/types";
+import { QuestionWithOptions } from "@/features/cards/data/types";
 
 /**
  * Randomizes an array of questions using Fisher-Yates shuffle algorithm

@@ -14,7 +14,7 @@ import { Session } from "next-auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const links = [
-  { name: "Quizzes", href: "/quizzes", icon: "" },
+  { name: "Cards", href: "/cards", icon: "" },
   { name: "Features", href: "/features", icon: "" },
   { name: "Pricing", href: "/pricing", icon: "" },
 ];
@@ -50,7 +50,7 @@ export function Header({ session }: { session: Session | null }) {
                   onClick={handleNavClick}
                   href={href}
                   className={cn(
-                    "text-bold flex flex items-center p-2 text-xl font-medium text-foreground/80 transition-colors hover:text-foreground",
+                    "text-bold flex items-center p-2 text-xl font-medium text-foreground/80 transition-colors hover:text-foreground",
                     `/${page}` === `/${name.toLowerCase()}`
                       ? "border-b border-black text-foreground"
                       : "border-b border-background text-foreground/80",

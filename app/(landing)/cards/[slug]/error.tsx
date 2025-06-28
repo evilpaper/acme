@@ -19,7 +19,7 @@ export default function Error({
   return (
     <div className="min-h-screen mt-12 flex flex-col items-center gap-6">
       <p className="text-lg text-center">
-        This didn&apos;t work as expected. One reason could be the quiz you are
+        This didn&apos;t work as expected. One reason could be the card you are
         looking for has moved.
       </p>
       <div className="flex flex-col items-center gap-4 w-[200px]">
@@ -27,10 +27,10 @@ export default function Error({
         {/* Added container with fixed width */}
         <Button asChild variant="outline">
           <Link
-            href="/quizzes"
+            href="/cards"
             className="flex h-11 w-full gap-2 rounded-md px-8"
           >
-            Back to Quizzes
+            Back to cards
           </Link>
         </Button>
         <Button

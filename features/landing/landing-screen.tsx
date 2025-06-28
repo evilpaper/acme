@@ -10,21 +10,23 @@ export async function LandingScreen() {
           it.
         </h1>
         <p className="mb-8 max-w-screen-sm text-center text-xl md:text-2xl">
-          A flashcard quiz app for developers, <br /> powered by spaced
-          repetition.
+          Cards and quizzes for spaced repetition.
         </p>
         <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
           <Button asChild>
             <Link
-              href="/quizzes/javascript-101"
-              className="h-11 rounded-md px-8 text-lg"
+              href="/cards/javascript-101"
+              className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
-              <span>Try a quiz</span>
+              <span>Try random</span>
             </Link>
           </Button>
           <Button asChild variant="outline">
-            <Link href="/quizzes" className="h-11 rounded-md px-8 text-lg">
-              <span>See all quizzes</span>
+            <Link
+              href="/cards"
+              className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
+            >
+              <span>See all cards</span>
             </Link>
           </Button>
         </div>

@@ -1,16 +1,15 @@
 import { useState } from "react";
-import { motion, useMotionValue, useTransform } from "motion/react";
 import { CardBack } from "./card-back";
-import { CardData } from "./data/types";
 import { CardFront } from "./card-front";
+import { motion, useMotionValue, useTransform } from "motion/react";
 
 interface Props {
-  card: CardData;
+  id: string;
+  rotation: number;
 }
 
-export function Card({ card }: Props) {
+export function Card({ card }: { card: Props }) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [selectedAnswer, setSelectedAnswer] = useState("");
 
   const x = useMotionValue(0);
   const opacity = useTransform(x, [-150, -100, 100, 150], [0, 1, 1, 0]);
@@ -50,6 +49,7 @@ export function Card({ card }: Props) {
         left: 0,
         right: 0,
       }}
+      onClick={handleClick}
     >
       <motion.div
         style={{
@@ -57,13 +57,7 @@ export function Card({ card }: Props) {
         }}
         className="w-full h-full flex flex-col absolute backface-hidden"
       >
-        <CardFront
-          question={card}
-          handleAnswer={(answer) => {
-            setSelectedAnswer(answer);
-            handleClick();
-          }}
-        />
+        <CardFront />
       </motion.div>
       <motion.div
         style={{
@@ -71,12 +65,7 @@ export function Card({ card }: Props) {
         }}
         className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180"
       >
-        <CardBack
-          selectedAnswer={selectedAnswer}
-          correctanswer={card.correctanswer}
-          explanation={card.explanation}
-          source={card.source}
-        />
+        <CardBack />
       </motion.div>
     </motion.div>
   );

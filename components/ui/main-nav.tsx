@@ -14,7 +14,7 @@ const links = [
   { name: "Dashboard", href: "/dashboard", icon: "" },
   { name: "Customers", href: "/dashboard/customers", icon: "" },
   { name: "Invoices", href: "/dashboard/invoices", icon: "" },
-  { name: "Quizzes", href: "/dashboard/quizzes", icon: "" },
+  { name: "Cards", href: "/dashboard/cards", icon: "" },
 ];
 
 export function MainNav({ children }: { children: React.ReactElement }) {
