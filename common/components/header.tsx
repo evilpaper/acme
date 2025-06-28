@@ -15,6 +15,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const links = [
   { name: "Cards", href: "/cards", icon: "" },
+  { name: "Quizzes", href: "/quizzes", icon: "" },
   { name: "Features", href: "/features", icon: "" },
   { name: "Pricing", href: "/pricing", icon: "" },
 ];

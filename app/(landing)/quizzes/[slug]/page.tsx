@@ -1,17 +1,31 @@
-export const metadata = {
-  title: "Quizzes | ACME",
-  description:
-    "Improve your knowledge with ACME's quizzes - Engage with our comprehensive collection of quizzes designed to enhance your learning experience.",
-  keywords:
-    "ACME quizzes, interactive quizzes, knowledge testing, educational quizzes, learning assessment",
-  openGraph: {
-    title: "Quizzes | ACME",
-    description:
-      "Solidify your knowledge with ACME's interactive quizzes - Engage with our comprehensive collection of quizzes designed to enhance your learning experience.",
-    type: "website",
-  },
-};
+import NotFound from "./not-found";
+import { randomizeQuestions } from "@/features/quizzes/randomize-questions";
+import {
+  getQuestionsByQuizId,
+  getQuizBySlug,
+} from "@/features/quizzes/data/data";
+import QuizScreen from "@/features/quizzes/quiz-screen";
 
-export default async function Page() {
-  return <p>I am quizzes screen</p>;
+export default async function Page({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
+  const quiz = await getQuizBySlug(slug);
+
+  if (!quiz || !Array.isArray(quiz) || quiz.length === 0) {
+    return <NotFound />;
+  }
+
+  const currentQuiz = quiz[0];
+  const questions = await getQuestionsByQuizId(currentQuiz.id);
+
+  const randomizedQuestions = randomizeQuestions(questions);
+
+  if (!questions || questions.length === 0) {
+    return <NotFound />;
+  }
+
+  return (
+    <QuizScreen
+      quiz={{ name: currentQuiz.name, questions: randomizedQuestions }}
+    />
+  );
 }
