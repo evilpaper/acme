@@ -57,7 +57,7 @@ export function Card({ card }: { card: Props }) {
         }}
         className="w-full h-full flex flex-col absolute backface-hidden"
       >
-        <CardFront />
+        <CardFront card={card} />
       </motion.div>
       <motion.div
         style={{
@@ -65,7 +65,7 @@ export function Card({ card }: { card: Props }) {
         }}
         className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180"
       >
-        <CardBack />
+        <CardBack card={card} />
       </motion.div>
     </motion.div>
   );
