@@ -80,9 +80,19 @@ export async function FeaturesScreen() {
           Jam packed with features
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          Well, maybe not. This project is a playground application. It comes in
-          the form of a flashcard quiz app. Built for fun. In many ways it's a
-          shameless copy of shadcn's{" "}
+          Well, maybe not. This project is a playground application. Built for
+          fun. Current features include.
+        </p>
+      </article>
+      <article className="flex w-full flex-col gap-4 md:max-w-[58rem]">
+        <h2
+          className={`align-center mt-8 max-w-screen-md text-4xl font-bold leading-tight tracking-tighter md:text-6xl`}
+        >
+          Technologies used
+        </h2>
+        <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
+          Here's a list of the technologies used. In many ways it's a shameless
+          copy of shadcn's{" "}
           <a
             href="https://tx.shadcn.com/"
             target="_blank"
@@ -91,10 +101,10 @@ export async function FeaturesScreen() {
           >
             Taxonomy
           </a>
-          . Check it out if you like that kind of thing.
+          . Check that one out if you like that kind of thing.
         </p>
       </article>
-      <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+      <article className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
         {features.map((feature) => {
           return (
             <article
@@ -111,7 +121,7 @@ export async function FeaturesScreen() {
             </article>
           );
         })}
-      </div>
+      </article>
     </section>
   );
 }
