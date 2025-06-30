@@ -7,9 +7,10 @@ interface Props {
   id: string;
   rotation: number;
   handleSwipe: () => void;
+  isOnTop: boolean;
 }
 
-export function Card({ id, rotation, handleSwipe }: Props) {
+export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const x = useMotionValue(0);
@@ -21,7 +22,6 @@ export function Card({ id, rotation, handleSwipe }: Props) {
 
   function handleDragEnd() {
     if (Math.abs(x.get()) > 50) {
-      console.log("Yay!");
       handleSwipe();
     }
   }
@@ -38,12 +38,12 @@ export function Card({ id, rotation, handleSwipe }: Props) {
 
   return (
     <motion.div
-      className="w-full h-full preserve-3d hover:cursor-grab active:cursor-grabbing"
+      className="w-full h-full preserve-3d hover:cursor-grab active:cursor-grabbing origin-bottom"
       style={{
         gridRow: 1,
         gridColumn: 1,
         x,
-        rotate: rotation,
+        rotate: isOnTop ? 0 : rotation,
         transformPerspective: 1000,
       }}
       animate={{ rotateY: isFlipped ? 180 : 0 }}

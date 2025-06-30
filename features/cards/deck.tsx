@@ -6,6 +6,11 @@ interface Props {
 }
 
 export function Deck({ deck, handleSwipe }: Props) {
+  function isCardOnTop(card: { id: string; rotation: number }) {
+    if (!deck.length) return false;
+    return deck[deck.length - 1].id === card.id;
+  }
+
   return (
     <div className="perspective grid place-items-center w-[min(100%,300px)] aspect-[5/7]">
       {deck.map((card) => {
@@ -15,6 +20,7 @@ export function Deck({ deck, handleSwipe }: Props) {
             rotation={card.rotation}
             key={card.id}
             handleSwipe={handleSwipe}
+            isOnTop={isCardOnTop(card)}
           />
         );
       })}
