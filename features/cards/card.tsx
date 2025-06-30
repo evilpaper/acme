@@ -14,14 +14,14 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const x = useMotionValue(0);
-  const opacity = useTransform(x, [-150, -100, 100, 150], [0, 1, 1, 0]);
+  const opacity = useTransform(x, [-200, -100, 100, 200], [0, 1, 1, 0]);
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
 
   function handleDragEnd() {
-    if (Math.abs(x.get()) > 50) {
+    if (Math.abs(x.get()) > 100) {
       handleSwipe();
     }
   }
@@ -57,6 +57,8 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
         left: 0,
         right: 0,
       }}
+      dragTransition={{ bounceStiffness: 500, bounceDamping: 15 }}
+      dragElastic={0.6}
       onClick={handleClick}
       onDragEnd={handleDragEnd}
     >
