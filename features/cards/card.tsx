@@ -6,9 +6,10 @@ import { motion, useMotionValue, useTransform } from "motion/react";
 interface Props {
   id: string;
   rotation: number;
+  handleSwipe: () => void;
 }
 
-export function Card({ card }: { card: Props }) {
+export function Card({ id, rotation, handleSwipe }: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const x = useMotionValue(0);
@@ -17,6 +18,13 @@ export function Card({ card }: { card: Props }) {
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
+
+  function handleDragEnd() {
+    if (Math.abs(x.get()) > 50) {
+      console.log("Yay!");
+      handleSwipe();
+    }
+  }
 
   /**
    * Why this structure. Appling opacity to top motion div lead to funky behaviour.
@@ -35,7 +43,7 @@ export function Card({ card }: { card: Props }) {
         gridRow: 1,
         gridColumn: 1,
         x,
-        rotate: card.rotation,
+        rotate: rotation,
         transformPerspective: 1000,
       }}
       animate={{ rotateY: isFlipped ? 180 : 0 }}
@@ -50,6 +58,7 @@ export function Card({ card }: { card: Props }) {
         right: 0,
       }}
       onClick={handleClick}
+      onDragEnd={handleDragEnd}
     >
       <motion.div
         style={{
@@ -57,7 +66,7 @@ export function Card({ card }: { card: Props }) {
         }}
         className="w-full h-full flex flex-col absolute backface-hidden"
       >
-        <CardFront card={card} />
+        <CardFront id={id} />
       </motion.div>
       <motion.div
         style={{
@@ -65,7 +74,7 @@ export function Card({ card }: { card: Props }) {
         }}
         className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180"
       >
-        <CardBack card={card} />
+        <CardBack id={id} />
       </motion.div>
     </motion.div>
   );

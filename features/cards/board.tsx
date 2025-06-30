@@ -32,19 +32,18 @@ const Cards = [
 export function Board() {
   const [deck, setDeck] = useState(Cards);
 
-  const handleNext = () => {
-    const isOnTop = deck[deck.length - 1];
-    const nextStack = deck.filter((card) => card.id !== isOnTop.id);
-    setDeck(nextStack);
-  };
+  function putToBack() {
+    if (deck.length > 1) {
+      const topCard = deck[deck.length - 1];
+      const rest = deck.slice(0, deck.length - 1);
+      setDeck([topCard, ...rest]);
+    }
+  }
 
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
       <header className="w-[80%] flex flex-col items-center justify-center gap-4"></header>
-      <Deck deck={deck} />
-      <Button onClick={handleNext} className="w-full">
-        Next
-      </Button>
+      <Deck deck={deck} handleSwipe={putToBack} />
     </section>
   );
 }
