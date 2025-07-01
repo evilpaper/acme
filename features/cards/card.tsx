@@ -38,7 +38,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
 
   return (
     <motion.div
-      className="w-full h-full preserve-3d hover:cursor-grab active:cursor-grabbing origin-bottom"
+      className="w-full h-full preserve-3d hover:cursor-grab active:cursor-grabbing origin-bottom touch-action: pan-y"
       style={{
         gridRow: 1,
         gridColumn: 1,
@@ -57,23 +57,27 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
         left: 0,
         right: 0,
       }}
-      dragTransition={{ bounceStiffness: 500, bounceDamping: 15 }}
-      dragElastic={0.6}
+      dragElastic={0.28}
+      dragTransition={{ bounceStiffness: 800, bounceDamping: 24 }}
       onClick={handleClick}
       onDragEnd={handleDragEnd}
     >
       <motion.div
-        style={{
-          opacity,
-        }}
+        style={
+          {
+            // opacity,
+          }
+        }
         className="w-full h-full flex flex-col absolute backface-hidden"
       >
         <CardFront id={id} />
       </motion.div>
       <motion.div
-        style={{
-          opacity,
-        }}
+        style={
+          {
+            // opacity,
+          }
+        }
         className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180"
       >
         <CardBack id={id} />
