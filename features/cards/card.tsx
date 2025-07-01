@@ -38,7 +38,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
       animate={{ rotateY: isFlipped ? 180 : 0 }}
       transition={{
         type: "spring",
-        stiffness: 400,
+        stiffness: 300,
         damping: 32,
       }}
       drag
@@ -48,7 +48,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
         top: 0,
         bottom: 0,
       }}
-      dragTransition={{ bounceStiffness: 300, bounceDamping: 36 }}
+      dragTransition={{ bounceStiffness: 500, bounceDamping: 36 }}
       onClick={handleClick}
       onDragEnd={handleDragEnd}
     >
