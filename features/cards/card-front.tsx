@@ -6,7 +6,7 @@ interface Props {
 
 export function CardFront({ id }: Props) {
   return (
-    <Card className="w-full h-full flex flex-col absolute overflow-hidden">
+    <Card className="w-full h-full flex flex-col absolute overflow-hidden rounded-2xl">
       <CardHeader>
         <CardTitle className="font-semibold line-clamp-3 text-base"></CardTitle>
       </CardHeader>

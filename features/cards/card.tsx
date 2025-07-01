@@ -20,7 +20,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
   };
 
   function handleDragEnd() {
-    if (Math.abs(x.get()) > 80) {
+    if (Math.abs(x.get()) > 50) {
       handleSwipe();
     }
   }
@@ -38,7 +38,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
       animate={{ rotateY: isFlipped ? 180 : 0 }}
       transition={{
         type: "spring",
-        stiffness: 260,
+        stiffness: 400,
         damping: 32,
       }}
       drag
@@ -52,7 +52,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
       onClick={handleClick}
       onDragEnd={handleDragEnd}
     >
-      <motion.div className="w-full h-full flex flex-col absolute backface-hidden">
+      <motion.div className="w-full h-full flex flex-col absolute backface-hidden ">
         <CardFront id={id} />
       </motion.div>
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
