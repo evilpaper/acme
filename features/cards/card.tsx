@@ -20,7 +20,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
   };
 
   function handleDragEnd() {
-    if (Math.abs(x.get()) > 150) {
+    if (Math.abs(x.get()) > 80) {
       handleSwipe();
     }
   }
@@ -48,7 +48,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
         top: 0,
         bottom: 0,
       }}
-      dragTransition={{ bounceStiffness: 300, bounceDamping: 32 }}
+      dragTransition={{ bounceStiffness: 300, bounceDamping: 36 }}
       onClick={handleClick}
       onDragEnd={handleDragEnd}
     >
