@@ -48,7 +48,8 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
         top: 0,
         bottom: 0,
       }}
-      dragTransition={{ bounceStiffness: 500, bounceDamping: 36 }}
+      dragElastic={0.8}
+      dragTransition={{ bounceStiffness: 500, bounceDamping: 50 }}
       onClick={handleClick}
       onDragEnd={handleDragEnd}
     >
