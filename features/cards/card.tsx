@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardBack } from "./card-back";
 import { CardFront } from "./card-front";
-import { motion, useMotionValue, useTransform } from "motion/react";
+import { motion, useMotionValue } from "motion/react";
 
 interface Props {
   id: string;
@@ -14,27 +14,16 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const x = useMotionValue(0);
-  const opacity = useTransform(x, [-200, -100, 100, 200], [0, 1, 1, 0]);
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
 
   function handleDragEnd() {
-    if (Math.abs(x.get()) > 100) {
+    if (Math.abs(x.get()) > 150) {
       handleSwipe();
     }
   }
-
-  /**
-   * Why this structure. Appling opacity to top motion div lead to funky behaviour.
-   * Seemed like the transform wasn't applied to the back of the card when flipped.
-   * It just vanished after the breakpoint (100px) and the backface of the front became visible.
-   * Best guess is that it has to do with how the browser flattens or isolate transformed elements.
-   * Or some othe dark art.
-   * Making front and back motion.div's and applying opacity to each of them solved the issues.
-   * But the stucture got a lot less clean.
-   */
 
   return (
     <motion.div
@@ -52,34 +41,21 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
         stiffness: 260,
         damping: 32,
       }}
-      drag="x"
+      drag
       dragConstraints={{
         left: 0,
         right: 0,
+        top: 0,
+        bottom: 0,
       }}
-      dragElastic={0.28}
-      dragTransition={{ bounceStiffness: 800, bounceDamping: 24 }}
+      dragTransition={{ bounceStiffness: 300, bounceDamping: 32 }}
       onClick={handleClick}
       onDragEnd={handleDragEnd}
     >
-      <motion.div
-        style={
-          {
-            // opacity,
-          }
-        }
-        className="w-full h-full flex flex-col absolute backface-hidden"
-      >
+      <motion.div className="w-full h-full flex flex-col absolute backface-hidden">
         <CardFront id={id} />
       </motion.div>
-      <motion.div
-        style={
-          {
-            // opacity,
-          }
-        }
-        className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180"
-      >
+      <motion.div className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
         <CardBack id={id} />
       </motion.div>
     </motion.div>
