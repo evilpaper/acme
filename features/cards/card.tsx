@@ -8,9 +8,18 @@ interface Props {
   rotation: number;
   handleSwipe: () => void;
   isOnTop: boolean;
+  index: number;
+  deckLength: number;
 }
 
-export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
+export function Card({
+  id,
+  rotation,
+  handleSwipe,
+  isOnTop,
+  index,
+  deckLength,
+}: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const x = useMotionValue(0);
@@ -35,7 +44,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
         rotate: isOnTop ? 0 : rotation,
         transformPerspective: 1000,
       }}
-      animate={{ rotateY: isFlipped ? 180 : 0 }}
+      animate={{ rotateY: isFlipped ? 180 : 0, zIndex: deckLength - 1 }}
       transition={{
         type: "spring",
         stiffness: 300,
@@ -49,7 +58,7 @@ export function Card({ id, rotation, handleSwipe, isOnTop }: Props) {
         bottom: 0,
       }}
       dragElastic={0.8}
-      dragTransition={{ bounceStiffness: 500, bounceDamping: 40 }}
+      dragTransition={{ bounceStiffness: 500, bounceDamping: 46 }}
       onClick={handleClick}
       onDragEnd={handleDragEnd}
     >

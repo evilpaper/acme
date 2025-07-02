@@ -13,7 +13,7 @@ export function Deck({ deck, handleSwipe }: Props) {
 
   return (
     <div className="perspective grid place-items-center w-[min(100%,280px)] aspect-[5/7] mb-6">
-      {deck.map((card) => {
+      {deck.map((card, index) => {
         return (
           <Card
             id={card.id}
@@ -21,6 +21,8 @@ export function Deck({ deck, handleSwipe }: Props) {
             key={card.id}
             handleSwipe={handleSwipe}
             isOnTop={isCardOnTop(card)}
+            index={index}
+            deckLength={deck.length}
           />
         );
       })}
