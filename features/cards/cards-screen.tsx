@@ -10,7 +10,7 @@ export function CardsScreen({ cards }: { cards: Deck[] }) {
         <h2
           className={`align-center mt-8 max-w-screen-md text-4xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >
-          Flashcards
+          Cards
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
           Flip, swipe and shuffle as you like.
