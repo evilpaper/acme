@@ -8,7 +8,7 @@ interface Props {
 export function Deck({ deck, handleSwipe }: Props) {
   function isCardOnTop(card: { id: string; rotation: number }) {
     if (!deck.length) return false;
-    return deck[deck.length - 1].id === card.id;
+    return deck[0].id === card.id;
   }
 
   return (

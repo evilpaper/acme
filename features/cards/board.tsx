@@ -33,11 +33,15 @@ export function Board() {
 
   function putToBack() {
     if (deck.length > 1) {
-      const topCard = deck[deck.length - 1];
-      const rest = deck.slice(0, deck.length - 1);
-      setDeck([topCard, ...rest]);
+      const topCard = deck[0];
+      const rest = deck.slice(1, deck.length);
+      setDeck([...rest, topCard]);
     }
   }
+
+  // const moveToEnd = (from) => {
+  //   setCards(move(cards, from, cards.length - 1));
+  // };
 
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
