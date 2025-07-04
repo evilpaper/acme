@@ -47,6 +47,7 @@ export function Card({
       animate={{
         rotateY: isFlipped ? 180 : 0,
         zIndex: deckLength - index,
+        rotate: isOnTop ? 0 : rotation,
       }}
       transition={{
         type: "spring",
