@@ -18,7 +18,7 @@ export async function LandingScreen() {
               href="/cards/javascript-101"
               className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
-              <span>Try random deck</span>
+              <span>Try some cards</span>
             </Link>
           </Button>
           <Button asChild variant="outline">
@@ -26,7 +26,7 @@ export async function LandingScreen() {
               href="/cards"
               className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
-              <span>See all decks</span>
+              <span>See all cards</span>
             </Link>
           </Button>
         </div>

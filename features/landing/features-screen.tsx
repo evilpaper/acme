@@ -81,7 +81,7 @@ export async function FeaturesScreen() {
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
           Well, maybe not. This project is a playground application. Built for
-          fun. Current features include.
+          fun. Current features...are coming soon.
         </p>
       </article>
       <article className="flex w-full flex-col gap-4 md:max-w-[58rem]">
