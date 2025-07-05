@@ -12,6 +12,15 @@ interface Props {
   deckLength: number;
 }
 
+/**
+ * Distance threshold in pixels for card swipe detection.
+ *
+ * When a card is dragged horizontally:
+ * - If dragged distance ≤ this threshold: card stays in place and can be flipped
+ * - If dragged distance > this threshold: card is swiped to the back of the deck
+ */
+const SWIPE_THRESHOLD = 50;
+
 export function Card({
   id,
   rotation,
@@ -25,13 +34,13 @@ export function Card({
   const x = useMotionValue(0);
 
   const handleClick = () => {
-    if (Math.abs(x.get()) <= 50) {
+    if (Math.abs(x.get()) <= SWIPE_THRESHOLD) {
       setIsFlipped(!isFlipped);
     }
   };
 
   function handleDragEnd() {
-    if (Math.abs(x.get()) > 50) {
+    if (Math.abs(x.get()) > SWIPE_THRESHOLD) {
       handleSwipe();
       if (isFlipped) {
         setIsFlipped((prev) => !prev);
