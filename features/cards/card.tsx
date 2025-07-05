@@ -25,12 +25,17 @@ export function Card({
   const x = useMotionValue(0);
 
   const handleClick = () => {
-    setIsFlipped(!isFlipped);
+    if (Math.abs(x.get()) <= 50) {
+      setIsFlipped(!isFlipped);
+    }
   };
 
   function handleDragEnd() {
     if (Math.abs(x.get()) > 50) {
       handleSwipe();
+      if (isFlipped) {
+        setIsFlipped((prev) => !prev);
+      }
     }
   }
 
