@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CardBack } from "./card-back";
 import { CardFront } from "./card-front";
 import { motion, useMotionValue } from "motion/react";
@@ -30,16 +30,22 @@ export function Card({
   deckLength,
 }: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const handleClick = () => {
+  function handleClick() {
     const isWithinThreshold = isDragWithinThreshold();
-    if (isWithinThreshold) {
+    if (isWithinThreshold && !isDragging) {
       setIsFlipped(!isFlipped);
     }
-  };
+    setIsDragging(false);
+  }
+
+  function handleDragStart() {
+    setIsDragging(true);
+  }
 
   function handleDragEnd() {
     const shouldSwipe = isDragBeyondThreshold();
@@ -98,6 +104,7 @@ export function Card({
       dragElastic={0.8}
       dragTransition={{ bounceStiffness: 500, bounceDamping: 46 }}
       onClick={handleClick}
+      onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden ">
