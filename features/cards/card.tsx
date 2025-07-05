@@ -35,23 +35,37 @@ export function Card({
   const y = useMotionValue(0);
 
   const handleClick = () => {
-    const xDistance = Math.abs(x.get());
-    const yDistance = Math.abs(y.get());
-    if (xDistance <= SWIPE_THRESHOLD && yDistance <= SWIPE_THRESHOLD) {
+    const isWithinThreshold = isDragWithinThreshold();
+    if (isWithinThreshold) {
       setIsFlipped(!isFlipped);
     }
   };
 
   function handleDragEnd() {
-    const xDistance = Math.abs(x.get());
-    const yDistance = Math.abs(y.get());
-    if (xDistance > SWIPE_THRESHOLD || yDistance > SWIPE_THRESHOLD) {
+    const shouldSwipe = isDragBeyondThreshold();
+    if (shouldSwipe) {
       handleSwipe();
-      if (isFlipped) {
-        setIsFlipped((prev) => !prev);
-      }
+      resetFlipState();
     }
   }
+
+  const isDragWithinThreshold = () => {
+    const xDistance = Math.abs(x.get());
+    const yDistance = Math.abs(y.get());
+    return xDistance <= SWIPE_THRESHOLD && yDistance <= SWIPE_THRESHOLD;
+  };
+
+  const isDragBeyondThreshold = () => {
+    const xDistance = Math.abs(x.get());
+    const yDistance = Math.abs(y.get());
+    return xDistance > SWIPE_THRESHOLD || yDistance > SWIPE_THRESHOLD;
+  };
+
+  const resetFlipState = () => {
+    if (isFlipped) {
+      setIsFlipped(false);
+    }
+  };
 
   return (
     <motion.div
