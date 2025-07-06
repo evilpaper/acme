@@ -2,6 +2,6 @@
 
 import { Board } from "./board";
 
-export function CardDeckScreen() {
+export function PlayScreen() {
   return <Board />;
 }

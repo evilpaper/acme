@@ -19,7 +19,7 @@ interface Props {
  * - If dragged distance ≤ this threshold: card stays in place and can be flipped
  * - If dragged distance > this threshold: card is swiped to the back of the deck
  */
-const SWIPE_THRESHOLD = 50;
+const SWIPE_THRESHOLD = 60;
 
 export function Card({
   id,
@@ -53,6 +53,7 @@ export function Card({
       handleSwipe();
       resetFlipState();
     }
+    setIsDragging(false);
   }
 
   const isDragWithinThreshold = () => {
@@ -102,7 +103,10 @@ export function Card({
         bottom: 0,
       }}
       dragElastic={0.8}
-      dragTransition={{ bounceStiffness: 500, bounceDamping: 46 }}
+      dragTransition={{
+        bounceStiffness: 400,
+        bounceDamping: 54,
+      }}
       onClick={handleClick}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
