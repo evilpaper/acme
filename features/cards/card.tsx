@@ -6,6 +6,8 @@ import { motion, useMotionValue } from "motion/react";
 interface Props {
   id: string;
   rotation: number;
+  term: string;
+  definition: string;
   handleSwipe: () => void;
   isOnTop: boolean;
   index: number;
@@ -24,6 +26,8 @@ const SWIPE_THRESHOLD = 60;
 export function Card({
   id,
   rotation,
+  term,
+  definition,
   handleSwipe,
   isOnTop,
   index,
@@ -112,10 +116,10 @@ export function Card({
       onDragEnd={handleDragEnd}
     >
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden ">
-        <CardFront id={id} />
+        <CardFront id={id} term={term} />
       </motion.div>
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
-        <CardBack id={id} />
+        <CardBack id={id} definition={definition} />
       </motion.div>
     </motion.div>
   );
