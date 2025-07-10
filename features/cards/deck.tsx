@@ -1,7 +1,14 @@
 import { Card } from "./card";
 
+export interface Card {
+  id: string;
+  rotation: number;
+  term: string;
+  definition: string;
+}
+
 interface Props {
-  deck: { id: string; rotation: number; term: string; definition: string }[];
+  deck: Card[];
   handleSwipe: () => void;
 }
 
@@ -16,10 +23,7 @@ export function Deck({ deck, handleSwipe }: Props) {
       {deck.map((card, index) => {
         return (
           <Card
-            id={card.id}
-            rotation={card.rotation}
-            term={card.term}
-            definition={card.definition}
+            card={card}
             key={card.id}
             handleSwipe={handleSwipe}
             isOnTop={isCardOnTop(card)}

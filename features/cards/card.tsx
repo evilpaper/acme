@@ -1,13 +1,11 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { CardBack } from "./card-back";
 import { CardFront } from "./card-front";
 import { motion, useMotionValue } from "motion/react";
+import { Card as TCard } from "./deck";
 
 interface Props {
-  id: string;
-  rotation: number;
-  term: string;
-  definition: string;
+  card: TCard;
   handleSwipe: () => void;
   isOnTop: boolean;
   index: number;
@@ -23,16 +21,7 @@ interface Props {
  */
 const SWIPE_THRESHOLD = 60;
 
-export function Card({
-  id,
-  rotation,
-  term,
-  definition,
-  handleSwipe,
-  isOnTop,
-  index,
-  deckLength,
-}: Props) {
+export function Card({ card, handleSwipe, isOnTop, index, deckLength }: Props) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -77,6 +66,8 @@ export function Card({
       setIsFlipped(false);
     }
   };
+
+  const { id, rotation, term, definition } = card;
 
   return (
     <motion.div
