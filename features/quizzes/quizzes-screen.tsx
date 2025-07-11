@@ -13,7 +13,7 @@ export function QuizzesScreen({ quizzes }: { quizzes: Quiz[] }) {
           Quizzes
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          Answer questions and track your progress.
+          Practice questions. Track progress.
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">

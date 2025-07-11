@@ -13,7 +13,7 @@ export function CardsScreen({ cards }: { cards: Deck[] }) {
           Cards
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          Flip, swipe and shuffle as you like.
+          Flip, swipe and shuffle.
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
