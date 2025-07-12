@@ -1,8 +1,7 @@
 import { Card } from "./card";
 
 export interface Card {
-  id: string;
-  rotation: number;
+  id: number;
   term: string;
   definition: string;
 }
@@ -13,7 +12,7 @@ interface Props {
 }
 
 export function Deck({ deck, handleSwipe }: Props) {
-  function isCardOnTop(card: { id: string; rotation: number }) {
+  function isCardOnTop(card: { id: number }) {
     if (!deck.length) return false;
     return deck[0].id === card.id;
   }
