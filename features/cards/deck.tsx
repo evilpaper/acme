@@ -1,17 +1,28 @@
+import { useState } from "react";
 import { Card } from "./card";
 
-export interface Card {
+export interface PreparedCard {
   id: number;
   term: string;
   definition: string;
+  rotation: number;
 }
 
 interface Props {
-  deck: Card[];
-  handleSwipe: () => void;
+  preparedCards: PreparedCard[];
 }
 
-export function Deck({ deck, handleSwipe }: Props) {
+export function Deck({ preparedCards }: Props) {
+  const [deck, setDeck] = useState(preparedCards);
+
+  function moveToBack() {
+    if (deck.length > 1) {
+      const topCard = deck[0];
+      const rest = deck.slice(1, deck.length);
+      setDeck([...rest, topCard]);
+    }
+  }
+
   function isCardOnTop(card: { id: number }) {
     if (!deck.length) return false;
     return deck[0].id === card.id;
@@ -24,7 +35,7 @@ export function Deck({ deck, handleSwipe }: Props) {
           <Card
             card={card}
             key={card.id}
-            handleSwipe={handleSwipe}
+            handleSwipe={moveToBack}
             isOnTop={isCardOnTop(card)}
             index={index}
             deckLength={deck.length}

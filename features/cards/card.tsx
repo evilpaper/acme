@@ -2,10 +2,10 @@ import { useState } from "react";
 import { CardBack } from "./card-back";
 import { CardFront } from "./card-front";
 import { motion, useMotionValue, useTransform } from "motion/react";
-import { Card as TCard } from "./deck";
+import { PreparedCard } from "./deck";
 
 interface Props {
-  card: TCard;
+  card: PreparedCard;
   handleSwipe: () => void;
   isOnTop: boolean;
   index: number;
@@ -22,12 +22,18 @@ interface Props {
 const SWIPE_THRESHOLD = 60;
 
 export function Card({ card, handleSwipe, isOnTop, index, deckLength }: Props) {
+  const { id, term, definition, rotation } = card;
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const topCardRotation = useTransform(x, [-100, 100], [-10, 10]);
+  // const rotateRaw = useTransform(x, [-100, 100], [-10, 10]);
+
+  // const rotate = useTransform(() => {
+  //   const offset = rotation;
+  //   return `${rotateRaw.get() + offset}deg`;
+  // });
 
   function handleClick() {
     const isWithinThreshold = isDragWithinThreshold();
@@ -68,8 +74,6 @@ export function Card({ card, handleSwipe, isOnTop, index, deckLength }: Props) {
     }
   };
 
-  const { id, term, definition } = card;
-
   return (
     <motion.div
       className="w-full h-full preserve-3d hover:cursor-grab active:cursor-grabbing origin-bottom touch-action: pan-y"
@@ -78,12 +82,13 @@ export function Card({ card, handleSwipe, isOnTop, index, deckLength }: Props) {
         gridColumn: 1,
         x,
         y,
-        rotate: isOnTop ? topCardRotation : id % 2 ? 6 : -8,
+        rotate: isOnTop ? 0 : rotation,
         transformPerspective: 1000,
       }}
       animate={{
         rotateY: isFlipped ? 180 : 0,
         zIndex: deckLength - index,
+        rotate: isOnTop ? 0 : rotation,
       }}
       transition={{
         type: "spring",

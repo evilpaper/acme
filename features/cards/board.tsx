@@ -1,7 +1,6 @@
 import { Deck } from "./deck";
-import { useState } from "react";
 
-const Cards = [
+const CARDS = [
   {
     id: 1,
     term: "goroutine",
@@ -55,20 +54,17 @@ const Cards = [
 ];
 
 export function Board() {
-  const [deck, setDeck] = useState(Cards);
-
-  function moveToEnd() {
-    if (deck.length > 1) {
-      const topCard = deck[0];
-      const rest = deck.slice(1, deck.length);
-      setDeck([...rest, topCard]);
-    }
-  }
+  const preparedCards = CARDS.map((card) => {
+    return {
+      ...card,
+      rotation: card.id % 2 ? 6 : -8,
+    };
+  });
 
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
       <header className="w-[80%] flex flex-col items-center justify-center gap-4"></header>
-      <Deck deck={deck} handleSwipe={moveToEnd} />
+      <Deck preparedCards={preparedCards} />
     </section>
   );
 }
