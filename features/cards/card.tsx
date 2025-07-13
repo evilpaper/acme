@@ -22,7 +22,7 @@ interface Props {
 const SWIPE_THRESHOLD = 60;
 
 export function Card({ card, handleSwipe, isOnTop, index, deckLength }: Props) {
-  const { id, term, definition, rotation } = card;
+  const { id, front, back, rotation } = card;
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -112,10 +112,10 @@ export function Card({ card, handleSwipe, isOnTop, index, deckLength }: Props) {
       onDragEnd={handleDragEnd}
     >
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden ">
-        <CardFront id={id} term={term} />
+        <CardFront id={id} front={front} />
       </motion.div>
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
-        <CardBack id={id} definition={definition} />
+        <CardBack id={id} back={back} />
       </motion.div>
     </motion.div>
   );

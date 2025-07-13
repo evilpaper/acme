@@ -3,8 +3,8 @@ import { Card } from "./card";
 
 export interface PreparedCard {
   id: number;
-  term: string;
-  definition: string;
+  front: string;
+  back: string;
   rotation: number;
 }
 

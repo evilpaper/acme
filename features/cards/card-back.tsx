@@ -2,10 +2,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Props {
   id: number;
-  definition: string;
+  back: string;
 }
 
-export function CardBack({ id, definition }: Props) {
+export function CardBack({ id, back }: Props) {
   return (
     <Card className="w-full h-full flex flex-col absolute bg-primary text-primary-foreground rounded-2xl border-2 border-secondary/50">
       <CardHeader className="absolute">
@@ -14,7 +14,7 @@ export function CardBack({ id, definition }: Props) {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex justify-center items-center">
-        <p className="text-3xl font-bold tracking-tighter">{definition}</p>
+        <p className="text-3xl font-bold tracking-tighter">{back}</p>
       </CardContent>
     </Card>
   );
