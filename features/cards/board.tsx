@@ -3,53 +3,53 @@ import { Deck } from "./deck";
 const CARDS = [
   {
     id: 1,
-    front: "goroutine",
-    back: "Lightweight thread managed by the Go runtime.",
+    front: "What must every Go program start with?",
+    back: "package main",
   },
   {
     id: 2,
-    front: "channel",
-    back: "Pipe for goroutines to communicate and synchronize.",
+    front: "How do you import a package in Go?",
+    back: 'import "fmt"',
   },
   {
     id: 3,
-    front: "defer",
-    back: "Schedules a function to run after the current one ends.",
+    front: 'What does fmt.Println("Hi") do?',
+    back: 'Prints "Hi" to standard output',
   },
   {
     id: 4,
-    front: "struct",
-    back: "Custom data type that groups related fields.",
+    front: "How do you define a function in Go?",
+    back: "func name(params) returnType { ... }",
   },
   {
     id: 5,
-    front: "interface",
-    back: "Defines method sets for polymorphic behavior.",
+    front: "Can Go functions return multiple values?",
+    back: "Yes, with comma-separated return values",
   },
   {
     id: 6,
-    front: "slice",
-    back: "Dynamic, flexible view into an array.",
+    front: "What is the zero value of an int?",
+    back: "0",
   },
   {
     id: 7,
-    front: "go keyword",
-    back: "Starts a new goroutine.",
+    front: "What keyword declares a variable?",
+    back: "var",
   },
   {
     id: 8,
-    front: "map",
-    back: "Unordered key-value store.",
+    front: "How do you declare and initialize a variable?",
+    back: "var x = 3 or x := 3",
   },
   {
     id: 9,
-    front: "package",
-    back: "Unit of code organization in Go.",
+    front: "Where can variables be declared?",
+    back: "Inside or outside functions",
   },
   {
     id: 10,
-    front: "make",
-    back: "Initializes slices, maps, or channels.",
+    front: "How are exported names written in Go?",
+    back: "Start with a capital letter",
   },
 ];
 

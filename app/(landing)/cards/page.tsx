@@ -17,9 +17,9 @@ export const metadata = {
 const cards = [
   {
     id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
-    name: "A Tour of Go - Chapter 1",
+    name: "A Tour of Go",
     slug: "a-tour-of-go-chapter-1",
-    description: "A Tour of Go. Chapter 1 - Packages, variables and functions",
+    description: "Chapter 1 - Packages, variables and functions",
   },
 ];
 
