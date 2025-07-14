@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { decks } from "@/features/cards/data/data";
 
 export async function LandingScreen() {
+  const firstDeck = decks[0];
   return (
     <section className="mt-1 md:mt-10 flex flex-col pb-8 pt-8">
       <div className="align-center flex flex-col items-center">
@@ -15,7 +17,7 @@ export async function LandingScreen() {
         <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
           <Button asChild>
             <Link
-              href="/cards/javascript-101"
+              href={`/cards/${firstDeck.slug}`}
               className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
               <span>Try some cards</span>
