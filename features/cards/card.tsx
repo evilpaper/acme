@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardBack } from "./card-back";
 import { CardFront } from "./card-front";
-import { motion, useMotionValue, useTransform } from "motion/react";
+import { motion, useMotionValue } from "motion/react";
 import { PreparedCard } from "./deck";
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
   isOnTop: boolean;
   index: number;
   deckLength: number;
+  deckName: string;
 }
 
 /**
@@ -21,7 +22,14 @@ interface Props {
  */
 const SWIPE_THRESHOLD = 60;
 
-export function Card({ card, handleSwipe, isOnTop, index, deckLength }: Props) {
+export function Card({
+  card,
+  handleSwipe,
+  isOnTop,
+  index,
+  deckLength,
+  deckName,
+}: Props) {
   const { id, front, back, rotation } = card;
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -112,10 +120,10 @@ export function Card({ card, handleSwipe, isOnTop, index, deckLength }: Props) {
       onDragEnd={handleDragEnd}
     >
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden ">
-        <CardFront id={id} front={front} />
+        <CardFront id={id} front={front} deckName={deckName} />
       </motion.div>
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
-        <CardBack id={id} back={back} />
+        <CardBack id={id} back={back} deckName={deckName} />
       </motion.div>
     </motion.div>
   );

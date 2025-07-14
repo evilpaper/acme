@@ -1,8 +1,15 @@
+export type Card = {
+  id: number;
+  front: string;
+  back: string;
+};
+
 export type Deck = {
   id: string;
   name: string;
   slug: string;
   description: string;
+  cards: Card[];
 };
 
 // export type Question = {

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Card } from "./card";
 
@@ -10,9 +12,10 @@ export interface PreparedCard {
 
 interface Props {
   preparedCards: PreparedCard[];
+  name: string;
 }
 
-export function Deck({ preparedCards }: Props) {
+export function Deck({ preparedCards, name }: Props) {
   const [deck, setDeck] = useState(preparedCards);
 
   function moveToBack() {
@@ -39,6 +42,7 @@ export function Deck({ preparedCards }: Props) {
             isOnTop={isCardOnTop(card)}
             index={index}
             deckLength={deck.length}
+            deckName={name}
           />
         );
       })}

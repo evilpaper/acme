@@ -1,4 +1,5 @@
 import { CardsScreen } from "@/features/cards/cards-screen";
+import { decks } from "@/features/cards/data/data";
 
 export const metadata = {
   title: "Cards | ACME",
@@ -14,15 +15,6 @@ export const metadata = {
   },
 };
 
-const cards = [
-  {
-    id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
-    name: "A Tour of Go",
-    slug: "a-tour-of-go-chapter-1",
-    description: "Chapter 1 - Packages, variables and functions",
-  },
-];
-
 export default async function Page() {
-  return <CardsScreen cards={cards} />;
+  return <CardsScreen decks={decks} />;
 }

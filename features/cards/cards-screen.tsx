@@ -3,7 +3,7 @@ import { Deck } from "./data/types";
 import { Icons } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 
-export function CardsScreen({ cards }: { cards: Deck[] }) {
+export function CardsScreen({ decks }: { decks: Deck[] }) {
   return (
     <section className="container flex flex-col gap-10 px-0 md:max-w-[64rem] md:py-12">
       <article className="flex w-full flex-col gap-4 md:max-w-[58rem]">
@@ -17,8 +17,8 @@ export function CardsScreen({ cards }: { cards: Deck[] }) {
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {cards &&
-          cards.map(({ name, description, slug }) => {
+        {decks &&
+          decks.map(({ name, description, slug }) => {
             return (
               <article
                 key={slug}

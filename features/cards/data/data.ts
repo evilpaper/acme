@@ -1,6 +1,8 @@
 // import { sql } from "@vercel/postgres";
 // import { Quiz, Question, QuestionChoice, QuestionWithOptions } from "./types";
 
+import { Deck } from "./types";
+
 // export async function getQuizzes() {
 //   try {
 //     const data = await sql<Quiz>`
@@ -89,3 +91,64 @@
 //     throw new Error("Failed to fetch questions by quiz id.");
 //   }
 // }
+
+export const decks: Deck[] = [
+  {
+    id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
+    name: "A Tour of Go",
+    slug: "a-tour-of-go-chapter-1",
+    description: "Chapter 1 - Packages, variables and functions",
+    cards: [
+      {
+        id: 1,
+        front: "What must every Go program start with?",
+        back: "package main",
+      },
+      {
+        id: 2,
+        front: "How do you import a package in Go?",
+        back: 'import "fmt"',
+      },
+      {
+        id: 3,
+        front: 'What does fmt.Println("Hi") do?',
+        back: 'Prints "Hi" to standard output',
+      },
+      {
+        id: 4,
+        front: "How do you define a function in Go?",
+        back: "func name(params) returnType { ... }",
+      },
+      {
+        id: 5,
+        front: "Can Go functions return multiple values?",
+        back: "Yes, with comma-separated return values",
+      },
+      {
+        id: 6,
+        front: "What is the zero value of an int?",
+        back: "0",
+      },
+      {
+        id: 7,
+        front: "What keyword declares a variable?",
+        back: "var",
+      },
+      {
+        id: 8,
+        front: "How do you declare and initialize a variable?",
+        back: "var x = 3 or x := 3",
+      },
+      {
+        id: 9,
+        front: "Where can variables be declared?",
+        back: "Inside or outside functions",
+      },
+      {
+        id: 10,
+        front: "How are exported names written in Go?",
+        back: "Start with a capital letter",
+      },
+    ],
+  },
+];
