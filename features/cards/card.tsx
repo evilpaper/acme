@@ -120,7 +120,12 @@ export function Card({
       onDragEnd={handleDragEnd}
     >
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden ">
-        <CardFront id={id} front={front} deckName={deckName} />
+        <CardFront
+          id={id}
+          front={front}
+          deckName={deckName}
+          deckLength={deckLength}
+        />
       </motion.div>
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
         <CardBack id={id} back={back} deckName={deckName} />
