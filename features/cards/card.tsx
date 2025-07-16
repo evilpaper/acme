@@ -128,7 +128,12 @@ export function Card({
         />
       </motion.div>
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
-        <CardBack id={id} back={back} deckName={deckName} />
+        <CardBack
+          id={id}
+          back={back}
+          deckName={deckName}
+          deckLength={deckLength}
+        />
       </motion.div>
     </motion.div>
   );
