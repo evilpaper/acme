@@ -12,7 +12,8 @@ export async function LandingScreen() {
           it.
         </h1>
         <p className="mb-8 max-w-screen-sm text-center text-xl md:text-2xl">
-          Cards and quizzes for spaced repetition.
+          Cards and quizzes for <br />
+          spaced repetition for devs.
         </p>
         <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
           <Button asChild>
