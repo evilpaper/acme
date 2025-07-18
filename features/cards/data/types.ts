@@ -1,7 +1,7 @@
 export type Card = {
   id: number;
-  front: string;
-  back: string;
+  prompt: string;
+  answer: string;
 };
 
 export type Deck = {

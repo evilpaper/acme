@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { Card } from "./card";
+import type { Card as CardType } from "./data/types";
 
-export interface PreparedCard {
-  id: number;
-  front: string;
-  back: string;
+export interface PreparedCard extends CardType {
   rotation: number;
 }
 

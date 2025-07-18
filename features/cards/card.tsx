@@ -30,7 +30,7 @@ export function Card({
   deckLength,
   deckName,
 }: Props) {
-  const { id, front, back, rotation } = card;
+  const { id, prompt, answer, rotation } = card;
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -122,7 +122,7 @@ export function Card({
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden ">
         <CardFront
           id={id}
-          front={front}
+          front={prompt}
           deckName={deckName}
           deckLength={deckLength}
         />
@@ -130,7 +130,7 @@ export function Card({
       <motion.div className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180">
         <CardBack
           id={id}
-          back={back}
+          back={answer}
           deckName={deckName}
           deckLength={deckLength}
         />
