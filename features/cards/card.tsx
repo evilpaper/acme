@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardBack } from "./card-back";
 import { CardFront } from "./card-front";
-import { motion, useMotionValue } from "motion/react";
+import { motion, useMotionValue, useTransform } from "motion/react";
 import { PreparedCard } from "./deck";
 
 interface Props {
@@ -36,12 +36,12 @@ export function Card({
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  // const rotateRaw = useTransform(x, [-100, 100], [-10, 10]);
+  const rotateRaw = useTransform(x, [-100, 100], [-10, 10]);
 
-  // const rotate = useTransform(() => {
-  //   const offset = rotation;
-  //   return `${rotateRaw.get() + offset}deg`;
-  // });
+  const rotate = useTransform(() => {
+    const offset = isOnTop ? 0 : rotation;
+    return `${rotateRaw.get() + offset}deg`;
+  });
 
   function handleClick() {
     const isWithinThreshold = isDragWithinThreshold();
@@ -90,13 +90,13 @@ export function Card({
         gridColumn: 1,
         x,
         y,
-        rotate: isOnTop ? 0 : rotation,
+        rotate,
         transformPerspective: 1000,
+        transition: "0.125 transform",
       }}
       animate={{
         rotateY: isFlipped ? 180 : 0,
         zIndex: deckLength - index,
-        rotate: isOnTop ? 0 : rotation,
       }}
       transition={{
         type: "spring",

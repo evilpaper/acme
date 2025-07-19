@@ -17,11 +17,12 @@ export function Deck({ preparedCards, name }: Props) {
   const [deck, setDeck] = useState(preparedCards);
 
   function moveToBack() {
-    if (deck.length > 1) {
-      const topCard = deck[0];
-      const rest = deck.slice(1, deck.length);
-      setDeck([...rest, topCard]);
-    }
+    // if (deck.length > 1) {
+    //   const topCard = deck[0];
+    //   const rest = deck.slice(1, deck.length);
+    //   setDeck([...rest, topCard]);
+    // }
+    console.log("Swooosh!");
   }
 
   function isCardOnTop(card: { id: number }) {

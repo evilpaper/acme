@@ -13,9 +13,7 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
           Cards
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          Ridiculously effective flashcards. Flip, swipe, eat, repeat. Rules for
-          effectiveness. 20 cards in each deck. Atomic cards - 1-5 words on the
-          back. To-be-learned information on the back. Bland prompts.
+          Ridiculously effective flashcards. Flip, swipe, eat, repeat.
         </p>
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
