@@ -39,9 +39,8 @@ export function Card({
   const opacity = useTransform(x, [-160, -80, 80, 160], [0, 1, 1, 0]);
   const dragRotation = useTransform(x, [-100, 100], [-10, 10]);
 
-  // 1. Deck rotation motion value (initializes to 0 if on top, or to random rotation otherwise)
-  //    Animation to 0 when card becomes top is handled in the effect below.
-  const deckRotation = useMotionValue(isOnTop ? 0 : rotation);
+  // 1. Initialize deck rotation motion value
+  const deckRotation = useMotionValue(rotation);
 
   // 2. Combine deck rotation and drag rotation
   const rotate = useTransform([deckRotation, dragRotation], (values) => {
@@ -49,15 +48,13 @@ export function Card({
     return `${isOnTop ? deck + drag : deck}deg`;
   });
 
-  // Animate deckRotation to 0° when this card becomes the top card,
-  // and reset to its random rotation when it leaves the top.
-  // Ensures correct rotation during flip.
+  // Animate deckRotation to 0° when this card becomes the top card or,
   useEffect(() => {
     if (isOnTop) {
       // Animate to 0 with a spring
       animate(deckRotation, 0, { type: "spring", stiffness: 400, damping: 20 });
     } else {
-      // Instantly set to its random rotation when not on top
+      // Set to its default rotation when not on top
       deckRotation.set(rotation);
     }
   }, [isOnTop, rotation]);
