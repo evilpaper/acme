@@ -16,13 +16,8 @@ interface Props {
 export function Deck({ preparedCards, name }: Props) {
   const [deck, setDeck] = useState(preparedCards);
 
-  function moveToBack() {
-    // if (deck.length > 1) {
-    //   const topCard = deck[0];
-    //   const rest = deck.slice(1, deck.length);
-    //   setDeck([...rest, topCard]);
-    // }
-    console.log("Swooosh!");
+  function moveToBack(id: number) {
+    setDeck((pv) => pv.filter((v) => v.id !== id));
   }
 
   function isCardOnTop(card: { id: number }) {
