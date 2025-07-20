@@ -101,7 +101,7 @@ export const decks: Deck[] = [
     cards: [
       {
         id: 1,
-        prompt: "What must every Go program start with?",
+        prompt: "Start of Go programs",
         answer: "package main",
       },
       {

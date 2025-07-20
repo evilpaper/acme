@@ -20,7 +20,7 @@ interface Props {
  * - If dragged distance ≤ this threshold: card stays in place and can be flipped
  * - If dragged distance > this threshold: card is swiped to the back of the deck
  */
-const SWIPE_THRESHOLD = 110;
+const SWIPE_THRESHOLD = 86;
 
 export function Card({
   card,
@@ -36,7 +36,7 @@ export function Card({
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const opacity = useTransform(x, [-150, -100, 100, 150], [0, 1, 1, 0]);
+  const opacity = useTransform(x, [-160, -80, 80, 160], [0, 1, 1, 0]);
   const rotateRaw = useTransform(x, [-100, 100], [-10, 10]);
 
   // 1. Deck rotation (animates to 0 when on top)
