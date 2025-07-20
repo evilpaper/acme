@@ -37,12 +37,21 @@ export function Card({
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const opacity = useTransform(x, [-160, -80, 80, 160], [0, 1, 1, 0]);
-  const rotateRaw = useTransform(x, [-100, 100], [-10, 10]);
+  const dragRotation = useTransform(x, [-100, 100], [-10, 10]);
 
-  // 1. Deck rotation (animates to 0 when on top)
+  // 1. Deck rotation motion value (initializes to 0 if on top, or to random rotation otherwise)
+  //    Animation to 0 when card becomes top is handled in the effect below.
   const deckRotation = useMotionValue(isOnTop ? 0 : rotation);
 
-  // Animate to 0 when this card becomes the top card
+  // 2. Combine deck rotation and drag rotation
+  const rotate = useTransform([deckRotation, dragRotation], (values) => {
+    const [deck, drag] = values as [number, number];
+    return `${isOnTop ? deck + drag : deck}deg`;
+  });
+
+  // Animate deckRotation to 0° when this card becomes the top card,
+  // and reset to its random rotation when it leaves the top.
+  // Ensures correct rotation during flip.
   useEffect(() => {
     if (isOnTop) {
       // Animate to 0 with a spring
@@ -51,13 +60,7 @@ export function Card({
       // Instantly set to its random rotation when not on top
       deckRotation.set(rotation);
     }
-  }, [isOnTop, rotateRaw, rotation]);
-
-  // 2. Combine deck rotation and drag rotation
-  const rotate = useTransform([deckRotation, rotateRaw], (values) => {
-    const [deck, drag] = values as [number, number];
-    return `${isOnTop ? deck + drag : deck}deg`;
-  });
+  }, [isOnTop, rotation]);
 
   function handleClick() {
     const isWithinThreshold = isDragWithinThreshold();
