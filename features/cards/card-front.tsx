@@ -12,7 +12,9 @@ export function CardFront({ id, front, deckName, deckLength }: Props) {
     <Card className="w-full h-full flex flex-col absolute overflow-hidden rounded-2xl border-2 border-primary/60">
       <CardHeader className="absolute w-full">
         <CardTitle className="flex justify-between">
-          <p className="text-xs text-primary/80">{deckName}</p>
+          <p className="text-xs font-light tracking-normal text-primary/80">
+            {deckName}
+          </p>
           <p className="text-xs text-primary/80">{`${id}/${deckLength}`}</p>
         </CardTitle>
       </CardHeader>

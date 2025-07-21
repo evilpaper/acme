@@ -18,26 +18,29 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {decks &&
-          decks.map(({ name, description, slug }) => {
+          decks.map(({ suite, name, description, slug }) => {
             return (
               <article
                 key={slug}
-                className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 aspect-[6/8]"
+                className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 aspect-[6/8]"
               >
-                <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
-                  {name}
-                </h1>
-                <div className="flex flex-col items-center justify-between gap-8">
-                  <h3 className="text-center text-xl">{description}</h3>
-                  <Button asChild>
-                    <Link
-                      href={`/cards/${slug}`}
-                      className="flex h-11 w-fit gap-2 rounded-md px-8"
-                    >
-                      <span>Start</span>
-                      <Icons.arrowRight />
-                    </Link>
-                  </Button>
+                <p className="text-lg">{suite}</p>
+                <div className="flex flex-col gap-4">
+                  <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl">
+                    {name}
+                  </h1>
+                  <div className="flex flex-col justify-between gap-8">
+                    <h3 className="text-lg">{description}</h3>
+                    <Button asChild className="w-full">
+                      <Link
+                        href={`/cards/${slug}`}
+                        className="flex h-11 w-fit gap-2 rounded-md px-8"
+                      >
+                        <span>Start</span>
+                        <Icons.arrowRight />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </article>
             );

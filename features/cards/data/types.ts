@@ -6,6 +6,7 @@ export type Card = {
 
 export type Deck = {
   id: string;
+  suite: string;
   name: string;
   slug: string;
   description: string;

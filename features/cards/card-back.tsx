@@ -12,7 +12,9 @@ export function CardBack({ id, back, deckName, deckLength }: Props) {
     <Card className="w-full h-full flex flex-col absolute bg-primary text-primary-foreground rounded-2xl border-2 border-secondary/50">
       <CardHeader className="absolute w-full">
         <CardTitle className="flex justify-between">
-          <p className="text-xs text-primary-foreground/80">{deckName}</p>
+          <p className="text-xs font-light tracking-normal text-primary-foreground/80">
+            {deckName}
+          </p>
           <p className="text-xs text-primary-foreground/80">{`${id}/${deckLength}`}</p>
         </CardTitle>
       </CardHeader>

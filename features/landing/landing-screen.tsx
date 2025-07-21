@@ -12,8 +12,8 @@ export async function LandingScreen() {
           it.
         </h1>
         <p className="mb-8 max-w-screen-sm text-center text-xl md:text-2xl">
-          Cards and quizzes for <br />
-          spaced repetition for devs.
+          Spaced repetition flashcards
+          <br /> and quizzes for developers.
         </p>
         <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
           <Button asChild>
@@ -21,15 +21,15 @@ export async function LandingScreen() {
               href={`/cards/${firstDeck.slug}`}
               className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
-              <span>Try a deck</span>
+              <span>Try a deck of cards</span>
             </Link>
           </Button>
           <Button asChild variant="outline">
             <Link
-              href="/cards"
+              href="/quizzes"
               className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
-              <span>See all decks</span>
+              <span>Try a quiz</span>
             </Link>
           </Button>
         </div>
