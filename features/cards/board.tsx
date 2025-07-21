@@ -20,7 +20,7 @@ export function Board({ slug }: { slug: string }) {
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
       <header className="w-[80%] flex flex-col items-center justify-center gap-4"></header>
-      <Deck preparedCards={preparedCards} name={deck.name} />
+      <Deck preparedCards={preparedCards} name={deck.name} suite={deck.suite} />
     </section>
   );
 }

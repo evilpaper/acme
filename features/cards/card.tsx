@@ -11,6 +11,7 @@ interface Props {
   index: number;
   deckLength: number;
   deckName: string;
+  deckSuite: string;
 }
 
 /**
@@ -20,7 +21,7 @@ interface Props {
  * - If dragged distance ≤ this threshold: card stays in place and can be flipped
  * - If dragged distance > this threshold: card is swiped to the back of the deck
  */
-const SWIPE_THRESHOLD = 86;
+const SWIPE_THRESHOLD = 80;
 
 export function Card({
   card,
@@ -29,6 +30,7 @@ export function Card({
   index,
   deckLength,
   deckName,
+  deckSuite,
 }: Props) {
   const { id, prompt, answer, rotation } = card;
   const [isFlipped, setIsFlipped] = useState(false);
@@ -36,7 +38,7 @@ export function Card({
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const opacity = useTransform(x, [-160, -80, 80, 160], [0, 1, 1, 0]);
+  const opacity = useTransform(x, [-160, -76, 76, 160], [0, 1, 1, 0]);
   const dragRotation = useTransform(x, [-100, 100], [-10, 10]);
 
   // 1. Initialize deck rotation motion value
@@ -146,6 +148,7 @@ export function Card({
           front={prompt}
           deckName={deckName}
           deckLength={deckLength}
+          deckSuite={deckSuite}
         />
       </motion.div>
       <motion.div
@@ -159,6 +162,7 @@ export function Card({
           back={answer}
           deckName={deckName}
           deckLength={deckLength}
+          deckSuite={deckSuite}
         />
       </motion.div>
     </motion.div>

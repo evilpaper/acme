@@ -5,21 +5,26 @@ interface Props {
   front: string;
   deckName: string;
   deckLength: number;
+  deckSuite: string;
 }
 
-export function CardFront({ id, front, deckName, deckLength }: Props) {
+export function CardFront({
+  id,
+  front,
+  deckName,
+  deckLength,
+  deckSuite,
+}: Props) {
   return (
     <Card className="w-full h-full flex flex-col absolute overflow-hidden rounded-2xl border-2 border-primary/60">
       <CardHeader className="absolute w-full">
         <CardTitle className="flex justify-between">
-          <p className="text-xs font-light tracking-normal text-primary/80">
-            {deckName}
-          </p>
-          <p className="text-xs text-primary/80">{`${id}/${deckLength}`}</p>
+          <p className="text-xs font-light tracking-normal">{deckName}</p>
+          <p className="text-xs font-light">{`${id}`}</p>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex items-start mt-16">
-        <p className="text-2xl font-bold tracking-tighter leading-[1.6rem]">
+        <p className="text-2xl font-bold tracking-tighter leading-[1.8rem]">
           {front}
         </p>
       </CardContent>

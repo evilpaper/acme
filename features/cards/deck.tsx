@@ -11,9 +11,10 @@ export interface PreparedCard extends CardType {
 interface Props {
   preparedCards: PreparedCard[];
   name: string;
+  suite: string;
 }
 
-export function Deck({ preparedCards, name }: Props) {
+export function Deck({ preparedCards, name, suite }: Props) {
   const [deck, setDeck] = useState(preparedCards);
 
   function moveToBack(id: number) {
@@ -37,6 +38,7 @@ export function Deck({ preparedCards, name }: Props) {
             index={index}
             deckLength={deck.length}
             deckName={name}
+            deckSuite={suite}
           />
         );
       })}
