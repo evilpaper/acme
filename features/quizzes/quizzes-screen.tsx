@@ -22,7 +22,7 @@ export function QuizzesScreen({ quizzes }: { quizzes: Quiz[] }) {
             return (
               <article
                 key={slug}
-                className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-lg border bg-background p-8 aspect-[6/8]"
+                className="flex flex-col items-center justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 aspect-[6/8]"
               >
                 <h1 className="text-center text-3xl font-bold leading-tight tracking-tighter md:text-5xl">
                   {name}

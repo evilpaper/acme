@@ -17,7 +17,9 @@ export function CardFront({ id, front, deckName, deckLength }: Props) {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex items-start mt-16">
-        <p className="text-2xl font-bold tracking-tighter">{front}</p>
+        <p className="text-2xl font-bold tracking-tighter leading-[1.6rem]">
+          {front}
+        </p>
       </CardContent>
     </Card>
   );
