@@ -10,11 +10,11 @@ interface Props {
 
 export function CardBack({ id, back, deckName, deckLength, deckSuite }: Props) {
   return (
-    <Card className="w-full h-full flex flex-col absolute bg-primary text-primary-foreground rounded-2xl border-2 border-secondary">
+    <Card className="w-full h-full flex flex-col absolute bg-primary text-primary-foreground rounded-2xl border-2 border-primary">
       <CardHeader className="absolute w-full">
         <CardTitle className="flex justify-between">
-          <p className="text-base">{id}</p>
-          <p className="text-base">{deckLength}</p>
+          <p className="text-sm">A</p>
+          <p className="text-sm">{id}</p>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex items-start mt-16">

@@ -19,8 +19,8 @@ export function CardFront({
     <Card className="w-full h-full flex flex-col absolute overflow-hidden rounded-2xl border-2 border-primary">
       <CardHeader className="absolute w-full">
         <CardTitle className="flex justify-between">
-          <p className="text-base">{id}</p>
-          <p className="text-base">{deckLength}</p>
+          <p className="text-sm">Q</p>
+          <p className="text-sm">{id}</p>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex items-start mt-16">

@@ -133,7 +133,7 @@ export const decks: Deck[] = [
       {
         id: 7,
         prompt: "Type location in declaration",
-        answer: "after name",
+        answer: "After name",
       },
       {
         id: 8,
@@ -162,7 +162,7 @@ export const decks: Deck[] = [
       },
       {
         id: 13,
-        prompt: "Import grouping	( )",
+        prompt: "Import grouping ( )",
         answer: "block",
       },
       {
@@ -173,33 +173,67 @@ export const decks: Deck[] = [
       {
         id: 15,
         prompt: "Return multiple values",
-        answer: "comma-separated",
+        answer: "Comma-separated",
       },
       {
         id: 16,
         prompt: "Exported function rule",
-        answer: "capital letter",
+        answer: "Capital letter",
       },
       {
         id: 17,
         prompt: "Scope level of var",
-        answer: "both",
+        answer: "Both",
       },
       {
         id: 18,
         prompt: "Function return type placement",
-        answer: "after params",
+        answer: "After params",
       },
       {
         id: 19,
         prompt: "Return with names",
-        answer: "naked return",
+        answer: "Naked return",
       },
       {
         id: 20,
         prompt: "Function call syntax",
         answer: "name()",
       },
+    ],
+  },
+  {
+    id: "b7e2e2c2-2f3a-4e7a-9c1d-2e4b8e7f9c3a", // Replace with a new UUID if needed
+    suite: "A Tour of Go",
+    name: "Flow control statements: for, if, else, switch and defer",
+    slug: "a-tour-of-go-chapter-2",
+    description:
+      "Learn how to control the flow of your code with conditionals, loops, switches and defers.",
+    cards: [
+      { id: 1, prompt: "Only loop keyword in Go", answer: "for" },
+      { id: 2, prompt: "Breaks out of loop", answer: "break" },
+      { id: 3, prompt: "Skips current loop step", answer: "continue" },
+      { id: 4, prompt: "Initial value in for loop", answer: "Optional" },
+      { id: 5, prompt: "Loop condition location", answer: "After init" },
+      { id: 6, prompt: "Infinite loop keyword", answer: "for" },
+      { id: 7, prompt: "Condition without parentheses.", answer: "Yes" },
+      { id: 8, prompt: "If statement parentheses required?", answer: "No" },
+      { id: 9, prompt: "If statement curly braces required?", answer: "Yes" },
+      { id: 10, prompt: "If can include", answer: "var declaration" },
+      { id: 11, prompt: "Scope of if declaration", answer: "Local" },
+      { id: 12, prompt: "Switch keyword", answer: "switch" },
+      { id: 13, prompt: "Default case in switch", answer: "default" },
+      { id: 14, prompt: "Case fallthrough", answer: "default: no" },
+      { id: 15, prompt: "Manual fallthrough keyword", answer: "fallthrough" },
+      { id: 16, prompt: "Executes after function", answer: "defer" },
+      { id: 17, prompt: "Defer call timing.", answer: "End of function" },
+      { id: 18, prompt: "Defer order", answer: "LIFO" },
+      {
+        id: 19,
+        prompt: "Multiple defer calls.",
+        answer: "Executed in reverse",
+      },
+      { id: 20, prompt: "Defer often used for", answer: "Cleanup" },
     ],
   },
 ];
