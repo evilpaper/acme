@@ -128,10 +128,10 @@ export function Card({
         top: 0,
         bottom: 0,
       }}
-      dragElastic={0.8}
+      dragElastic={0.9}
       dragTransition={{
-        bounceStiffness: 400,
-        bounceDamping: 54,
+        bounceStiffness: 600,
+        bounceDamping: 50,
       }}
       onClick={handleClick}
       onDragStart={handleDragStart}
