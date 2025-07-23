@@ -16,7 +16,7 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
           Ridiculously effective flashcards. Flip, swipe, eat, repeat.
         </p>
       </article>
-      <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid justify-center gap-4 md:grid-cols-2 xl:grid-cols-3">
         {decks &&
           decks.map(({ suite, name, description, slug }) => {
             return (
@@ -24,13 +24,13 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
                 key={slug}
                 className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 aspect-[6/8]"
               >
-                <p className="text-lg">{suite}</p>
+                <p className="text-base">{suite}</p>
                 <div className="flex flex-col gap-4">
-                  <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl">
+                  <h1 className="text-4xl md:text-3xl font-bold leading-10 md:leading-tight tracking-tighter">
                     {name}
                   </h1>
                   <div className="flex flex-col justify-between gap-8">
-                    <h3 className="text-lg">{description}</h3>
+                    <h3 className="text-base">{description}</h3>
                     <Button asChild className="w-full">
                       <Link
                         href={`/cards/${slug}`}
