@@ -27,7 +27,10 @@ export function Deck({ preparedCards, name, suite }: Props) {
   }
 
   return (
-    <div className="perspective grid place-items-center w-[min(100%,280px)] aspect-[5/7] mb-6">
+    <div className="perspective grid place-items-center w-[min(100%,280px)] aspect-[5/7] mb-6 relative">
+      <div className="absolute">
+        <p>The end</p>
+      </div>
       {deck.map((card, index) => {
         return (
           <Card
