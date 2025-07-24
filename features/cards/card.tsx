@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { CardBack } from "./card-back";
-import { CardFront } from "./card-front";
 import { animate, motion, useMotionValue, useTransform } from "motion/react";
 import { PreparedCard } from "./deck";
 
@@ -143,13 +141,12 @@ export function Card({
           opacity,
         }}
       >
-        <CardFront
-          id={id}
-          front={prompt}
-          deckName={deckName}
-          deckLength={deckLength}
-          deckSuite={deckSuite}
-        />
+        <div className="w-full h-full border-solid border-primary border-2 bg-card rounded-2xl flex items-start p-8 relative text-primary">
+          <span className="absolute bottom-6 right-8 font-bold">{id}</span>
+          <p className="text-2xl font-bold tracking-tight leading-[1.8rem]">
+            {prompt}
+          </p>
+        </div>
       </motion.div>
       <motion.div
         className="w-full h-full flex flex-col absolute backface-hidden rotate-y-180"
@@ -157,13 +154,12 @@ export function Card({
           opacity,
         }}
       >
-        <CardBack
-          id={id}
-          back={answer}
-          deckName={deckName}
-          deckLength={deckLength}
-          deckSuite={deckSuite}
-        />
+        <div className="w-full h-full border-solid border-primary border-2 bg-card rounded-2xl flex items-center justify-center p-8 pb-20 relative text-primary">
+          <span className="absolute bottom-6 right-8 font-bold">{id}</span>
+          <p className="text-2xl font-bold tracking-tight leading-[1.8rem] text-center">
+            {answer}
+          </p>
+        </div>
       </motion.div>
     </motion.div>
   );
