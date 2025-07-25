@@ -13,6 +13,36 @@ import {
 const features = [
   {
     id: crypto.randomUUID(),
+    name: "Drag and Drop Flip Cards", // Main feature, what you are here for.
+    description: "Complex, fully-featured Drag and Drop.",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "App Feel", // Showcase skill.
+    description: "Page Transitions. Smooth animations.",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Free to Use. Fair Play Guarantee", // Openness, showcase without lock-in
+    description: "Completely free to use with no pay-to-win elements.",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Achievement-Based Progression", // Sign in, auth, user handling, persistence.
+    description:
+      "Unlock additional visual themes through dedicated play and earn milestone achievements. Using local storage and personal account.",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "Global Contribution", // Real-time muliplayer
+    description:
+      "Every flip joins the worldwide counter, visible to all players in real-time",
+  },
+];
+
+const technologies = [
+  {
+    id: crypto.randomUUID(),
     name: "Next.js",
     description: "App dir, Routing, Layouts, Loading UI and API routes.",
     icon: <NextIcon />,
@@ -25,47 +55,46 @@ const features = [
   },
   {
     id: crypto.randomUUID(),
-    name: "Database",
-    description: "Postgres: Scalable SQL for the web, deployed on Vercel.",
+    name: "Neon",
+    description: "Open-source Postgres database.",
     icon: <DatabaseIcon />,
   },
   {
     id: crypto.randomUUID(),
     name: "Components",
-    description:
-      "UI components built using shadcn/ui and styled with Tailwind CSS.",
+    description: "Custom and shadcn/ui components. Styled with Tailwind CSS.",
     icon: <ComponentsIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: "Authentication",
-    description: "Authentication using Auth.js and middlewares.",
+    name: "Auth.js",
+    description: "Authentication and middlewares.",
     icon: <AuthenticationIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: "Animations",
-    description: "Smooth, high-performance animations with Motion.",
+    name: "Motion",
+    description: "Smooth, high-performance animations.",
     icon: <AnimationIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: "Hosting",
+    name: "Vercel",
     description:
-      "Scalable infrastructure, secure data handling and automated deployment process with Vercel.",
+      "Hsting. Scalable infrastructure, secure data handling and automated deployment process.",
     icon: <HostingIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: "Translations",
+    name: "Languine",
     description:
-      "Automated localization, brand voice and tone consistency with Languine. Coming soon...",
+      "Automated localization, brand voice and tone consistency. Coming soon...",
     icon: <TranslationsIcon />,
   },
   {
     id: crypto.randomUUID(),
-    name: "Subscriptions",
-    description: "Free and paid subscriptions using Polar. Coming soon...",
+    name: "Polar",
+    description: "Free and paid subscriptions. Coming soon...",
     icon: <SubscriptionsIcon />,
   },
 ];
@@ -81,18 +110,18 @@ export async function FeaturesScreen() {
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
           Well, maybe not. This project is a playground application. Built for
-          fun. Current features...are coming soon.
+          fun. List of features are coming soon...we think.
         </p>
       </article>
       <article className="flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2
           className={`align-center mt-8 max-w-screen-md text-4xl font-bold leading-tight tracking-tighter md:text-6xl`}
         >
-          Technologies used
+          Technologies
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          Here's a list of the technologies used. In many ways it's a shameless
-          copy of shadcn's{" "}
+          Everything here is a work in progress and subject to change. It's
+          built in the same spirit as shadcn's{" "}
           <a
             href="https://tx.shadcn.com/"
             target="_blank"
@@ -101,21 +130,21 @@ export async function FeaturesScreen() {
           >
             Taxonomy
           </a>
-          . Check that one out if you like that kind of thing.
+          , check that out if you’re into this kind of thing.
         </p>
       </article>
       <article className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-        {features.map((feature) => {
+        {technologies.map(({ id, icon, name, description }) => {
           return (
             <article
               className="relative overflow-hidden rounded-lg border bg-background p-2"
-              key={feature.id}
+              key={id}
             >
               <div className="flex flex-col justify-between rounded-md p-6">
-                {feature.icon}
+                {icon}
                 <div className="mt-4 space-y-2">
-                  <h3 className="text-xl font-bold">{feature.name}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <h3 className="text-xl font-bold">{name}</h3>
+                  <p className="text-muted-foreground">{description}</p>
                 </div>
               </div>
             </article>
