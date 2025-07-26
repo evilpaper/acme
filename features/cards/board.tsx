@@ -2,27 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Deck } from "./deck";
 import { decks } from "@/features/cards/data/data";
 import { Icons } from "@/components/ui/icons";
+import type { Card as CardType } from "./data/types";
 
-export function Board({ slug }: { slug: string }) {
-  const deck = decks.find((deck) => deck.slug === slug);
+export interface PreparedCard extends CardType {
+  rotation: number;
+}
 
-  if (!deck) {
-    return null;
-  }
+interface Props {
+  preparedCards: PreparedCard[];
+  name: string;
+  suite: string;
+}
 
-  const cards = deck.cards;
-
-  const preparedCards = cards.map((card) => {
-    return {
-      ...card,
-      rotation: card.id % 2 ? 6 : -8,
-    };
-  });
-
+export function Board({ preparedCards, name, suite }: Props) {
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
       <header className="w-[80%] flex flex-col items-center justify-center gap-4"></header>
-      <Deck preparedCards={preparedCards} name={deck.name} suite={deck.suite} />
+      <Deck preparedCards={preparedCards} name={name} suite={suite} />
       <div
         id="actions"
         className="flex items-center justify-center w-full  gap-4 relative z-10"
