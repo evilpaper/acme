@@ -20,7 +20,7 @@ export async function LandingScreen() {
               href={`/cards/${firstDeck.slug}`}
               className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
-              <span>Try some cards</span>
+              <span>Try</span>
             </Link>
           </Button>
           <Button asChild variant="outline">
@@ -28,7 +28,7 @@ export async function LandingScreen() {
               href="/cards"
               className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
-              <span>See all cards</span>
+              <span>Browse decks</span>
             </Link>
           </Button>
         </div>

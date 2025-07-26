@@ -64,12 +64,12 @@ export function Card({
   let drivenActionLeftScale = useTransform(
     x,
     [SWIPE_THRESHOLD * -1, 0, SWIPE_THRESHOLD],
-    [1.4, 1, 0.3],
+    [1.4, 1, 0.6],
   );
   let drivenActionRightScale = useTransform(
     x,
     [SWIPE_THRESHOLD * -1, 0, SWIPE_THRESHOLD],
-    [0.3, 1, 1.4],
+    [0.6, 1, 1.4],
   );
 
   // Animate deckRotation to 0° when this card becomes the top card or,
