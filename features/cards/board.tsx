@@ -30,16 +30,16 @@ export function Board({ slug }: { slug: string }) {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full border-primary border-2 p-2"
+          className="rounded-full border-primary border-2"
         >
-          <Icons.check />
+          <Icons.close />
         </Button>
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full border-primary border-2 p-2"
+          className="rounded-full border-primary border-2"
         >
-          <Icons.add />
+          <Icons.check />
         </Button>
       </div>
     </section>
