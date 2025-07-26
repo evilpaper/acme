@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Card } from "./card";
 import type { Card as CardType } from "./data/types";
 
@@ -12,13 +12,29 @@ interface Props {
   preparedCards: PreparedCard[];
   name: string;
   suite: string;
+  setCardDrivenProps: Dispatch<
+    SetStateAction<{
+      buttonScaleBadAnswer: number;
+      buttonScaleGoodAnswer: number;
+    }>
+  >;
 }
 
-export function Deck({ preparedCards, name, suite }: Props) {
+export function Deck({
+  preparedCards,
+  name,
+  suite,
+  setCardDrivenProps,
+}: Props) {
   const [deck, setDeck] = useState(preparedCards);
 
   function moveToBack(id: number) {
     setDeck((pv) => pv.filter((v) => v.id !== id));
+    setCardDrivenProps((state) => ({
+      ...state,
+      buttonScaleBadAnswer: 1,
+      buttonScaleGoodAnswer: 1,
+    }));
   }
 
   function isCardOnTop(card: { id: number }) {
@@ -42,6 +58,7 @@ export function Deck({ preparedCards, name, suite }: Props) {
             deckLength={deck.length}
             deckName={name}
             deckSuite={suite}
+            setCardDrivenProps={setCardDrivenProps}
           />
         );
       })}

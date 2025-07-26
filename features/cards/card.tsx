@@ -1,5 +1,11 @@
-import { useEffect, useState } from "react";
-import { animate, motion, useMotionValue, useTransform } from "motion/react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import {
+  animate,
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  useTransform,
+} from "motion/react";
 import { PreparedCard } from "./deck";
 
 interface Props {
@@ -10,6 +16,12 @@ interface Props {
   deckLength: number;
   deckName: string;
   deckSuite: string;
+  setCardDrivenProps: Dispatch<
+    SetStateAction<{
+      buttonScaleBadAnswer: number;
+      buttonScaleGoodAnswer: number;
+    }>
+  >;
 }
 
 /**
@@ -29,6 +41,7 @@ export function Card({
   deckLength,
   deckName,
   deckSuite,
+  setCardDrivenProps,
 }: Props) {
   const { id, prompt, answer, rotation } = card;
   const [isFlipped, setIsFlipped] = useState(false);
@@ -48,6 +61,17 @@ export function Card({
     return `${isOnTop ? deck + drag : deck}deg`;
   });
 
+  let drivenActionLeftScale = useTransform(
+    x,
+    [SWIPE_THRESHOLD * -1, 0, SWIPE_THRESHOLD],
+    [1.4, 1, 0.3],
+  );
+  let drivenActionRightScale = useTransform(
+    x,
+    [SWIPE_THRESHOLD * -1, 0, SWIPE_THRESHOLD],
+    [0.3, 1, 1.4],
+  );
+
   // Animate deckRotation to 0° when this card becomes the top card or,
   useEffect(() => {
     if (isOnTop) {
@@ -58,6 +82,15 @@ export function Card({
       deckRotation.set(rotation);
     }
   }, [isOnTop, rotation]);
+
+  useMotionValueEvent(x, "change", (latest) => {
+    //@ts-ignore
+    setCardDrivenProps((state) => ({
+      ...state,
+      buttonScaleBadAnswer: drivenActionLeftScale,
+      buttonScaleGoodAnswer: drivenActionRightScale,
+    }));
+  });
 
   function handleClick() {
     const isWithinThreshold = isDragWithinThreshold();
