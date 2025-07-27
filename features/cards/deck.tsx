@@ -4,12 +4,8 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Card } from "./card";
 import type { Card as CardType } from "./data/types";
 
-export interface PreparedCard extends CardType {
-  rotation: number;
-}
-
 interface Props {
-  preparedCards: PreparedCard[];
+  cards: CardType[];
   name: string;
   suite: string;
   setCardDrivenProps: Dispatch<
@@ -20,13 +16,8 @@ interface Props {
   >;
 }
 
-export function Deck({
-  preparedCards,
-  name,
-  suite,
-  setCardDrivenProps,
-}: Props) {
-  const [deck, setDeck] = useState(preparedCards);
+export function Deck({ cards, name, suite, setCardDrivenProps }: Props) {
+  const [deck, setDeck] = useState(cards);
 
   function moveToBack(id: number) {
     setDeck((pv) => pv.filter((v) => v.id !== id));

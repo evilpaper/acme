@@ -6,10 +6,10 @@ import {
   useMotionValueEvent,
   useTransform,
 } from "motion/react";
-import { PreparedCard } from "./deck";
+import { Card as CardType } from "./data/types";
 
 interface Props {
-  card: PreparedCard;
+  card: CardType;
   handleSwipe: (id: number) => void;
   isOnTop: boolean;
   index: number;
@@ -43,7 +43,7 @@ export function Card({
   deckSuite,
   setCardDrivenProps,
 }: Props) {
-  const { id, prompt, answer, rotation } = card;
+  const { id, prompt, answer } = card;
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -52,6 +52,7 @@ export function Card({
   const opacity = useTransform(x, [-160, -76, 76, 160], [0, 1, 1, 0]);
   const dragRotation = useTransform(x, [-100, 100], [-10, 10]);
 
+  const rotation = card.id % 2 ? 6 : -8;
   // 1. Initialize deck rotation motion value
   const deckRotation = useMotionValue(rotation);
 

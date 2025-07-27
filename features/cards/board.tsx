@@ -7,12 +7,8 @@ import type { Card as CardType } from "./data/types";
 import { useState } from "react";
 import { motion } from "motion/react";
 
-export interface PreparedCard extends CardType {
-  rotation: number;
-}
-
 interface Props {
-  preparedCards: PreparedCard[];
+  cards: CardType[];
   name: string;
   suite: string;
 }
@@ -22,14 +18,14 @@ const initialDrivenProps = {
   buttonScaleGoodAnswer: 1,
 };
 
-export function Board({ preparedCards, name, suite }: Props) {
+export function Board({ cards, name, suite }: Props) {
   const [cardDrivenProps, setCardDrivenProps] = useState(initialDrivenProps);
 
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
       <header className="w-[80%] flex flex-col items-center justify-center gap-4"></header>
       <Deck
-        preparedCards={preparedCards}
+        cards={cards}
         name={name}
         suite={suite}
         setCardDrivenProps={setCardDrivenProps}
