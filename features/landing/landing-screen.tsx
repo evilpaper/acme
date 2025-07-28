@@ -28,7 +28,7 @@ export async function LandingScreen() {
               href="/cards"
               className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
             >
-              <span>Browse decks</span>
+              <span>All cards</span>
             </Link>
           </Button>
         </div>

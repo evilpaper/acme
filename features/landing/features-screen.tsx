@@ -1,15 +1,3 @@
-import {
-  AnimationIcon,
-  AuthenticationIcon,
-  ComponentsIcon,
-  DatabaseIcon,
-  HostingIcon,
-  NextIcon,
-  ReactIcon,
-  SubscriptionsIcon,
-  TranslationsIcon,
-} from "@/components/ui/feature-icons";
-
 const features = [
   {
     id: crypto.randomUUID(),
@@ -45,57 +33,49 @@ const technologies = [
     id: crypto.randomUUID(),
     name: "Next.js",
     description: "App dir, Routing, Layouts, Loading UI and API routes.",
-    icon: <NextIcon />,
   },
   {
     id: crypto.randomUUID(),
     name: "React",
     description: "Server and Client Components. Use hook.",
-    icon: <ReactIcon />,
   },
   {
     id: crypto.randomUUID(),
     name: "Neon",
-    description: "Open-source Postgres database.",
-    icon: <DatabaseIcon />,
+    description: "Serverless Postgres database.",
   },
   {
     id: crypto.randomUUID(),
-    name: "Components",
-    description: "Custom and shadcn/ui components. Styled with Tailwind CSS.",
-    icon: <ComponentsIcon />,
+    name: "shadcn/ui",
+    description:
+      "Customized and extendable components built using Radix UI and styled with Tailwind CSS.",
   },
   {
     id: crypto.randomUUID(),
     name: "Auth.js",
-    description: "Authentication and middlewares.",
-    icon: <AuthenticationIcon />,
+    description: "Runtime agnostic authentication based on standard Web APIs.",
   },
   {
     id: crypto.randomUUID(),
     name: "Motion",
     description: "Smooth, high-performance animations.",
-    icon: <AnimationIcon />,
   },
   {
     id: crypto.randomUUID(),
     name: "Vercel",
     description:
-      "Hsting. Scalable infrastructure, secure data handling and automated deployment process.",
-    icon: <HostingIcon />,
+      "Scalable infrastructure and hosting. Secure data handling and automated deployment process.",
   },
   {
     id: crypto.randomUUID(),
     name: "Languine",
     description:
       "Automated localization, brand voice and tone consistency. Coming soon...",
-    icon: <TranslationsIcon />,
   },
   {
     id: crypto.randomUUID(),
     name: "Polar",
     description: "Free and paid subscriptions. Coming soon...",
-    icon: <SubscriptionsIcon />,
   },
 ];
 
@@ -120,8 +100,8 @@ export async function FeaturesScreen() {
           Technologies
         </h2>
         <p className="align-center text-lg leading-normal text-muted-foreground sm:leading-7 md:max-w-[85%]">
-          Everything here is a work in progress and subject to change. It's
-          built in the same spirit as shadcn's{" "}
+          Everything here is by it's nature subjected to change. Built in the
+          same spirit as shadcn's{" "}
           <a
             href="https://tx.shadcn.com/"
             target="_blank"
@@ -130,22 +110,19 @@ export async function FeaturesScreen() {
           >
             Taxonomy
           </a>
-          , check that out if you’re into this kind of thing.
+          . Will try to use modern technologies. At least try to.
         </p>
       </article>
       <article className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-        {technologies.map(({ id, icon, name, description }) => {
+        {technologies.map(({ id, name, description }) => {
           return (
             <article
               className="relative overflow-hidden rounded-lg border bg-background p-2"
               key={id}
             >
               <div className="flex flex-col justify-between rounded-md p-6">
-                {icon}
-                <div className="mt-4 space-y-2">
-                  <h3 className="text-xl font-bold">{name}</h3>
-                  <p className="text-muted-foreground">{description}</p>
-                </div>
+                <h3 className="text-xl font-bold">{name}</h3>
+                <p className="text-muted-foreground">{description}</p>
               </div>
             </article>
           );

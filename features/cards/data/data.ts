@@ -292,4 +292,34 @@ export const decks: Deck[] = [
       { id: 26, prompt: "Can functions be closures?", answer: "Yes" },
     ],
   },
+  {
+    id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
+    suite: "6502 Assembly",
+    name: "Basics",
+    slug: "6502-assembly-basics",
+    description: "Dip your toes into 6502 Assembler",
+    cards: [
+      { id: 1, prompt: "8 bits grouped together?", answer: "Byte" },
+      {
+        id: 2,
+        prompt: "Possible nnumber of combinations a byte can take?",
+        answer: "256 (0-255)",
+      },
+      {
+        id: 3,
+        prompt: "Analog to memory locations and registers?",
+        answer: "Variables",
+      },
+      {
+        id: 4,
+        prompt: "Symbol indicating a variable is a binary number?",
+        answer: "%",
+      },
+      {
+        id: 5,
+        prompt: "Symbol indicating a variable is a Hexadecimal number?",
+        answer: "$",
+      },
+    ],
+  },
 ];
