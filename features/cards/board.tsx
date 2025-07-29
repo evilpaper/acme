@@ -6,6 +6,7 @@ import { Icons } from "@/components/ui/icons";
 import type { Card as CardType } from "./data/types";
 import { useState } from "react";
 import { motion } from "motion/react";
+import { Progress } from "@/components/ui/progress";
 
 interface Props {
   cards: CardType[];
@@ -20,15 +21,19 @@ const initialDrivenProps = {
 
 export function Board({ cards, name, suite }: Props) {
   const [cardDrivenProps, setCardDrivenProps] = useState(initialDrivenProps);
+  const [currentCard, setCurrentCard] = useState(0);
 
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
-      <header className="w-[80%] flex flex-col items-center justify-center gap-4"></header>
+      <header className="w-[80%] flex flex-col items-center justify-center gap-4">
+        <Progress value={(currentCard / cards.length) * 100} />
+      </header>
       <Deck
         cards={cards}
         name={name}
         suite={suite}
         setCardDrivenProps={setCardDrivenProps}
+        setCurrentCard={setCurrentCard}
       />
       <div
         id="actions"

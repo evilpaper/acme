@@ -14,13 +14,21 @@ interface Props {
       buttonScaleGoodAnswer: number;
     }>
   >;
+  setCurrentCard: Dispatch<SetStateAction<number>>;
 }
 
-export function Deck({ cards, name, suite, setCardDrivenProps }: Props) {
+export function Deck({
+  cards,
+  name,
+  suite,
+  setCardDrivenProps,
+  setCurrentCard,
+}: Props) {
   const [deck, setDeck] = useState(cards);
 
   function moveToBack(id: number) {
     setDeck((pv) => pv.filter((v) => v.id !== id));
+    setCurrentCard((pv) => pv + 1);
     setCardDrivenProps((state) => ({
       ...state,
       buttonScaleBadAnswer: 1,
