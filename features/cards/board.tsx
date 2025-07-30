@@ -34,7 +34,7 @@ export function Board({ cards, name, suite }: Props) {
         name={name}
         suite={suite}
         setCardDrivenProps={setCardDrivenProps}
-        setCurrentCard={setCurrentCard}
+        onCardSwipe={() => setCurrentCard((prev) => prev + 1)}
       />
       <div
         id="actions"
