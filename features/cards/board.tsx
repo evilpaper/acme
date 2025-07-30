@@ -25,9 +25,10 @@ export function Board({ cards, name, suite }: Props) {
 
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
-      <header className="w-[80%] flex flex-col items-center justify-center gap-4">
-        <Progress value={(currentCard / cards.length) * 100} />
-      </header>
+      <Progress
+        className="w-[80%]"
+        value={(currentCard / cards.length) * 100}
+      />
       <Deck
         cards={cards}
         name={name}
