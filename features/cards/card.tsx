@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   animate,
   motion,
@@ -16,12 +16,7 @@ interface Props {
   deckLength: number;
   deckName: string;
   deckSuite: string;
-  setCardDrivenProps: Dispatch<
-    SetStateAction<{
-      buttonScaleBadAnswer: number;
-      buttonScaleGoodAnswer: number;
-    }>
-  >;
+  onButtonScaleChange: (scales: { left: number; right: number }) => void;
 }
 
 /**
@@ -41,7 +36,7 @@ export function Card({
   deckLength,
   deckName,
   deckSuite,
-  setCardDrivenProps,
+  onButtonScaleChange,
 }: Props) {
   const { id, prompt, answer } = card;
   const [isFlipped, setIsFlipped] = useState(false);
@@ -84,13 +79,12 @@ export function Card({
     }
   }, [isOnTop, rotation]);
 
-  useMotionValueEvent(x, "change", (latest) => {
-    //@ts-ignore
-    setCardDrivenProps((state) => ({
-      ...state,
-      buttonScaleBadAnswer: drivenActionLeftScale,
-      buttonScaleGoodAnswer: drivenActionRightScale,
-    }));
+  // Update button scales when x changes
+  useMotionValueEvent(x, "change", () => {
+    onButtonScaleChange({
+      left: drivenActionLeftScale.get(),
+      right: drivenActionRightScale.get(),
+    });
   });
 
   function handleClick() {

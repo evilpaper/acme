@@ -1,6 +1,4 @@
-"use client";
-
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { Card } from "./card";
 import type { Card as CardType } from "./data/types";
 
@@ -8,32 +6,26 @@ interface Props {
   cards: CardType[];
   name: string;
   suite: string;
-  setCardDrivenProps: Dispatch<
-    SetStateAction<{
-      buttonScaleBadAnswer: number;
-      buttonScaleGoodAnswer: number;
-    }>
-  >;
+
   onCardSwipe: () => void;
+  onButtonScaleChange: (scales: { left: number; right: number }) => void;
 }
 
 export function Deck({
   cards,
   name,
   suite,
-  setCardDrivenProps,
   onCardSwipe,
+  onButtonScaleChange,
 }: Props) {
   const [deck, setDeck] = useState(cards);
 
   function moveToBack(id: number) {
     setDeck((pv) => pv.filter((v) => v.id !== id));
     onCardSwipe();
-    setCardDrivenProps((state) => ({
-      ...state,
-      buttonScaleBadAnswer: 1,
-      buttonScaleGoodAnswer: 1,
-    }));
+    // Reset button scales when a card is moved to the back
+    // TODO: This is a hack to reset the button scales when a card is moved to the back. Changes this later.
+    onButtonScaleChange({ left: 1, right: 1 });
   }
 
   function isCardOnTop(card: { id: number }) {
@@ -57,7 +49,7 @@ export function Deck({
             deckLength={deck.length}
             deckName={name}
             deckSuite={suite}
-            setCardDrivenProps={setCardDrivenProps}
+            onButtonScaleChange={onButtonScaleChange}
           />
         );
       })}

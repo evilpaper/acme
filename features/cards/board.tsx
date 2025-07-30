@@ -20,8 +20,8 @@ const initialDrivenProps = {
 };
 
 export function Board({ cards, name, suite }: Props) {
-  const [cardDrivenProps, setCardDrivenProps] = useState(initialDrivenProps);
   const [currentCard, setCurrentCard] = useState(0);
+  const [buttonScales, setButtonScales] = useState({ left: 1, right: 1 });
 
   return (
     <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
@@ -33,14 +33,14 @@ export function Board({ cards, name, suite }: Props) {
         cards={cards}
         name={name}
         suite={suite}
-        setCardDrivenProps={setCardDrivenProps}
         onCardSwipe={() => setCurrentCard((prev) => prev + 1)}
+        onButtonScaleChange={setButtonScales}
       />
       <div
         id="actions"
         className="flex items-center justify-center w-full gap-4 relative z-10"
       >
-        <motion.div style={{ scale: cardDrivenProps.buttonScaleBadAnswer }}>
+        <motion.div style={{ scale: buttonScales.left }}>
           <Button
             variant="outline"
             size="icon"
@@ -55,7 +55,7 @@ export function Board({ cards, name, suite }: Props) {
         >
           Flip
         </Button>
-        <motion.div style={{ scale: cardDrivenProps.buttonScaleGoodAnswer }}>
+        <motion.div style={{ scale: buttonScales.right }}>
           <Button
             variant="outline"
             size="icon"
