@@ -16,19 +16,21 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
           Ridiculously effective flashcards. Flip, swipe, eat, repeat.
         </p>
       </article>
-      <div className="mx-auto grid justify-center gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {decks &&
           decks.map(({ suite, name, description, slug }) => {
             return (
               <article
                 key={slug}
-                className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 aspect-[6/8]"
+                className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 min-h-[360px]"
               >
-                <p className="text-base">{suite}</p>
-                <div className="flex flex-col gap-4">
-                  <h1 className="text-4xl md:text-3xl font-bold leading-10 md:leading-tight tracking-tighter">
+                <header className="flex flex-col gap-2">
+                  <p className="text-base">{suite}</p>
+                  <h1 className="text-3xl sm:text-3xl lg:text-2xl font-bold md:leading-tight tracking-tighter">
                     {name}
                   </h1>
+                </header>
+                <div className="flex flex-col gap-4">
                   <div className="flex flex-col justify-between gap-8">
                     <h3 className="text-base">{description}</h3>
                     <Button asChild className="w-full">

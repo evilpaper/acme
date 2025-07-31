@@ -295,7 +295,7 @@ export const decks: Deck[] = [
   {
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
     suite: "6502 Assembly",
-    name: "Basics",
+    name: "Basics fo Assembly",
     slug: "6502-assembly-basics",
     description: "Dip your toes into 6502 Assembler",
     cards: [
@@ -325,7 +325,7 @@ export const decks: Deck[] = [
   {
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
     suite: "TypeScript",
-    name: "Basics",
+    name: "Basics types",
     slug: "typescript-basics",
     description: "Dive into TypeScript fundamentals",
     cards: [
