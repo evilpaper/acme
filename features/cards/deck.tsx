@@ -6,10 +6,11 @@ interface Props {
   cards: CardType[];
   name: string;
   suite: string;
-
   onCardSwipe: () => void;
   onButtonScaleChange: (scales: { left: number; right: number }) => void;
 }
+
+const VISIBLE_CARDS = 4;
 
 export function Deck({
   cards,
@@ -33,12 +34,15 @@ export function Deck({
     return deck[0].id === card.id;
   }
 
+  // Only render the top 4 cards
+  const cardsToRender = deck.slice(0, VISIBLE_CARDS);
+
   return (
     <div className="grid place-items-center w-[min(100%,280px)] aspect-[5/7] mb-6 relative">
       <div className="absolute">
         <p>The end</p>
       </div>
-      {deck.map((card, index) => {
+      {cardsToRender.map((card, index) => {
         return (
           <Card
             card={card}
