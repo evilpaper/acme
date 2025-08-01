@@ -24,8 +24,10 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
                 key={slug}
                 className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 min-h-[360px]"
               >
-                <header className="flex flex-col gap-2">
-                  <p className="text-base">{suite}</p>
+                <header className="flex flex-col gap-4">
+                  <p className="border border-foreground/90 rounded-lg px-2 py-1 w-fit flex items-center justify-center">
+                    <span className="text-sm font-semibold">{suite}</span>
+                  </p>
                   <h1 className="text-3xl sm:text-3xl lg:text-2xl font-bold md:leading-tight tracking-tighter">
                     {name}
                   </h1>
