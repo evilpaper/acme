@@ -24,7 +24,7 @@ export function Board({ cards, name, suite }: Props) {
   const [buttonScales, setButtonScales] = useState({ left: 1, right: 1 });
 
   return (
-    <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10">
+    <section className="w-[min(100%,320px)] mx-auto flex flex-col items-center justify-center gap-10 z-10">
       <Progress
         className="w-[80%]"
         value={(currentCard / cards.length) * 100}

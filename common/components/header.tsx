@@ -32,15 +32,15 @@ export function Header({ session }: { session: Session | null }) {
     setIsNavOpen((old) => !old);
   }
   return (
-    <nav className="flex items-center justify-between py-6">
+    <nav className="flex items-center justify-between py-6 z-20">
       {/* Mobile */}
-      <button className="z-20 w-16 md:hidden" onClick={handleNavClick}>
+      <button className="z-40 w-16 md:hidden" onClick={handleNavClick}>
         {isNavOpen ? <Icons.close /> : <Icons.hamburger />}
       </button>
       <div
         data-state={isNavOpen ? "open" : "closed"}
         className={
-          "fixed inset-0 z-10 flex h-screen w-full flex-col items-start justify-between bg-background p-6 py-28 transition-transform duration-300 data-[state=closed]:-translate-x-full data-[state=open]:translate-x-0"
+          "fixed inset-0 z-30 flex h-screen w-full flex-col items-start justify-between bg-background p-6 py-28 transition-transform duration-300 data-[state=closed]:-translate-x-full data-[state=open]:translate-x-0"
         }
       >
         <ul className="flex flex-col items-start justify-between gap-12">
