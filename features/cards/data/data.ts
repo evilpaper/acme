@@ -94,6 +94,7 @@ import { Deck } from "./types";
 
 export const decks: Deck[] = [
   {
+    topic: "Go",
     id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     suite: "A Tour of Go",
     name: "Packages, variables and functions",
@@ -163,6 +164,7 @@ export const decks: Deck[] = [
     ],
   },
   {
+    topic: "Go",
     id: "b7e2e2c2-2f3a-4e7a-9c1d-2e4b8e7f9c3a",
     suite: "A Tour of Go",
     name: "Flow control statements: for, if, else, switch and defer",
@@ -233,6 +235,7 @@ export const decks: Deck[] = [
     ],
   },
   {
+    topic: "Go",
     id: "2cc42781-8970-4fda-acbc-11c8e7044dc0",
     suite: "A Tour of Go",
     name: "More types: structs, slices and maps",
@@ -293,6 +296,7 @@ export const decks: Deck[] = [
     ],
   },
   {
+    topic: "Assembly",
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
     suite: "6502 Assembly",
     name: "Basics fo Assembly",
@@ -323,6 +327,7 @@ export const decks: Deck[] = [
     ],
   },
   {
+    topic: "TypeScript",
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
     suite: "TypeScript",
     name: "Basics types",
