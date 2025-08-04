@@ -299,7 +299,7 @@ export const decks: Deck[] = [
     topic: "Assembly",
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
     suite: "6502 Assembly",
-    name: "Basics fo Assembly",
+    name: "Assembly Basics",
     slug: "6502-assembly-basics",
     description: "Dip your toes into 6502 Assembler",
     cards: [
@@ -329,8 +329,8 @@ export const decks: Deck[] = [
   {
     topic: "TypeScript",
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
-    suite: "TypeScript",
-    name: "Basics types",
+    suite: "TypeScript Documentation",
+    name: "TypeScript basic types",
     slug: "typescript-basics",
     description: "Dive into TypeScript fundamentals",
     cards: [

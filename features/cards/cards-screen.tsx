@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Deck } from "./data/types";
-import { Icons } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 
 export function CardsScreen({ decks }: { decks: Deck[] }) {
@@ -25,27 +24,22 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
                 className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 min-h-[360px]"
               >
                 <header className="flex flex-col gap-4">
-                  <p className="border border-foreground/90 rounded-lg px-2 py-1 w-fit flex items-center justify-center">
-                    <span className="text-sm font-semibold">{suite}</span>
-                  </p>
-                  <h1 className="text-3xl sm:text-3xl lg:text-2xl font-bold md:leading-tight tracking-tighter">
+                  <h1 className="text-2xl font-bold">{suite}</h1>
+                  <h2 className="text-xl font-semibold leading-tight">
                     {name}
-                  </h1>
+                  </h2>
+                  <p className="text-base text-muted-foreground">
+                    {description}
+                  </p>
                 </header>
-                <div className="flex flex-col gap-4">
-                  <div className="flex flex-col justify-between gap-8">
-                    <h3 className="text-base">{description}</h3>
-                    <Button asChild className="w-full">
-                      <Link
-                        href={`/cards/${slug}`}
-                        className="flex h-11 w-fit gap-2 rounded-md px-8"
-                      >
-                        <span>Start</span>
-                        <Icons.arrowRight />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
+                <Button asChild className="w-full" variant="outline">
+                  <Link
+                    href={`/cards/${slug}`}
+                    className="flex h-11 w-fit gap-2 rounded-md px-8"
+                  >
+                    <span>Open cards</span>
+                  </Link>
+                </Button>
               </article>
             );
           })}
