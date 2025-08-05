@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Deck } from "./data/types";
 import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/ui/icons";
 
 export function CardsScreen({ decks }: { decks: Deck[] }) {
   return (
@@ -24,22 +25,29 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
                 className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 min-h-[360px]"
               >
                 <header className="flex flex-col gap-4">
-                  <h1 className="text-2xl font-bold">{suite}</h1>
-                  <h2 className="text-xl font-semibold leading-tight">
+                  <h1 className="text-2xl font-bold leading-tight tracking-tight">
+                    {suite}
+                  </h1>
+                  <h2 className="text-xl leading-tight tracking-tight font-medium">
                     {name}
                   </h2>
-                  <p className="text-base text-muted-foreground">
-                    {description}
-                  </p>
                 </header>
-                <Button asChild className="w-full" variant="outline">
-                  <Link
-                    href={`/cards/${slug}`}
-                    className="flex h-11 w-fit gap-2 rounded-md px-8"
-                  >
-                    <span>Open cards</span>
-                  </Link>
-                </Button>
+                <section className="flex flex-col justify-between gap-4 min-h-[50%]">
+                  <section className="flex flex-col gap-2">
+                    <p className="text-base text-muted-foreground">
+                      {description}
+                    </p>
+                  </section>
+                  <Button asChild className="w-full" variant="ghost">
+                    <Link
+                      href={`/cards/${slug}`}
+                      className="flex h-11 w-fit gap-2 rounded-md px-8"
+                    >
+                      <span className="font-medium">Study</span>
+                      <Icons.arrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                </section>
               </article>
             );
           })}
