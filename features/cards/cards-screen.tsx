@@ -28,9 +28,7 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
                   <h1 className="text-2xl font-bold leading-tight tracking-tight">
                     {suite}
                   </h1>
-                  <h2 className="text-xl leading-tight tracking-tight font-medium">
-                    {name}
-                  </h2>
+                  <h2 className="text-xl leading-tight font-medium">{name}</h2>
                 </header>
                 <section className="flex flex-col justify-between gap-4 min-h-[50%]">
                   <section className="flex flex-col gap-2">
