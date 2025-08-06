@@ -5,20 +5,13 @@ import type { Card as CardType } from "./data/types";
 interface Props {
   cards: CardType[];
   name: string;
-  suite: string;
   onCardSwipe: () => void;
   onButtonScaleChange: (scales: { left: number; right: number }) => void;
 }
 
 const VISIBLE_CARDS = 4;
 
-export function Deck({
-  cards,
-  name,
-  suite,
-  onCardSwipe,
-  onButtonScaleChange,
-}: Props) {
+export function Deck({ cards, name, onCardSwipe, onButtonScaleChange }: Props) {
   const [deck, setDeck] = useState(cards);
 
   function moveToBack(id: number) {
@@ -34,7 +27,7 @@ export function Deck({
     return deck[0].id === card.id;
   }
 
-  // Only render the top 4 cards
+  // Only render the top 4 cards for performance reasons
   const cardsToRender = deck.slice(0, VISIBLE_CARDS);
 
   return (
@@ -52,7 +45,6 @@ export function Deck({
             index={index}
             deckLength={deck.length}
             deckName={name}
-            deckSuite={suite}
             onButtonScaleChange={onButtonScaleChange}
           />
         );

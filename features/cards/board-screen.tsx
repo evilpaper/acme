@@ -8,5 +8,8 @@ export function BoardScreen({ slug }: { slug: string }) {
     return null;
   }
 
-  return <Board cards={deck.cards} name={deck.name} suite={deck.suite} />;
+  // Pick 20 random cards
+  const randomCards = deck.cards.sort(() => Math.random() - 0.5).slice(0, 20);
+
+  return <Board cards={randomCards} name={deck.name} />;
 }

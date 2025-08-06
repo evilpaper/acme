@@ -15,7 +15,6 @@ interface Props {
   index: number;
   deckLength: number;
   deckName: string;
-  deckSuite: string;
   onButtonScaleChange: (scales: { left: number; right: number }) => void;
 }
 
@@ -35,7 +34,6 @@ export function Card({
   index,
   deckLength,
   deckName,
-  deckSuite,
   onButtonScaleChange,
 }: Props) {
   const { id, prompt, answer } = card;

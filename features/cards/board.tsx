@@ -11,7 +11,6 @@ import { Progress } from "@/components/ui/progress";
 interface Props {
   cards: CardType[];
   name: string;
-  suite: string;
 }
 
 const initialDrivenProps = {
@@ -19,7 +18,7 @@ const initialDrivenProps = {
   buttonScaleGoodAnswer: 1,
 };
 
-export function Board({ cards, name, suite }: Props) {
+export function Board({ cards, name }: Props) {
   const [currentCard, setCurrentCard] = useState(0);
   const [buttonScales, setButtonScales] = useState({ left: 1, right: 1 });
 
@@ -32,7 +31,6 @@ export function Board({ cards, name, suite }: Props) {
       <Deck
         cards={cards}
         name={name}
-        suite={suite}
         onCardSwipe={() => setCurrentCard((prev) => prev + 1)}
         onButtonScaleChange={setButtonScales}
       />

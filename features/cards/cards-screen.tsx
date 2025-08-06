@@ -18,7 +18,7 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
       </article>
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {decks &&
-          decks.map(({ suite, name, description, slug }) => {
+          decks.map(({ name, description, slug }) => {
             return (
               <article
                 key={slug}

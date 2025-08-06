@@ -7,7 +7,6 @@ export type Card = {
 export type Deck = {
   id: string;
   topic: string;
-  suite: string;
   name: string;
   slug: string;
   description: string;
