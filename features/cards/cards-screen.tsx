@@ -25,17 +25,14 @@ export function CardsScreen({ decks }: { decks: Deck[] }) {
                 className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 min-h-[360px]"
               >
                 <header className="flex flex-col gap-4">
-                  <h1 className="text-2xl font-bold leading-tight tracking-tight">
-                    {suite}
+                  <h1 className="text-2xl font-bold leading-tight tracking-tight text-primary/90">
+                    {name}
                   </h1>
-                  <h2 className="text-xl leading-tight font-medium">{name}</h2>
+                  <p className="text-base text-muted-foreground">
+                    {description}
+                  </p>
                 </header>
-                <section className="flex flex-col justify-between gap-4 min-h-[50%]">
-                  <section className="flex flex-col gap-2">
-                    <p className="text-base text-muted-foreground">
-                      {description}
-                    </p>
-                  </section>
+                <section className="flex flex-col justify-between gap-4">
                   <Button asChild className="w-full" variant="ghost">
                     <Link
                       href={`/cards/${slug}`}
