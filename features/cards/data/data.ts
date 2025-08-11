@@ -99,7 +99,7 @@ export const decks: Deck[] = [
     name: "A Tour of Go",
     slug: "a-tour-of-go",
     description:
-      "Welcome to a tour of the Go programming language. The tour covers the most important features of the language.",
+      "Based on the A Tour of Go, the interactive introduction on Go's homepage.",
     cards: [
       {
         id: 1,
@@ -310,7 +310,7 @@ export const decks: Deck[] = [
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
     name: "TypeScript Handbook",
     slug: "typescript-handbook",
-    description: "A great practice for your daily TS work.",
+    description: "Based on the TypeScript Handbook from TypeScript's docs.",
     cards: [
       { id: 1, prompt: "What type is used for true/false?", answer: "boolean" },
       { id: 2, prompt: "What type stores numbers?", answer: "number" },

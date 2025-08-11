@@ -46,6 +46,7 @@ export function Card({
   const dragRotation = useTransform(x, [-100, 100], [-10, 10]);
 
   const rotation = card.id % 2 ? 6 : -8;
+
   // 1. Initialize deck rotation motion value
   const deckRotation = useMotionValue(rotation);
 
@@ -180,7 +181,7 @@ export function Card({
           opacity,
         }}
       >
-        <div className="w-full h-full border-solid border-primary border-2 bg-card rounded-2xl flex items-center justify-center p-8 pb-20 relative text-primary">
+        <div className="w-full h-full border-solid border-primary border-2 rounded-2xl flex items-center justify-center p-8 pb-20 relative text-primary bg-secondary">
           <span className="absolute bottom-6 right-8 font-bold">{id}</span>
           <p className="text-2xl font-bold tracking-tight leading-[1.8rem] text-center">
             {answer}

@@ -9,7 +9,7 @@ interface Props {
   onButtonScaleChange: (scales: { left: number; right: number }) => void;
 }
 
-const VISIBLE_CARDS = 4;
+const VISIBLE_CARDS = 5;
 
 export function Deck({ cards, name, onCardSwipe, onButtonScaleChange }: Props) {
   const [deck, setDeck] = useState(cards);
