@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Deck } from "./deck";
 import { Icons } from "@/components/ui/icons";
 import type { Card as CardType } from "./data/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Progress } from "@/components/ui/progress";
 
@@ -12,11 +12,6 @@ interface Props {
   cards: CardType[];
   name: string;
 }
-
-const initialDrivenProps = {
-  buttonScaleBadAnswer: 1,
-  buttonScaleGoodAnswer: 1,
-};
 
 export function Board({ cards, name }: Props) {
   const [currentCard, setCurrentCard] = useState(0);

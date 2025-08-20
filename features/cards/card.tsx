@@ -169,7 +169,7 @@ export function Card({
         }}
       >
         <div className="w-full h-full border-solid border-primary border-2 bg-card rounded-2xl flex items-start p-8 relative text-primary">
-          <span className="absolute bottom-6 right-8 font-bold">{id}</span>
+          <span className="absolute bottom-6 left-6">{deckName}</span>
           <p className="text-2xl font-bold tracking-tight leading-[1.8rem]">
             {prompt}
           </p>
@@ -182,7 +182,7 @@ export function Card({
         }}
       >
         <div className="w-full h-full border-solid border-primary border-2 rounded-2xl flex items-center justify-center p-8 pb-20 relative text-primary bg-secondary">
-          <span className="absolute bottom-6 right-8 font-bold">{id}</span>
+          <span className="absolute bottom-6 left-6">{deckName}</span>
           <p className="text-2xl font-bold tracking-tight leading-[1.8rem] text-center">
             {answer}
           </p>

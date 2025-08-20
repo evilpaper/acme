@@ -19,7 +19,7 @@ export function Deck({ cards, name, onCardSwipe, onButtonScaleChange }: Props) {
     onCardSwipe();
     // Reset button scales when a card is moved to the back
     // TODO: This is a hack to reset the button scales when a card is moved to the back. Changes this later.
-    onButtonScaleChange({ left: 1, right: 1 });
+    // onButtonScaleChange({ left: 1, right: 1 });
   }
 
   function isCardOnTop(card: { id: number }) {
@@ -27,7 +27,7 @@ export function Deck({ cards, name, onCardSwipe, onButtonScaleChange }: Props) {
     return deck[0].id === card.id;
   }
 
-  // Only render the top 4 cards for performance reasons
+  // Only render the top VISIBLE_CARDS cards for performance reasons
   const cardsToRender = deck.slice(0, VISIBLE_CARDS);
 
   return (
