@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "./card";
 import type { Card as CardType } from "./data/types";
+import { AnimatePresence } from "motion/react";
 
 interface Props {
   cards: CardType[];
@@ -14,7 +15,7 @@ const VISIBLE_CARDS = 5;
 export function Deck({ cards, name, onCardSwipe, onButtonScaleChange }: Props) {
   const [deck, setDeck] = useState(cards);
 
-  function moveToBack(id: number) {
+  function removeCard(id: number) {
     setDeck((pv) => pv.filter((v) => v.id !== id));
     onCardSwipe();
     // Reset button scales when a card is moved to the back
@@ -40,7 +41,7 @@ export function Deck({ cards, name, onCardSwipe, onButtonScaleChange }: Props) {
           <Card
             card={card}
             key={card.id}
-            handleSwipe={moveToBack}
+            handleSwipe={removeCard}
             isOnTop={isCardOnTop(card)}
             index={index}
             deckLength={deck.length}
