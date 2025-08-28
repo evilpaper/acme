@@ -42,7 +42,7 @@ export function Card({
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const opacity = useTransform(x, [-160, -76, 76, 160], [0, 1, 1, 0]);
+  const opacity = useTransform(x, [-160, -76, 76, 160], [0.2, 1, 1, 0.2]);
   const dragRotation = useTransform(x, [-100, 100], [-10, 10]);
 
   const rotation = card.id % 2 ? 6 : -8;

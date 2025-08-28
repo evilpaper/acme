@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { decks } from "@/features/cards/data/data";
+import { Icons } from "@/components/ui/icons";
 
 export async function LandingScreen() {
-  const firstDeck = decks[0];
   return (
     <section className="mt-1 md:mt-10 flex flex-col pb-8 pt-8">
       <div className="align-center flex flex-col items-center">
@@ -14,23 +14,38 @@ export async function LandingScreen() {
         <p className="mb-8 max-w-screen-sm text-center text-xl md:text-2xl">
           Cards for spaced repetition
         </p>
-        <div className="mb-8 flex flex-col flex-wrap gap-6 sm:flex-row">
-          <Button asChild>
-            <Link
-              href={`/cards/${firstDeck.slug}`}
-              className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
-            >
-              <span>Try</span>
-            </Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link
-              href="/cards"
-              className="rounded-md px-8 py-6 text-lg flex justify-center items-center"
-            >
-              <span>All cards</span>
-            </Link>
-          </Button>
+        <div className="mb-8 md:max-w-[64rem]">
+          <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {decks &&
+              decks.map(({ name, description, slug }) => {
+                return (
+                  <article
+                    key={slug}
+                    className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 min-h-[360px]"
+                  >
+                    <header className="flex flex-col gap-4">
+                      <h1 className="text-2xl font-bold leading-tight tracking-tight text-primary/90">
+                        {name}
+                      </h1>
+                      <p className="text-base text-muted-foreground">
+                        {description}
+                      </p>
+                    </header>
+                    <section className="flex flex-col justify-between gap-4">
+                      <Button asChild className="w-full" variant="ghost">
+                        <Link
+                          href={`/cards/${slug}`}
+                          className="flex h-11 w-fit gap-2 rounded-md px-8"
+                        >
+                          <span className="font-medium">Study</span>
+                          <Icons.arrowRight className="w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </section>
+                  </article>
+                );
+              })}
+          </div>
         </div>
       </div>
     </section>
