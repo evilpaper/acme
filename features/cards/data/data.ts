@@ -98,8 +98,7 @@ export const decks: Deck[] = [
     id: "8d22b780-1b06-4c90-8e54-d91812f55cc0",
     name: "A Tour of Go",
     slug: "a-tour-of-go",
-    description:
-      "Based on the A Tour of Go, the interactive introduction on Go's homepage.",
+    description: "Based on the official introduction on Go's homepage.",
     cards: [
       {
         id: 1,
@@ -280,7 +279,7 @@ export const decks: Deck[] = [
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
     name: "6502 Assembly",
     slug: "6502-assembly",
-    description: "Get started with 6502 assembly language.",
+    description: "Various aspects of the 6502 assembly language.",
     cards: [
       { id: 1, prompt: "8 bits grouped together?", answer: "Byte" },
       {
