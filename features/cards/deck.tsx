@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Card } from "./card";
 import type { Card as CardType } from "./data/types";
-import { AnimatePresence } from "motion/react";
 
 interface Props {
   cards: CardType[];

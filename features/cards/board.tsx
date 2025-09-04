@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Deck } from "./deck";
 import { Icons } from "@/components/ui/icons";
 import type { Card as CardType } from "./data/types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Progress } from "@/components/ui/progress";
 
