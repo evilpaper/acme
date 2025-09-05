@@ -16,8 +16,9 @@ export const Deck = forwardRef<CardRef, Props>(
     const [deck, setDeck] = useState(cards);
 
     function removeCard(id: number) {
-      // setDeck((pv) => pv.filter((v) => v.id !== id));
+      setDeck((pv) => pv.filter((v) => v.id !== id));
       onCardSwipe();
+      onButtonScaleChange({ left: 1, right: 1 });
     }
 
     function isCardOnTop(card: { id: number }) {

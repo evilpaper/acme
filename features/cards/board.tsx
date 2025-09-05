@@ -42,7 +42,7 @@ export function Board({ cards, name }: Props) {
         id="actions"
         className="flex items-center justify-center w-full gap-4 relative z-10"
       >
-        <motion.div style={{ scale: buttonScales.left }}>
+        <motion.div animate={{ scale: buttonScales.right }}>
           <Button
             variant="outline"
             size="icon"
@@ -58,7 +58,7 @@ export function Board({ cards, name }: Props) {
         >
           Flip
         </Button>
-        <motion.div style={{ scale: buttonScales.right }}>
+        <motion.div animate={{ scale: buttonScales.left }}>
           <Button
             variant="outline"
             size="icon"
