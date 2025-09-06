@@ -9,6 +9,11 @@ import { motion } from "motion/react";
 import { Progress } from "@/components/ui/progress";
 import { CardRef } from "./card";
 
+/**
+ * Refactor, define all deck manipulation logic on this level ato be able to
+ * connect the buttons at the botton to the deck manipulation logic.
+ */
+
 interface Props {
   cards: CardType[];
   name: string;
