@@ -68,12 +68,6 @@ const technologies = [
   },
   {
     id: crypto.randomUUID(),
-    name: "Languine",
-    description:
-      "Automated localization, brand voice and tone consistency. Coming soon...",
-  },
-  {
-    id: crypto.randomUUID(),
     name: "Polar",
     description: "Free and paid subscriptions. Coming soon...",
   },

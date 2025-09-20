@@ -24,15 +24,16 @@ Thought it to be a good way to test out new technologies, practice concepts etc.
 - Authentication using **NextAuth.js**
 - Database on **Vercel Postgres**
 - UI Components built using **shadnc/ui**
-- Subscriptions using **Stripe**
 - Styled using **Tailwind CSS**
 - Validations using **Zod**
 - Written in **TypeScript**
 
 ## Roadmap
 
-- [ ] Save quiz in database
-- [ ] Subscriptions using Stripe
+- [ ] Replace Auth.js with Better Auth
+- [ ] Subscriptions using Polar
+- [ ] Global Contribution. Every swipe joins the worldwide counter, visible to all players in real-time.
+- [ ] Achievement-Based Progression. Unlock additional visual themes through dedicated play and earn milestone achievements.
 
 ## Known Issues
 
