@@ -5,16 +5,16 @@ import { Icons } from "@/components/ui/icons";
 
 export async function LandingScreen() {
   return (
-    <section className="mt-1 md:mt-10 flex flex-col pb-8 pt-8">
-      <div className="align-center flex flex-col items-center">
-        <h1 className="mb-4 max-w-screen-md p-2 text-center text-4xl font-bold tracking-tighter md:text-6xl">
-          Practice makes perfect. <br /> Or actually permanent... but you get
-          it.
+    <section className="flex flex-col pb-12">
+      <div className="align-center flex flex-col items-center gap-8">
+        <h1 className="max-w-screen-md text-center text-4xl font-bold tracking-tighter md:text-6xl">
+          Practice makes perfect. <br /> Or actually permanent. <br />
+          But you get it.
         </h1>
-        <p className="mb-8 max-w-screen-sm text-center text-xl md:text-2xl">
+        <p className="max-w-screen-sm text-center text-xl md:text-2xl">
           Cards for spaced repetition
         </p>
-        <div className="mb-8 md:max-w-[64rem]">
+        <div className="md:max-w-[64rem]">
           <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {decks &&
               decks.map(({ name, description, slug }) => {
