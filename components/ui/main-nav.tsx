@@ -13,7 +13,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 const links = [
   { name: "Dashboard", href: "/dashboard", icon: "" },
   { name: "Customers", href: "/dashboard/customers", icon: "" },
-  { name: "Invoices", href: "/dashboard/invoices", icon: "" },
   { name: "Cards", href: "/dashboard/cards", icon: "" },
 ];
 

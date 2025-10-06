@@ -1,9 +1,5 @@
 import { Suspense } from "react";
-
-import { LatestInvoices } from "@/components/dashboard/latest-invoices";
 import { BigNumberCards } from "@/components/dashboard/big-number-cards";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LatestInvoicesSkeleton } from "@/components/dashboard/latest-invoices-skeleton";
 import { BigNumberCardsSkeleton } from "@/components/dashboard/big-number-cards-skeleton";
 
 export default function HomePage() {
@@ -22,18 +18,6 @@ export default function HomePage() {
             <Suspense fallback={<BigNumberCardsSkeleton />}>
               <BigNumberCards />
             </Suspense>
-          </section>
-          <section className="grid gap-6 sm:grid-cols-2 md:grid-cols-6  ">
-            <Card className="col-span-3 hidden md:block">
-              <CardHeader>
-                <CardTitle className="mb-4 text-lg">Latest Invoices</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Suspense fallback={<LatestInvoicesSkeleton />}>
-                  <LatestInvoices />
-                </Suspense>
-              </CardContent>
-            </Card>
           </section>
         </main>
       </div>
