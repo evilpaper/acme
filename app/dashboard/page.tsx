@@ -1,7 +1,3 @@
-import { Suspense } from "react";
-import { BigNumberCards } from "@/components/dashboard/big-number-cards";
-import { BigNumberCardsSkeleton } from "@/components/dashboard/big-number-cards-skeleton";
-
 export default function HomePage() {
   return (
     <div className="flex flex-col space-y-6">
@@ -15,9 +11,7 @@ export default function HomePage() {
             </h1>
           </section>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Suspense fallback={<BigNumberCardsSkeleton />}>
-              <BigNumberCards />
-            </Suspense>
+            <p>...stuff was here before</p>
           </section>
         </main>
       </div>
