@@ -10,10 +10,7 @@ import { useScrollLock } from "@/hooks/useScrollLock";
 import logo from "../../public/images/logo-black-lemon.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 
-const links = [
-  { name: "Profile", href: "/profile", icon: "" },
-  { name: "Customers", href: "/dashboard/customers", icon: "" },
-];
+const links = [{ name: "Profile", href: "/profile", icon: "" }];
 
 export function MainNav({ children }: { children: React.ReactElement }) {
   const pathname = usePathname();
