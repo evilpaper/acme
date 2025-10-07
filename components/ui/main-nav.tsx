@@ -11,9 +11,8 @@ import logo from "../../public/images/logo-black-lemon.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 
 const links = [
-  { name: "Dashboard", href: "/dashboard", icon: "" },
+  { name: "Profile", href: "/profile", icon: "" },
   { name: "Customers", href: "/dashboard/customers", icon: "" },
-  { name: "Cards", href: "/dashboard/cards", icon: "" },
 ];
 
 export function MainNav({ children }: { children: React.ReactElement }) {
@@ -34,7 +33,7 @@ export function MainNav({ children }: { children: React.ReactElement }) {
         <section className="hidden items-center justify-between gap-6 md:flex">
           <section className="flex items-center justify-between gap-6">
             <Link
-              href="/dashboard"
+              href="/"
               className="mr-4 hidden items-center space-x-2 md:flex"
             >
               <Image

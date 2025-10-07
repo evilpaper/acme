@@ -7,7 +7,7 @@ export default function HomePage() {
             <h1
               className={`font-heading text-3xl font-bold leading-tight md:text-4xl`}
             >
-              Dashboard
+              Profile
             </h1>
           </section>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

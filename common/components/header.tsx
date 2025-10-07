@@ -66,9 +66,9 @@ export function Header({ session }: { session: Session | null }) {
         </ul>
         <div className="flex w-full flex-col gap-4">
           {session ? (
-            <Button asChild>
-              <Link href="/dashboard" className="h-11 w-full rounded-md px-8">
-                <span>Go to Dashboard</span>
+            <Button asChild variant="outline">
+              <Link href="/profile" className="h-11 w-full rounded-md px-8">
+                <span>Profile</span>
               </Link>
             </Button>
           ) : (
@@ -120,9 +120,9 @@ export function Header({ session }: { session: Session | null }) {
       </section>
       {session ? (
         <div className="flex items-center gap-4">
-          <Button asChild>
-            <Link href="/dashboard">
-              <span>Go to Dashboard</span>
+          <Button asChild variant="outline">
+            <Link href="/profile">
+              <span>Profile</span>
             </Link>
           </Button>
           <Avatar className="hidden md:flex">
