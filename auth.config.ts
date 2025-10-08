@@ -7,10 +7,10 @@ export const authConfig = {
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      const isOnDashboard = nextUrl.pathname.startsWith("/dashboard");
+      const isOnProfile = nextUrl.pathname.startsWith("/profile");
 
-      // Only protect dashboard routes
-      if (isOnDashboard) {
+      // Protect logged in pages
+      if (isOnProfile) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
       }

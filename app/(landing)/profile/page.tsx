@@ -11,7 +11,7 @@ export default function HomePage() {
             </h1>
           </section>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <p>...stuff was here before</p>
+            <p>...thing will go here</p>
           </section>
         </main>
       </div>
