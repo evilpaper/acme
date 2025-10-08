@@ -6,7 +6,7 @@
 
 import { z } from "zod";
 import { sql } from "@vercel/postgres";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 import bcrypt from "bcrypt";
 
@@ -32,6 +32,10 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+export async function logout() {
+  await signOut({ redirectTo: "/" });
 }
 
 const RegisterSchema = z.object({

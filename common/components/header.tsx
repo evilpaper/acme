@@ -12,6 +12,7 @@ import logo from "../../public/images/logo-black-lemon.svg";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 import { Session } from "next-auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { logout } from "@/app/lib/actions";
 
 const links = [
   { name: "Cards", href: "/cards", icon: "" },
@@ -120,11 +121,16 @@ export function Header({ session }: { session: Session | null }) {
       </section>
       {session ? (
         <div className="flex items-center gap-4">
-          <Button asChild variant="outline">
+          {/* <Button asChild variant="outline">
             <Link href="/profile">
               <span>Profile</span>
             </Link>
-          </Button>
+          </Button> */}
+          <form action={logout}>
+            <Button type="submit" variant="outline">
+              Logout
+            </Button>
+          </form>
           <Avatar className="hidden md:flex">
             <AvatarImage src="/customers/amy-burns.png" />
             <AvatarFallback>AB</AvatarFallback>
