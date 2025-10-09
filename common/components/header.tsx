@@ -103,59 +103,61 @@ export function Header({ session }: { session: Session | null }) {
         <Image priority src={logo} alt="ACME Fresh Produce Logo" height="48" />
       </Link>
       {/* Desktop */}
-      <section className="ml-6 hidden gap-10 md:flex">
-        <Link href="/">
-          <Image
-            priority
-            src={logo}
-            alt="ACME Fresh Produce Logo"
-            height="48"
-          />
-        </Link>
-        <ul className="flex items-start justify-between gap-12">
-          {links.map(({ name, href }) => {
-            return (
-              <li key={name}>
-                <Link
-                  href={href}
-                  className={cn(
-                    "flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80",
-                    `/${segment}` === href
-                      ? "border-b border-black text-foreground"
-                      : "border-b border-background text-foreground/80",
-                  )}
-                >
-                  {name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-      {session ? (
-        <div className="flex items-center gap-4">
+      <section className="ml-6 hidden gap-10 md:flex justify-between w-full">
+        <div className="flex items-center gap-10">
+          <Link href="/">
+            <Image
+              priority
+              src={logo}
+              alt="ACME Fresh Produce Logo"
+              height="48"
+            />
+          </Link>
+          <ul className="flex items-start justify-between gap-12">
+            {links.map(({ name, href }) => {
+              return (
+                <li key={name}>
+                  <Link
+                    href={href}
+                    className={cn(
+                      "flex items-center p-2 text-lg font-medium transition-colors hover:text-foreground/80",
+                      `/${segment}` === href
+                        ? "border-b border-black text-foreground"
+                        : "border-b border-background text-foreground/80",
+                    )}
+                  >
+                    {name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        {session ? (
+          <div className="flex items-center gap-4">
+            <Button asChild variant="outline">
+              <Link href="/profile">
+                <span>Profile</span>
+              </Link>
+            </Button>
+            <form action={logout}>
+              <Button type="submit" variant="outline">
+                Logout
+              </Button>
+            </form>
+            <Avatar className="hidden md:flex">
+              <AvatarImage src="/customers/amy-burns.png" />
+              <AvatarFallback>AB</AvatarFallback>
+            </Avatar>
+          </div>
+        ) : (
           <Button asChild variant="outline">
-            <Link href="/profile">
-              <span>Profile</span>
+            <Link href="/login">
+              <span>Login</span>
             </Link>
           </Button>
-          <form action={logout}>
-            <Button type="submit" variant="outline">
-              Logout
-            </Button>
-          </form>
-          <Avatar className="hidden md:flex">
-            <AvatarImage src="/customers/amy-burns.png" />
-            <AvatarFallback>AB</AvatarFallback>
-          </Avatar>
-        </div>
-      ) : (
-        <Button asChild variant="outline">
-          <Link href="/login">
-            <span>Login</span>
-          </Link>
-        </Button>
-      )}
+        )}
+      </section>
     </nav>
   );
 }
