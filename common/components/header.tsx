@@ -73,7 +73,7 @@ export function Header({ session }: { session: Session | null }) {
               </Link>
             </Button>
           ) : (
-            <Button asChild>
+            <Button asChild variant="outline">
               <Link href="/login" className="h-11 w-full rounded-md px-8">
                 <span>Login</span>
               </Link>
@@ -137,7 +137,7 @@ export function Header({ session }: { session: Session | null }) {
           </Avatar>
         </div>
       ) : (
-        <Button asChild>
+        <Button asChild variant="outline">
           <Link href="/login">
             <span>Login</span>
           </Link>
