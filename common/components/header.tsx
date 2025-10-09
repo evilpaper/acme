@@ -67,23 +67,36 @@ export function Header({ session }: { session: Session | null }) {
         </ul>
         <div className="flex w-full flex-col gap-4">
           {session ? (
-            <Button asChild variant="outline">
-              <Link href="/profile" className="h-11 w-full rounded-md px-8">
-                <span>Profile</span>
-              </Link>
-            </Button>
+            <>
+              <Button asChild variant="outline">
+                <Link href="/profile" className="h-11 w-full rounded-md px-8">
+                  <span>Profile</span>
+                </Link>
+              </Button>
+              <form action={logout}>
+                <Button
+                  type="submit"
+                  variant="outline"
+                  className="h-11 w-full rounded-md px-8"
+                >
+                  Logout
+                </Button>
+              </form>
+            </>
           ) : (
-            <Button asChild variant="outline">
-              <Link href="/login" className="h-11 w-full rounded-md px-8">
-                <span>Login</span>
-              </Link>
-            </Button>
+            <>
+              <Button asChild variant="outline">
+                <Link href="/login" className="h-11 w-full rounded-md px-8">
+                  <span>Login</span>
+                </Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/signup" className="h-11 w-full rounded-md px-8">
+                  <span>Sign up</span>
+                </Link>
+              </Button>
+            </>
           )}
-          <Button asChild variant="outline">
-            <Link href="/signup" className="h-11 w-full rounded-md px-8">
-              <span>Sign up</span>
-            </Link>
-          </Button>
         </div>
       </div>
       <Link href="/" className="md:hidden">
@@ -121,11 +134,11 @@ export function Header({ session }: { session: Session | null }) {
       </section>
       {session ? (
         <div className="flex items-center gap-4">
-          {/* <Button asChild variant="outline">
+          <Button asChild variant="outline">
             <Link href="/profile">
               <span>Profile</span>
             </Link>
-          </Button> */}
+          </Button>
           <form action={logout}>
             <Button type="submit" variant="outline">
               Logout
