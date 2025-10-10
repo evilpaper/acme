@@ -13,6 +13,14 @@ import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 import { Session } from "next-auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { logout } from "@/app/lib/actions";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const links = [
   { name: "Cards", href: "/cards", icon: "" },
@@ -135,20 +143,43 @@ export function Header({ session }: { session: Session | null }) {
         </div>
         {session ? (
           <div className="flex items-center gap-4">
-            <Button asChild variant="outline">
-              <Link href="/profile">
-                <span>Profile</span>
-              </Link>
-            </Button>
-            <form action={logout}>
-              <Button type="submit" variant="outline">
-                Logout
-              </Button>
-            </form>
-            <Avatar className="hidden md:flex">
-              <AvatarImage src="/customers/amy-burns.png" />
-              <AvatarFallback>AB</AvatarFallback>
-            </Avatar>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="relative h-10 w-10 rounded-full"
+                >
+                  <Avatar className="h-10 w-10">
+                    <AvatarImage src="/customers/amy-burns.png" />
+                    <AvatarFallback>AB</AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="end" forceMount>
+                <DropdownMenuLabel className="font-normal">
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-medium leading-none">
+                      {session?.user?.name || "User"}
+                    </p>
+                    <p className="text-xs leading-none text-muted-foreground">
+                      {session?.user?.email}
+                    </p>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/profile">Profile</Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <form action={logout} className="w-full">
+                    <button type="submit" className="w-full text-left">
+                      Logout
+                    </button>
+                  </form>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         ) : (
           <Button asChild variant="outline">
