@@ -1,6 +1,7 @@
 import {
   Loader2,
   ChevronLeft,
+  ChevronDown,
   HandCoins,
   CircleDotDashed,
   Inbox,
@@ -19,6 +20,7 @@ import {
 
 export const Icons = {
   chevronLeft: ChevronLeft,
+  chevronDown: ChevronDown,
   spinner: Loader2,
   collected: HandCoins,
   pending: CircleDotDashed,

@@ -147,21 +147,21 @@ export function Header({ session }: { session: Session | null }) {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="relative h-10 w-10 rounded-full"
+                  className="h-10 rounded-full flex justify-between p-0 pl-0 pr-2 gap-2"
                 >
                   <Avatar className="h-10 w-10">
                     <AvatarImage src="/customers/amy-burns.png" />
                     <AvatarFallback>AB</AvatarFallback>
                   </Avatar>
+                  <Icons.chevronDown className="h-4 w-4 mr-1" />
+                  <span className="sr-only">Open profile menu</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text leading-none text-muted-foreground">
-                      {session?.user?.email}
-                    </p>
-                  </div>
+                  <p className="text leading-none text-muted-foreground">
+                    {session?.user?.email}
+                  </p>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
