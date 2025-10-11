@@ -39,7 +39,7 @@ export const Deck = forwardRef<CardRef, Props>(
             <Card
               ref={isCardOnTop(card) ? ref : null}
               card={card}
-              key={card.id}
+              key={card.prompt}
               handleSwipe={removeCard}
               isOnTop={isCardOnTop(card)}
               index={index}

@@ -68,7 +68,7 @@ export const Card = forwardRef<CardRef, Props>(
     const opacity = useTransform(x, [-160, -76, 76, 160], [0.2, 1, 1, 0.2]);
     const dragRotation = useTransform(x, [-100, 100], [-10, 10]);
 
-    const rotation = card.id % 2 ? 6 : -8;
+    const rotation = index % 2 ? 6 : -8;
 
     // 1. Initialize deck rotation motion value
     const deckRotation = useMotionValue(rotation);
@@ -195,9 +195,9 @@ export const Card = forwardRef<CardRef, Props>(
             opacity,
           }}
         >
-          <div className="w-full h-full border-solid border-primary border-2 bg-card rounded-2xl flex items-start p-8 relative text-primary">
+          <div className="w-full h-full border-solid border-primary border-2 rounded-2xl flex items-center justify-center p-8 relative text-primary bg-card">
             <span className="absolute bottom-6 left-6">{deckName}</span>
-            <p className="text-2xl font-bold tracking-tight leading-[1.8rem]">
+            <p className="text-2xl font-bold tracking-tight leading-[1.8rem] text-center pb-8">
               {prompt}
             </p>
           </div>
@@ -208,9 +208,9 @@ export const Card = forwardRef<CardRef, Props>(
             opacity,
           }}
         >
-          <div className="w-full h-full border-solid border-primary border-2 rounded-2xl flex items-center justify-center p-8 pb-20 relative text-primary bg-secondary">
+          <div className="w-full h-full border-solid border-primary border-2 rounded-2xl flex items-center justify-center p-8 relative text-primary bg-secondary">
             <span className="absolute bottom-6 left-6">{deckName}</span>
-            <p className="text-2xl font-bold tracking-tight leading-[1.8rem] text-center">
+            <p className="text-2xl font-bold tracking-tight leading-[1.8rem] text-center pb-8">
               {answer}
             </p>
           </div>
