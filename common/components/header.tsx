@@ -165,16 +165,14 @@ export function Header({ session }: { session: Session | null }) {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Button asChild variant="ghost">
-                    <Link href="/profile">Profile</Link>
-                  </Button>
+                  <Link href="/profile">Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <form action={logout} className="w-full">
                   <DropdownMenuItem asChild>
-                    <Button type="submit" className="w-full text-left">
+                    <button type="submit" className="w-full text-left">
                       Logout
-                    </Button>
+                    </button>
                   </DropdownMenuItem>
                 </form>
               </DropdownMenuContent>
