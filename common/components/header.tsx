@@ -21,6 +21,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const links = [
   { name: "Cards", href: "/cards", icon: "" },
@@ -143,6 +151,34 @@ export function Header({ session }: { session: Session | null }) {
         </div>
         {session ? (
           <div className="flex items-center gap-4">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>
+                    {session?.user?.email}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="flex flex-col p-4 gap-4">
+                    <NavigationMenuLink className="flex-1">
+                      <Button asChild variant="ghost">
+                        <Link href="/profile">Profile</Link>
+                      </Button>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                      <form action={logout} className="w-full">
+                        <Button
+                          type="submit"
+                          variant="ghost"
+                          className="w-full text-left"
+                        >
+                          Logout
+                        </Button>
+                      </form>
+                    </NavigationMenuLink>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
