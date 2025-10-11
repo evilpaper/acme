@@ -10,7 +10,7 @@ import { Card as CardType } from "./data/types";
 
 interface Props {
   card: CardType;
-  handleSwipe: (id: number) => void;
+  handleSwipe: (id: string) => void;
   isOnTop: boolean;
   index: number;
   deckLength: number;

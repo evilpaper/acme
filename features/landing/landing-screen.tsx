@@ -21,7 +21,7 @@ export async function LandingScreen() {
                 return (
                   <article
                     key={slug}
-                    className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 min-h-[360px]"
+                    className="flex flex-col justify-between gap-6 relative overflow-hidden rounded-2xl border-2 bg-background p-8 min-h-[360px] aspect-[5/7]"
                   >
                     <header className="flex flex-col gap-4">
                       <h1 className="text-2xl font-bold leading-tight tracking-tight text-primary/90">

@@ -15,13 +15,13 @@ export const Deck = forwardRef<CardRef, Props>(
   ({ cards, name, onCardSwipe, onButtonScaleChange }, ref) => {
     const [deck, setDeck] = useState(cards);
 
-    function removeCard(id: number) {
+    function removeCard(id: string) {
       setDeck((pv) => pv.filter((v) => v.id !== id));
       onCardSwipe();
       onButtonScaleChange({ left: 1, right: 1 });
     }
 
-    function isCardOnTop(card: { id: number }) {
+    function isCardOnTop(card: { id: string }) {
       if (!deck.length) return false;
       return deck[0].id === card.id;
     }
