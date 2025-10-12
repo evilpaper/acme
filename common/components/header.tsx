@@ -150,70 +150,36 @@ export function Header({ session }: { session: Session | null }) {
           </ul>
         </div>
         {session ? (
-          <div className="flex items-center gap-4">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>
-                    {session?.user?.email}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="flex flex-col p-4 gap-4">
-                    <NavigationMenuLink className="flex-1">
-                      <Button asChild variant="ghost">
-                        <Link href="/profile">Profile</Link>
-                      </Button>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink>
-                      <form action={logout} className="w-full">
-                        <Button
-                          type="submit"
-                          variant="ghost"
-                          className="w-full text-left"
-                        >
-                          Logout
-                        </Button>
-                      </form>
-                    </NavigationMenuLink>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="h-10 rounded-full flex justify-between p-0 pl-0 pr-2 gap-2"
-                >
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="flex items-center">
                   <Avatar className="h-10 w-10">
                     <AvatarImage src="/customers/amy-burns.png" />
                     <AvatarFallback>AB</AvatarFallback>
                   </Avatar>
-                  <Icons.chevronDown className="h-4 w-4 mr-1" />
-                  <span className="sr-only">Open profile menu</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
-                <DropdownMenuLabel className="font-normal">
-                  <p className="text leading-none text-muted-foreground">
-                    {session?.user?.email}
-                  </p>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/profile">Profile</Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <form action={logout} className="w-full">
-                  <DropdownMenuItem asChild>
-                    <button type="submit" className="w-full text-left">
-                      Logout
-                    </button>
-                  </DropdownMenuItem>
-                </form>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="flex flex-col p-4 gap-4">
+                  <NavigationMenuLink className="flex-1">
+                    <Button asChild variant="ghost">
+                      <Link href="/profile">Profile</Link>
+                    </Button>
+                  </NavigationMenuLink>
+                  <NavigationMenuLink>
+                    <form action={logout} className="w-full">
+                      <Button
+                        type="submit"
+                        variant="ghost"
+                        className="w-full text-left"
+                      >
+                        Logout
+                      </Button>
+                    </form>
+                  </NavigationMenuLink>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         ) : (
           <Button asChild variant="outline">
             <Link href="/login">
