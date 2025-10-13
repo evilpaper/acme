@@ -145,7 +145,7 @@ export function Header({ session }: { session: Session | null }) {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="flex items-center">
+                <NavigationMenuTrigger>
                   <Avatar className="h-10 w-10">
                     <AvatarImage src="/customers/amy-burns.png" />
                     <AvatarFallback>AB</AvatarFallback>
