@@ -414,4 +414,19 @@ export const decks: Deck[] = [
       },
     ],
   },
+  {
+    topic: "French",
+    id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
+    name: "The 2000 Most Frequently Used French Nounss",
+    slug: "the-2000-most-frequently-used-french-nouns",
+    description:
+      "The 2000 Most Frequently Used French Nouns. Based on Frequency list by Neri, https://frequencylists.blogspot.com/2015/12/the-2000-most-frequently-used-french.html",
+    cards: [
+      {
+        id: "d8e9f0a1-b2c3-4567-2345-678901234567",
+        prompt: "time",
+        answer: "temps",
+      },
+    ],
+  },
 ];
