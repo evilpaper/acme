@@ -196,7 +196,7 @@ export const Card = forwardRef<CardRef, Props>(
           }}
         >
           <div className="w-full h-full border-solid border-primary border-2 rounded-2xl flex items-center justify-center p-8 relative text-primary bg-card">
-            <span className="absolute bottom-6 left-6">{deckName}</span>
+            <span className="absolute bottom-6 left-6 text-xs">{deckName}</span>
             <p className="text-2xl font-bold tracking-tight leading-[1.8rem] text-center pb-8">
               {prompt}
             </p>
@@ -209,7 +209,7 @@ export const Card = forwardRef<CardRef, Props>(
           }}
         >
           <div className="w-full h-full border-solid border-primary border-2 rounded-2xl flex items-center justify-center p-8 relative text-primary bg-secondary">
-            <span className="absolute bottom-6 left-6">{deckName}</span>
+            <span className="absolute bottom-6 left-6 text-xs">{deckName}</span>
             <p className="text-2xl font-bold tracking-tight leading-[1.8rem] text-center pb-8">
               {answer}
             </p>

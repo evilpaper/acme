@@ -419,13 +419,42 @@ export const decks: Deck[] = [
     id: "3c3c2f1b-7248-4f5e-879d-2381a2c2cc18",
     name: "The 2000 Most Frequently Used French Nounss",
     slug: "the-2000-most-frequently-used-french-nouns",
-    description:
-      "The 2000 Most Frequently Used French Nouns. Based on Frequency list by Neri, https://frequencylists.blogspot.com/2015/12/the-2000-most-frequently-used-french.html",
+    description: "The 2000 Most Frequently Used French Nouns.", // Based on Frequency list by Neri, https://frequencylists.blogspot.com/2015/12/the-2000-most-frequently-used-french.html
     cards: [
       {
         id: "d8e9f0a1-b2c3-4567-2345-678901234567",
         prompt: "time",
         answer: "temps",
+      },
+      {
+        id: "e9f0a1b2-c3d4-5678-3456-789012345678",
+        prompt: "man",
+        answer: "homme",
+      },
+      {
+        id: "f0a1b2c3-d4e5-6789-4567-890123456789",
+        prompt: "way",
+        answer: "façon",
+      },
+      {
+        id: "a1b2c3d4-e5f6-7890-5678-901234567891",
+        prompt: "people",
+        answer: "gens",
+      },
+      {
+        id: "b2c3d4e5-f6a7-8901-6789-012345678902",
+        prompt: "life",
+        answer: "vie",
+      },
+      {
+        id: "c3d4e5f6-a7b8-9012-7890-123456789013",
+        prompt: "day",
+        answer: "jour",
+      },
+      {
+        id: "d4e5f6a7-b8c9-0123-8901-234567890124",
+        prompt: "work",
+        answer: "travail",
       },
     ],
   },
