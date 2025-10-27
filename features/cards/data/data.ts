@@ -404,13 +404,23 @@ export const decks: Deck[] = [
       },
       {
         id: "c7d8e9f0-a1b2-3456-1234-567890123456",
-        prompt: "How to define a function return type?",
+        prompt: "Syntax for defining a function return type?",
         answer: ": type",
       },
       {
         id: "d8e9f0a1-b2c3-4567-2345-678901234567",
-        prompt: "What is the default type if none is given?",
+        prompt: "Default type if none is given?",
         answer: "any",
+      },
+      {
+        id: "d8e9f0a1-b2c3-4567-2345-678901234564",
+        prompt: "Mark a value as deeply readonly",
+        answer: "as const",
+      },
+      {
+        id: "d8e9f0a1-b2c3-4567-2345-128901234564",
+        prompt: "Lie to TypeScript about a value's type",
+        answer: "type assertion using as",
       },
     ],
   },
