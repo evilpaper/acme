@@ -1,3 +1,5 @@
+![hero](github.png)
+
 # ACME
 
 An open source application built using the app router, server components and all goodies in Next.js.
